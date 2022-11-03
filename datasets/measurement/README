@@ -1,0 +1,16 @@
+This folder contains raw measurement data.
+
+Files have a name X-Y with X the X.root-server target, and Y the measurement infrastructure
+
+Files contain four columns 
+
+	1. hostname	
+	2. latitude	
+	3. longitude	
+	4. min(rtt)[ms]
+
+where 
+	1. hostname is either the DNS name (PlanetLab) or an ID (RIPE Atlas)
+        2 & 3. are the geographical coordinates of thevantage point
+	4. is the minimum RTT has been observed over 10 samples from the same host
+
