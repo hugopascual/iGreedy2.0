@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #----------------------------------------------------------------------
 # helper functions to launch RIPE Atlas measurement  (./igreedy -m)
@@ -113,9 +113,9 @@ class Measurement(object):
         else:
             af = 4
         data["definitions"][0]['af'] = af
-        print "Running measurement from Ripe Atlas:"
+        print("Running measurement from Ripe Atlas:")
         self.measurement = RIPEAtlas.Measurement(data)
-        print "ID measure: %s\tTARGET: %s\tNumber of Vantage Points: %i " % (self.measurement.id,  self._ip,self.measurement.num_probes)
+        print("ID measure: %s\tTARGET: %s\tNumber of Vantage Points: %i " % (self.measurement.id,  self._ip,self.measurement.num_probes))
 
     def retrieveResult(self,infoProbes):
         self.result = self.measurement.results(wait=True, percentage_required=self._percentageSuccessful)

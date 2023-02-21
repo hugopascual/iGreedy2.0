@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #----------------------------------------------------------------------
 # main user program to process  (./igreedy for help)
@@ -169,7 +169,7 @@ def readGT():
             iata = fields[1].upper()
             GT[hostname] = iata
             if (iata not in IATA and hostname != "#hostname"):
-                print "Weird ground truth: <" + iata + "> for <" + hostname + ">"
+                print("Weird ground truth: <" + iata + "> for <" + hostname + ">")
                 #raw_input( "Weird ground truth: <" + iata + "> for <" + hostname + ">\n"
                 #"This ground truth will be not considered in the validation\nPress Enter to continue...")
 
@@ -186,7 +186,7 @@ def readGT():
             iata=fields[0].upper() 
             temp.append( iata )
             if (iata not in IATA):
-                print "Weird publicly available information: <" + iata + ">"
+                print ("Weird publicly available information: <" + iata + ">")
                 #"This ground truth will be not considered in the validation\nPress Enter to continue...")
                 #actually the measuremtn should not be counted as we have information we do not know how to handle
                 #yet the following trick avoid runtime errors (key not found)
@@ -197,7 +197,7 @@ def readGT():
                 PAIlist.append( iata ) 
 
         else:
-            print "Unexpected ground truth format: ", line
+            print ("Unexpected ground truth format: " + line)
 
     PAI = set(PAIlist)   
     PAInum = len(set(PAIlist))
@@ -228,7 +228,7 @@ def analyze():
   
         numberOfInstance+=resultEnumeration[0]
         if(numberOfInstance<=1):
-            print "No anycast instance detected"
+            print ("No anycast instance detected")
             sys.exit()
         for radius, discList in resultEnumeration[1].getOrderedDisc().iteritems(): 
             for disc in discList:
@@ -275,13 +275,13 @@ def output():
                     str(instance[1][1])+"\t"+\
                     str(instance[1][2])+"\n")
     csv.close()
-    print "Number latency measurements: ",  sum(1 for line in open(infile)) -1
-    print "Elapsed time (load+igreedy): %.2f (%.2f + %.2f)" % (loadtime+runtime, loadtime, runtime)
-    print "Instances: ", str(numberOfInstance)
+    print ("Number latency measurements: " + sum(1 for line in open(infile)) -1)
+    print ("Elapsed time (load+igreedy): %.2f (%.2f + %.2f)" % (loadtime+runtime, loadtime, runtime))
+    print ("Instances: " + str(numberOfInstance))
 
     # Comparing to the Ground-truth    
     if gtfile != "":
-        print "Validation with ground truth or public available information:"
+        print ("Validation with ground truth or public available information:")
         errors = []
         Mlist = [] #list with the iata code present in the solution
         meanErr = 0
@@ -300,10 +300,10 @@ def output():
                     weirdGtSolution+=1
                     continue
             if (gt == iata ):
-                print "TP [GT] "+ gt +"("+ IATAcity[gt] +")"
+                print ("TP [GT] " + gt + "("+ IATAcity[gt] +")")
                 truePositive += 1
             elif (iata in PAI):
-                print "TP [PAI] ",  iata 
+                print ("TP [PAI] " + iata) 
                 truePositive += 1
             else:
                 if GTnum>0 : #if there is a gt
@@ -317,11 +317,11 @@ def output():
                                distance=newDistance
                                gt=airportPAI
                     else:
-                         print "Circle without city inside:validation not possible" #CHECK WITH DARIO
+                         print("Circle without city inside:validation not possible") #CHECK WITH DARIO
                          continue
 
                 if IATAcity[gt] == IATAcity[iata]:
-                    print "TP [SameCity] " + gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") "
+                    print ("TP [SameCity] " + gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") ")
                     truePositive += 1
 
                 elif(distance < 99): 
@@ -332,11 +332,11 @@ def output():
                     # it does not include Beauvais (BVA). The distance BVA,ORY is 83Km.
                     # Hence we select a threshold of 99Km (98.615940132), that corresponds to the distance the 
                     # light travels in 1ms considering a fiber medium.
-                    print "TP [CloseCity] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") "
+                    print ("TP [CloseCity] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") ")
                     truePositive += 1
 
                 else:    
-                    print "FP [!!!] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") " 
+                    print ("FP [!!!] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") ") 
                     falsePositive += 1
                     try:
                         meanErr += float((distance-meanOld)/float(falsePositive))
@@ -353,7 +353,7 @@ def output():
             stdErr = 0
 
         if weirdGtSolution>0:
-            print "VPs with weird GT present in the solution:  %s" % (weirdGtSolution)
+            print ("VPs with weird GT present in the solution:  %s" % (weirdGtSolution))
 
     # Results as a JSON    
     data=Object()
@@ -402,7 +402,7 @@ def threaded_browser():
 
 
 def help():
-     print asciiart + """
+     print (asciiart + """
 usage     
      igreedy.py -i input -o output [-g groundtruth] [-a alpha (1)] [-b browser (false)]  [-n noise (0)]  [-t threshold (\infty)] [-m measurement] 
 
@@ -416,7 +416,7 @@ where:
      -n noise (average of exponentially distributed additive latency noise; only for sensitivity)
      -t threshold (discard disks having latency larger than threshold to bound the error)
      -m IPV4 or IPV6 (real time measurements from Ripe Atlas using the ripe probes in datasets/ripeProbes) 
-     """
+     """)
 
      sys.exit()
 
@@ -439,16 +439,16 @@ def main(argv):
       elif opt in ("-i", "--input"):
          infile = arg
          if not os.path.isfile(arg):
-            print "Input file <"+arg+"> does not exist"
+            print("Input file <"+arg+"> does not exist")
             sys.exit(2)
 
       elif opt in ("-n", "--noise"):
          noise = float(arg)
-         print "Additive noise, mean: ", arg
+         print("Additive noise, mean: " + arg)
     
       elif opt in ("-t", "--threshold"):
          threshold = float(arg)
-         print "Latency measurement threshold [ms]: ", arg
+         print("Latency measurement threshold [ms]: " + arg)
 
       elif opt in ("-o", "--output"):
          outfile = arg
@@ -456,13 +456,13 @@ def main(argv):
       elif opt in ("-g", "--groundtruth"):
          gtfile = arg
          if not os.path.isfile(arg):
-            print "Ground-truth file <"+arg+"> does not exist"
+            print("Ground-truth file <"+arg+"> does not exist")
             sys.exit(2)
       
       elif opt in ("-a", "--alpha"):
          alpha = float(arg)
          if alpha<0 or alpha>1:
-            print "alpha must be [0,1], wrong choice:", alpha
+            print("alpha must be [0,1], wrong choice:" + alpha)
             sys.exit(-1)
       
       elif opt in ("-b", "--browser"):
@@ -486,12 +486,12 @@ def main(argv):
            sys.exit(-1)
 
 
-   print 'Airports:', iatafile
+   print ('Airports:' + iatafile)
    readIATA()
-   print 'Measurement:', infile
-   print 'Ground-truth:', gtfile
+   print('Measurement:' + infile)
+   print('Ground-truth:' + gtfile)
    readGT()
-   print 'Output:', outfile + ".{csv,json}"
+   print('Output:' + outfile + ".{csv,json}")
       
    loadtime = time.time() - starttime
    starttime = time.time()
