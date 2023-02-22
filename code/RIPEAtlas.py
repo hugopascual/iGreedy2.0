@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #---------------------------------------------------------------
 # for convenience included in this igreedy package, available at GitHub: 
@@ -22,7 +22,7 @@ import time
 import urllib2
 
 authfile = "datasets/auth"
-base_url = "https://atlas.ripe.net/api/v2/measurements"
+base_url = "https://atlas.ripe.net/api/v1/measurement"
 
 # The following parameters are currently not settable. Anyway, be
 # careful when changing these, you may get inconsistent results if you
@@ -100,7 +100,7 @@ class Measurement():
         self.url = base_url + "/?key=%s" % key
         self.url_probes = base_url + "/%s/?fields=probes,status"
         self.url_status = base_url + "/%s/?fields=status" 
-        self.url_results = base_url + "/%s/result/"
+        self.url_results = base_url + "/%s/result/" 
         self.url_latest = base_url + "-latest/%s/?versions=%s"
 
         if data is not None:
