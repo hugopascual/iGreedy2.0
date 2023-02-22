@@ -68,7 +68,7 @@ class Anycast(object):
                 if hostname.startswith("#"):
                     continue
             except:
-                print "problem with input line:",  line
+                print("problem with input line:" + line)
                 sys.exit(0)
 
             # additive controlled noise (negative exponential distribution) to make problem harder ;)

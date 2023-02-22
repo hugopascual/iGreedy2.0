@@ -19,10 +19,10 @@ Stéphane Bortzmeyer <bortzmeyer+ripe@nic.fr>
 import os
 import json
 import time
-import urllib2
+import urllib3
 
 authfile = "datasets/auth"
-base_url = "https://atlas.ripe.net/api/v1/measurement"
+base_url = "https://atlas.ripe.net/api/v2/measurements"
 
 # The following parameters are currently not settable. Anyway, be
 # careful when changing these, you may get inconsistent results if you
