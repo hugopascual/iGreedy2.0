@@ -57,6 +57,16 @@ from threading import Thread
 # TODO: This variables could be constants or be inside a config file
 # TODO: Study use of each one
 IATA_file = './datasets/airports.csv'
+IATA = []
+IATAlat = {}
+IATAlon = {}
+IATAcity = {}
+
+PAI = []
+GT = {}
+PAInum = 0
+GTnum = 0
+
 input_file = ''
 output_file = 'output'
 outformat = "csv"
@@ -64,15 +74,6 @@ gt_file = ''
 alpha = 1       # advised settings
 browser  = False 
 noise = 0       # exponential additive noise, only for sensitivity analysis
-
-IATA = []
-IATAlat = {}
-IATAlon = {}
-IATAcity = {}
-PAI = []
-GT = {}
-PAInum = 0
-GTnum = 0
 
 numberOfInstance = 0
 truePositive = 0
@@ -207,9 +208,8 @@ def readGT():
     
 
 def analyze():
-    """
-    Routine to iteratively enumerate and geolocate anycast instances
-    """
+    """Routine to iteratively enumerate and geolocate anycast instances"""
+
     global input_file, output_file, gt_file, IATA_file
     global alpha, browser, noise, threshold
     global numberOfInstance, discsSolution
@@ -217,12 +217,12 @@ def analyze():
     anycast=Anycast(input_file,IATA_file,alpha,noise,threshold)
 
     radiusGeolocated=0.1
-    treshold=0 #tolerance, airport out of the disc
+    treshold=0      #tolerance, airport out of the disc
     iteration=True
     discsSolution=[]
 
     numberOfInstance=0
-    while(iteration is True):
+    while(iteration):
 
         iteration=False
         resultEnumeration=anycast.enumeration()
@@ -255,9 +255,8 @@ def analyze():
 
 
 def output():
-    """
-    Routine to output results to a JSON (for GoogleMaps) and a CSV (for further processing)
-    """
+    """Routine to output results to a JSON (for GoogleMaps) and a CSV (for further processing)"""
+    
     global input_file, output_file, outformat, alpha, gt_file, base, load_time, run_time
         
     global numberOfInstance, discSolution, truePositive, falsePositive, GT, PAI, IATAlat, IATAlon, IATAcity, GTnum, PAInum, weirdGtSolution
@@ -267,7 +266,7 @@ def output():
     csv=open(output_file + ".csv","w")
     csv.write("#hostname\tcircleLatitude\tcircleLongitude\t" +\
                     "radius\tiataCode\tiataLatitude\tiataLongitude\n")
-    for instance in discsSolution:  #circle to csv
+    for instance in discsSolution:      # circle to csv
         csv.write(instance[0].getHostname()+"\t"+\
                     str(instance[0].getLatitude())+"\t"+\
                     str(instance[0].getLongitude())+"\t"+\
@@ -398,7 +397,7 @@ def output():
 
 def threaded_browser():
     url = "./code/webDemo/demo.html"
-    webbrowser.open(url,new=2)#open in a new tab, if possible
+    webbrowser.open(url,new=2)      # open in a new tab, if possible
     
 
 
