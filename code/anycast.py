@@ -49,13 +49,13 @@ class Object:
 
 
 class Anycast(object):
-    #def __init__(self,infile,airportFile=0,alpha):
-    def __init__(self,infile,airportFile,alpha,noise=0,threshold=-1):
+    #def __init__(self,input_file,airportFile=0,alpha):
+    def __init__(self,input_file,airportFile,alpha,noise=0,threshold=-1):
         self.alpha=float(alpha)
         self._setDisc={} #disc from the input 
         self._discsMis = Discs() #disc belong maximum indipendent set
         self._airports={}
-        data = open(infile)
+        data = open(input_file)
         data.readline()
         
         #------------------load data in a structure has as key the ping---------------

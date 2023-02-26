@@ -4,6 +4,10 @@
 # main user program to process  (./igreedy for help)
 #---------------------------------------------------------------------.
 
+# TODO: make a constants file, and import the values
+# TODO: take auxiliar functions out of main file
+# TODO: revise and document code
+
 asciiart = """
 180 150W  120W  90W   60W   30W  000   30E   60E   90E   120E  150E 180
 |    |     |     |     |     |    |     |     |     |     |     |     |
@@ -36,8 +40,6 @@ asciiart = """
 
 """
 
-
-
 import sys, getopt, math,  time
 import os.path
 
@@ -52,17 +54,16 @@ from disc import *
 import webbrowser
 from threading import Thread
 
-
-
-#iatafile = '../datasets/airports.csv'
-iatafile = './datasets/airports.csv'
-infile = ''
-outfile = 'output'
+# TODO: This variables could be constants or be inside a config file
+# TODO: Study use of each one
+IATA_file = './datasets/airports.csv'
+input_file = ''
+output_file = 'output'
 outformat = "csv"
-gtfile = ''
-alpha = 1  #advised settings
+gt_file = ''
+alpha = 1       # advised settings
 browser  = False 
-noise = 0  #exponential additive noise, only for sensitivity analysis
+noise = 0       # exponential additive noise, only for sensitivity analysis
 
 IATA = []
 IATAlat = {}
@@ -76,8 +77,8 @@ GTnum = 0
 numberOfInstance = 0
 truePositive = 0
 falsePositive = 0 
-loadtime = 0
-runtime = 0
+load_time = 0
+run_time = 0
 threshold = -1 # negative means infty
 
 
@@ -126,9 +127,9 @@ def readIATA():
     Routine to read IATA
     """
     #IATA size name lat long countryCode city pop heuristic h1 h2 h3
-    global iatafile, IATA, IATAlat, IATAlon, IATAcity
+    global IATA_file, IATA, IATAlat, IATAlon, IATAcity
     temp = []
-    data = open(iatafile)
+    data = open(IATA_file)
     data.readline() #consume header
     for line in data.readlines():
         stuff = line.strip().split("\t")
@@ -148,16 +149,16 @@ def readGT():
     """
     Routine to read groundtruth(GT)( / public available information (PAI)
     """
-    global gtfile, GT, PAI, IATA, IATAlat, IATAlon, IATAcity, GTnum, PAInum,GTtotal
+    global gt_file, GT, PAI, IATA, IATAlat, IATAlon, IATAcity, GTnum, PAInum,GTtotal
 
     GTlist = []
     PAIlist = []
     temp=[]
 
-    if not os.path.isfile(gtfile):
+    if not os.path.isfile(gt_file):
         return
 
-    data = open(gtfile)
+    data = open(gt_file)
     for line in data.readlines():
         if line.startswith("#"):
             continue
@@ -174,7 +175,7 @@ def readGT():
                 #"This ground truth will be not considered in the validation\nPress Enter to continue...")
 
                 #actually the measuremtn should not be counted as we have information we do not know how to handle
-                #yet the following trick avoid runtime errors (key not found)
+                #yet the following trick avoid run_time errors (key not found)
                 IATAlat[iata]=0
                 IATAlon[iata]=0
                 IATAcity[iata]="Weird"
@@ -189,7 +190,7 @@ def readGT():
                 print "Weird publicly available information: <" + iata + ">"
                 #"This ground truth will be not considered in the validation\nPress Enter to continue...")
                 #actually the measuremtn should not be counted as we have information we do not know how to handle
-                #yet the following trick avoid runtime errors (key not found)
+                #yet the following trick avoid run_time errors (key not found)
                 IATAlat[iata]=0
                 IATAlon[iata]=0
                 IATAcity[iata]="Weird"
@@ -209,11 +210,11 @@ def analyze():
     """
     Routine to iteratively enumerate and geolocate anycast instances
     """
-    global infile, outfile, gtfile, iatafile
+    global input_file, output_file, gt_file, IATA_file
     global alpha, browser, noise, threshold
     global numberOfInstance, discsSolution
 
-    anycast=Anycast(infile,iatafile,alpha,noise,threshold)
+    anycast=Anycast(input_file,IATA_file,alpha,noise,threshold)
 
     radiusGeolocated=0.1
     treshold=0 #tolerance, airport out of the disc
@@ -257,13 +258,13 @@ def output():
     """
     Routine to output results to a JSON (for GoogleMaps) and a CSV (for further processing)
     """
-    global infile, outfile, outformat, alpha, gtfile, base, loadtime, runtime
+    global input_file, output_file, outformat, alpha, gt_file, base, load_time, run_time
         
     global numberOfInstance, discSolution, truePositive, falsePositive, GT, PAI, IATAlat, IATAlon, IATAcity, GTnum, PAInum, weirdGtSolution
     weirdGtSolution=0
 
     # Results as a CSV    
-    csv=open(outfile + ".csv","w")
+    csv=open(output_file + ".csv","w")
     csv.write("#hostname\tcircleLatitude\tcircleLongitude\t" +\
                     "radius\tiataCode\tiataLatitude\tiataLongitude\n")
     for instance in discsSolution:  #circle to csv
@@ -275,12 +276,12 @@ def output():
                     str(instance[1][1])+"\t"+\
                     str(instance[1][2])+"\n")
     csv.close()
-    print "Number latency measurements: ",  sum(1 for line in open(infile)) -1
-    print "Elapsed time (load+igreedy): %.2f (%.2f + %.2f)" % (loadtime+runtime, loadtime, runtime)
+    print "Number latency measurements: ",  sum(1 for line in open(input_file)) -1
+    print "Elapsed time (load+igreedy): %.2f (%.2f + %.2f)" % (load_time+run_time, load_time, run_time)
     print "Instances: ", str(numberOfInstance)
 
     # Comparing to the Ground-truth    
-    if gtfile != "":
+    if gt_file != "":
         print "Validation with ground truth or public available information:"
         errors = []
         Mlist = [] #list with the iata code present in the solution
@@ -390,7 +391,7 @@ def output():
             data.markerGT.append(markerGT)
 
 
-    json=open(outfile + ".json","w")
+    json=open(output_file + ".json","w")
     json.write("var data=\n")
     json.write(data.to_JSON())
     json.close()
@@ -402,112 +403,127 @@ def threaded_browser():
 
 
 def help():
-     print asciiart + """
+    """Print the options avaliable on iGreedy"""    
+    print asciiart + """
 usage     
-     igreedy.py -i input -o output [-g groundtruth] [-a alpha (1)] [-b browser (false)]  [-n noise (0)]  [-t threshold (\infty)] [-m measurement] 
+    igreedy.py -i input -o output [-g groundtruth] [-a alpha (1)] [-b browser (false)]  [-n noise (0)]  [-t threshold (\infty)] [-m measurement] 
 
 where:
-     -i input file
-     -o output prefix (.csv,.json)
-     -g measured ground truth (GT) or publicly available information (PAI) files 
-        (format: "hostname iata" lines for GT, "iata" lines for PAI)
-     -a alpha (tune population vs distance score, see INFOCOM'15)
-     -b browser (visualize the results in a browser with a map)
-     -n noise (average of exponentially distributed additive latency noise; only for sensitivity)
-     -t threshold (discard disks having latency larger than threshold to bound the error)
-     -m IPV4 or IPV6 (real time measurements from Ripe Atlas using the ripe probes in datasets/ripeProbes) 
-     """
+    -i input file
+    -o output prefix (.csv,.json)
+    -g measured ground truth (GT) or publicly available information (PAI) files 
+    (format: "hostname iata" lines for GT, "iata" lines for PAI)
+    -a alpha (tune population vs distance score, see INFOCOM'15)
+    -b browser (visualize the results in a browser with a map)
+    -n noise (average of exponentially distributed additive latency noise; only for sensitivity)
+    -t threshold (discard disks having latency larger than threshold to bound the error)
+    -m IPV4 or IPV6 (real time measurements from Ripe Atlas using the ripe probes in datasets/ripeProbes) 
+    """
 
-     sys.exit()
-
+    sys.exit()
 
 
 def main(argv):
-   global infile,  gtfile, outfile, threshold
-   global alpha, browser, noise
-   global loadtime, runtime
-   starttime = time.time()
-   ip=""
-   try:
-      opts, args = getopt.getopt(argv,"hi:o:f:g:a:n:t:m:b",["input","output","help","groundtruth","alpha","noise","threshold","browser","measurement"])
-   except getopt.GetoptError:
-      help()
+    """Main function that execute on every run of igreedy.
+    Checks input arguments and decide what code needs to be executed.
+    """
 
-   for opt, arg in opts:
-      if opt in ("-h", "--help"):
-         help()
-      elif opt in ("-i", "--input"):
-         infile = arg
-         if not os.path.isfile(arg):
-            print "Input file <"+arg+"> does not exist"
-            sys.exit(2)
+    global input_file,  gt_file, output_file, threshold, alpha, browser, noise
+    global load_time, run_time
 
-      elif opt in ("-n", "--noise"):
-         noise = float(arg)
-         print "Additive noise, mean: ", arg
-    
-      elif opt in ("-t", "--threshold"):
-         threshold = float(arg)
-         print "Latency measurement threshold [ms]: ", arg
+    maker_time = time.time()
+    ip=""
 
-      elif opt in ("-o", "--output"):
-         outfile = arg
-     
-      elif opt in ("-g", "--groundtruth"):
-         gtfile = arg
-         if not os.path.isfile(arg):
-            print "Ground-truth file <"+arg+"> does not exist"
-            sys.exit(2)
-      
-      elif opt in ("-a", "--alpha"):
-         alpha = float(arg)
-         if alpha<0 or alpha>1:
-            print "alpha must be [0,1], wrong choice:", alpha
+    # This sections gets the options used and their values    
+    try:
+        options, args = getopt.getopt(argv, 
+                                      "h:i:o:g:a:n:t:m:b", 
+                                      ["help","input","output","groundtruth","alpha","noise","threshold","measurement","browser"])
+    except getopt.GetoptError:
+        help()
+
+    # This section set as variables the values of the different options used
+    for option, arg in options:
+        if option in ("-h", "--help"):
+            help()
+        
+        if option in ("-i", "--input"):
+            if not os.path.isfile(arg):
+                print "Input file <"+arg+"> does not exist"
+                sys.exit(2)
+            else: 
+                input_file = arg
+        elif option in ("-m", "--measurement"):
+            ip = arg
+        elif (ip and input_file):
+            print "Sorry, you can use input and measurement options at the same time."
+        else: 
+            print "iGreedy needs and input file or an measurement direction to start working."
+
+        if option in ("-n", "--noise"):
+            noise = float(arg)
+            print "Additive noise, mean: ", noise
+        
+        if option in ("-t", "--threshold"):
+            threshold = float(arg)
+            print "Latency measurement threshold [ms]: ", threshold
+
+        if option in ("-o", "--output"):
+            output_file = arg
+        
+        if option in ("-g", "--groundtruth"):
+            if not os.path.isfile(arg):
+                print "Ground-truth file <"+arg+"> does not exist"
+                sys.exit(2)
+            else: 
+                gt_file = arg
+        
+        if option in ("-a", "--alpha"):
+            alpha = float(arg)
+            if alpha<0 or alpha>1:
+                print "alpha must be [0,1], wrong choice:", alpha
+                sys.exit(-1)
+        
+        if option in ("-b", "--browser"):
+            browser = True
+
+    # Print th values to inform the user about the parameters are going to be used
+    print 'Airports:', IATA_file
+    readIATA()
+    if input_file:
+        print 'Measurement:', input_file
+    if gt_file:
+        print 'Ground-truth:', gt_file
+        readGT()
+    if output_file:
+        print 'Output:', output_file + ".{csv,json}"
+
+    # If the measurement option is used make a new measurement to get the latency records
+    # TODO: check how this works
+    if ip:
+        measure=Measurement(ip)
+        listProbes,infoProbes=measure.loadProbes()
+        measure.doMeasure(listProbes)
+        numLatencyMeasurement,input_file=measure.retrieveResult(infoProbes)
+        if(numLatencyMeasurement<2):
+            print >>sys.stderr, ("Error: for the anycast detection at least 2 latency measurement are needed")
             sys.exit(-1)
-      
-      elif opt in ("-b", "--browser"):
-         browser = True
-      elif opt in ("-m", "--measurement"):
-         ip=arg
-     
 
-   if len(infile)>0 and len(ip)>0:
-       help();
-   elif len(infile)==0 and len(ip)==0:
-        help();
+    # Analyze the data and get a mark of time spend getting the data and analyzing it 
+    load_time = time.time() - maker_time
+    maker_time = time.time()
+    analyze()
+    run_time = time.time() - maker_time
+    output()
 
-   if ip:
-       measure=Measurement(ip)
-       listProbes,infoProbes=measure.loadProbes()
-       measure.doMeasure(listProbes)
-       numLatencyMeasurement,infile=measure.retrieveResult(infoProbes)
-       if(numLatencyMeasurement<2):
-           print >>sys.stderr, ("Error: for the anycast detection at least 2 latency measurement are needed")
-           sys.exit(-1)
-
-
-   print 'Airports:', iatafile
-   readIATA()
-   print 'Measurement:', infile
-   print 'Ground-truth:', gtfile
-   readGT()
-   print 'Output:', outfile + ".{csv,json}"
-      
-   loadtime = time.time() - starttime
-   starttime = time.time()
-   analyze()
-   runtime = time.time() - starttime
-   
-   output()
-   if browser:
-    os.rename(outfile+".json", "code/webDemo/data/anycastJson/output.json")
-    # open a public URL, in this case, the webbrowser docs
-    thread = Thread(target = threaded_browser)
-    thread.start()
-
-
+    # TODO: Check webDemo files because the code does not work
+    if browser:
+        os.rename(output_file+".json", "code/webDemo/data/anycastJson/output.json")
+        # open a public URL, in this case, the webbrowser docs
+        thread = Thread(target = threaded_browser)
+        thread.start()
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+    main(sys.argv[1:])
 
 
