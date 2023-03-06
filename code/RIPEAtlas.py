@@ -16,7 +16,7 @@ Stéphane Bortzmeyer <bortzmeyer+ripe@nic.fr>
 
 """
 
-import os
+import os, sys
 import json
 import time
 import urllib2
@@ -107,6 +107,7 @@ class Measurement():
             self.json_data = json.dumps(data)
             self.notification = sleep_notification
             request = JsonRequest(self.url)
+
             try:
                 # Start the measurement
                 conn = urllib2.urlopen(request, self.json_data)
@@ -177,14 +178,8 @@ class Measurement():
             wait = False
         if latest is None:
             request = JsonRequest(self.url_results % self.id)
-            print "no hay resultados anteriores"
-            print self.url_results % self.id
-            print ""
         else:
             request = JsonRequest(self.url_latest% (self.id, latest))
-            print "Hay resultados anteriores"
-            print self.url_results% (self.id, latest)
-            print ""
         if wait:
             enough = False
             attempts = 0

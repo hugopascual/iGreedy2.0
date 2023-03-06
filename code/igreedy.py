@@ -41,7 +41,7 @@ asciiart = """
 """
 
 import sys, getopt, math,  time
-import os.path
+import os.path, json
 
 #./igreedy.py inputFile outputFile json <----json output
 #inputFile: separated by \t:hostname\tlatitude\tlongitude\tping
@@ -68,6 +68,7 @@ PAInum = 0
 GTnum = 0
 
 input_file = ''
+probes_file = './probes_sets/ripe_probes.json'
 output_file = 'output'
 outformat = "csv"
 gt_file = ''
@@ -150,7 +151,8 @@ def readGT():
     """
     Routine to read groundtruth(GT)( / public available information (PAI)
     """
-    global gt_file, GT, PAI, IATA, IATAlat, IATAlon, IATAcity, GTnum, PAInum,GTtotal
+    global gt_file, GT, PAI, GTnum, PAInum,GTtotal
+    global IATA, IATAlat, IATAlon, IATAcity
 
     GTlist = []
     PAIlist = []
@@ -172,11 +174,15 @@ def readGT():
             GT[hostname] = iata
             if (iata not in IATA and hostname != "#hostname"):
                 print "Weird ground truth: <" + iata + "> for <" + hostname + ">"
-                #raw_input( "Weird ground truth: <" + iata + "> for <" + hostname + ">\n"
-                #"This ground truth will be not considered in the validation\nPress Enter to continue...")
 
-                #actually the measuremtn should not be counted as we have information we do not know how to handle
-                #yet the following trick avoid run_time errors (key not found)
+                #raw_input("Weird ground truth: <" + iata + "> for <" + hostname + ">\n"
+                #"This ground truth will be not considered in the validation\n
+                #Press Enter to continue...")
+
+                # Actually the measurement should not be counted as we have 
+                # information we do not know how to handle
+                # Yet the following trick avoid run_time errors (key not found)
+
                 IATAlat[iata]=0
                 IATAlon[iata]=0
                 IATAcity[iata]="Weird"
@@ -189,9 +195,12 @@ def readGT():
             temp.append( iata )
             if (iata not in IATA):
                 print "Weird publicly available information: <" + iata + ">"
-                #"This ground truth will be not considered in the validation\nPress Enter to continue...")
-                #actually the measuremtn should not be counted as we have information we do not know how to handle
-                #yet the following trick avoid run_time errors (key not found)
+                #"This ground truth will be not considered in the validation\n
+                #Press Enter to continue...")
+                # Actually the measurement should not be counted as we have 
+                # information we do not know how to handle
+                # Yet the following trick avoid run_time errors (key not found)
+
                 IATAlat[iata]=0
                 IATAlon[iata]=0
                 IATAcity[iata]="Weird"
@@ -233,33 +242,58 @@ def analyze():
             sys.exit()
         for radius, discList in resultEnumeration[1].getOrderedDisc().iteritems(): 
             for disc in discList:
-                if(not disc[1]): #if the disc was not geolocated before, geolocate it!
-                    #used for the csv output
-                    #discs.append(disc[0])#append the disc to the results #used for the csv output
-                    resultEnumeration[1].removeDisc(disc) #remove old disc from MIS of disc  
-                    city=anycast.geolocation(disc[0],treshold) #result geolocation
+                # if the disc was not geolocated before, geolocate it!
+                if(not disc[1]):
+                    # used for the csv output
+                    #discs.append(disc[0])      # append the disc to the results
+                    
+                    # remove old disc from MIS of disc
+                    resultEnumeration[1].removeDisc(disc)
+                    
+                    # result geolocation
+                    city=anycast.geolocation(disc[0],treshold)
 
-                    if(city is not False): #if there is a city inside the disc
-                        iteration=True #geolocated one disc, re-run enumeration!
-                        #markers.append(newDisc)#save for the results the city#used for the csv output 
-                        discsSolution.append((disc[0],city)) #disc, marker
-                        resultEnumeration[1].add(Disc("Geolocated",float(city[1]),float(city[2]),radiusGeolocated),True) #insert the new disc in the MIS
-                        
-                        break #exit for rerun MIS
+                    #if there is a city inside the disc
+                    if(city is not False):
+                        # geolocated one disc, re-run enumeration!
+                        iteration=True 
+                        # save for the results the city. Used for .csv output
+                        #markers.append(newDisc)
+
+                        discsSolution.append((disc[0],city))
+                        #insert the new disc in the MIS
+                        resultEnumeration[1].add(
+                            Disc("Geolocated",
+                                 float(city[1]), 
+                                 float(city[2]), 
+                                 radiusGeolocated), 
+                            True)
+                          
+                        break       # exit for rerun MIS
                     else:
-                        resultEnumeration[1].add(disc[0],True) #insert the old disc in the MIS
-                        discsSolution.append((disc[0],["NoCity",disc[0].getLatitude(),disc[0].getLongitude(),"N/A","N/A"])) #disc, marker
+                        # insert the old disc in the MIS
+                        resultEnumeration[1].add(disc[0],True)
+                        # disc, marker
+                        discsSolution.append((disc[0],["NoCity",
+                                                       disc[0].getLatitude(),
+                                                       disc[0].getLongitude(),
+                                                       "N/A",
+                                                       "N/A"])) 
                         
             if(iteration):
                 break
 
 
 def output():
-    """Routine to output results to a JSON (for GoogleMaps) and a CSV (for further processing)"""
+    """Routine to output results to a JSON (for GoogleMaps) and a CSV 
+    (for further processing)
+    """
     
-    global input_file, output_file, outformat, alpha, gt_file, base, load_time, run_time
+    global input_file, output_file, outformat, gt_file
+    global alpha, base, load_time, run_time
         
-    global numberOfInstance, discSolution, truePositive, falsePositive, GT, PAI, IATAlat, IATAlon, IATAcity, GTnum, PAInum, weirdGtSolution
+    global numberOfInstance, discSolution, truePositive, falsePositive 
+    global GT, PAI, IATAlat, IATAlon, IATAcity, GTnum, PAInum, weirdGtSolution
     weirdGtSolution=0
 
     # Results as a CSV    
@@ -317,21 +351,28 @@ def output():
                                distance=newDistance
                                gt=airportPAI
                     else:
-                         print "Circle without city inside:validation not possible" #CHECK WITH DARIO
-                         continue
+                        # CHECK WITH DARIO
+                        print "Circle without city inside:validation not possible"
+                        continue
 
                 if IATAcity[gt] == IATAcity[iata]:
                     print "TP [SameCity] " + gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") "
                     truePositive += 1
 
-                elif(distance < 99): 
-                    # Neighboring airports as e..g, EWR and JFK for NewYork, despite they are 
-                    # not in the same City, they however serve the same population. 
-                    # The distance EWR,JFK is 33Km
-                    # Same thing for ORY, CDG and BVA for Paris: while PAR aggregates ORY and CDG, 
-                    # it does not include Beauvais (BVA). The distance BVA,ORY is 83Km.
-                    # Hence we select a threshold of 99Km (98.615940132), that corresponds to the distance the 
-                    # light travels in 1ms considering a fiber medium.
+                elif(distance < 99):
+                    """
+                    Neighboring airports as e..g, EWR and JFK for NewYork, 
+                    despite they are not in the same City, they however serve 
+                    the same population. 
+                    The distance EWR, JFK is 33Km
+                    Same thing for ORY, CDG and BVA for Paris: while PAR 
+                    aggregates ORY and CDG, it does not include Beauvais (BVA). 
+                    The distance BVA, ORY is 83Km.
+                    Hence we select a threshold of 99Km (98.615940132), 
+                    that corresponds to the distance the light travels in 1ms 
+                    considering a fiber medium.
+                    """
+
                     print "TP [CloseCity] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") "
                     truePositive += 1
 
@@ -345,7 +386,8 @@ def output():
                         errors.append( distance )
                     except:
                         pass    
-                        #cannot do much; distance is not a number likely because the selected City is not the provided IATA list                        
+                        # cannot do much; distance is not a number likely because 
+                        # the selected City is not the provided IATA list                        
                         
         if falsePositive>1:                
             stdErr = math.pow(pseudoVar / (falsePositive-1), 0.5)
@@ -402,32 +444,59 @@ def threaded_browser():
 
 
 def help():
-    """Print the options avaliable on iGreedy"""    
-    print asciiart + """
-usage     
-    igreedy.py -i input -o output [-g groundtruth] [-a alpha (1)] [-b browser (false)]  [-n noise (0)]  [-t threshold (\infty)] [-m measurement] 
+    """Print the options avaliable on iGreedy"""  
 
-where:
-    -i input file
-    -o output prefix (.csv,.json)
-    -g measured ground truth (GT) or publicly available information (PAI) files 
-    (format: "hostname iata" lines for GT, "iata" lines for PAI)
-    -a alpha (tune population vs distance score, see INFOCOM'15)
-    -b browser (visualize the results in a browser with a map)
-    -n noise (average of exponentially distributed additive latency noise; only for sensitivity)
-    -t threshold (discard disks having latency larger than threshold to bound the error)
-    -m IPV4 or IPV6 (real time measurements from Ripe Atlas using the ripe probes in datasets/ripeProbes) 
+    print asciiart + """
+Usage:  igreedy.py -i filename [ OPTIONS ]
+        igreedy.py -m IP_direction [ -p filename ] [ OPTIONS ]
+
+          -o output   [-n noise (0)]  [-t threshold (\infty)]  
+
+Commands:
+Either long or short options are allowed
+    --input -i  filename        Input filename which contains the data of an 
+                                specific measurement to be analyzed
+    --measurement   -m  IP_direction
+                                Real time measurements from Ripe Atlas using the
+                                ripe probes in datasets/ripeProbes. IPV4/IPv6.
+
+Parameters:
+    --probes    -p  filename    
+                                Filename of the JSON document which contains the
+                                specification of the probes to use in the 
+                                measurement (default 
+                                "probes_sets/ripe_probes.json")
+
+Options:
+    --alpha -a  alpha           alpha (tune population vs distance score, 
+                                see INFOCOM'15) (default 1)
+    --noise -n  noise           Average of exponentially distributed 
+                                additive latency noise; only for sensitivity 
+                                (default 0)
+    --threshold -t  threshold   
+                                Discard disks having latency larger 
+                                than threshold to bound the error
+    --output    -o  filename
+                                Filename to use in the output file with the 
+                                measurements (.csv and .json)
+    --groundtruth   -g  filename
+                                Filename of the measured ground truth (GT) or 
+                                publicly available information (PAI) files 
+                                (format: "hostname iata" lines for GT, "iata" 
+                                lines for PAI)
+    --browser   -b              Visualize the results in a browser with
+                                a map (default false) 
     """
 
     sys.exit()
-
 
 def main(argv):
     """Main function that execute on every run of igreedy.
     Checks input arguments and decide what code needs to be executed.
     """
 
-    global input_file,  gt_file, output_file, threshold, alpha, browser, noise
+    global input_file, probes_file
+    global gt_file, output_file, threshold, alpha, browser, noise
     global load_time, run_time
 
     maker_time = time.time()
@@ -436,8 +505,12 @@ def main(argv):
     # This sections gets the options used and their values    
     try:
         options, args = getopt.getopt(argv, 
-                                      "h:i:o:g:a:n:t:m:b", 
-                                      ["help","input","output","groundtruth","alpha","noise","threshold","measurement","browser"])
+                                      "h:i:m:p:a:n:t:o:g:b", 
+                                      ["help",
+                                       "input",
+                                       "measurement", "probes", 
+                                       "alpha", "noise", "threshold",
+                                       "output", "groundtruth", "browser"])
     except getopt.GetoptError:
         help()
 
@@ -446,19 +519,36 @@ def main(argv):
         if option in ("-h", "--help"):
             help()
         
+        # Basic inputs checks
         if option in ("-i", "--input"):
             if not os.path.isfile(arg):
                 print "Input file <"+arg+"> does not exist"
                 sys.exit(2)
             else: 
                 input_file = arg
-        elif option in ("-m", "--measurement"):
+        
+        if option in ("-m", "--measurement"):
             ip = arg
-        elif (ip and input_file):
-            print "Sorry, you can use input and measurement options at the same time."
-        else: 
-            print "iGreedy needs and input file or an measurement direction to start working."
 
+        if (ip != '') and (input_file != ''):
+            print "Sorry, you can't use input file and measurement options at the same time."
+            sys.exit(2)
+
+        # Options if measurement command selected
+        if (option in ("-m", "--measurement")) and (option in ("-p", "--probes")):
+            if not os.path.isfile(arg):
+                print "Input file <"+arg+"> does not exist"
+                sys.exit(2)
+            else: 
+                probes_file = arg
+
+        # Inputs for the analysis part
+        if option in ("-a", "--alpha"):
+            alpha = float(arg)
+            if alpha<0 or alpha>1:
+                print "alpha must be [0,1], wrong choice:", alpha
+                sys.exit(-1)
+        
         if option in ("-n", "--noise"):
             noise = float(arg)
             print "Additive noise, mean: ", noise
@@ -467,6 +557,7 @@ def main(argv):
             threshold = float(arg)
             print "Latency measurement threshold [ms]: ", threshold
 
+        # Optional quality of life options
         if option in ("-o", "--output"):
             output_file = arg
         
@@ -476,12 +567,6 @@ def main(argv):
                 sys.exit(2)
             else: 
                 gt_file = arg
-        
-        if option in ("-a", "--alpha"):
-            alpha = float(arg)
-            if alpha<0 or alpha>1:
-                print "alpha must be [0,1], wrong choice:", alpha
-                sys.exit(-1)
         
         if option in ("-b", "--browser"):
             browser = True
@@ -501,9 +586,8 @@ def main(argv):
     # TODO: check how this works
     if ip:
         measure=Measurement(ip)
-        listProbes,infoProbes=measure.loadProbes()
-        measure.doMeasure(listProbes)
-        numLatencyMeasurement,input_file=measure.retrieveResult(infoProbes)
+        ripe_probes_geo = measure.doMeasure(probes_file)
+        numLatencyMeasurement,input_file=measure.retrieveResult(ripe_probes_geo)
         if(numLatencyMeasurement<2):
             print >>sys.stderr, ("Error: for the anycast detection at least 2 latency measurement are needed")
             sys.exit(-1)
