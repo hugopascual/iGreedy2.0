@@ -7,9 +7,15 @@ from auxiliar import (
     json_file_to_dict
 )
 
+# Constants
+measurements_path = "../datasets/measurement/"
+results_path = "../results/"
+root_servers_gt_path = "../datasets/root_servers/"
+
+# Funtions
 def load_data_root_servers(file_name: str) -> dict:
     root_servers_raw_data = json_file_to_dict(
-        "../datasets/root_servers/" + file_name)
+        root_servers_gt_path + file_name)
 
     root_servers_gt = {}
     for instance in root_servers_raw_data["Sites"]:
@@ -32,7 +38,7 @@ def load_data_root_servers(file_name: str) -> dict:
 
 def load_data_results(file_name:str) -> dict:
     results_raw_data = json_file_to_dict(
-        "../results/" + file_name)
+        results_path + file_name)
 
     results = {}
     for instance in results_raw_data["instances"]:
