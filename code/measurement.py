@@ -60,7 +60,7 @@ class Measurement(object):
             print >>sys.stderr, ("Target must be an IP address, NOT AN HOST NAME")
             sys.exit(1)
         self._ripeProbes = ripeProbes
-        self._numberOfPacket = 1 #to improve
+        self._numberOfPacket = 2 #to improve
         self._numberOfProbes = 5 #to improve, introduce as parameter, in alternative to the list of probes
         self._measurement = None
         self.result = None

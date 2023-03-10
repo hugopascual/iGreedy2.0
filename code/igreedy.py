@@ -69,6 +69,7 @@ GTnum = 0
 
 input_file = ''
 probes_file = './probes_sets/ripe_probes.json'
+output_path = './results/'
 output_file = 'output'
 outformat = "csv"
 gt_file = ''
@@ -248,9 +249,10 @@ def analyze():
                     #discs.append(disc[0])      # append the disc to the results
                     
                     # remove old disc from MIS of disc
+                    # MIS = Maximum Independent Set
                     resultEnumeration[1].removeDisc(disc)
                     
-                    # result geolocation
+                    # result geolocation with the stadistics of airports
                     city=anycast.geolocation(disc[0],treshold)
 
                     #if there is a city inside the disc
@@ -285,8 +287,8 @@ def analyze():
 
 
 def output():
-    """Routine to output results to a JSON (for GoogleMaps) and a CSV 
-    (for further processing)
+    """Routine to output results to a JSON (for GoogleMaps) and a CSV (for 
+    further processing)
     """
     
     global input_file, output_file, outformat, gt_file
@@ -310,7 +312,8 @@ def output():
                     str(instance[1][2])+"\n")
     csv.close()
     print "Number latency measurements: ",  sum(1 for line in open(input_file)) -1
-    print "Elapsed time (load+igreedy): %.2f (%.2f + %.2f)" % (load_time+run_time, load_time, run_time)
+    print "Elapsed time (load+igreedy): %.2f (%.2f + %.2f)" % (
+        load_time+run_time, load_time, run_time)
     print "Instances: ", str(numberOfInstance)
 
     # Comparing to the Ground-truth    
@@ -334,10 +337,10 @@ def output():
                     weirdGtSolution+=1
                     continue
             if (gt == iata ):
-                print "TP [GT] "+ gt +"("+ IATAcity[gt] +")"
+                print "True Positive [GT] "+ gt +"("+ IATAcity[gt] +")"
                 truePositive += 1
             elif (iata in PAI):
-                print "TP [PAI] ",  iata 
+                print "True Positive [PAI] ",  iata 
                 truePositive += 1
             else:
                 if GTnum>0 : #if there is a gt
@@ -356,7 +359,7 @@ def output():
                         continue
 
                 if IATAcity[gt] == IATAcity[iata]:
-                    print "TP [SameCity] " + gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") "
+                    print "True Positive [SameCity] " + gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") "
                     truePositive += 1
 
                 elif(distance < 99):
@@ -373,11 +376,11 @@ def output():
                     considering a fiber medium.
                     """
 
-                    print "TP [CloseCity] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") "
+                    print "True Positive [CloseCity] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") "
                     truePositive += 1
 
                 else:    
-                    print "FP [!!!] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") " 
+                    print "False Positive [ERROR!!!] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") " 
                     falsePositive += 1
                     try:
                         meanErr += float((distance-meanOld)/float(falsePositive))
@@ -385,6 +388,8 @@ def output():
                         meanOld = meanErr
                         errors.append( distance )
                     except:
+                        print "cannot do much; distance is not a number likely \
+                        because the selected City is not the provided IATA list"
                         pass    
                         # cannot do much; distance is not a number likely because 
                         # the selected City is not the provided IATA list                        
@@ -496,7 +501,7 @@ def main(argv):
     """
 
     global input_file, probes_file
-    global gt_file, output_file, threshold, alpha, browser, noise
+    global gt_file, output_path, output_file, threshold, alpha, browser, noise
     global load_time, run_time
 
     maker_time = time.time()
@@ -560,6 +565,7 @@ def main(argv):
         # Optional quality of life options
         if option in ("-o", "--output"):
             output_file = arg
+        output_file = output_path + output_file
         
         if option in ("-g", "--groundtruth"):
             if not os.path.isfile(arg):
