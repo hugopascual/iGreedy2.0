@@ -56,7 +56,7 @@ from threading import Thread
 
 # TODO: This variables could be constants or be inside a config file
 # TODO: Study use of each one
-iatafile = './datasets/airports.csv'
+IATA_file = './datasets/airports.csv'
 infile = ''
 outfile = 'output'
 outformat = "csv"
@@ -249,7 +249,7 @@ def analyze():
         if(numberOfInstance<=1):
             print("No anycast instance detected")
             sys.exit()
-        for radius, discList in resultEnumeration[1].getOrderedDisc().iteritems(): 
+        for radius, discList in resultEnumeration[1].getOrderedDisc().items(): 
             for disc in discList:
                 # if the disc was not geolocated before, geolocate it!
                 if(not disc[1]):
@@ -341,7 +341,7 @@ def output():
             Mlist.append( iata )   #measured airport instance 
             if GTnum>0: #if there is at least one GT
                 gt = GT[instance[0].getHostname()]
-                if(IATAcity[gt] is "Weird"):
+                if(IATAcity[gt] == "Weird"):
                     weirdGtSolution+=1
                     continue
             if (gt == iata ):
@@ -355,7 +355,7 @@ def output():
                     distance = airportDistance(gt, iata)
                 elif PAInum>0: #if we are here should always go in one branch
                     distance=20000 #antipodes distance
-                    if iata is not "NoCity":
+                    if iata != "NoCity":
                         for airportPAI in PAI:
                             newDistance=airportDistance(iata,airportPAI)
                             if(newDistance<distance):
@@ -588,13 +588,12 @@ def main(argv):
         print ('Output:', output_file + ".{csv,json}")
 
     # If the measurement option is used make a new measurement to get the latency records
-    # TODO: check how this works
     if ip:
         measure=Measurement(ip)
         ripe_probes_geo = measure.doMeasure(probes_file)
         numLatencyMeasurement,input_file=measure.retrieveResult(ripe_probes_geo)
         if(numLatencyMeasurement<2):
-            print >>sys.stderr, ("Error: for the anycast detection at least 2 latency measurement are needed")
+            print("Error: for the anycast detection at least 2 latency measurement are needed")
             sys.exit(-1)
 
     # Analyze the data and get a mark of time spend getting the data and analyzing it 

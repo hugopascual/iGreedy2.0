@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #---------------------------------------------------------------
 # for convenience included in this igreedy package, available at GitHub: 
@@ -19,7 +19,7 @@ Stéphane Bortzmeyer <bortzmeyer+ripe@nic.fr>
 import os, sys
 import json
 import time
-import urllib3
+import requests
 
 authfile = "datasets/auth"
 base_url = "https://atlas.ripe.net/api/v2/measurements"
@@ -65,12 +65,6 @@ class IncompatibleArguments(Exception):
 class InternalError(Exception):
     pass
 
-class JsonRequest(urllib3.Request):
-    def __init__(self, url):
-        urllib3.Request.__init__(self, url)
-        self.add_header("Content-Type", "application/json")
-        self.add_header("Accept", "application/json")
-
 class Measurement():
     """ An Atlas measurement, identified by its ID (such as #1010569) in the field "id" """
 
@@ -104,18 +98,13 @@ class Measurement():
         self.url_latest = base_url + "/%s/latest/?versions=%s"
 
         if data is not None:
-            self.json_data = json.dumps(data)
-            self.notification = sleep_notification
-            request = JsonRequest(self.url)
-
             try:
-                # Start the measurement
-                conn = urllib3.urlopen(request, self.json_data)
-                # Now, parse the answer
-                results = json.load(conn)
+                self.notification = sleep_notification
+                # Start the measurement and get measurement id
+                results = requests.post(self.url, json=data).json()
                 self.id = results["measurements"][0]
-                conn.close()
-            except urllib3.HTTPError as e:
+
+            except requests.HTTPError as e:
                 raise RequestSubmissionError("Status %s, reason \"%s\"" % \
                                              (e.code, e.read()))
 
@@ -123,7 +112,9 @@ class Measurement():
                 return
             # Find out how many probes were actually allocated to this measurement
             enough = False
-            requested = data["probes"][0]["requested"] 
+            requested = 0
+            for probes_types in data["probes"]:
+                requested =+ probes_types["requested"]
             fields_delay = fields_delay_base + (requested * fields_delay_factor)
             while not enough:
                 # Let's be patient
@@ -131,11 +122,8 @@ class Measurement():
                     self.notification(fields_delay)
                 time.sleep(fields_delay)
                 fields_delay *= 2
-                request = JsonRequest(self.url_probes % self.id)
                 try:
-                    conn = urllib3.urlopen(request)
-                    # Now, parse the answer
-                    meta = json.load(conn)
+                    meta = requests.get(self.url_probes % self.id).json()
                     if meta["status"]["name"] == "Specified" or \
                            meta["status"]["name"] == "Scheduled" or \
                             meta["status"]["name"] == "synchronizing":
@@ -146,19 +134,17 @@ class Measurement():
                         self.num_probes = len(meta["probes"])
                     else:
                         raise InternalError("Internal error in #%s, unexpected status when querying the measurement fields: \"%s\"" % (self.id, meta["status"]))
-                    conn.close()
-                except urllib3.HTTPError as e:
+                except requests.HTTPError as e:
                     raise FieldsQueryError("%s" % e.read())
         else:
             self.id = id
             try:
-                conn = urllib3.urlopen(JsonRequest(self.url_status % self.id))
-            except urllib3.HTTPError as e:
+                result_status = requests.get(self.url_status % self.id).json()
+            except requests.HTTPError as e:
                 if e.code == 404:
                     raise MeasurementNotFound
                 else:
                     raise MeasurementAccessError("%s" % e.read())
-            result_status = json.load(conn) 
             status = result_status["status"]["name"]
             # TODO: test status
             self.num_probes = None # TODO: get it from the status?
@@ -177,9 +163,11 @@ class Measurement():
         if latest is not None:
             wait = False
         if latest is None:
-            request = JsonRequest(self.url_results % self.id)
+            url_lastest = self.url_results % self.id
+            request = requests.get(url_lastest)
         else:
-            request = JsonRequest(self.url_latest% (self.id, latest))
+            url_lastest = self.url_latest% (self.id, latest)
+            request = requests.get(url_lastest)
         if wait:
             enough = False
             attempts = 0
@@ -197,8 +185,8 @@ class Measurement():
                 attempts += 1
                 elapsed = time.time() - start
                 try:
-                    conn = urllib3.urlopen(request)
-                    result_data = json.load(conn) 
+                    result_data = request.json()
+                    #TODO Cambiar num_results para que coja los resultados solo si tienen RTT 
                     num_results = len(result_data)
                     if num_results >= self.num_probes*percentage_required:
                         # Requesting a strict equality may be too
@@ -209,8 +197,7 @@ class Measurement():
                         # have sent only a part of its measurements.
                         enough = True
                     else:
-                        conn = urllib3.urlopen(JsonRequest(self.url_status % self.id))
-                        result_status = json.load(conn) 
+                        result_status = requests.get(self.url_status % self.id).json()
                         status = result_status["status"]["name"]
                         if status == "Ongoing":
                             # Wait a bit more
@@ -220,8 +207,7 @@ class Measurement():
                         else:
                             raise InternalError("Unexpected status when retrieving the measurement: \"%s\"" % \
                                    result_data["status"])
-                    conn.close()
-                except urllib3.HTTPError as e:
+                except requests.HTTPError as e:
                     if e.code != 404: # Yes, we may have no result file at
                         # all for some time
                         raise ResultError(str(e.code) + " " + e.reason)
@@ -229,9 +215,8 @@ class Measurement():
                 raise ResultError("No results retrieved")
         else:
             try:
-                conn = urllib3.urlopen(request)
-                result_data = json.load(conn) 
-            except urllib3.HTTPError as e:
+                result_data = request.json()
+            except requests.HTTPError as e:
                 raise ResultError(e.read())
         return result_data
 

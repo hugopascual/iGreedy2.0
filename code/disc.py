@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #----------------------------------------------------------------------
 # helper routines 
 #---------------------------------------------------------------------.
@@ -124,7 +124,7 @@ class Discs(object):
 
     def overlap(self, other):
 
-        for radius, listDisc in self._setDisc.iteritems():
+        for radius, listDisc in self._setDisc.items():
             
             for disc in listDisc:
                 if disc[0].overlap(other):

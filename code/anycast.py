@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #----------------------------------------------------------------------
 # detection, enumeration and geolocation helper routines called by the
 # main program (igreedy.py)
@@ -102,7 +102,7 @@ class Anycast(object):
  
     def detection(self):
         self._discsMis = Discs()
-        for ping, setDiscs in self._orderDisc.iteritems(): 
+        for ping, setDiscs in self._orderDisc.items(): 
             for disc in setDiscs:
                 if not self._discsMis.overlap(disc):
                     self._discsMis.add(disc,False)
@@ -112,7 +112,7 @@ class Anycast(object):
     
     def enumeration(self):
         numberOfDisc=0
-        for ping, setDiscs in self._orderDisc.iteritems(): 
+        for ping, setDiscs in self._orderDisc.items(): 
             for disc in setDiscs:
                 if not self._discsMis.overlap(disc):
                     numberOfDisc+=1
@@ -127,11 +127,11 @@ class Anycast(object):
         oldscore=0
         score=0
 
-        for iata, airportInfo in airportsSet.iteritems(): #_airports[iata]=[float(latitude),float(longitude),int(pop),city,country_code]
+        for iata, airportInfo in airportsSet.items(): #_airports[iata]=[float(latitude),float(longitude),int(pop),city,country_code]
             totalPopulation+= airportInfo[2]
             totalDistanceFromCenter+=disc.distanceFromTheCenter(airportInfo[0],airportInfo[1])
 
-        for iata, airportInfo in airportsSet.iteritems(): #_airports[iata]=[float(latitude),float(longitude),int(pop),city,country_code]
+        for iata, airportInfo in airportsSet.items(): #_airports[iata]=[float(latitude),float(longitude),int(pop),city,country_code]
             popscore = float(airportInfo[2])/float(totalPopulation)
             distscore = float(disc.distanceFromTheCenter(airportInfo[0],airportInfo[1]))/float(totalDistanceFromCenter)
 
@@ -159,7 +159,7 @@ class Anycast(object):
         listCityInside=[]
         """
 
-        for iata, airportInfo in self._airports.iteritems(): #_airports[iata]=[float(latitude),float(longitude),int(pop),city,country_code]
+        for iata, airportInfo in self._airports.items(): #_airports[iata]=[float(latitude),float(longitude),int(pop),city,country_code]
             distanceFromBorder=disc.getRadius()-disc.distanceFromTheCenter(airportInfo[0],airportInfo[1])
 #create a subset of airport inside the disk and after decide witch one is the one we guess
             if(distanceFromBorder>0): #if the airport is inside the disc

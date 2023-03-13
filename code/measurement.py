@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #----------------------------------------------------------------------
 # helper functions to launch RIPE Atlas measurement  (./igreedy -m)
@@ -47,7 +47,7 @@ import socket
 import collections
 import webbrowser
 
-import urllib2
+import requests
 
 import RIPEAtlas
 
@@ -122,7 +122,7 @@ class Measurement(object):
             ]
         }
 
-        if string.find( self._ip, ':') > -1:
+        if ":" in self._ip:
             af = 6
         else:
             af = 4
@@ -154,18 +154,13 @@ class Measurement(object):
         measurement_id = self.get_measurement_id()
 
         url = measurements_url + "/%s" % measurement_id + "/?fields=probes"
-
-        req = urllib2.Request(url)
-        response = urllib2.urlopen(req)
-        measurement_response = json.load(response)
+        measurement_response = requests.get(url).json()
 
         for probe in measurement_response["probes"]:
             hostname = str(probe["id"])
             url = probes_url + "/%s" % hostname
 
-            req = urllib2.Request(url)
-            response = urllib2.urlopen(req)
-            probe_response = json.load(response)
+            probe_response = requests.get(url).json()
             
             latitude = probe_response["geometry"]["coordinates"][1]
             longitude = probe_response["geometry"]["coordinates"][0]
@@ -173,6 +168,10 @@ class Measurement(object):
 
     def retrieveResult(self,infoProbes):
         self.result = self._measurement.results(wait=True, percentage_required=self._percentageSuccessful)
+
+        print("Resultados Obtenidos")
+        print(json.dumps(self.result, indent=4))
+
         numVpAnswer=0
         numVpFail=0
         totalRtt = 0
@@ -186,16 +185,16 @@ class Measurement(object):
             VP = result["prb_id"]
             for measure in result["result"]:
                 numVpAnswer += 1
-                if measure.has_key("rtt"):
+                if "rtt" in measure.keys():
                     try: 
                         totalRtt += int(measure["rtt"])
                         numLatencyMeasurement += 1
                         inputIgreedyFiles.write(str(VP)+"\t"+str(infoProbes[str(VP)][0])+"\t"+str(infoProbes[str(VP)][1])+"\t"+str(measure["rtt"])+"\n")
                     except KeyError as exception:
                         print (exception.__str__())
-                elif measure.has_key("error"):
+                elif "error" in measure.keys():
                     numVpFail += 1
-                elif measure.has_key("x"):
+                elif "x" in measure.keys():
                     numVpTimeout += 1
                 else:
                     print >>sys.stderr, ("Error in the measurement: result has no field rtt, or x or error")
