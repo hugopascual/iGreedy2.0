@@ -47,10 +47,12 @@ import socket
 import collections
 import webbrowser
 
+import urllib2
+
 import RIPEAtlas
 
 class Measurement(object):
-    def __init__(self, ip,ripeProbes=None):
+    def __init__(self, ip, ripeProbes=None):
 
         if(self.checkIP(ip)):
             self._ip = ip
@@ -58,10 +60,11 @@ class Measurement(object):
             print >>sys.stderr, ("Target must be an IP address, NOT AN HOST NAME")
             sys.exit(1)
         self._ripeProbes = ripeProbes
-        self._numberOfPacket =2 #to improve
+        self._numberOfPacket = 2 #to improve
         self._numberOfProbes = 5 #to improve, introduce as parameter, in alternative to the list of probes
         self._measurement = None
         self.result = None
+        self._ripe_probes_geo = {}
 
         self._percentageSuccessful = 0.8 
         
@@ -70,6 +73,9 @@ class Measurement(object):
 
     def getRipeProbes(self):
         return self._ripeProbes
+    
+    def get_measurement_id(self):
+        return self._measurement.id
 
     def checkIP(self,str):
         try:
@@ -96,36 +102,84 @@ class Measurement(object):
             temp_list_probes.append(hostname)
             temp_information_probes[hostname]=[latitude,longitude]
         self._numberOfProbes=len(temp_list_probes)
+        
+        print("Information retrived of probes")
+        print(temp_information_probes)
+        
         return (",".join(temp_list_probes),temp_information_probes) #building the list
 
-    def doMeasure(self,listProbes):
-    
-        data = { "definitions": [
-               { "target": self._ip, "description": "Ping %s" % self._ip,
-               "type": "ping", "is_oneoff": True, "packets": self._numberOfPacket} ],
-             "probes": [
-                 { "requested": self._numberOfProbes} ] }
-        data["probes"][0]["type"] = "probes"
-        data["probes"][0]["value"] = listProbes
+    def load_data_request(self, probes_file):
+        data = {
+            "definitions": [
+                {
+                    "target": self._ip, 
+                    "description": "Ping %s" % self._ip, 
+                    "type": "ping", 
+                    "is_oneoff": True, 
+                    "packets": self._numberOfPacket,
+                    "af": 4
+                }
+            ]
+        }
 
         if string.find( self._ip, ':') > -1:
             af = 6
         else:
             af = 4
         data["definitions"][0]['af'] = af
-        print("Running measurement from Ripe Atlas:")
-        self.measurement = RIPEAtlas.Measurement(data)
-        print("ID measure: %s\tTARGET: %s\tNumber of Vantage Points: %i " % (self.measurement.id,  self._ip,self.measurement.num_probes))
+
+        with open(probes_file) as file:
+            probes_data_json = file.read()
+
+        self._ripeProbes = json.loads(probes_data_json)
+        data["probes"] = self._ripeProbes["probes"]
+        return data
+
+    def doMeasure(self, probes_file):
+        data = self.load_data_request(probes_file)
+
+        print ("Running measurement from Ripe Atlas with this data:")
+        print (json.dumps(data, indent=4))
+        self._measurement = RIPEAtlas.Measurement(data)
+        print ("ID measure: %s\tTARGET: %s\tNumber of Vantage Points: %i " % (
+            self._measurement.id,  self._ip, self._measurement.num_probes))
+        self.get_measurement_probes()
+
+        return self._ripe_probes_geo
+
+    def get_measurement_probes(self):
+        measurements_url = "https://atlas.ripe.net/api/v2/measurements"
+        probes_url = "https://atlas.ripe.net/api/v2/probes"
+
+        measurement_id = self.get_measurement_id()
+
+        url = measurements_url + "/%s" % measurement_id + "/?fields=probes"
+
+        req = urllib2.Request(url)
+        response = urllib2.urlopen(req)
+        measurement_response = json.load(response)
+
+        for probe in measurement_response["probes"]:
+            hostname = str(probe["id"])
+            url = probes_url + "/%s" % hostname
+
+            req = urllib2.Request(url)
+            response = urllib2.urlopen(req)
+            probe_response = json.load(response)
+            
+            latitude = probe_response["geometry"]["coordinates"][1]
+            longitude = probe_response["geometry"]["coordinates"][0]
+            self._ripe_probes_geo[hostname]=[latitude, longitude]
 
     def retrieveResult(self,infoProbes):
-        self.result = self.measurement.results(wait=True, percentage_required=self._percentageSuccessful)
+        self.result = self._measurement.results(wait=True, percentage_required=self._percentageSuccessful)
         numVpAnswer=0
         numVpFail=0
         totalRtt = 0
         numLatencyMeasurement = 0
         numVpTimeout = 0
         print("Number of answers: %s" % len(self.result))
-        pathFile="datasets/measurement/"+self._ip+"-"+str(self.measurement.id)+"-"+str(time.time()).split(".")[0]
+        pathFile="datasets/measurement/"+self._ip+"-"+str(self._measurement.id)+"-"+str(time.time()).split(".")[0]
         inputIgreedyFiles=open(pathFile,'w')
         inputIgreedyFiles.write("#hostname	latitude	longitude	rtt[ms]\n")
         for result in self.result:
@@ -133,9 +187,12 @@ class Measurement(object):
             for measure in result["result"]:
                 numVpAnswer += 1
                 if measure.has_key("rtt"):
-                    totalRtt += int(measure["rtt"])
-                    numLatencyMeasurement += 1
-                    inputIgreedyFiles.write(str(VP)+"\t"+str(infoProbes[str(VP)][0])+"\t"+str(infoProbes[str(VP)][1])+"\t"+str(measure["rtt"])+"\n")
+                    try: 
+                        totalRtt += int(measure["rtt"])
+                        numLatencyMeasurement += 1
+                        inputIgreedyFiles.write(str(VP)+"\t"+str(infoProbes[str(VP)][0])+"\t"+str(infoProbes[str(VP)][1])+"\t"+str(measure["rtt"])+"\n")
+                    except KeyError as exception:
+                        print (exception.__str__())
                 elif measure.has_key("error"):
                     numVpFail += 1
                 elif measure.has_key("x"):

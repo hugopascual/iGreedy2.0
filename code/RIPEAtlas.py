@@ -16,7 +16,7 @@ Stéphane Bortzmeyer <bortzmeyer+ripe@nic.fr>
 
 """
 
-import os
+import os, sys
 import json
 import time
 import urllib3
@@ -100,13 +100,14 @@ class Measurement():
         self.url = base_url + "/?key=%s" % key
         self.url_probes = base_url + "/%s/?fields=probes,status"
         self.url_status = base_url + "/%s/?fields=status" 
-        self.url_results = base_url + "/%s/result/" 
-        self.url_latest = base_url + "-latest/%s/?versions=%s"
+        self.url_results = base_url + "/%s/results/" 
+        self.url_latest = base_url + "/%s/latest/?versions=%s"
 
         if data is not None:
             self.json_data = json.dumps(data)
             self.notification = sleep_notification
             request = JsonRequest(self.url)
+
             try:
                 # Start the measurement
                 conn = urllib3.urlopen(request, self.json_data)
@@ -136,7 +137,8 @@ class Measurement():
                     # Now, parse the answer
                     meta = json.load(conn)
                     if meta["status"]["name"] == "Specified" or \
-                           meta["status"]["name"] == "Scheduled":
+                           meta["status"]["name"] == "Scheduled" or \
+                            meta["status"]["name"] == "synchronizing":
                         # Not done, loop
                         pass
                     elif meta["status"]["name"] == "Ongoing":

@@ -63,7 +63,7 @@ Run iGreedy on existing measurement:
 
 - over the F root server dataset, showing results and ground truth on a map (opening your browser):
 
-    ./igreedy -i datasets/measurement/f-ripe -g ./igreedy -i datasets/ground-truth/f-ripe -b
+    `./igreedy -i datasets/measurement/f-ripe -g ./igreedy -i datasets/ground-truth/f-ripe -b `
 
 - over the EdgeCast dataset, using publicly available information:
 
