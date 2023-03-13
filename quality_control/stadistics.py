@@ -9,6 +9,7 @@ def global_instances_check(gt: dict, results: dict):
     false_positive_countries = results_countries.difference(gt_countries)
     false_negative_countries = gt_countries.difference(results_countries)
 
+    # Print results
     print("Ground Truth countries number: %1.0f" %len(gt_countries))
     print(gt_countries)
     print("Results countries number: %1.0f" %len(results_countries))
