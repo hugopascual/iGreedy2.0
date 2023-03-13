@@ -53,8 +53,6 @@ import webbrowser
 from threading import Thread
 
 
-
-#iatafile = '../datasets/airports.csv'
 iatafile = './datasets/airports.csv'
 infile = ''
 outfile = 'output'
@@ -78,7 +76,7 @@ truePositive = 0
 falsePositive = 0 
 loadtime = 0
 runtime = 0
-threshold = -1 # negative means infty
+threshold = -1 # negative means infinity
 
 
 def airportDistance(a,b):

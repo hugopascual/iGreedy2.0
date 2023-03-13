@@ -41,19 +41,24 @@ import collections
 import json,sys
 import random
 
-#class for print in Json
 class Object:
+    """
+    Class used to write a JSON more readable
+    """
     def to_JSON(self):
         return json.dumps(self, default=lambda o: o.__dict__, 
             sort_keys=True, indent=4)
 
-
 class Anycast(object):
-    #def __init__(self,infile,airportFile=0,alpha):
-    def __init__(self,infile,airportFile,alpha,noise=0,threshold=-1):
+    """
+    
+    """
+    def __init__(self, infile, airportFile, alpha, noise=0, threshold=-1):
         self.alpha=float(alpha)
-        self._setDisc={} #disc from the input 
-        self._discsMis = Discs() #disc belong maximum indipendent set
+        # Disc from the input
+        self._setDisc={} 
+        # Disc belong maximum indipendent set
+        self._discsMis = Discs() 
         self._airports={}
         data = open(infile)
         data.readline()

@@ -65,9 +65,9 @@ class IncompatibleArguments(Exception):
 class InternalError(Exception):
     pass
 
-class JsonRequest(urllib2.Request):
+class JsonRequest(urllib3.Request):
     def __init__(self, url):
-        urllib2.Request.__init__(self, url)
+        urllib3.Request.__init__(self, url)
         self.add_header("Content-Type", "application/json")
         self.add_header("Accept", "application/json")
 
@@ -109,12 +109,12 @@ class Measurement():
             request = JsonRequest(self.url)
             try:
                 # Start the measurement
-                conn = urllib2.urlopen(request, self.json_data)
+                conn = urllib3.urlopen(request, self.json_data)
                 # Now, parse the answer
                 results = json.load(conn)
                 self.id = results["measurements"][0]
                 conn.close()
-            except urllib2.HTTPError as e:
+            except urllib3.HTTPError as e:
                 raise RequestSubmissionError("Status %s, reason \"%s\"" % \
                                              (e.code, e.read()))
 
@@ -132,7 +132,7 @@ class Measurement():
                 fields_delay *= 2
                 request = JsonRequest(self.url_probes % self.id)
                 try:
-                    conn = urllib2.urlopen(request)
+                    conn = urllib3.urlopen(request)
                     # Now, parse the answer
                     meta = json.load(conn)
                     if meta["status"]["name"] == "Specified" or \
@@ -145,13 +145,13 @@ class Measurement():
                     else:
                         raise InternalError("Internal error in #%s, unexpected status when querying the measurement fields: \"%s\"" % (self.id, meta["status"]))
                     conn.close()
-                except urllib2.HTTPError as e:
+                except urllib3.HTTPError as e:
                     raise FieldsQueryError("%s" % e.read())
         else:
             self.id = id
             try:
-                conn = urllib2.urlopen(JsonRequest(self.url_status % self.id))
-            except urllib2.HTTPError as e:
+                conn = urllib3.urlopen(JsonRequest(self.url_status % self.id))
+            except urllib3.HTTPError as e:
                 if e.code == 404:
                     raise MeasurementNotFound
                 else:
@@ -195,7 +195,7 @@ class Measurement():
                 attempts += 1
                 elapsed = time.time() - start
                 try:
-                    conn = urllib2.urlopen(request)
+                    conn = urllib3.urlopen(request)
                     result_data = json.load(conn) 
                     num_results = len(result_data)
                     if num_results >= self.num_probes*percentage_required:
@@ -207,7 +207,7 @@ class Measurement():
                         # have sent only a part of its measurements.
                         enough = True
                     else:
-                        conn = urllib2.urlopen(JsonRequest(self.url_status % self.id))
+                        conn = urllib3.urlopen(JsonRequest(self.url_status % self.id))
                         result_status = json.load(conn) 
                         status = result_status["status"]["name"]
                         if status == "Ongoing":
@@ -219,7 +219,7 @@ class Measurement():
                             raise InternalError("Unexpected status when retrieving the measurement: \"%s\"" % \
                                    result_data["status"])
                     conn.close()
-                except urllib2.HTTPError as e:
+                except urllib3.HTTPError as e:
                     if e.code != 404: # Yes, we may have no result file at
                         # all for some time
                         raise ResultError(str(e.code) + " " + e.reason)
@@ -227,9 +227,9 @@ class Measurement():
                 raise ResultError("No results retrieved")
         else:
             try:
-                conn = urllib2.urlopen(request)
+                conn = urllib3.urlopen(request)
                 result_data = json.load(conn) 
-            except urllib2.HTTPError as e:
+            except urllib3.HTTPError as e:
                 raise ResultError(e.read())
         return result_data
 
