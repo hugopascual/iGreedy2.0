@@ -446,7 +446,7 @@ def output():
 
 
     json=open(output_file + ".json","w")
-    json.write("var data=\n")
+    #json.write("var data=\n")
     json.write(data.to_JSON())
     json.close()
 

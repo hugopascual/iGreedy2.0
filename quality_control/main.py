@@ -13,8 +13,8 @@ from stadistics import (
 )
     
 # Constansts
-gt_filename = "root_servers_A.json"
-results_filename = "test_300_198.41.0.4.json"
+gt_filename = "root_servers_E.json"
+results_filename = "North-Central_1000_192.203.230.10.json"
 
 # Load the information about GT and Results
 gt_instances = load_data_root_servers(gt_filename)
