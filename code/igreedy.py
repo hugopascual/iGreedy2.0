@@ -76,7 +76,7 @@ PAInum = 0
 GTnum = 0
 
 input_file = ''
-probes_file = './probes_sets/ripe_probes.json'
+probes_file = './probes_sets/default_ripe_probes.json'
 output_path = './results/'
 output_file = 'output'
 outformat = "csv"
@@ -319,7 +319,7 @@ def output():
                     str(instance[1][1])+"\t"+\
                     str(instance[1][2])+"\n")
     csv.close()
-    print("Number latency measurements: " + sum(1 for line in open(input_file)) -1)
+    print("Number latency measurements: {}".format(sum(1 for line in open(input_file)) -1))
     print("Elapsed time (load+igreedy): %.2f (%.2f + %.2f)" % (
         load_time+run_time, load_time, run_time))
     print("Instances: ", str(numberOfInstance))
@@ -478,7 +478,7 @@ Parameters:
                                 Filename of the JSON document which contains the
                                 specification of the probes to use in the 
                                 measurement (default 
-                                "probes_sets/ripe_probes.json")
+                                "probes_sets/defaault_ripe_probes.json")
 
 where:
     -i input file
@@ -539,7 +539,7 @@ def main(argv):
             sys.exit(2)
 
         # Options if measurement command selected
-        if (option in ("-m", "--measurement")) and (option in ("-p", "--probes")):
+        if (option in ("-p", "--probes")):
             if not os.path.isfile(arg):
                 print ("Input file <"+arg+"> does not exist")
                 sys.exit(2)
@@ -564,7 +564,6 @@ def main(argv):
         # Optional quality of life options
         if option in ("-o", "--output"):
             output_file = arg
-        output_file = output_path + output_file
         
         if option in ("-g", "--groundtruth"):
             if not os.path.isfile(arg):
@@ -577,6 +576,7 @@ def main(argv):
             browser = True
 
     # Print th values to inform the user about the parameters are going to be used
+    print("Probes data from: ", probes_file)
     print ('Airports:', IATA_file)
     readIATA()
     if input_file:
@@ -587,6 +587,9 @@ def main(argv):
     if output_file:
         print ('Output:', output_file + ".{csv,json}")
 
+    # Insert directory path in output_file
+    output_file = output_path + output_file
+    
     # If the measurement option is used make a new measurement to get the latency records
     if ip:
         measure=Measurement(ip)

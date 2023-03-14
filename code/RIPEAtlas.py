@@ -164,10 +164,8 @@ class Measurement():
             wait = False
         if latest is None:
             url_lastest = self.url_results % self.id
-            request = requests.get(url_lastest)
         else:
             url_lastest = self.url_latest% (self.id, latest)
-            request = requests.get(url_lastest)
         if wait:
             enough = False
             attempts = 0
@@ -180,12 +178,19 @@ class Measurement():
             while not enough and elapsed < maximum_time_for_results:
                 if self.notification is not None:
                     self.notification(results_delay)
+
+                #print("Espera para consultar resultados {0:1.2f}".format(results_delay))
+                #print("Intento {}".format(attempts))
+
                 time.sleep(results_delay) 
                 results_delay *= 2
                 attempts += 1
                 elapsed = time.time() - start
                 try:
-                    result_data = request.json()
+                    result_data = requests.get(url_lastest).json()
+
+                    #print(json.dumps(result_data, indent=4))
+
                     #TODO Cambiar num_results para que coja los resultados solo si tienen RTT 
                     num_results = len(result_data)
                     if num_results >= self.num_probes*percentage_required:
@@ -215,7 +220,7 @@ class Measurement():
                 raise ResultError("No results retrieved")
         else:
             try:
-                result_data = request.json()
+                result_data = requests.get(url_lastest).json()
             except requests.HTTPError as e:
                 raise ResultError(e.read())
         return result_data

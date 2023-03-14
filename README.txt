@@ -129,7 +129,7 @@ Note4: The set of measurements is saved in datasets/measurement for further post
 
 To run iGreedy on the F root server 192.5.5.241, configure your key (see above) then run:
 
-       ./igreedy -m 192.5.5.241 -b
+       ./igreedy.sh -m 192.5.5.241 -b
 
 
 Have fun!

@@ -169,8 +169,8 @@ class Measurement(object):
     def retrieveResult(self,infoProbes):
         self.result = self._measurement.results(wait=True, percentage_required=self._percentageSuccessful)
 
-        print("Resultados Obtenidos")
-        print(json.dumps(self.result, indent=4))
+        #print("Resultados Obtenidos")
+        #print(json.dumps(self.result, indent=4))
 
         numVpAnswer=0
         numVpFail=0
