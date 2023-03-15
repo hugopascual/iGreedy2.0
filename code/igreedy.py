@@ -576,7 +576,8 @@ def main(argv):
             browser = True
 
     # Print th values to inform the user about the parameters are going to be used
-    print("Probes data from: ", probes_file)
+    if ip:
+        print("Probes data from: ", probes_file)
     print ('Airports:', IATA_file)
     readIATA()
     if input_file:

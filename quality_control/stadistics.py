@@ -1,6 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+def print_global_gt_definitions():
+    print("""########################################
+Definiciones:
+True Positive: País en el que se ha detectado alguna instancia anycast y 
+ese país está en el GT. Intersección entre Resultados y GT.
+
+False Positive: País en el que se ha detectado alguna instancia anycast y no
+hay ninguna según el GT. Resultados - GT
+
+False Negative: País que el GT marca con alguna instancia anycast y no se ha 
+detectado. GT - Resultados
+########################################""")
+
 def global_instances_check(gt: dict, results: dict):
     results_countries = set(results.keys())
     gt_countries = set(gt.keys())
@@ -29,15 +42,5 @@ def global_instances_check(gt: dict, results: dict):
         (len(false_negative_countries)/len(gt_countries))*100)
     )
     print(false_negative_countries)
-    print()
-    print("""
-Definiciones:
-True Positive: País en el que se ha detectado alguna instancia anycast y 
-ese país está en el GT. Intersección entre Resultados y GT.
-
-False Positive: País en el que se ha detectado alguna instancia anycast y no
-hay ninguna según el GT. Resultados - GT
-
-Fasle Negative: País que el GT marca con alguna instancia anycast y no se ha 
-detectado. GT - Resultados
-    """)
+    print("########################################")
+    

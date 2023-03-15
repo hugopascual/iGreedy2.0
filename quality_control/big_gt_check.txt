@@ -1,0 +1,1067 @@
+########################################
+Definiciones:
+True Positive: País en el que se ha detectado alguna instancia anycast y 
+ese país está en el GT. Intersección entre Resultados y GT.
+
+False Positive: País en el que se ha detectado alguna instancia anycast y no
+hay ninguna según el GT. Resultados - GT
+
+False Negative: País que el GT marca con alguna instancia anycast y no se ha 
+detectado. GT - Resultados
+########################################
+North-Central_100_192.5.5.241_0.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 9
+{'DK', 'MK', 'EE', 'RU', 'ES', 'AT', 'FR', 'NL', 'SE'}
+True Positives: 8. That is a 6.35%.
+{'DK', 'EE', 'RU', 'ES', 'AT', 'FR', 'NL', 'SE'}
+False Positives: 1. That is a 0.79%.
+{'MK'}
+Fasle Negatives: 118. That is a 93.65%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'LV', 'CR', 'HR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'BG', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_0.1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 10
+{'DK', 'MK', 'EE', 'LT', 'RU', 'AT', 'ES', 'FR', 'NL', 'SE'}
+True Positives: 9. That is a 7.14%.
+{'DK', 'EE', 'RU', 'LT', 'AT', 'ES', 'FR', 'NL', 'SE'}
+False Positives: 1. That is a 0.79%.
+{'MK'}
+Fasle Negatives: 117. That is a 92.86%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'LV', 'CR', 'HR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'BG', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_0.2.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 10
+{'DK', 'MK', 'EE', 'SI', 'LT', 'RU', 'ES', 'FR', 'NL', 'SE'}
+True Positives: 8. That is a 6.35%.
+{'DK', 'EE', 'RU', 'LT', 'ES', 'FR', 'NL', 'SE'}
+False Positives: 2. That is a 1.59%.
+{'SI', 'MK'}
+Fasle Negatives: 118. That is a 93.65%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'LV', 'CR', 'HR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'BG', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_0.3.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 11
+{'DK', 'HR', 'MK', 'EE', 'LT', 'RU', 'ES', 'GB', 'FR', 'NL', 'SE'}
+True Positives: 10. That is a 7.94%.
+{'NL', 'DK', 'EE', 'RU', 'LT', 'ES', 'GB', 'FR', 'HR', 'SE'}
+False Positives: 1. That is a 0.79%.
+{'MK'}
+Fasle Negatives: 116. That is a 92.06%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'LV', 'CR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'BG', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_0.4.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 10
+{'DK', 'HR', 'MK', 'EE', 'RU', 'ES', 'LV', 'FR', 'NL', 'SE'}
+True Positives: 9. That is a 7.14%.
+{'NL', 'DK', 'EE', 'RU', 'ES', 'LV', 'FR', 'HR', 'SE'}
+False Positives: 1. That is a 0.79%.
+{'MK'}
+Fasle Negatives: 117. That is a 92.86%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'BG', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_0.5.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 11
+{'NO', 'SE', 'DK', 'HR', 'EE', 'RU', 'ES', 'LV', 'FR', 'NL', 'BG'}
+True Positives: 11. That is a 8.73%.
+{'NO', 'NL', 'DK', 'EE', 'BG', 'RU', 'ES', 'LV', 'FR', 'HR', 'SE'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 115. That is a 91.27%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_0.6.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 11
+{'NO', 'SE', 'DK', 'HR', 'EE', 'RU', 'ES', 'LV', 'FR', 'NL', 'BG'}
+True Positives: 11. That is a 8.73%.
+{'NO', 'NL', 'DK', 'EE', 'BG', 'RU', 'ES', 'LV', 'FR', 'HR', 'SE'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 115. That is a 91.27%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_0.7.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 11
+{'NO', 'SE', 'DK', 'HR', 'EE', 'RU', 'ES', 'LV', 'FR', 'NL', 'BG'}
+True Positives: 11. That is a 8.73%.
+{'NO', 'NL', 'DK', 'EE', 'BG', 'RU', 'ES', 'LV', 'FR', 'HR', 'SE'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 115. That is a 91.27%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_0.8.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 11
+{'NO', 'SE', 'DK', 'HR', 'EE', 'RU', 'ES', 'LV', 'FR', 'NL', 'BG'}
+True Positives: 11. That is a 8.73%.
+{'NO', 'NL', 'DK', 'EE', 'BG', 'RU', 'ES', 'LV', 'FR', 'HR', 'SE'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 115. That is a 91.27%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_0.9.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 11
+{'NO', 'SE', 'FI', 'DK', 'HR', 'RU', 'ES', 'LV', 'FR', 'NL', 'BG'}
+True Positives: 11. That is a 8.73%.
+{'NO', 'FI', 'NL', 'DK', 'BG', 'RU', 'ES', 'LV', 'FR', 'HR', 'SE'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 115. That is a 91.27%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'FJ', 'AM'}
+########################################
+North-Central_100_192.5.5.241_1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 11
+{'NO', 'SE', 'FI', 'DK', 'HR', 'RU', 'ES', 'LV', 'FR', 'NL', 'BG'}
+True Positives: 11. That is a 8.73%.
+{'NO', 'FI', 'NL', 'DK', 'BG', 'RU', 'ES', 'LV', 'FR', 'HR', 'SE'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 115. That is a 91.27%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'DE', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'PL', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'GB', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 20
+{'IT', 'CZ', 'ES', 'PL', 'IE', 'LV', 'HR', 'HU', 'DE', 'FI', 'BG', 'RU', 'BA', 'FR', 'NL', 'UA', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 19. That is a 15.08%.
+{'IT', 'CZ', 'ES', 'PL', 'IE', 'LV', 'HR', 'HU', 'DE', 'FI', 'BG', 'RU', 'FR', 'NL', 'UA', 'RO', 'GB', 'SE', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'BA'}
+Fasle Negatives: 107. That is a 84.92%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 21
+{'IT', 'CZ', 'ES', 'PL', 'IE', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'BA', 'FR', 'NL', 'UA', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 20. That is a 15.87%.
+{'IT', 'CZ', 'ES', 'PL', 'IE', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'FR', 'NL', 'UA', 'RO', 'GB', 'SE', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'BA'}
+Fasle Negatives: 106. That is a 84.13%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.2.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 21
+{'IT', 'CZ', 'ES', 'PL', 'IE', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'BA', 'FR', 'NL', 'UA', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 20. That is a 15.87%.
+{'IT', 'CZ', 'ES', 'PL', 'IE', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'FR', 'NL', 'UA', 'RO', 'GB', 'SE', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'BA'}
+Fasle Negatives: 106. That is a 84.13%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.3.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 19
+{'IT', 'CZ', 'ES', 'PL', 'IE', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'FR', 'UA', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 19. That is a 15.08%.
+{'IT', 'CZ', 'ES', 'PL', 'IE', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'FR', 'UA', 'RO', 'GB', 'SE', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 107. That is a 84.92%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.4.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 21
+{'DK', 'IT', 'CZ', 'ES', 'PL', 'IE', 'AT', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'FR', 'UA', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 21. That is a 16.67%.
+{'DK', 'IT', 'CZ', 'ES', 'SE', 'PL', 'IE', 'AT', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'RU', 'FR', 'UA', 'RO', 'GB', 'BG', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 105. That is a 83.33%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'RS', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.5.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 22
+{'DK', 'IT', 'EE', 'CZ', 'ES', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'MA', 'BG', 'RU', 'FR', 'UA', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 22. That is a 17.46%.
+{'DK', 'IT', 'EE', 'CZ', 'ES', 'SE', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'MA', 'RU', 'FR', 'UA', 'RO', 'GB', 'BG', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 104. That is a 82.54%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.6.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 22
+{'DK', 'IT', 'CZ', 'ES', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'FR', 'UA', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 22. That is a 17.46%.
+{'DK', 'IT', 'CZ', 'ES', 'SE', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'RU', 'FR', 'UA', 'RO', 'GB', 'BG', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 104. That is a 82.54%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.7.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 22
+{'DK', 'IT', 'CZ', 'ES', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'FR', 'UA', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 22. That is a 17.46%.
+{'DK', 'IT', 'CZ', 'ES', 'SE', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'RU', 'FR', 'UA', 'RO', 'GB', 'BG', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 104. That is a 82.54%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.8.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 23
+{'DK', 'IT', 'CZ', 'ES', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'BG', 'RU', 'FR', 'UA', 'MD', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 23. That is a 18.25%.
+{'DK', 'IT', 'CZ', 'ES', 'SE', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'MA', 'RU', 'FR', 'UA', 'MD', 'RO', 'GB', 'BG', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 103. That is a 81.75%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_0.9.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 22
+{'DK', 'IT', 'CZ', 'ES', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'BG', 'RU', 'FR', 'UA', 'MD', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 22. That is a 17.46%.
+{'DK', 'IT', 'CZ', 'ES', 'SE', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'RU', 'FR', 'UA', 'MD', 'RO', 'GB', 'BG', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 104. That is a 82.54%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_300_192.5.5.241_1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 22
+{'DK', 'IT', 'CZ', 'ES', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'BG', 'RU', 'FR', 'UA', 'MD', 'RO', 'GB', 'SE', 'IL'}
+True Positives: 22. That is a 17.46%.
+{'DK', 'IT', 'CZ', 'ES', 'SE', 'PL', 'IE', 'AT', 'RS', 'LV', 'HR', 'HU', 'DE', 'FI', 'RU', 'FR', 'UA', 'MD', 'RO', 'GB', 'BG', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 104. That is a 82.54%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'GR', 'IN', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_500_192.5.5.241_0.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 26
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'BY', 'IS', 'PL', 'IE', 'GR', 'AT', 'LV', 'HU', 'DE', 'TR', 'BG', 'RU', 'BA', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'IL'}
+True Positives: 25. That is a 19.84%.
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'IS', 'BY', 'SE', 'PL', 'IE', 'GR', 'AT', 'LV', 'HU', 'DE', 'TR', 'RU', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'BA'}
+Fasle Negatives: 101. That is a 80.16%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'HR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'RS', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_500_192.5.5.241_0.1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 26
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'BY', 'IS', 'PL', 'IE', 'GR', 'AT', 'LV', 'BE', 'HU', 'DE', 'TR', 'LB', 'BG', 'RU', 'BA', 'FR', 'UA', 'PT', 'GB', 'SE'}
+True Positives: 25. That is a 19.84%.
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'IS', 'BY', 'SE', 'PL', 'IE', 'GR', 'AT', 'LV', 'BE', 'HU', 'DE', 'TR', 'LB', 'RU', 'FR', 'UA', 'PT', 'GB', 'BG'}
+False Positives: 1. That is a 0.79%.
+{'BA'}
+Fasle Negatives: 101. That is a 80.16%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'HR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'RS', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_500_192.5.5.241_0.2.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 25
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'BY', 'IS', 'PL', 'IE', 'GR', 'SI', 'LV', 'HU', 'DE', 'TR', 'LB', 'BG', 'RU', 'BA', 'FR', 'NL', 'UA', 'GB', 'SE'}
+True Positives: 23. That is a 18.25%.
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'IS', 'BY', 'SE', 'PL', 'IE', 'GR', 'LV', 'HU', 'DE', 'TR', 'LB', 'RU', 'FR', 'NL', 'UA', 'GB', 'BG'}
+False Positives: 2. That is a 1.59%.
+{'SI', 'BA'}
+Fasle Negatives: 103. That is a 81.75%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'HR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_500_192.5.5.241_0.3.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 25
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'BY', 'IS', 'PL', 'IE', 'GR', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'LB', 'BG', 'RU', 'FR', 'UA', 'RO', 'GB', 'SE'}
+True Positives: 25. That is a 19.84%.
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'IS', 'BY', 'SE', 'PL', 'IE', 'GR', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'LB', 'RU', 'FR', 'UA', 'RO', 'GB', 'BG'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 101. That is a 80.16%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'RS', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_500_192.5.5.241_0.4.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 25
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'BY', 'IS', 'PL', 'IE', 'GR', 'AT', 'LV', 'BE', 'HR', 'DE', 'TR', 'LB', 'BG', 'RU', 'FR', 'UA', 'RO', 'GB', 'SE'}
+True Positives: 25. That is a 19.84%.
+{'NO', 'DK', 'IT', 'EE', 'CZ', 'ES', 'IS', 'BY', 'SE', 'PL', 'IE', 'GR', 'AT', 'LV', 'BE', 'HR', 'DE', 'TR', 'LB', 'RU', 'FR', 'UA', 'RO', 'GB', 'BG'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 101. That is a 80.16%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'RS', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'PT', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_500_192.5.5.241_0.5.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 26
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'BY', 'IS', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'BG', 'RU', 'FR', 'UA', 'PT', 'GB', 'SE', 'AM'}
+True Positives: 26. That is a 20.63%.
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'BY', 'SE', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'RU', 'FR', 'UA', 'PT', 'GB', 'BG', 'AM'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 100. That is a 79.37%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ'}
+########################################
+North-Central_500_192.5.5.241_0.6.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 26
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'BY', 'IS', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'BG', 'RU', 'FR', 'UA', 'PT', 'GB', 'SE', 'AM'}
+True Positives: 26. That is a 20.63%.
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'BY', 'SE', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'RU', 'FR', 'UA', 'PT', 'GB', 'BG', 'AM'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 100. That is a 79.37%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'NL', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ'}
+########################################
+North-Central_500_192.5.5.241_0.7.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 27
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'SE', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'AM'}
+True Positives: 27. That is a 21.43%.
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'AM'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 99. That is a 78.57%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ'}
+########################################
+North-Central_500_192.5.5.241_0.8.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 27
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'SE', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'AM'}
+True Positives: 27. That is a 21.43%.
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'AM'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 99. That is a 78.57%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ'}
+########################################
+North-Central_500_192.5.5.241_0.9.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 27
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'SE', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'AM'}
+True Positives: 27. That is a 21.43%.
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'AM'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 99. That is a 78.57%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ'}
+########################################
+North-Central_500_192.5.5.241_1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 27
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'SE', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'AM'}
+True Positives: 27. That is a 21.43%.
+{'NO', 'DK', 'IT', 'CZ', 'ES', 'IS', 'PL', 'IE', 'GR', 'AT', 'RS', 'LV', 'BE', 'HR', 'DE', 'FI', 'LB', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'AM'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 99. That is a 78.57%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'CY', 'MN', 'SK', 'IN', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ'}
+########################################
+North-Central_1000_192.5.5.241_0.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 27
+{'NO', 'IT', 'ES', 'CZ', 'IS', 'CY', 'IR', 'SK', 'IE', 'GR', 'RS', 'AT', 'LV', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'IL'}
+True Positives: 26. That is a 20.63%.
+{'NO', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'SK', 'IE', 'GR', 'RS', 'AT', 'LV', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'IR'}
+Fasle Negatives: 100. That is a 79.37%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'HR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'PL', 'IN', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_0.1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 26
+{'NO', 'IT', 'ES', 'CZ', 'IS', 'CY', 'IR', 'IE', 'GR', 'RS', 'AT', 'LV', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'IL'}
+True Positives: 25. That is a 19.84%.
+{'NO', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'IE', 'GR', 'RS', 'AT', 'LV', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'IR'}
+Fasle Negatives: 101. That is a 80.16%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'HR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'PL', 'SK', 'IN', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_0.2.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 26
+{'NO', 'IT', 'ES', 'CZ', 'IS', 'CY', 'IR', 'IE', 'GR', 'SI', 'RS', 'LV', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'IL'}
+True Positives: 24. That is a 19.05%.
+{'NO', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'IE', 'GR', 'RS', 'LV', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'IL'}
+False Positives: 2. That is a 1.59%.
+{'SI', 'IR'}
+Fasle Negatives: 102. That is a 80.95%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'HR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'PL', 'SK', 'IN', 'AT', 'PK', 'MM', 'SR', 'BE', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_0.3.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 27
+{'NO', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'IR', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'IL'}
+True Positives: 26. That is a 20.63%.
+{'NO', 'IT', 'ES', 'CZ', 'IS', 'CY', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'IR'}
+Fasle Negatives: 100. That is a 79.37%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'PL', 'SK', 'IN', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_0.4.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 29
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'IR', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'IL'}
+True Positives: 28. That is a 22.22%.
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'IR'}
+Fasle Negatives: 98. That is a 77.78%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'SK', 'IN', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_0.5.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 29
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'IR', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'IL'}
+True Positives: 28. That is a 22.22%.
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'IR'}
+Fasle Negatives: 98. That is a 77.78%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'SK', 'IN', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_0.6.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 29
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'IR', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'IL'}
+True Positives: 28. That is a 22.22%.
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'IR'}
+Fasle Negatives: 98. That is a 77.78%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'SK', 'IN', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_0.7.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 29
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'IR', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'BG', 'IL'}
+True Positives: 28. That is a 22.22%.
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'GB', 'SE', 'IL'}
+False Positives: 1. That is a 0.79%.
+{'IR'}
+Fasle Negatives: 98. That is a 77.78%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'SK', 'IN', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_0.8.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 29
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'IQ', 'GB', 'BG', 'IL'}
+True Positives: 29. That is a 23.02%.
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'IQ', 'GB', 'SE', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 97. That is a 76.98%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'SK', 'IN', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_0.9.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 29
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'IQ', 'GB', 'BG', 'IL'}
+True Positives: 29. That is a 23.02%.
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'IQ', 'GB', 'SE', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 97. That is a 76.98%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'SK', 'IN', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+North-Central_1000_192.5.5.241_1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 29
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'SE', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'IQ', 'GB', 'BG', 'IL'}
+True Positives: 29. That is a 23.02%.
+{'NO', 'DK', 'IT', 'ES', 'CZ', 'IS', 'CY', 'PL', 'IE', 'GR', 'RS', 'LV', 'BE', 'HR', 'HU', 'DE', 'TR', 'FI', 'BG', 'RU', 'LT', 'FR', 'NL', 'UA', 'PT', 'IQ', 'GB', 'SE', 'IL'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 97. That is a 76.98%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'HN', 'TZ', 'KH', 'BY', 'PA', 'CL', 'CN', 'MO', 'DZ', 'HK', 'TH', 'CR', 'KE', 'TN', 'KR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'RE', 'MU', 'BW', 'SA', 'SG', 'SX', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'NG', 'ZA', 'JM', 'OM', 'AR', 'NP', 'MN', 'SK', 'IN', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UY', 'LA', 'EC', 'ME', 'CM', 'BT', 'UZ', 'SO', 'JP', 'NZ', 'CW', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 17
+{'DE', 'PT', 'PL', 'SK', 'AR', 'CN', 'RU', 'RE', 'AT', 'MX', 'PK', 'NZ', 'FR', 'NL', 'US', 'BG', 'BY'}
+True Positives: 17. That is a 13.49%.
+{'DE', 'PT', 'PL', 'NL', 'SK', 'CN', 'RU', 'RE', 'AT', 'MX', 'PK', 'NZ', 'FR', 'AR', 'US', 'BG', 'BY'}
+False Positives: 0. That is a 0.00%.
+set()
+Fasle Negatives: 109. That is a 86.51%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'SE', 'PA', 'CL', 'MO', 'DZ', 'HK', 'TH', 'LV', 'CR', 'HR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'CA', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'IE', 'GR', 'IN', 'RS', 'MM', 'SR', 'BE', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'GB', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 18
+{'PT', 'DE', 'PL', 'CA', 'AR', 'CN', 'BG', 'RU', 'RE', 'AT', 'CU', 'PK', 'NZ', 'MX', 'FR', 'NL', 'US', 'SE'}
+True Positives: 17. That is a 13.49%.
+{'PT', 'DE', 'SE', 'PL', 'CA', 'NL', 'CN', 'RU', 'RE', 'AT', 'MX', 'PK', 'NZ', 'FR', 'AR', 'US', 'BG'}
+False Positives: 1. That is a 0.79%.
+{'CU'}
+Fasle Negatives: 109. That is a 86.51%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'MO', 'DZ', 'HK', 'TH', 'LV', 'CR', 'HR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'MM', 'SR', 'BE', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'GB', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.2.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 18
+{'PT', 'DE', 'PL', 'CA', 'AR', 'CN', 'BG', 'SI', 'RE', 'RU', 'CU', 'PK', 'NZ', 'MX', 'FR', 'NL', 'US', 'SE'}
+True Positives: 16. That is a 12.70%.
+{'PT', 'DE', 'SE', 'PL', 'CA', 'NL', 'CN', 'RU', 'RE', 'MX', 'PK', 'NZ', 'FR', 'AR', 'US', 'BG'}
+False Positives: 2. That is a 1.59%.
+{'SI', 'CU'}
+Fasle Negatives: 110. That is a 87.30%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'BY', 'PA', 'CL', 'MO', 'DZ', 'HK', 'TH', 'LV', 'CR', 'HR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'DK', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'MM', 'SR', 'BE', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'GB', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.3.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 19
+{'DK', 'CU', 'AR', 'PL', 'CN', 'PK', 'HR', 'US', 'DE', 'CA', 'RU', 'MX', 'FR', 'NL', 'PT', 'RE', 'NZ', 'GB', 'BG'}
+True Positives: 18. That is a 14.29%.
+{'DE', 'PT', 'PL', 'CA', 'NL', 'DK', 'HR', 'CN', 'RU', 'RE', 'MX', 'GB', 'PK', 'NZ', 'FR', 'AR', 'US', 'BG'}
+False Positives: 1. That is a 0.79%.
+{'CU'}
+Fasle Negatives: 108. That is a 85.71%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'BY', 'SE', 'PA', 'CL', 'MO', 'DZ', 'HK', 'TH', 'LV', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'MM', 'SR', 'BE', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.4.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 18
+{'PT', 'DE', 'PL', 'CA', 'HR', 'DK', 'AR', 'HK', 'RU', 'RE', 'GB', 'CU', 'PK', 'NZ', 'FR', 'NL', 'US', 'BG'}
+True Positives: 17. That is a 13.49%.
+{'PT', 'DE', 'PL', 'CA', 'NL', 'DK', 'AR', 'HK', 'RU', 'RE', 'GB', 'PK', 'NZ', 'FR', 'HR', 'US', 'BG'}
+False Positives: 1. That is a 0.79%.
+{'CU'}
+Fasle Negatives: 109. That is a 86.51%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'BY', 'SE', 'PA', 'CL', 'CN', 'MO', 'DZ', 'TH', 'LV', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'RO', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'MM', 'SR', 'BE', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.5.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 17
+{'PT', 'DE', 'PL', 'CA', 'HR', 'DK', 'AR', 'HK', 'RU', 'RE', 'CU', 'PK', 'NZ', 'FR', 'NL', 'US', 'RO'}
+True Positives: 16. That is a 12.70%.
+{'PT', 'DE', 'PL', 'CA', 'NL', 'DK', 'AR', 'HK', 'RU', 'RE', 'PK', 'NZ', 'FR', 'HR', 'US', 'RO'}
+False Positives: 1. That is a 0.79%.
+{'CU'}
+Fasle Negatives: 110. That is a 87.30%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'BY', 'SE', 'PA', 'CL', 'CN', 'MO', 'DZ', 'TH', 'LV', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'MM', 'SR', 'BE', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'GB', 'BG', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.6.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 17
+{'PT', 'DE', 'PL', 'CA', 'HR', 'DK', 'AR', 'HK', 'RU', 'RE', 'CU', 'PK', 'NZ', 'FR', 'NL', 'US', 'RO'}
+True Positives: 16. That is a 12.70%.
+{'PT', 'DE', 'PL', 'CA', 'NL', 'DK', 'AR', 'HK', 'RU', 'RE', 'PK', 'NZ', 'FR', 'HR', 'US', 'RO'}
+False Positives: 1. That is a 0.79%.
+{'CU'}
+Fasle Negatives: 110. That is a 87.30%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'BY', 'SE', 'PA', 'CL', 'CN', 'MO', 'DZ', 'TH', 'LV', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'MM', 'SR', 'BE', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'GB', 'BG', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.7.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 18
+{'PT', 'DE', 'PL', 'CA', 'HR', 'DK', 'AR', 'HK', 'RU', 'RE', 'CU', 'PK', 'NZ', 'FR', 'NL', 'US', 'RO', 'BY'}
+True Positives: 17. That is a 13.49%.
+{'PT', 'DE', 'PL', 'CA', 'NL', 'DK', 'AR', 'HK', 'RU', 'RE', 'PK', 'NZ', 'FR', 'HR', 'US', 'RO', 'BY'}
+False Positives: 1. That is a 0.79%.
+{'CU'}
+Fasle Negatives: 109. That is a 86.51%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'SE', 'PA', 'CL', 'CN', 'MO', 'DZ', 'TH', 'LV', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'MM', 'SR', 'BE', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'GB', 'BG', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.8.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 20
+{'DK', 'CU', 'AR', 'BY', 'PL', 'HK', 'PK', 'BE', 'HR', 'US', 'DE', 'CA', 'RU', 'FR', 'NL', 'RO', 'PT', 'RE', 'NZ', 'GB'}
+True Positives: 19. That is a 15.08%.
+{'DK', 'AR', 'BY', 'PL', 'HK', 'PK', 'BE', 'HR', 'US', 'DE', 'CA', 'RU', 'FR', 'NL', 'RO', 'PT', 'RE', 'NZ', 'GB'}
+False Positives: 1. That is a 0.79%.
+{'CU'}
+Fasle Negatives: 107. That is a 84.92%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'SE', 'PA', 'CL', 'CN', 'MO', 'DZ', 'TH', 'LV', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'BG', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_0.9.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 20
+{'DK', 'CU', 'AR', 'BY', 'PL', 'HK', 'PK', 'BE', 'HR', 'US', 'DE', 'CA', 'RU', 'FR', 'NL', 'RO', 'PT', 'RE', 'NZ', 'GB'}
+True Positives: 19. That is a 15.08%.
+{'DK', 'AR', 'BY', 'PL', 'HK', 'PK', 'BE', 'HR', 'US', 'DE', 'CA', 'RU', 'FR', 'NL', 'RO', 'PT', 'RE', 'NZ', 'GB'}
+False Positives: 1. That is a 0.79%.
+{'CU'}
+Fasle Negatives: 107. That is a 84.92%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'SE', 'PA', 'CL', 'CN', 'MO', 'DZ', 'TH', 'LV', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'BG', 'FJ', 'AM'}
+########################################
+WW_100_192.5.5.241_1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 20
+{'DK', 'CU', 'AR', 'BY', 'PL', 'HK', 'PK', 'BE', 'HR', 'US', 'DE', 'CA', 'RU', 'FR', 'NL', 'RO', 'PT', 'RE', 'NZ', 'GB'}
+True Positives: 19. That is a 15.08%.
+{'DK', 'AR', 'BY', 'PL', 'HK', 'PK', 'BE', 'HR', 'US', 'DE', 'CA', 'RU', 'FR', 'NL', 'RO', 'PT', 'RE', 'NZ', 'GB'}
+False Positives: 1. That is a 0.79%.
+{'CU'}
+Fasle Negatives: 107. That is a 84.92%.
+{'GH', 'DO', 'PH', 'ID', 'GY', 'AO', 'DJ', 'PE', 'EE', 'CZ', 'ES', 'HN', 'TZ', 'KH', 'IS', 'SE', 'PA', 'CL', 'CN', 'MO', 'DZ', 'TH', 'LV', 'CR', 'KE', 'TN', 'HU', 'KR', 'TR', 'AE', 'KW', 'BN', 'LB', 'MV', 'AU', 'LT', 'SN', 'BF', 'MG', 'LK', 'MD', 'MZ', 'BO', 'IQ', 'MY', 'PG', 'VN', 'JO', 'QA', 'GE', 'MU', 'BW', 'SA', 'SG', 'SX', 'NO', 'CH', 'BH', 'NC', 'BR', 'GU', 'PF', 'PY', 'HT', 'CO', 'IT', 'NG', 'ZA', 'JM', 'OM', 'NP', 'CY', 'MN', 'SK', 'IE', 'GR', 'IN', 'RS', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'FI', 'KZ', 'BD', 'MA', 'AZ', 'MX', 'AL', 'GT', 'UA', 'UY', 'LA', 'EC', 'ME', 'IL', 'CM', 'BT', 'UZ', 'SO', 'JP', 'CW', 'BG', 'FJ', 'AM'}
+########################################
+WW_300_192.5.5.241_0.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 34
+{'ID', 'BR', 'IT', 'ZW', 'ES', 'CZ', 'AR', 'BY', 'SE', 'AF', 'CL', 'IE', 'CN', 'IN', 'DZ', 'AT', 'US', 'HU', 'DE', 'CD', 'CA', 'AZ', 'AU', 'RU', 'LT', 'FR', 'NL', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SA', 'BG'}
+True Positives: 31. That is a 24.60%.
+{'ID', 'BR', 'IT', 'ES', 'CZ', 'AR', 'BY', 'CL', 'IE', 'CN', 'IN', 'DZ', 'AT', 'US', 'HU', 'DE', 'CA', 'AZ', 'AU', 'RU', 'LT', 'BG', 'FR', 'NL', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SA', 'SE'}
+False Positives: 3. That is a 2.38%.
+{'AF', 'ZW', 'CD'}
+Fasle Negatives: 95. That is a 75.40%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'IS', 'PA', 'MO', 'TH', 'LV', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'PG', 'QA', 'GE', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'HK', 'CR', 'HR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'SG', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'PL', 'SK', 'GR', 'PK', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MX', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_0.1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 35
+{'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'AR', 'BY', 'IR', 'AF', 'CL', 'IE', 'CN', 'IN', 'GR', 'AT', 'BE', 'US', 'HU', 'DE', 'CA', 'MA', 'AZ', 'AU', 'RU', 'LT', 'MX', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SE'}
+True Positives: 32. That is a 25.40%.
+{'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'AR', 'BY', 'CL', 'IE', 'CN', 'IN', 'GR', 'AT', 'BE', 'US', 'HU', 'DE', 'CA', 'MA', 'AZ', 'AU', 'RU', 'LT', 'MX', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SE'}
+False Positives: 3. That is a 2.38%.
+{'ET', 'AF', 'IR'}
+Fasle Negatives: 94. That is a 74.60%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'IS', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'FI', 'NL', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'HK', 'CR', 'HR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'SG', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'PL', 'SK', 'PK', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'BG', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_0.2.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 34
+{'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'IR', 'CL', 'IE', 'CN', 'SI', 'IN', 'GR', 'PK', 'BE', 'US', 'HU', 'DE', 'CA', 'MA', 'AZ', 'AU', 'RU', 'LT', 'MX', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SE'}
+True Positives: 31. That is a 24.60%.
+{'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'CL', 'IE', 'CN', 'IN', 'GR', 'PK', 'BE', 'US', 'HU', 'DE', 'CA', 'MA', 'AZ', 'AU', 'RU', 'LT', 'MX', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SE'}
+False Positives: 3. That is a 2.38%.
+{'SI', 'ET', 'IR'}
+Fasle Negatives: 95. That is a 75.40%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'IS', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'FI', 'NL', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'HK', 'CR', 'HR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'SG', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'BG', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_0.3.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 35
+{'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'IR', 'CL', 'IE', 'CN', 'IN', 'GR', 'PK', 'BE', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'MA', 'AZ', 'AU', 'RU', 'LT', 'MX', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SE'}
+True Positives: 33. That is a 26.19%.
+{'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'CL', 'IE', 'CN', 'IN', 'GR', 'PK', 'BE', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'MA', 'AZ', 'AU', 'RU', 'LT', 'MX', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SE'}
+False Positives: 2. That is a 1.59%.
+{'ET', 'IR'}
+Fasle Negatives: 93. That is a 73.81%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'IS', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'NL', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'HK', 'CR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'SG', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'BG', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_0.4.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 35
+{'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'SE', 'IR', 'CL', 'IE', 'CN', 'IN', 'PK', 'BE', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'MA', 'AZ', 'AU', 'RU', 'LT', 'MX', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'BG'}
+True Positives: 33. That is a 26.19%.
+{'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'CL', 'IE', 'CN', 'IN', 'PK', 'BE', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'MA', 'AZ', 'AU', 'RU', 'LT', 'MX', 'BG', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SE'}
+False Positives: 2. That is a 1.59%.
+{'ET', 'IR'}
+Fasle Negatives: 93. That is a 73.81%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'IS', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'NL', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'HK', 'CR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'SG', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'GR', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_0.5.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 35
+{'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'SE', 'IR', 'CL', 'IE', 'CN', 'IN', 'LV', 'PK', 'BE', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'BG', 'AM'}
+True Positives: 33. That is a 26.19%.
+{'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'CL', 'IE', 'CN', 'IN', 'LV', 'PK', 'BE', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'BG', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SE', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'ET', 'IR'}
+Fasle Negatives: 93. That is a 73.81%.
+{'GH', 'DO', 'AO', 'EE', 'IS', 'PA', 'MO', 'DZ', 'TH', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'MA', 'NL', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'HK', 'CR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'SG', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'GR', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_0.6.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 35
+{'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'SE', 'IR', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'BE', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'BG', 'AM'}
+True Positives: 33. That is a 26.19%.
+{'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'BY', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'BE', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'BG', 'FR', 'MY', 'JP', 'NZ', 'MU', 'GB', 'SE', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'ET', 'IR'}
+Fasle Negatives: 93. That is a 73.81%.
+{'GH', 'DO', 'AO', 'EE', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'MA', 'NL', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'CR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'SG', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'GR', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_0.7.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 36
+{'NO', 'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'IR', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'NL', 'UA', 'IQ', 'JP', 'NZ', 'MU', 'GB', 'SG', 'BG', 'AM'}
+True Positives: 34. That is a 26.98%.
+{'NO', 'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'NL', 'UA', 'IQ', 'JP', 'NZ', 'MU', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'ET', 'IR'}
+Fasle Negatives: 92. That is a 73.02%.
+{'GH', 'DO', 'AO', 'EE', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'BY', 'CR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'VN', 'JO', 'RE', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'GR', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'GT', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'SE', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_0.8.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 36
+{'NO', 'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'IR', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'NL', 'UA', 'IQ', 'JP', 'NZ', 'MU', 'GB', 'SG', 'BG', 'AM'}
+True Positives: 34. That is a 26.98%.
+{'NO', 'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'NL', 'UA', 'IQ', 'JP', 'NZ', 'MU', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'ET', 'IR'}
+Fasle Negatives: 92. That is a 73.02%.
+{'GH', 'DO', 'AO', 'EE', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'BY', 'CR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'VN', 'JO', 'RE', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'GR', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'GT', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'SE', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_0.9.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 36
+{'NO', 'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'IR', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'NL', 'UA', 'IQ', 'JP', 'NZ', 'MU', 'GB', 'SG', 'BG', 'AM'}
+True Positives: 34. That is a 26.98%.
+{'NO', 'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'NL', 'UA', 'IQ', 'JP', 'NZ', 'MU', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'ET', 'IR'}
+Fasle Negatives: 92. That is a 73.02%.
+{'GH', 'DO', 'AO', 'EE', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'BY', 'CR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'VN', 'JO', 'RE', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'GR', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'GT', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'SE', 'FJ', 'GU'}
+########################################
+WW_300_192.5.5.241_1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 36
+{'NO', 'ID', 'BR', 'ET', 'IT', 'ES', 'CZ', 'ZA', 'IR', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'NL', 'UA', 'IQ', 'JP', 'NZ', 'MU', 'GB', 'SG', 'BG', 'AM'}
+True Positives: 34. That is a 26.98%.
+{'NO', 'ID', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'CL', 'IE', 'HK', 'IN', 'LV', 'PK', 'HR', 'US', 'HU', 'DE', 'FI', 'CA', 'AU', 'RU', 'LT', 'MX', 'FR', 'NL', 'UA', 'IQ', 'JP', 'NZ', 'MU', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'ET', 'IR'}
+Fasle Negatives: 92. That is a 73.02%.
+{'GH', 'DO', 'AO', 'EE', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'KE', 'TN', 'TR', 'BN', 'LB', 'MV', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'PH', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'BY', 'CR', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'VN', 'JO', 'RE', 'BW', 'CH', 'NC', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'GR', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'GT', 'UY', 'LA', 'PT', 'EC', 'CM', 'CW', 'SE', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 39
+{'PH', 'ID', 'NC', 'BR', 'IT', 'ES', 'CZ', 'CU', 'AR', 'IS', 'IR', 'CN', 'IN', 'AT', 'PK', 'HR', 'US', 'N/A', 'DE', 'TR', 'CA', 'AZ', 'BG', 'RU', 'LT', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BW', 'SE', 'IL'}
+True Positives: 36. That is a 28.57%.
+{'PH', 'ID', 'NC', 'BR', 'IT', 'ES', 'CZ', 'AR', 'IS', 'SE', 'CN', 'IN', 'AT', 'PK', 'HR', 'US', 'DE', 'TR', 'CA', 'AZ', 'AU', 'RU', 'LT', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BW', 'BG', 'IL'}
+False Positives: 3. That is a 2.38%.
+{'N/A', 'CU', 'IR'}
+Fasle Negatives: 90. That is a 71.43%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'LB', 'MV', 'SN', 'BF', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'FI', 'MA', 'AL', 'ME', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HU', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'SG', 'CH', 'PF', 'PY', 'CO', 'JM', 'PL', 'SK', 'IE', 'GR', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 39
+{'PH', 'ID', 'NC', 'BR', 'IT', 'ES', 'CZ', 'CU', 'AR', 'IS', 'IR', 'CN', 'IN', 'AT', 'PK', 'US', 'N/A', 'DE', 'TR', 'CA', 'AZ', 'LB', 'KS', 'BG', 'RU', 'LT', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BW', 'SE'}
+True Positives: 35. That is a 27.78%.
+{'PH', 'ID', 'NC', 'BR', 'IT', 'ES', 'CZ', 'AR', 'IS', 'SE', 'CN', 'IN', 'AT', 'PK', 'US', 'DE', 'TR', 'CA', 'AZ', 'LB', 'AU', 'RU', 'LT', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BW', 'BG'}
+False Positives: 4. That is a 3.17%.
+{'KS', 'N/A', 'CU', 'IR'}
+Fasle Negatives: 91. That is a 72.22%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'SG', 'CH', 'PF', 'PY', 'CO', 'JM', 'PL', 'SK', 'IE', 'GR', 'SR', 'MM', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.2.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 39
+{'PH', 'ID', 'NC', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'CU', 'AR', 'IS', 'IR', 'CN', 'IN', 'SI', 'PK', 'US', 'N/A', 'DE', 'TR', 'CA', 'AZ', 'LB', 'KS', 'BG', 'RU', 'LT', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'SE'}
+True Positives: 34. That is a 26.98%.
+{'PH', 'ID', 'NC', 'BR', 'IT', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'CN', 'IN', 'PK', 'US', 'DE', 'TR', 'CA', 'AZ', 'LB', 'AU', 'RU', 'LT', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BG'}
+False Positives: 5. That is a 3.97%.
+{'IR', 'KS', 'SI', 'CU', 'N/A'}
+Fasle Negatives: 92. That is a 73.02%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'PE', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'SG', 'BW', 'CH', 'PF', 'PY', 'CO', 'JM', 'PL', 'SK', 'IE', 'GR', 'AT', 'MM', 'SR', 'PS', 'TW', 'LU', 'KZ', 'BD', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.3.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 41
+{'PH', 'ID', 'NC', 'BR', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'CU', 'OM', 'IS', 'CL', 'CN', 'IN', 'PK', 'HR', 'US', 'N/A', 'TW', 'DE', 'TR', 'CA', 'AZ', 'LB', 'KS', 'BG', 'RU', 'LT', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'SE'}
+True Positives: 38. That is a 30.16%.
+{'PH', 'ID', 'NC', 'BR', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'OM', 'IS', 'SE', 'CL', 'CN', 'IN', 'PK', 'HR', 'US', 'TW', 'DE', 'TR', 'CA', 'AZ', 'LB', 'AU', 'RU', 'LT', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BG'}
+False Positives: 3. That is a 2.38%.
+{'N/A', 'CU', 'KS'}
+Fasle Negatives: 88. That is a 69.84%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'NP', 'CY', 'MN', 'RS', 'BE', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'HK', 'CR', 'HU', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'SG', 'BW', 'CH', 'PF', 'PY', 'CO', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'SR', 'MM', 'PS', 'LU', 'KZ', 'BD', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.4.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 44
+{'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'CU', 'OM', 'IS', 'PL', 'CL', 'CN', 'IN', 'RS', 'AT', 'PK', 'HR', 'US', 'N/A', 'TW', 'DE', 'TR', 'CA', 'AZ', 'LB', 'BG', 'RU', 'LT', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE'}
+True Positives: 42. That is a 33.33%.
+{'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'OM', 'IS', 'SE', 'PL', 'CL', 'CN', 'IN', 'RS', 'AT', 'PK', 'HR', 'US', 'TW', 'DE', 'TR', 'CA', 'AZ', 'LB', 'AU', 'RU', 'LT', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG'}
+False Positives: 2. That is a 1.59%.
+{'N/A', 'CU'}
+Fasle Negatives: 84. That is a 66.67%.
+{'GH', 'DO', 'AO', 'AM', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'HT', 'NG', 'NP', 'CY', 'MN', 'BE', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'HK', 'CR', 'HU', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'BW', 'CH', 'PF', 'PY', 'CO', 'JM', 'AR', 'SK', 'IE', 'GR', 'MM', 'SR', 'PS', 'LU', 'KZ', 'BD', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.5.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 43
+{'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'CU', 'OM', 'IS', 'PL', 'CL', 'CN', 'IN', 'RS', 'AT', 'HR', 'US', 'N/A', 'TW', 'DE', 'TR', 'CA', 'LB', 'BG', 'RU', 'LT', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 41. That is a 32.54%.
+{'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'OM', 'IS', 'SE', 'PL', 'CL', 'CN', 'IN', 'RS', 'AT', 'HR', 'US', 'TW', 'DE', 'TR', 'CA', 'LB', 'AU', 'RU', 'LT', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'N/A', 'CU'}
+Fasle Negatives: 85. That is a 67.46%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'HT', 'NG', 'NP', 'CY', 'MN', 'BE', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'HK', 'CR', 'HU', 'KR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'BW', 'CH', 'PF', 'PY', 'CO', 'JM', 'AR', 'SK', 'IE', 'GR', 'PK', 'MM', 'SR', 'PS', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.6.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 45
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'CU', 'OM', 'IS', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'AT', 'LV', 'HR', 'US', 'N/A', 'TW', 'DE', 'TR', 'CA', 'LB', 'BG', 'RU', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 43. That is a 34.13%.
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'OM', 'IS', 'SE', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'AT', 'LV', 'HR', 'US', 'TW', 'DE', 'TR', 'CA', 'LB', 'AU', 'RU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'N/A', 'CU'}
+Fasle Negatives: 83. That is a 65.87%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'HT', 'NG', 'NP', 'CY', 'MN', 'BE', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'CR', 'HU', 'KR', 'AE', 'KW', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'BW', 'CH', 'PF', 'PY', 'CO', 'JM', 'AR', 'SK', 'IE', 'GR', 'PK', 'MM', 'SR', 'PS', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.7.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 45
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'CU', 'OM', 'IS', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'AT', 'LV', 'HR', 'US', 'N/A', 'TW', 'DE', 'TR', 'CA', 'LB', 'BG', 'RU', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 43. That is a 34.13%.
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'OM', 'IS', 'SE', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'AT', 'LV', 'HR', 'US', 'TW', 'DE', 'TR', 'CA', 'LB', 'AU', 'RU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'N/A', 'CU'}
+Fasle Negatives: 83. That is a 65.87%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'HT', 'NG', 'NP', 'CY', 'MN', 'BE', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'CR', 'HU', 'KR', 'AE', 'KW', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'BW', 'CH', 'PF', 'PY', 'CO', 'JM', 'AR', 'SK', 'IE', 'GR', 'PK', 'MM', 'SR', 'PS', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.8.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 46
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'CU', 'IS', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'AT', 'LV', 'BE', 'HR', 'US', 'N/A', 'TW', 'DE', 'TR', 'AE', 'CA', 'LB', 'BG', 'RU', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 44. That is a 34.92%.
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'IS', 'SE', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'AT', 'LV', 'BE', 'HR', 'US', 'TW', 'DE', 'TR', 'AE', 'CA', 'LB', 'AU', 'RU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'N/A', 'CU'}
+Fasle Negatives: 82. That is a 65.08%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'CR', 'HU', 'KR', 'KW', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'BW', 'CH', 'PF', 'PY', 'CO', 'JM', 'AR', 'SK', 'IE', 'GR', 'PK', 'MM', 'SR', 'PS', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_0.9.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 46
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'CU', 'IS', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'LV', 'BE', 'HR', 'US', 'N/A', 'HU', 'TW', 'DE', 'TR', 'AE', 'CA', 'LB', 'BG', 'RU', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 44. That is a 34.92%.
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'IS', 'SE', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'LV', 'BE', 'HR', 'US', 'HU', 'TW', 'DE', 'TR', 'AE', 'CA', 'LB', 'AU', 'RU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'N/A', 'CU'}
+Fasle Negatives: 82. That is a 65.08%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'CR', 'KR', 'KW', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'BW', 'CH', 'PF', 'PY', 'CO', 'JM', 'AR', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'PS', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_500_192.5.5.241_1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 46
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'CU', 'IS', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'LV', 'BE', 'HR', 'US', 'N/A', 'HU', 'TW', 'DE', 'TR', 'AE', 'CA', 'LB', 'BG', 'RU', 'AU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 44. That is a 34.92%.
+{'NO', 'PH', 'ID', 'NC', 'BR', 'DK', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'IS', 'SE', 'PL', 'CL', 'HK', 'CN', 'IN', 'RS', 'LV', 'BE', 'HR', 'US', 'HU', 'TW', 'DE', 'TR', 'AE', 'CA', 'LB', 'AU', 'RU', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'N/A', 'CU'}
+Fasle Negatives: 82. That is a 65.08%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'KE', 'TN', 'BN', 'MV', 'SN', 'BF', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'FI', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'CR', 'KR', 'KW', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'BW', 'CH', 'PF', 'PY', 'CO', 'JM', 'AR', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'PS', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_1000_192.5.5.241_0.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 46
+{'DO', 'PH', 'ID', 'BR', 'PF', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'SZ', 'CN', 'GR', 'IN', 'AT', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'FI', 'KZ', 'CA', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'SY', 'MY', 'RE', 'JP', 'NZ', 'GB', 'SE', 'AM'}
+True Positives: 43. That is a 34.13%.
+{'DO', 'PH', 'ID', 'BR', 'PF', 'PE', 'IT', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CN', 'GR', 'IN', 'AT', 'US', 'HU', 'KR', 'DE', 'TR', 'FI', 'KZ', 'CA', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BG', 'AM'}
+False Positives: 3. That is a 2.38%.
+{'SZ', 'N/A', 'SY'}
+Fasle Negatives: 83. That is a 65.87%.
+{'GH', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'LB', 'MV', 'SN', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'SG', 'BW', 'CH', 'NC', 'PY', 'CO', 'JM', 'SK', 'IE', 'PK', 'MM', 'SR', 'PS', 'TW', 'LU', 'BD', 'AZ', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_1000_192.5.5.241_0.1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 47
+{'PH', 'ID', 'BR', 'PF', 'PE', 'IT', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'SZ', 'CN', 'GR', 'IN', 'AT', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'FI', 'KZ', 'CA', 'BD', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'SY', 'MY', 'RE', 'JP', 'NZ', 'GB', 'SE', 'AM'}
+True Positives: 44. That is a 34.92%.
+{'PH', 'ID', 'BR', 'PF', 'PE', 'IT', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CN', 'GR', 'IN', 'AT', 'US', 'HU', 'KR', 'DE', 'TR', 'FI', 'KZ', 'CA', 'BD', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BG', 'AM'}
+False Positives: 3. That is a 2.38%.
+{'SZ', 'N/A', 'SY'}
+Fasle Negatives: 82. That is a 65.08%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'LB', 'MV', 'SN', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'SG', 'BW', 'CH', 'NC', 'PY', 'JM', 'SK', 'IE', 'PK', 'MM', 'SR', 'PS', 'TW', 'LU', 'AZ', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_1000_192.5.5.241_0.2.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 47
+{'PH', 'ID', 'BR', 'PF', 'PE', 'IT', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'SZ', 'CN', 'GR', 'IN', 'SI', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'FI', 'KZ', 'CA', 'BD', 'LB', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'SE', 'AM'}
+True Positives: 44. That is a 34.92%.
+{'PH', 'ID', 'BR', 'PF', 'PE', 'IT', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CN', 'GR', 'IN', 'US', 'HU', 'KR', 'DE', 'TR', 'FI', 'KZ', 'CA', 'BD', 'LB', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BG', 'AM'}
+False Positives: 3. That is a 2.38%.
+{'SI', 'SZ', 'N/A'}
+Fasle Negatives: 82. That is a 65.08%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'MV', 'SN', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'SG', 'BW', 'CH', 'NC', 'PY', 'JM', 'SK', 'IE', 'AT', 'SR', 'PK', 'MM', 'PS', 'TW', 'LU', 'AZ', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_1000_192.5.5.241_0.3.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 49
+{'PH', 'ID', 'BR', 'PF', 'PE', 'IT', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'CL', 'SZ', 'CN', 'GR', 'IN', 'HR', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'SE', 'AM'}
+True Positives: 47. That is a 37.30%.
+{'PH', 'ID', 'BR', 'PF', 'PE', 'IT', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CL', 'CN', 'GR', 'IN', 'HR', 'US', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'MY', 'RE', 'JP', 'NZ', 'GB', 'BG', 'AM'}
+False Positives: 2. That is a 1.59%.
+{'SZ', 'N/A'}
+Fasle Negatives: 79. That is a 62.70%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'MV', 'SN', 'MZ', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'DK', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'HK', 'CR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'SG', 'BW', 'CH', 'NC', 'PY', 'JM', 'SK', 'IE', 'AT', 'PK', 'MM', 'SR', 'PS', 'LU', 'AZ', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_1000_192.5.5.241_0.4.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 49
+{'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'CL', 'CN', 'GR', 'IN', 'HR', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 48. That is a 38.10%.
+{'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CL', 'CN', 'GR', 'IN', 'HR', 'US', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 1. That is a 0.79%.
+{'N/A'}
+Fasle Negatives: 78. That is a 61.90%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'MV', 'SN', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'HK', 'CR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'BW', 'CH', 'NC', 'PY', 'JM', 'SK', 'IE', 'AT', 'PK', 'MM', 'SR', 'PS', 'LU', 'AZ', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_1000_192.5.5.241_0.5.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 50
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'CL', 'CN', 'GR', 'IN', 'HR', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 49. That is a 38.89%.
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CL', 'CN', 'GR', 'IN', 'HR', 'US', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 1. That is a 0.79%.
+{'N/A'}
+Fasle Negatives: 77. That is a 61.11%.
+{'GH', 'DO', 'AO', 'EE', 'PA', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'BN', 'MV', 'SN', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'BH', 'HT', 'NG', 'OM', 'NP', 'CY', 'MN', 'RS', 'BE', 'MA', 'AL', 'ME', 'IL', 'BT', 'UZ', 'SO', 'GY', 'DJ', 'HN', 'TZ', 'KH', 'BY', 'HK', 'CR', 'AE', 'KW', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'MU', 'BW', 'CH', 'NC', 'PY', 'JM', 'SK', 'IE', 'AT', 'PK', 'MM', 'SR', 'PS', 'LU', 'AZ', 'GT', 'UY', 'LA', 'EC', 'CM', 'CW', 'FJ', 'GU'}
+########################################
+WW_1000_192.5.5.241_0.6.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 51
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 50. That is a 39.68%.
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 1. That is a 0.79%.
+{'N/A'}
+Fasle Negatives: 76. That is a 60.32%.
+{'GH', 'CH', 'DO', 'BH', 'NC', 'GY', 'AO', 'GU', 'DJ', 'PY', 'EE', 'HT', 'NG', 'HN', 'JM', 'OM', 'TZ', 'KH', 'BY', 'NP', 'PA', 'CY', 'MN', 'SK', 'MO', 'IE', 'DZ', 'TH', 'RS', 'LV', 'CR', 'AT', 'BE', 'PK', 'KE', 'TN', 'MM', 'SR', 'PS', 'AE', 'LU', 'KW', 'MA', 'BN', 'AZ', 'MV', 'SN', 'MG', 'AL', 'LK', 'MD', 'GT', 'UY', 'MZ', 'LA', 'BO', 'IQ', 'EC', 'ME', 'MY', 'PG', 'IL', 'VN', 'CM', 'BT', 'JO', 'UZ', 'QA', 'GE', 'SO', 'CW', 'MU', 'BW', 'SA', 'FJ', 'SX'}
+########################################
+WW_1000_192.5.5.241_0.7.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 51
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 50. That is a 39.68%.
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 1. That is a 0.79%.
+{'N/A'}
+Fasle Negatives: 76. That is a 60.32%.
+{'GH', 'CH', 'DO', 'BH', 'NC', 'GY', 'AO', 'GU', 'DJ', 'PY', 'EE', 'HT', 'NG', 'HN', 'JM', 'OM', 'TZ', 'KH', 'BY', 'NP', 'PA', 'CY', 'MN', 'SK', 'MO', 'IE', 'DZ', 'TH', 'RS', 'LV', 'CR', 'AT', 'BE', 'PK', 'KE', 'TN', 'MM', 'SR', 'PS', 'AE', 'LU', 'KW', 'MA', 'BN', 'AZ', 'MV', 'SN', 'MG', 'AL', 'LK', 'MD', 'GT', 'UY', 'MZ', 'LA', 'BO', 'IQ', 'EC', 'ME', 'MY', 'PG', 'IL', 'VN', 'CM', 'BT', 'JO', 'UZ', 'QA', 'GE', 'SO', 'CW', 'MU', 'BW', 'SA', 'FJ', 'SX'}
+########################################
+WW_1000_192.5.5.241_0.8.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 51
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 50. That is a 39.68%.
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 1. That is a 0.79%.
+{'N/A'}
+Fasle Negatives: 76. That is a 60.32%.
+{'GH', 'CH', 'DO', 'BH', 'NC', 'GY', 'AO', 'GU', 'DJ', 'PY', 'EE', 'HT', 'NG', 'HN', 'JM', 'OM', 'TZ', 'KH', 'BY', 'NP', 'PA', 'CY', 'MN', 'SK', 'MO', 'IE', 'DZ', 'TH', 'RS', 'LV', 'CR', 'AT', 'BE', 'PK', 'KE', 'TN', 'MM', 'SR', 'PS', 'AE', 'LU', 'KW', 'MA', 'BN', 'AZ', 'MV', 'SN', 'MG', 'AL', 'LK', 'MD', 'GT', 'UY', 'MZ', 'LA', 'BO', 'IQ', 'EC', 'ME', 'MY', 'PG', 'IL', 'VN', 'CM', 'BT', 'JO', 'UZ', 'QA', 'GE', 'SO', 'CW', 'MU', 'BW', 'SA', 'FJ', 'SX'}
+########################################
+WW_1000_192.5.5.241_0.9.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 51
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 50. That is a 39.68%.
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 1. That is a 0.79%.
+{'N/A'}
+Fasle Negatives: 76. That is a 60.32%.
+{'GH', 'CH', 'DO', 'BH', 'NC', 'GY', 'AO', 'GU', 'DJ', 'PY', 'EE', 'HT', 'NG', 'HN', 'JM', 'OM', 'TZ', 'KH', 'BY', 'NP', 'PA', 'CY', 'MN', 'SK', 'MO', 'IE', 'DZ', 'TH', 'RS', 'LV', 'CR', 'AT', 'BE', 'PK', 'KE', 'TN', 'MM', 'SR', 'PS', 'AE', 'LU', 'KW', 'MA', 'BN', 'AZ', 'MV', 'SN', 'MG', 'AL', 'LK', 'MD', 'GT', 'UY', 'MZ', 'LA', 'BO', 'IQ', 'EC', 'ME', 'MY', 'PG', 'IL', 'VN', 'CM', 'BT', 'JO', 'UZ', 'QA', 'GE', 'SO', 'CW', 'MU', 'BW', 'SA', 'FJ', 'SX'}
+########################################
+WW_1000_192.5.5.241_1.json
+Ground Truth countries number: 126
+{'GH', 'DO', 'ID', 'AO', 'AM', 'EE', 'CZ', 'IS', 'PA', 'CN', 'MO', 'DZ', 'TH', 'LV', 'KE', 'TN', 'DE', 'TR', 'CA', 'BN', 'LB', 'MV', 'BG', 'SN', 'BF', 'RO', 'MZ', 'MY', 'PG', 'QA', 'GE', 'SA', 'SX', 'NO', 'BH', 'BR', 'DK', 'HT', 'NG', 'ZA', 'OM', 'NP', 'CY', 'MN', 'IN', 'RS', 'BE', 'FI', 'MA', 'RU', 'NL', 'AL', 'ME', 'BT', 'UZ', 'SO', 'NZ', 'PH', 'GY', 'DJ', 'PE', 'ES', 'HN', 'TZ', 'KH', 'BY', 'CL', 'HK', 'CR', 'HR', 'HU', 'KR', 'AE', 'KW', 'AU', 'LT', 'MG', 'LK', 'MD', 'BO', 'IQ', 'VN', 'JO', 'RE', 'MU', 'BW', 'SG', 'CH', 'NC', 'GU', 'PF', 'PY', 'CO', 'IT', 'JM', 'AR', 'PL', 'SK', 'IE', 'GR', 'AT', 'PK', 'MM', 'SR', 'US', 'PS', 'TW', 'LU', 'KZ', 'BD', 'AZ', 'MX', 'FR', 'GT', 'UA', 'UY', 'LA', 'PT', 'EC', 'CM', 'JP', 'CW', 'GB', 'SE', 'FJ', 'IL'}
+Results countries number: 51
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'N/A', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'BG', 'LT', 'RU', 'AU', 'BF', 'MX', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'SE', 'AM'}
+True Positives: 50. That is a 39.68%.
+{'NO', 'PH', 'ID', 'BR', 'DK', 'PE', 'IT', 'PF', 'CO', 'ES', 'CZ', 'ZA', 'AR', 'IS', 'SE', 'PL', 'CL', 'CN', 'HK', 'IN', 'GR', 'HR', 'US', 'HU', 'KR', 'DE', 'TR', 'TW', 'FI', 'KZ', 'CA', 'BD', 'LB', 'AU', 'LT', 'RU', 'MX', 'BF', 'FR', 'NL', 'UA', 'RO', 'PT', 'RE', 'JP', 'NZ', 'GB', 'SG', 'BG', 'AM'}
+False Positives: 1. That is a 0.79%.
+{'N/A'}
+Fasle Negatives: 76. That is a 60.32%.
+{'GH', 'CH', 'DO', 'BH', 'NC', 'GY', 'AO', 'GU', 'DJ', 'PY', 'EE', 'HT', 'NG', 'HN', 'JM', 'OM', 'TZ', 'KH', 'BY', 'NP', 'PA', 'CY', 'MN', 'SK', 'MO', 'IE', 'DZ', 'TH', 'RS', 'LV', 'CR', 'AT', 'BE', 'PK', 'KE', 'TN', 'MM', 'SR', 'PS', 'AE', 'LU', 'KW', 'MA', 'BN', 'AZ', 'MV', 'SN', 'MG', 'AL', 'LK', 'MD', 'GT', 'UY', 'MZ', 'LA', 'BO', 'IQ', 'EC', 'ME', 'MY', 'PG', 'IL', 'VN', 'CM', 'BT', 'JO', 'UZ', 'QA', 'GE', 'SO', 'CW', 'MU', 'BW', 'SA', 'FJ', 'SX'}
+########################################
