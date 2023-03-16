@@ -13,13 +13,22 @@ Authorization key is expected in $HOME/.atlas/auth or have to be
 provided in the constructor's arguments.
 
 Stéphane Bortzmeyer <bortzmeyer+ripe@nic.fr>
-
 """
 
 import os, sys
 import json
 import time
 import requests
+
+from custom_exceptions import (
+    AuthFileNotFound,
+    FieldsQueryError,
+    InternalError,
+    MeasurementAccessError,
+    MeasurementNotFound,
+    RequestSubmissionError,
+    ResultError
+)
 
 authfile = "datasets/auth"
 base_url = "https://atlas.ripe.net/api/v2/measurements"
@@ -40,30 +49,6 @@ maximum_time_for_results_factor = 5
 # retrieving the results themselves. The only solution is to wait
 # "long enough". The time to wait is not documented so the values
 # above have been found mostly with trial-and-error.
-
-class AuthFileNotFound(Exception):
-    pass
-
-class RequestSubmissionError(Exception):
-    pass
-
-class FieldsQueryError(Exception):
-    pass
-
-class MeasurementNotFound(Exception):
-    pass
-
-class MeasurementAccessError(Exception):
-    pass
-
-class ResultError(Exception):
-    pass
-
-class IncompatibleArguments(Exception):
-    pass
-
-class InternalError(Exception):
-    pass
 
 class Measurement():
     """ An Atlas measurement, identified by its ID (such as #1010569) in the field "id" """
