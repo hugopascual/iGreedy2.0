@@ -57,13 +57,6 @@ from threading import Thread
 # TODO: This variables could be constants or be inside a config file
 # TODO: Study use of each one
 IATA_file = './datasets/airports.csv'
-infile = ''
-outfile = 'output'
-outformat = "csv"
-gtfile = ''
-alpha = 1  #advised settings
-browser  = False 
-noise = 0  #exponential additive noise, only for sensitivity analysis
 
 IATA = []
 IATAlat = {}
@@ -75,12 +68,13 @@ GT = {}
 PAInum = 0
 GTnum = 0
 
-input_file = ''
+input_file = None
+ip = None
 probes_file = './probes_sets/default_ripe_probes.json'
 output_path = './results/'
 output_file = 'output'
 outformat = "csv"
-gt_file = ''
+gt_file = None
 alpha = 1       # advised settings
 browser  = False 
 noise = 0       # exponential additive noise, only for sensitivity analysis
@@ -444,7 +438,6 @@ def output():
             markerGT.longitude= IATAlon[gt]
             data.markerGT.append(markerGT)
 
-
     json=open(output_file + ".json","w")
     #json.write("var data=\n")
     json.write(data.to_JSON())
@@ -461,35 +454,45 @@ def help():
 
     print (asciiart + """
 Usage:  igreedy.py -i filename [ OPTIONS ]
-        igreedy.py -m IP_direction [ -p filename ] [ OPTIONS ]
-
-          -o output   [-n noise (0)]  [-t threshold (\infty)]  
+        igreedy.py -m IP_direction [ -p filename ] [ OPTIONS ] 
 
 Commands:
 Either long or short options are allowed
-    --input -i  filename        Input filename which contains the data of an 
+    --input         -i  filename
+                                Input filename which contains the data of an 
                                 specific measurement to be analyzed
     --measurement   -m  IP_direction
                                 Real time measurements from Ripe Atlas using the
                                 ripe probes in datasets/ripeProbes. IPV4/IPv6.
 
 Parameters:
-    --probes    -p  filename    
+    --probes        -p  filename    
                                 Filename of the JSON document which contains the
                                 specification of the probes to use in the 
                                 measurement (default 
-                                "probes_sets/defaault_ripe_probes.json")
+                                "probes_sets/ripe_probes.json")
 
-where:
-    -i input file
-    -o output prefix (.csv,.json)
-    -g measured ground truth (GT) or publicly available information (PAI) files 
-    (format: "hostname iata" lines for GT, "iata" lines for PAI)
-    -a alpha (tune population vs distance score, see INFOCOM'15)
-    -b browser (visualize the results in a browser with a map)
-    -n noise (average of exponentially distributed additive latency noise; only for sensitivity)
-    -t threshold (discard disks having latency larger than threshold to bound the error)
-    -m IPV4 or IPV6 (real time measurements from Ripe Atlas using the ripe probes in datasets/ripeProbes) 
+Options:
+    --alpha         -a  alpha   
+                                alpha (tune population vs distance score, 
+                                see INFOCOM'15) (default 1)
+    --noise         -n  noise   
+                                Average of exponentially distributed 
+                                additive latency noise; only for sensitivity 
+                                (default 0)
+    --threshold     -t  threshold   
+                                Discard disks having latency larger 
+                                than threshold to bound the error
+    --output        -o  filename
+                                Filename to use in the output file with the 
+                                measurements (.csv and .json)
+    --groundtruth   -g  filename
+                                Filename of the measured ground truth (GT) or 
+                                publicly available information (PAI) files 
+                                (format: "hostname iata" lines for GT, "iata" 
+                                lines for PAI)
+    --browser       -b          Visualize the results in a browser with
+                                a map (default false) 
     """)
 
     sys.exit(0)
@@ -499,47 +502,47 @@ def main(argv):
     Checks input arguments and decide what code needs to be executed.
     """
 
-    global input_file, probes_file
+    # First check for help option
+    if ("-h" in argv) or ("--help" in argv):
+        help()
+
+    # Varibles needed to make the measurement and analisis
+    global input_file, probes_file, ip
     global gt_file, output_path, output_file, threshold, alpha, browser, noise
     global load_time, run_time
 
     maker_time = time.time()
-    ip=""
 
-    # This sections gets the options used and their values    
+    # This sections parse the options selected and their values
     try:
         options, args = getopt.getopt(argv, 
-                                      "h:i:m:p:a:n:t:o:g:b", 
-                                      ["help",
-                                       "input",
+                                      "i:m:p:a:n:t:o:g:b", 
+                                      ["input",
                                        "measurement", "probes", 
                                        "alpha", "noise", "threshold",
                                        "output", "groundtruth", "browser"])
-    except getopt.GetoptError:
-        help()
+    except getopt.GetoptError as e:
+        print(e)
 
     # This section set as variables the values of the different options used
     for option, arg in options:
-        if option in ("-h", "--help"):
-            help()
-        
-        # Basic inputs checks
+        # Commands inputs checks
         if option in ("-i", "--input"):
             if not os.path.isfile(arg):
                 print ("Input file <"+arg+"> does not exist")
                 sys.exit(2)
             else: 
                 input_file = arg
-        
-        if option in ("-m", "--measurement"):
+                
+        elif option in ("-m", "--measurement"):
             ip = arg
 
-        if (ip != '') and (input_file != ''):
+        elif (ip != '') and (input_file != ''):
             print ("Sorry, you can't use input file and measurement options at the same time.")
             sys.exit(2)
 
         # Options if measurement command selected
-        if (option in ("-p", "--probes")):
+        elif (option in ("-p", "--probes")) and (ip):
             if not os.path.isfile(arg):
                 print ("Input file <"+arg+"> does not exist")
                 sys.exit(2)
@@ -547,13 +550,13 @@ def main(argv):
                 probes_file = arg
 
         # Inputs for the analysis part
-        if option in ("-a", "--alpha"):
+        elif option in ("-a", "--alpha"):
             alpha = float(arg)
             if alpha<0 or alpha>1:
                 print ("alpha must be [0,1], wrong choice:", alpha)
                 sys.exit(-1)
-        
-        if option in ("-n", "--noise"):
+
+        elif option in ("-n", "--noise"):
             noise = float(arg)
             print ("Additive noise, mean: ", noise)
         
@@ -561,7 +564,7 @@ def main(argv):
             threshold = float(arg)
             print ("Latency measurement threshold [ms]: ", threshold)
 
-        # Optional quality of life options
+        # Other options
         if option in ("-o", "--output"):
             output_file = arg
         
