@@ -14,7 +14,7 @@ def dict_to_json_file(dict: dict, file_path: str):
     file.write(json.dumps(dict, sort_keys=True, indent=4))
     file.close()
 
-def get_alpha2_country_codes(filename: str) -> set:
+def get_alpha2_country_codes_from_file(filename: str) -> set:
     country_codes = set()
     countries_list = json_file_to_dict(filename)
     for country in countries_list:
