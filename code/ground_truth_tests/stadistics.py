@@ -8,23 +8,25 @@ from auxiliar import (
 
 def print_global_gt_definitions():
     print("""########################################
-# Definiciones:
-+ Conjuntos
-- RS: Conjunto de paises donde iGreedy ha detectado una instancia anycast.
-- GT: Conjunto de paises donde hay al menos una instancia anycast conocida.
-- ALL: Conjunto de todos los paises del mundo.
+# Definitions:
+In this evaluation a positive is defined as a country with a anycast instance.
 
-+ Estadisticas
-- True Positive: País en el que se ha detectado alguna instancia anycast y 
-ese país está en el GT. Intersección entre RS y GT.
-- False Positive: País en el que se ha detectado alguna instancia anycast y no
-hay ninguna según el GT. RS - GT
-- True Negative: No se tiene en cuenta, porque serían todos aquellos paises en los
-que no hay instancia anycast y no se detecta. Es un conjunto que no aporta nigún
-valor a la medida. En todo caso se podría medir como: Intersección entre 
-(ALL-GT) y (ALL-RS).
-- False Negative: País que el GT marca con alguna instancia anycast y no se ha 
-detectado. GT - RS
++ Sets
+- RS: Set of countries where iGreedy has detected an anycast instance.
+- GT: Set of countries with at least one known anycast instance.
+- ALL: Set of all countries.
+
++ Stadistics sets
+- True Positive: Countries with a known and detected anycast instance.
+Operation: Intersection(RS, GT)
+- False Positive: Countries with a detected anycast instance that does not have 
+any known anycast instance.
+Operation: RS - GT
+- True Negative: Countries without a known and detected anycast instance.
+Operation: Intersection((ALL-RS), (ALL-GT))
+- False Negative: Countries with a known anycast instance that does not have 
+any detected anycast instance.
+Operation: GT - RS
 ########################################""")
 
 def global_instances_check(gt: dict, results: dict):
@@ -61,34 +63,39 @@ def global_instances_check(gt: dict, results: dict):
 
 def print_area_gt_definitions():
     print("""########################################
-# Definiciones:
-+ Conjuntos
--RS: Conjunto de paises donde iGreedy ha detectado una instancia anycast.
--GT: Conjunto de paises donde hay al menos una instancia anycast conocida.
--ALL: Conjunto de todos los paises del mundo.
--AREA: Conjunto de paises dentro del area de selección de las probes.
+# Definitions:
+In this evaluation a positive is defined as a country in the probes area with a 
+anycast instance.
 
-+ Estadisticas
-- True Positive: País dentro de AREA en el que se ha detectado alguna instancia 
-anycast y ese país está en el GT. Intersección entre RS, GT y AREA.
-- False Positive: País dentro del AREA en el que se ha detectado alguna instancia 
-anycast y no hay ninguna según el GT. (Interseccion entre RS y AREA) - GT
-- True Negative: Aquellos paises dentro del AREA en los que no hay instancia 
-anycast y no se detecta. Intersección entre (AREA-GT) y (AREA-RS).
-- False Negative: País dentro del AREA y que el GT marca con alguna instancia 
-anycast y no se ha detectado. (Intersección entre GT y AREA) - RS
++ Sets
+- RS: Set of countries where iGreedy has detected an anycast instance.
+- GT: Set of countries with at least one known anycast instance.
+- ALL: Set of all countries.
+- AREA: Set of countries of probes area.
 
-En el exterior del AREA puede que se detecten instancias por lo que se definen 
-los siguientes conjuntos:
-- INSTANCES_OUTSIDE_TRUE_DETECTED: Paises donde se detecta una instancia, no 
-pertenecen al AREA y si estan en el GT. 
-Intersección de (ALL - AREA), RS y GT.
-- INSTANCES_OUTSIDE_FALSE_DETECTED: Paises donde se detecta una instancia, no 
-pertenecen al AREA y no estan en el GT. 
-(Intersección de (ALL - AREA) y RS) - GT.
-- INSTANCES_OUTSIDE_NON_DETECTED: Paises fuera del AREA donde el GT indica que 
-hay instancias anycast y no se han detectado. 
-(Intersección de (ALL - AREA) y GT) - RS.
++ Stadistics sets
+- True Positive: Countries inside the probes area with a known and detected anycast 
+instance.
+Operation: Intersection(AREA, RS, GT)
+- False Positive: Countries inside the probes area with a detected anycast instance 
+that does not have any known anycast instance.
+Operation: Intersection(AREA, RS) - GT
+- True Negative: Countries inside the probes area without a known and detected 
+anycast instance.
+Operation: Intersection((AREA-RS), (AREA-GT))
+- False Negative: Countries inside the probes area with a known anycast instance that does not have 
+any detected anycast instance.
+Operation: Intersection(AREA, GT) - RS
+
+It could be possible that iGreedy detects a anycast instance outside the probes 
+area. This cases could be interesting to known and present, for this reason the 
+following sets are defined.
+- INSTANCES_OUTSIDE_TRUE_DETECTED: Countries outside the probes area with a known
+and detected anycast instance.
+Operation: Intersection((ALL - AREA), RS, GT)
+- INSTANCES_OUTSIDE_FALSE_DETECTED: Countries outside the probes area with a 
+detected anycast instance that does not have any known anycast instance.
+Operation: Intersection((ALL - AREA), RS) - GT.
 ########################################""")
 
 def area_intances_check(gt: dict, results: dict, area: set):
