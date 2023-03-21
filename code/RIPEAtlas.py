@@ -163,20 +163,12 @@ class Measurement():
             while not enough and elapsed < maximum_time_for_results:
                 if self.notification is not None:
                     self.notification(results_delay)
-
-                #print("Espera para consultar resultados {0:1.2f}".format(results_delay))
-                #print("Intento {}".format(attempts))
-
                 time.sleep(results_delay) 
                 results_delay *= 2
                 attempts += 1
                 elapsed = time.time() - start
                 try:
                     result_data = requests.get(url_lastest).json()
-
-                    #print(json.dumps(result_data, indent=4))
-
-                    #TODO Cambiar num_results para que coja los resultados solo si tienen RTT 
                     num_results = len(result_data)
                     if num_results >= self.num_probes*percentage_required:
                         # Requesting a strict equality may be too
@@ -193,13 +185,14 @@ class Measurement():
                             # Wait a bit more
                             pass
                         elif status == "Stopped":
-                            enough = True # Even if not enough probes
+                            # Even if not enough probes
+                            enough = True
                         else:
                             raise InternalError("Unexpected status when retrieving the measurement: \"%s\"" % \
                                    result_data["status"])
                 except requests.HTTPError as e:
-                    if e.code != 404: # Yes, we may have no result file at
-                        # all for some time
+                    if e.code != 404: 
+                        # Yes, we may have no result file at all for some time
                         raise ResultError(str(e.code) + " " + e.reason)
             if result_data is None:
                 raise ResultError("No results retrieved")

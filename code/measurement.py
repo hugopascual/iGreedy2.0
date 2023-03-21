@@ -50,6 +50,9 @@ import webbrowser
 import requests
 
 import RIPEAtlas
+from base_functions import (
+    dict_to_json_file
+)
 
 class Measurement(object):
     def __init__(self, ip, ripeProbes=None):
@@ -137,6 +140,7 @@ class Measurement(object):
 
     def doMeasure(self, probes_file):
         data = self.load_data_request(probes_file)
+        self._request_data = data
 
         print ("Running measurement from Ripe Atlas with this data:")
         print (json.dumps(data, indent=4))
@@ -166,12 +170,19 @@ class Measurement(object):
             longitude = probe_response["geometry"]["coordinates"][0]
             self._ripe_probes_geo[hostname]=[latitude, longitude]
 
+    def save_measurement_results(self,ripe_measurement_results: dict):
+        data_to_save = {}
+        data_to_save["target"] = self._ip
+        data_to_save["measurement_id"] = self._measurement.id
+        data_to_save["request_data"] = self._request_data
+        data_to_save["measurement_results"] = ripe_measurement_results
+
+        dict_to_json_file(data_to_save, "datasets/measurement/{}.json".
+                          format(data_to_save["measurement_id"]))
+
     def retrieveResult(self,infoProbes):
         self.result = self._measurement.results(wait=True, percentage_required=self._percentageSuccessful)
-
-        #print("Resultados Obtenidos")
-        #print(json.dumps(self.result, indent=4))
-
+        self.save_measurement_results(self.result)
         numVpAnswer=0
         numVpFail=0
         totalRtt = 0
