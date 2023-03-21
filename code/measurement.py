@@ -181,31 +181,30 @@ class Measurement(object):
                           format(data_to_save["measurement_id"]))
         
     def get_num_latency_measurement(ripe_measurement_results: dict) -> tuple[int, int, int, int, int]:
-
         num_probes_answer = 0
-        numVpTimeout = 0
+        num_probes_timeout = 0
         num_probes_fail=0
         num_latency_measurement = 0
         total_rtt = 0
 
         for result in ripe_measurement_results:
-            probe_id = result["prb_id"]
             for measure in result["result"]:
                 num_probes_answer += 1
                 if "rtt" in measure.keys():
                     try: 
                         total_rtt += int(measure["rtt"])
                         num_latency_measurement += 1
-                        inputIgreedyFiles.write(str(VP)+"\t"+str(infoProbes[str(VP)][0])+"\t"+str(infoProbes[str(VP)][1])+"\t"+str(measure["rtt"])+"\n")
                     except KeyError as exception:
                         print (exception.__str__())
                 elif "error" in measure.keys():
                     num_probes_fail += 1
                 elif "x" in measure.keys():
-                    numVpTimeout += 1
+                    num_probes_timeout += 1
                 else:
-                    print >>sys.stderr, ("Error in the measurement: result has no field rtt, or x or error")
-        return (num_probes_answer, 0, 0)
+                    print("Error in the measurement: result has no field rtt, \
+                          or x or error")
+        return (num_probes_answer, num_probes_timeout, num_probes_fail, 
+                num_latency_measurement, total_rtt)
 
     def retrieveResult(self,infoProbes):
         self.result = self._measurement.results(wait=True, percentage_required=self._percentageSuccessful)
