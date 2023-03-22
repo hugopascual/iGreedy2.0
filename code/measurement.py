@@ -229,36 +229,8 @@ class Measurement(object):
          num_latency_measurement, total_rtt) = self.get_measurement_nums(self.result)
         
         pathFile = "datasets/measurement/{}_{}.json".format(self._measurement.id, self._ip)
-
-        #num_probes_answer=0
-        #num_probes_timeout = 0
-        #num_probes_fail=0
-        #num_latency_measurement = 0
-        #total_rtt = 0
         
         print("Number of answers: %s" % len(self.result))
-        
-        #pathFile="datasets/measurement/"+self._ip+"-"+str(self._measurement.id)+"-"+str(time.time()).split(".")[0]
-        #inputIgreedyFiles=open(pathFile,'w')
-        #inputIgreedyFiles.write("#hostname	latitude	longitude	rtt[ms]\n")
-        #for result in self.result:
-        #    VP = result["prb_id"]
-        #    for measure in result["result"]:
-        #        num_probes_answer += 1
-        #        if "rtt" in measure.keys():
-        #            try: 
-        #                total_rtt += int(measure["rtt"])
-        #                num_latency_measurement += 1
-        #                inputIgreedyFiles.write(str(VP)+"\t"+str(infoProbes[str(VP)][0])+"\t"+str(infoProbes[str(VP)][1])+"\t"+str(measure["rtt"])+"\n")
-        #            except KeyError as exception:
-        #                print(exception.__str__())
-        #        elif "error" in measure.keys():
-        #            num_probes_fail += 1
-        #        elif "x" in measure.keys():
-        #            num_probes_timeout += 1
-        #        else:
-        #            print >>sys.stderr, ("Error in the measurement: result has no field rtt, or x or error")
-        #inputIgreedyFiles.close()
         if num_probes_answer == 0:
             print("Watson, we have a problem, no successful test!")
             sys.exit(0)

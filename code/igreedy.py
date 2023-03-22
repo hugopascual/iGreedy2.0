@@ -77,8 +77,7 @@ input_file = None
 ip = None
 probes_file = './probes_sets/default_ripe_probes.json'
 output_path = './results/'
-output_file = 'output'
-outformat = "csv"
+output_file = "output"
 gt_file = None
 alpha = 1       # advised settings
 browser  = False 
@@ -227,7 +226,7 @@ def readGT():
 def analyze():
     """Routine to iteratively enumerate and geolocate anycast instances"""
 
-    global input_file, output_file, gt_file, IATA_file
+    global input_file, gt_file, IATA_file
     global alpha, browser, noise, threshold
     global numberOfInstance, discsSolution
 
@@ -298,27 +297,34 @@ def output():
     further processing)
     """
     
-    global input_file, output_file, outformat, gt_file
-    global alpha, base, load_time, run_time
+    global input_file, output_file, gt_file
+    global base, load_time, run_time
+
+    global ip, probes_file
+    global alpha, noise, threshold
         
     global numberOfInstance, discSolution, truePositive, falsePositive 
     global GT, PAI, IATAlat, IATAlon, IATAcity, GTnum, PAInum, weirdGtSolution
     weirdGtSolution=0
 
-    # Results as a CSV    
-    csv=open(output_file + ".csv","w")
-    csv.write("#hostname\tcircleLatitude\tcircleLongitude\t" +\
-                    "radius\tiataCode\tiataLatitude\tiataLongitude\n")
-    for instance in discsSolution:      # circle to csv
-        csv.write(instance[0].getHostname()+"\t"+\
-                    str(instance[0].getLatitude())+"\t"+\
-                    str(instance[0].getLongitude())+"\t"+\
-                    str(instance[0].getRadius())+"\t"+\
-                    str(instance[1][0])+"\t"+\
-                    str(instance[1][1])+"\t"+\
-                    str(instance[1][2])+"\n")
-    csv.close()
-    #print("Number latency measurements: {}".format(sum(1 for line in open(input_file)) -1))
+    # Format of result file if no name is provided
+    # $ip_$probes-filename_$alpha_$threshold_$noise.json
+    # If noise or threshold are the deafult values they do not appear
+    result_filename = ""
+    if output_file == (output_path+"output"):
+        if ip:
+            result_filename = ip + "_" + probes_file + "_" + alpha
+            if threshold != -1:
+                result_filename =+ "_" + str(threshold)
+            if noise != 0:
+                result_filename =+ "_" + str(noise)
+            result_filename =+ ".json"
+        else: 
+            # If the result is from an input file, it use the same as the input
+            result_filename = input_file
+    else:
+        result_filename = output_file
+
     print("Number latency measurements: {}".format(len(
         json_file_to_dict(input_file)["measurement_results"])))
     print("Elapsed time (load+igreedy): %.2f (%.2f + %.2f)" % (
@@ -411,9 +417,14 @@ def output():
         if weirdGtSolution>0:
             print("VPs with weird GT present in the solution:  %s" % (weirdGtSolution))
 
-    # Results as a JSON
+    # Save results as JSON
     data = dict()
 
+    data["target"] = ip
+    data["probes_filename"] = probes_file
+    data["alpha"] = alpha
+    data["threshold"] = threshold
+    data["noise"] = noise
     data["num_anycast_instances"] = numberOfInstance
     data["anycast_intances"] = []
     for instance in discsSolution:
@@ -437,45 +448,10 @@ def output():
         markCircle["marker"]=marker
         markCircle["circle"]=circle
         data["anycast_intances"].append(markCircle)
+
+
     
-    dict_to_json_file(data, "{}test.json".format(output_path))
-
-    data=Object()
-    data.count= numberOfInstance
-    data.instances=[]
-    data.countGT=GTnum
-    data.markerGT=[]
-    for instance in discsSolution:
-            #circle to Json
-            tempCircle=instance[0]
-            circle=Object()
-            circle.id= tempCircle.getHostname()
-            circle.latitude= tempCircle.getLatitude()
-            circle.longitude= tempCircle.getLongitude()
-            circle.radius= tempCircle.getRadius()
-            #marker to Json
-            tempMarker=instance[1]
-            marker=Object()
-            marker.id= tempMarker[0]
-            marker.latitude= tempMarker[1]
-            marker.longitude= tempMarker[2]
-            marker.city=tempMarker[3]
-            marker.code_country=tempMarker[4]
-            markCircle=Object()
-            markCircle.marker=marker
-            markCircle.circle=circle
-            data.instances.append(markCircle)
-    if GTnum>0:
-        for gt in GTtotal:
-            markerGT=Object()
-            markerGT.id= gt
-            markerGT.latitude= IATAlat[gt] 
-            markerGT.longitude= IATAlon[gt]
-            data.markerGT.append(markerGT)
-
-    json=open(output_file + ".json","w")
-    json.write(data.to_JSON())
-    json.close()
+    dict_to_json_file(data, result_filename)
 
 def threaded_browser():
     url = "./code/webDemo/demo.html"
