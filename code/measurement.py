@@ -170,17 +170,31 @@ class Measurement(object):
             longitude = probe_response["geometry"]["coordinates"][0]
             self._ripe_probes_geo[hostname]=[latitude, longitude]
 
-    def save_measurement_results(self,ripe_measurement_results: dict):
+    def save_measurement_results(self, ripe_measurement_results: dict, info_probes:dict):
         data_to_save = {}
         data_to_save["target"] = self._ip
         data_to_save["measurement_id"] = self._measurement.id
         data_to_save["request_data"] = self._request_data
-        data_to_save["measurement_results"] = ripe_measurement_results
+        data_to_save["measurement_results"] = []
 
-        dict_to_json_file(data_to_save, "datasets/measurement/{}.json".
-                          format(data_to_save["measurement_id"]))
+        for probe_result in ripe_measurement_results:
+            probe_id = probe_result["prb_id"]
+            for probe_measure in probe_result["result"]:
+                if "rtt" in probe_measure.keys():
+                    measure = dict()
+                    try:
+                        measure["hostname"] = str(probe_id)
+                        measure["latitude"] = info_probes[str(probe_id)][0]
+                        measure["longitude"] = info_probes[str(probe_id)][1]
+                        measure["rtt_ms"] = probe_measure["rtt"]
+                    except KeyError as exception:
+                        print(exception.__str__())
+                    data_to_save["measurement_results"].append(measure)
+
+        dict_to_json_file(data_to_save, "datasets/measurement/{}_{}.json".
+                          format(data_to_save["measurement_id"], self._ip))
         
-    def get_num_latency_measurement(ripe_measurement_results: dict) -> tuple[int, int, int, int, int]:
+    def get_measurement_nums(self,ripe_measurement_results: dict) -> tuple[int, int, int, int, int]:
         num_probes_answer = 0
         num_probes_timeout = 0
         num_probes_fail=0
@@ -207,46 +221,55 @@ class Measurement(object):
                 num_latency_measurement, total_rtt)
 
     def retrieveResult(self,infoProbes):
-        self.result = self._measurement.results(wait=True, percentage_required=self._percentageSuccessful)
-        self.save_measurement_results(self.result)
-        numVpAnswer=0
-        numVpFail=0
-        totalRtt = 0
-        numLatencyMeasurement = 0
-        numVpTimeout = 0
+        self.result = self._measurement.results(
+            wait=True, percentage_required=self._percentageSuccessful)
+
+        self.save_measurement_results(self.result, infoProbes)
+        (num_probes_answer, num_probes_timeout, num_probes_fail, 
+         num_latency_measurement, total_rtt) = self.get_measurement_nums(self.result)
+        
+        pathFile = "datasets/measurement/{}_{}.json".format(self._measurement.id, self._ip)
+
+        #num_probes_answer=0
+        #num_probes_timeout = 0
+        #num_probes_fail=0
+        #num_latency_measurement = 0
+        #total_rtt = 0
+        
         print("Number of answers: %s" % len(self.result))
-        pathFile="datasets/measurement/"+self._ip+"-"+str(self._measurement.id)+"-"+str(time.time()).split(".")[0]
-        inputIgreedyFiles=open(pathFile,'w')
-        inputIgreedyFiles.write("#hostname	latitude	longitude	rtt[ms]\n")
-        for result in self.result:
-            VP = result["prb_id"]
-            for measure in result["result"]:
-                numVpAnswer += 1
-                if "rtt" in measure.keys():
-                    try: 
-                        totalRtt += int(measure["rtt"])
-                        numLatencyMeasurement += 1
-                        inputIgreedyFiles.write(str(VP)+"\t"+str(infoProbes[str(VP)][0])+"\t"+str(infoProbes[str(VP)][1])+"\t"+str(measure["rtt"])+"\n")
-                    except KeyError as exception:
-                        print (exception.__str__())
-                elif "error" in measure.keys():
-                    numVpFail += 1
-                elif "x" in measure.keys():
-                    numVpTimeout += 1
-                else:
-                    print >>sys.stderr, ("Error in the measurement: result has no field rtt, or x or error")
-        inputIgreedyFiles.close()
-        if numVpAnswer == 0:
+        
+        #pathFile="datasets/measurement/"+self._ip+"-"+str(self._measurement.id)+"-"+str(time.time()).split(".")[0]
+        #inputIgreedyFiles=open(pathFile,'w')
+        #inputIgreedyFiles.write("#hostname	latitude	longitude	rtt[ms]\n")
+        #for result in self.result:
+        #    VP = result["prb_id"]
+        #    for measure in result["result"]:
+        #        num_probes_answer += 1
+        #        if "rtt" in measure.keys():
+        #            try: 
+        #                total_rtt += int(measure["rtt"])
+        #                num_latency_measurement += 1
+        #                inputIgreedyFiles.write(str(VP)+"\t"+str(infoProbes[str(VP)][0])+"\t"+str(infoProbes[str(VP)][1])+"\t"+str(measure["rtt"])+"\n")
+        #            except KeyError as exception:
+        #                print(exception.__str__())
+        #        elif "error" in measure.keys():
+        #            num_probes_fail += 1
+        #        elif "x" in measure.keys():
+        #            num_probes_timeout += 1
+        #        else:
+        #            print >>sys.stderr, ("Error in the measurement: result has no field rtt, or x or error")
+        #inputIgreedyFiles.close()
+        if num_probes_answer == 0:
             print("Watson, we have a problem, no successful test!")
             sys.exit(0)
         else:
 
             try:
                 print("Resume: %i successful tests (%.1f %%), %i errors (%.1f %%), %i timeouts (%.1f %%), average RTT: %i ms" % \
-                      (numLatencyMeasurement,numLatencyMeasurement*100.0/numVpAnswer, 
-                       numVpFail, numVpFail*100.0/numVpAnswer, 
-                       numVpTimeout, numVpTimeout*100.0/numVpAnswer, totalRtt/numLatencyMeasurement))
+                      (num_latency_measurement,num_latency_measurement*100.0/num_probes_answer, 
+                       num_probes_fail, num_probes_fail*100.0/num_probes_answer, 
+                       num_probes_timeout, num_probes_timeout*100.0/num_probes_answer, total_rtt/num_latency_measurement))
             except:
                   c=0
-        return (numLatencyMeasurement,pathFile)
+        return (num_latency_measurement, pathFile)
 

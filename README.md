@@ -95,3 +95,5 @@ To run iGreedy on the F root server 192.5.5.241, configure your key (see above) 
        ./igreedy.sh -m 192.5.5.241 -b
        
 For more information and results at a glance [anycast project](http://perso.telecom-paristech.fr/~drossi/index.php?n=Dataset.Anycast) 
+
+        ./igreedy.sh -m 199.7.83.42 -p probes_sets/WW_100.json

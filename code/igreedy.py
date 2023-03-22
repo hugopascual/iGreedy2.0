@@ -54,6 +54,11 @@ from disc import *
 import webbrowser
 from threading import Thread
 
+from base_functions import (
+    json_file_to_dict,
+    dict_to_json_file
+)
+
 # TODO: This variables could be constants or be inside a config file
 # TODO: Study use of each one
 IATA_file = './datasets/airports.csv'
@@ -313,13 +318,15 @@ def output():
                     str(instance[1][1])+"\t"+\
                     str(instance[1][2])+"\n")
     csv.close()
-    print("Number latency measurements: {}".format(sum(1 for line in open(input_file)) -1))
+    #print("Number latency measurements: {}".format(sum(1 for line in open(input_file)) -1))
+    print("Number latency measurements: {}".format(len(
+        json_file_to_dict(input_file)["measurement_results"])))
     print("Elapsed time (load+igreedy): %.2f (%.2f + %.2f)" % (
         load_time+run_time, load_time, run_time))
     print("Instances: ", str(numberOfInstance))
 
     # Comparing to the Ground-truth    
-    if gt_file != "":
+    if gt_file != None:
         print("Validation with ground truth or public available information:")
         errors = []
         Mlist = [] #list with the iata code present in the solution
@@ -404,7 +411,35 @@ def output():
         if weirdGtSolution>0:
             print("VPs with weird GT present in the solution:  %s" % (weirdGtSolution))
 
-    # Results as a JSON    
+    # Results as a JSON
+    data = dict()
+
+    data["num_anycast_instances"] = numberOfInstance
+    data["anycast_intances"] = []
+    for instance in discsSolution:
+        # circle
+        tempCircle=instance[0]
+        circle = dict()
+        circle["id"]= tempCircle.getHostname()
+        circle["latitude"]= tempCircle.getLatitude()
+        circle["longitude"]= tempCircle.getLongitude()
+        circle["radius"]= tempCircle.getRadius()
+        # marker
+        tempMarker=instance[1]
+        marker = dict()
+        marker["id"]= tempMarker[0]
+        marker["latitude"]= tempMarker[1]
+        marker["longitude"]= tempMarker[2]
+        marker["city"]=tempMarker[3]
+        marker["code_country"]=tempMarker[4]
+        # union of circle and marker
+        markCircle= dict()
+        markCircle["marker"]=marker
+        markCircle["circle"]=circle
+        data["anycast_intances"].append(markCircle)
+    
+    dict_to_json_file(data, "{}test.json".format(output_path))
+
     data=Object()
     data.count= numberOfInstance
     data.instances=[]
@@ -439,7 +474,6 @@ def output():
             data.markerGT.append(markerGT)
 
     json=open(output_file + ".json","w")
-    #json.write("var data=\n")
     json.write(data.to_JSON())
     json.close()
 
@@ -537,7 +571,7 @@ def main(argv):
         elif option in ("-m", "--measurement"):
             ip = arg
 
-        elif (ip != '') and (input_file != ''):
+        elif (ip != None) and (input_file != None):
             print ("Sorry, you can't use input file and measurement options at the same time.")
             sys.exit(2)
 
@@ -598,7 +632,7 @@ def main(argv):
     if ip:
         measure=Measurement(ip)
         ripe_probes_geo = measure.doMeasure(probes_file)
-        numLatencyMeasurement,input_file=measure.retrieveResult(ripe_probes_geo)
+        numLatencyMeasurement, input_file=measure.retrieveResult(ripe_probes_geo)
         if(numLatencyMeasurement<2):
             print("Error: for the anycast detection at least 2 latency measurement are needed")
             sys.exit(-1)

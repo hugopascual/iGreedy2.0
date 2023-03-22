@@ -41,6 +41,10 @@ import collections
 import json,sys
 import random
 
+from base_functions import (
+    json_file_to_dict
+)
+
 class Object:
     """
     Class used to write a JSON more readable
@@ -61,6 +65,7 @@ class Anycast(object):
         # Disc belong maximum indipendent set
         self._discsMis = Discs() 
         self._airports={}
+        """
         data = open(input_file)
         data.readline()
         
@@ -88,7 +93,28 @@ class Anycast(object):
                 else:                
                     self._setDisc[float(minRTT)].append(Disc(hostname,float(latitude),float(longitude),float(minRTT)))
         data.close()
-        self._orderDisc=collections.OrderedDict(sorted(self._setDisc.items())) #order the discs by ping
+        """
+
+        data = json_file_to_dict(input_file)
+        for measure in data["measurement_results"]:
+            hostname = measure["hostname"]
+            latitude = measure["latitude"]
+            longitude = measure["longitude"]
+            minRTT = measure["rtt_ms"]
+            # additive controlled noise (negative exponential distribution) to make problem harder ;)
+            if noise>0:
+                minRTT = float(minRTT)
+                minRTT += float(random.expovariate(1/noise))
+
+            if not ( float(minRTT) > threshold and threshold > 0):
+                if(self._setDisc.get(float(minRTT)) is None):
+                    self._setDisc[float(minRTT)]=[Disc(hostname,float(latitude),float(longitude),float(minRTT))]
+                else:                
+                    self._setDisc[float(minRTT)].append(Disc(hostname,float(latitude),float(longitude),float(minRTT)))
+
+        #order the discs by ping
+        self._orderDisc=collections.OrderedDict(sorted(self._setDisc.items()))
+
         #------------------load airport---------------
         if(airportFile!=0):        
             airportLines = open(airportFile)
