@@ -448,16 +448,12 @@ def output():
         markCircle["marker"]=marker
         markCircle["circle"]=circle
         data["anycast_intances"].append(markCircle)
-
-
     
     dict_to_json_file(data, result_filename)
 
 def threaded_browser():
     url = "./code/webDemo/demo.html"
     webbrowser.open(url,new=2)      # open in a new tab, if possible
-    
-
 
 def help():
     """Print the options avaliable on iGreedy"""  
