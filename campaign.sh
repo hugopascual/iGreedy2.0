@@ -3,31 +3,19 @@
 num_probes_array=(100 300 500 1000)
 alpha_array=(0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1)
 #areas_array=("North-Central" "North-East" "South-Central" "South-East" "West" "WW")
-areas_array=("North-Central" "WW")
+#areas_array=("North-Central" "WW")
+areas_array=("WW")
 root_server_ip_direcction_selected="192.5.5.241"
 campaign_log_file="Campaign_"$root_server_ip_direcction_selected"_$(date +%F_%T).txt"
 alpha_tunning_log_file="Alpha_tunning_"$root_server_ip_direcction_selected"_$(date +%F_%T).txt"
-measurement_filename_array=(
-  "North-Central_100_192.5.5.241"
-  "North-Central_300_192.5.5.241" 
-  "North-Central_500_192.5.5.241" 
-  "North-Central_1000_192.5.5.241" 
-  "WW_100_192.5.5.241" 
-  "WW_300_192.5.5.241"
-  "WW_500_192.5.5.241" 
-  "WW_1000_192.5.5.241")
 measurements_filenames_array=()
 probes_filenames_array=()
 probes_filepaths_array=()
 
-fill_results_filenames_array()
+fill_measurements_filenames_filenames_array()
 {
-  for area in "${areas_array[@]}"; do
-    for num_probes in "${num_probes_array[@]}"; do
-      for alpha in "${alpha_array[@]}"; do
-        results_filenames_array+=($area"_"$num_probes"_"$alpha"_"$root_server_ip_direcction_selected)
-      done
-    done
+  for probes_filename in "${probes_filenames_array[@]}"; do
+    measurements_filenames_array+=($probes_filename"_"$root_server_ip_direcction_selected.json)
   done
 }
 
@@ -41,6 +29,17 @@ fill_probes_filenames_array()
   done
 }
 
+measurement_manual()
+{
+  ./igreedy.sh -m "192.203.230.10" \
+  -p "probes_sets/North-Central_1000.json" \
+  -o "North-Central_1000_192.203.230.10" \
+  | tee -a "Single_North-Central_1000_$(date +%F_%T).txt"
+
+  ./igreedy.sh -i "datasets/measurement/192.5.5.241-50948678-1678879591" \
+  -o "North-Central_100_1_192.5.5.241" \
+  -a "2"
+}
 
 measurement_big()
 {
@@ -66,23 +65,14 @@ finished."""
   done
 }
 
-measurement_manual()
-{
-  ./igreedy.sh -m "192.203.230.10" \
-  -p "probes_sets/North-Central_1000.json" \
-  -o "North-Central_1000_192.203.230.10" \
-  | tee -a "Single_North-Central_1000_$(date +%F_%T).txt"
-
-  ./igreedy.sh -i "datasets/measurement/192.5.5.241-50948678-1678879591" \
-  -o "North-Central_100_1_192.5.5.241" \
-  -a "2"
-}
-
 analyze_alpha()
 {
-  for measurement_filename in "${measurement_filename_array[@]}"; do
+  for measurement_filename in "${measurements_filenames_array[@]}"; do
     for alpha in "${alpha_array[@]}"; do
-      output_filename=""
+      echo ./igreedy.sh -i "datasets/measurement/$measurement_filename" \
+      -a "$alpha" \
+      | tee -a "$alpha_tunning_log_file"
+
       ./igreedy.sh -i "datasets/measurement/$measurement_filename" \
       -a "$alpha" \
       | tee -a "$alpha_tunning_log_file"
@@ -92,4 +82,9 @@ analyze_alpha()
 }
 
 fill_probes_filenames_array
-measurement_big
+fill_measurements_filenames_filenames_array
+
+#measurement_big
+#analyze_alpha
+
+./igreedy.sh -i "datasets/measurement/WW_1000_192.5.5.241.json" -a 1

@@ -313,16 +313,17 @@ def output():
     result_filename = ""
     probes_filename = probes_file.split("/")[-1][:-5]
     if output_file == (output_path+"output"):
-        if ip:
-            result_filename = ip + "_" + probes_filename + "_" + str(alpha)
-            if threshold != -1:
-                result_filename += "_" + str(threshold)
-            if noise != 0:
-                result_filename += "_" + str(noise)
-            result_filename += ".json"
-        else: 
+        if not ip:
             # If the result is from an input file, it use the same as the input
-            result_filename = input_file
+            result_filename = input_file.split("/")[-1][:-5] + "_" + str(alpha)
+        else: 
+            result_filename = probes_filename + "_" + ip + "_" + str(alpha)
+        if threshold != -1:
+            result_filename += "_" + str(threshold)
+        if noise != 0:
+            result_filename += "_" + str(noise)
+        result_filename += ".json"
+        result_filename = "./results/"+result_filename
     else:
         result_filename = output_file
 
