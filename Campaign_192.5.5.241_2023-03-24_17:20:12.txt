@@ -1,0 +1,124 @@
+./igreedy.sh -m 192.5.5.241 -p probes_sets/WW_100.json
+Probes data from:  probes_sets/WW_100.json
+Airports: ./datasets/airports.csv
+Output: output.{csv,json}
+Running measurement from Ripe Atlas with this data:
+{
+    "definitions": [
+        {
+            "target": "192.5.5.241",
+            "description": "Ping 192.5.5.241",
+            "type": "ping",
+            "is_oneoff": true,
+            "packets": 2,
+            "af": 4
+        }
+    ],
+    "probes": [
+        {
+            "requested": 100,
+            "type": "area",
+            "value": "WW"
+        }
+    ]
+}
+ID measure: 51227642	TARGET: 192.5.5.241	Number of Vantage Points: 99 
+Number of answers: 88
+Resume: 174 successful tests (98.9 %), 0 errors (0.0 %), 2 timeouts (1.1 %), average RTT: 16 ms
+Number latency measurements: 174
+Elapsed time (load+igreedy): 237.35 (237.21 + 0.14)
+Instances:  21
+########################################
+./igreedy.sh -m 192.5.5.241 -p probes_sets/WW_300.json
+Probes data from:  probes_sets/WW_300.json
+Airports: ./datasets/airports.csv
+Output: output.{csv,json}
+Running measurement from Ripe Atlas with this data:
+{
+    "definitions": [
+        {
+            "target": "192.5.5.241",
+            "description": "Ping 192.5.5.241",
+            "type": "ping",
+            "is_oneoff": true,
+            "packets": 2,
+            "af": 4
+        }
+    ],
+    "probes": [
+        {
+            "requested": 300,
+            "type": "area",
+            "value": "WW"
+        }
+    ]
+}
+ID measure: 51227681	TARGET: 192.5.5.241	Number of Vantage Points: 295 
+Number of answers: 291
+Resume: 578 successful tests (99.3 %), 0 errors (0.0 %), 4 timeouts (0.7 %), average RTT: 18 ms
+Number latency measurements: 578
+Elapsed time (load+igreedy): 345.30 (344.58 + 0.72)
+Instances:  49
+########################################
+./igreedy.sh -m 192.5.5.241 -p probes_sets/WW_500.json
+Probes data from:  probes_sets/WW_500.json
+Airports: ./datasets/airports.csv
+Output: output.{csv,json}
+Running measurement from Ripe Atlas with this data:
+{
+    "definitions": [
+        {
+            "target": "192.5.5.241",
+            "description": "Ping 192.5.5.241",
+            "type": "ping",
+            "is_oneoff": true,
+            "packets": 2,
+            "af": 4
+        }
+    ],
+    "probes": [
+        {
+            "requested": 500,
+            "type": "area",
+            "value": "WW"
+        }
+    ]
+}
+ID measure: 51227726	TARGET: 192.5.5.241	Number of Vantage Points: 498 
+Number of answers: 495
+Resume: 980 successful tests (99.3 %), 0 errors (0.0 %), 7 timeouts (0.7 %), average RTT: 15 ms
+Number latency measurements: 980
+Elapsed time (load+igreedy): 331.50 (330.03 + 1.47)
+Instances:  57
+########################################
+./igreedy.sh -m 192.5.5.241 -p probes_sets/WW_1000.json
+Probes data from:  probes_sets/WW_1000.json
+Airports: ./datasets/airports.csv
+Output: output.{csv,json}
+Running measurement from Ripe Atlas with this data:
+{
+    "definitions": [
+        {
+            "target": "192.5.5.241",
+            "description": "Ping 192.5.5.241",
+            "type": "ping",
+            "is_oneoff": true,
+            "packets": 2,
+            "af": 4
+        }
+    ],
+    "probes": [
+        {
+            "requested": 1000,
+            "type": "area",
+            "value": "WW"
+        }
+    ]
+}
+ID measure: 51227763	TARGET: 192.5.5.241	Number of Vantage Points: 996 
+Number of answers: 993
+Resume: 1966 successful tests (99.1 %), 1 errors (0.1 %), 17 timeouts (0.9 %), average RTT: 16 ms
+Number latency measurements: 1966
+Elapsed time (load+igreedy): 669.84 (665.08 + 4.77)
+Instances:  79
+########################################

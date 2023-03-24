@@ -1,0 +1,130 @@
+./igreedy.sh -m 192.5.5.241 -p probes_sets/North-Central_100.json
+Probes data from:  probes_sets/North-Central_100.json
+Airports: ./datasets/airports.csv
+Output: output.{csv,json}
+Running measurement from Ripe Atlas with this data:
+{
+    "definitions": [
+        {
+            "target": "192.5.5.241",
+            "description": "Ping 192.5.5.241",
+            "type": "ping",
+            "is_oneoff": true,
+            "packets": 2,
+            "af": 4
+        }
+    ],
+    "probes": [
+        {
+            "requested": 100,
+            "type": "area",
+            "value": "North-Central"
+        }
+    ]
+}
+ID measure: 51227860	TARGET: 192.5.5.241	Number of Vantage Points: 94 
+'1000445'
+'1000445'
+'1001586'
+'1001586'
+'1003910'
+'1003910'
+Number of answers: 97
+Resume: 190 successful tests (97.9 %), 0 errors (0.0 %), 4 timeouts (2.1 %), average RTT: 13 ms
+Number latency measurements: 190
+Elapsed time (load+igreedy): 76.21 (76.11 + 0.10)
+Instances:  16
+########################################
+./igreedy.sh -m 192.5.5.241 -p probes_sets/North-Central_300.json
+Probes data from:  probes_sets/North-Central_300.json
+Airports: ./datasets/airports.csv
+Output: output.{csv,json}
+Running measurement from Ripe Atlas with this data:
+{
+    "definitions": [
+        {
+            "target": "192.5.5.241",
+            "description": "Ping 192.5.5.241",
+            "type": "ping",
+            "is_oneoff": true,
+            "packets": 2,
+            "af": 4
+        }
+    ],
+    "probes": [
+        {
+            "requested": 300,
+            "type": "area",
+            "value": "North-Central"
+        }
+    ]
+}
+ID measure: 51227872	TARGET: 192.5.5.241	Number of Vantage Points: 295 
+Number of answers: 294
+Resume: 582 successful tests (99.0 %), 0 errors (0.0 %), 6 timeouts (1.0 %), average RTT: 12 ms
+Number latency measurements: 582
+Elapsed time (load+igreedy): 203.72 (203.43 + 0.29)
+Instances:  29
+########################################
+./igreedy.sh -m 192.5.5.241 -p probes_sets/North-Central_500.json
+Probes data from:  probes_sets/North-Central_500.json
+Airports: ./datasets/airports.csv
+Output: output.{csv,json}
+Running measurement from Ripe Atlas with this data:
+{
+    "definitions": [
+        {
+            "target": "192.5.5.241",
+            "description": "Ping 192.5.5.241",
+            "type": "ping",
+            "is_oneoff": true,
+            "packets": 2,
+            "af": 4
+        }
+    ],
+    "probes": [
+        {
+            "requested": 500,
+            "type": "area",
+            "value": "North-Central"
+        }
+    ]
+}
+ID measure: 51227908	TARGET: 192.5.5.241	Number of Vantage Points: 496 
+Number of answers: 490
+Resume: 971 successful tests (99.0 %), 0 errors (0.0 %), 10 timeouts (1.0 %), average RTT: 12 ms
+Number latency measurements: 971
+Elapsed time (load+igreedy): 325.64 (325.21 + 0.43)
+Instances:  31
+########################################
+./igreedy.sh -m 192.5.5.241 -p probes_sets/North-Central_1000.json
+Probes data from:  probes_sets/North-Central_1000.json
+Airports: ./datasets/airports.csv
+Output: output.{csv,json}
+Running measurement from Ripe Atlas with this data:
+{
+    "definitions": [
+        {
+            "target": "192.5.5.241",
+            "description": "Ping 192.5.5.241",
+            "type": "ping",
+            "is_oneoff": true,
+            "packets": 2,
+            "af": 4
+        }
+    ],
+    "probes": [
+        {
+            "requested": 1000,
+            "type": "area",
+            "value": "North-Central"
+        }
+    ]
+}
+ID measure: 51227946	TARGET: 192.5.5.241	Number of Vantage Points: 993 
+Number of answers: 980
+Resume: 1941 successful tests (98.9 %), 0 errors (0.0 %), 21 timeouts (1.1 %), average RTT: 11 ms
+Number latency measurements: 1941
+Elapsed time (load+igreedy): 673.72 (672.71 + 1.01)
+Instances:  39
+########################################

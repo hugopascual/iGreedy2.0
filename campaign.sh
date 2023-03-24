@@ -4,7 +4,7 @@ num_probes_array=(100 300 500 1000)
 alpha_array=(0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1)
 #areas_array=("North-Central" "North-East" "South-Central" "South-East" "West" "WW")
 #areas_array=("North-Central" "WW")
-areas_array=("WW")
+areas_array=("North-Central")
 root_server_ip_direcction_selected="192.5.5.241"
 campaign_log_file="Campaign_"$root_server_ip_direcction_selected"_$(date +%F_%T).txt"
 alpha_tunning_log_file="Alpha_tunning_"$root_server_ip_direcction_selected"_$(date +%F_%T).txt"
@@ -84,7 +84,5 @@ analyze_alpha()
 fill_probes_filenames_array
 fill_measurements_filenames_filenames_array
 
-#measurement_big
-#analyze_alpha
-
-./igreedy.sh -i "datasets/measurement/WW_1000_192.5.5.241.json" -a 1
+measurement_big
+analyze_alpha
