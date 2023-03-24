@@ -8,11 +8,26 @@ from auxiliar import (
 )
 
 # Constants
-measurements_path = "../datasets/measurement/"
-results_path = "../../results/"
-root_servers_gt_path = "../datasets/root_servers/"
+results_path = "../results/"
+root_servers_gt_path = "../datasets/ground-truth/root_servers/"
 
 # Funtions
+def get_countries_set_from_root_servers(file_name:str) -> set:
+    root_servers_raw_data = json_file_to_dict(root_servers_gt_path + file_name)
+
+    root_servers_set = set()
+    for instance in root_servers_raw_data["Sites"]:
+        root_servers_set.add(instance["Country"])
+    return root_servers_set
+
+def get_countries_set_from_results(file_name:str) -> set:
+    results_raw_data = json_file_to_dict(results_path + file_name)
+
+    result_set = set()
+    for instance in results_raw_data["anycast_intances"]:
+        result_set.add(instance["marker"]["code_country"])
+    return result_set
+
 def load_data_root_servers(file_name: str) -> dict:
     root_servers_raw_data = json_file_to_dict(
         root_servers_gt_path + file_name)
