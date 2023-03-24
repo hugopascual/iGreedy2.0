@@ -311,14 +311,15 @@ def output():
     # $ip_$probes-filename_$alpha_$threshold_$noise.json
     # If noise or threshold are the deafult values they do not appear
     result_filename = ""
+    probes_filename = probes_file.split("/")[-1][:-5]
     if output_file == (output_path+"output"):
         if ip:
-            result_filename = ip + "_" + probes_file + "_" + alpha
+            result_filename = ip + "_" + probes_filename + "_" + str(alpha)
             if threshold != -1:
-                result_filename =+ "_" + str(threshold)
+                result_filename += "_" + str(threshold)
             if noise != 0:
-                result_filename =+ "_" + str(noise)
-            result_filename =+ ".json"
+                result_filename += "_" + str(noise)
+            result_filename += ".json"
         else: 
             # If the result is from an input file, it use the same as the input
             result_filename = input_file

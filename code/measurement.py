@@ -70,6 +70,9 @@ class Measurement(object):
         self._ripe_probes_geo = {}
 
         self._percentageSuccessful = 0.8 
+
+        self._probes_filename = None
+        self._measurement_filename = None
         
     def getIP(self):
         return self._ip
@@ -131,6 +134,8 @@ class Measurement(object):
             af = 4
         data["definitions"][0]['af'] = af
 
+        self._probes_filename = probes_file.split("/")[-1][:-5]
+
         with open(probes_file) as file:
             probes_data_json = file.read()
 
@@ -191,8 +196,12 @@ class Measurement(object):
                         print(exception.__str__())
                     data_to_save["measurement_results"].append(measure)
 
-        dict_to_json_file(data_to_save, "datasets/measurement/{}_{}.json".
-                          format(data_to_save["measurement_id"], self._ip))
+        self._measurement_filename = "{}_{}.json".format(
+            self._probes_filename, 
+            self._ip)
+
+        dict_to_json_file(data_to_save, "datasets/measurement/{}".
+                          format(self._measurement_filename))
         
     def get_measurement_nums(self,ripe_measurement_results: dict) -> tuple[int, int, int, int, int]:
         num_probes_answer = 0
@@ -228,7 +237,7 @@ class Measurement(object):
         (num_probes_answer, num_probes_timeout, num_probes_fail, 
          num_latency_measurement, total_rtt) = self.get_measurement_nums(self.result)
         
-        pathFile = "datasets/measurement/{}_{}.json".format(self._measurement.id, self._ip)
+        pathFile = "datasets/measurement/{}".format(self._measurement_filename)
         
         print("Number of answers: %s" % len(self.result))
         if num_probes_answer == 0:

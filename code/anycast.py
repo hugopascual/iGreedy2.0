@@ -97,10 +97,13 @@ class Anycast(object):
 
         data = json_file_to_dict(input_file)
         for measure in data["measurement_results"]:
-            hostname = measure["hostname"]
-            latitude = measure["latitude"]
-            longitude = measure["longitude"]
-            minRTT = measure["rtt_ms"]
+            try:
+                hostname = measure["hostname"]
+                latitude = measure["latitude"]
+                longitude = measure["longitude"]
+                minRTT = measure["rtt_ms"]
+            except KeyError as exception:
+                continue
             # additive controlled noise (negative exponential distribution) to make problem harder ;)
             if noise>0:
                 minRTT = float(minRTT)

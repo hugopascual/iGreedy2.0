@@ -4,10 +4,16 @@
 import requests
 import json
 
-base_url = "https://atlas.ripe.net/api/v2/measurements/{}/results"
+#base_url = "https://atlas.ripe.net/api/v2/measurements/{}/results"
+#
+#measurement_id = "50938774"
+#
+#response = requests.get(base_url.format(measurement_id)).json()
+#
+#print(json.dumps(response, indent=4))
 
-measurement_id = "50938774"
+path = "./probes_sets/default_ripe_probes.json"
 
-response = requests.get(base_url.format(measurement_id)).json()
-
-print(json.dumps(response, indent=4))
+filename = path.split("/")[-1]
+print(path.split("/"))
+print(filename[:-5])
