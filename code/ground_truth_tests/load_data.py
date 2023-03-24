@@ -9,7 +9,7 @@ from auxiliar import (
 
 # Constants
 measurements_path = "../datasets/measurement/"
-results_path = "../results/"
+results_path = "../../results/"
 root_servers_gt_path = "../datasets/root_servers/"
 
 # Funtions

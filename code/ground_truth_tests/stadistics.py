@@ -29,40 +29,6 @@ any detected anycast instance.
 Operation: GT - RS
 ########################################""")
 
-def global_instances_check(gt: dict, results: dict):
-    # In code RS == results_countries
-    results_countries = set(results.keys())
-    # In code GT == gt_countries
-    gt_countries = set(gt.keys())
-    # In code ALL == all_countries
-    all_countries = get_alpha2_country_codes_from_file(Constants.ALL_COUNTRIES_FILE_PATH)
-
-    true_positive_countries = results_countries.intersection(gt_countries)
-    false_positive_countries = results_countries.difference(gt_countries)
-    false_negative_countries = gt_countries.difference(results_countries)
-
-    # Print results
-    print("Ground Truth countries number: %1.0f" %len(gt_countries))
-    print(gt_countries)
-    print("Results countries number: %1.0f" %len(results_countries))
-    print(results_countries)
-    print("True Positives: {0:d}. That is a {1:1.2f}%.".format(
-        len(true_positive_countries), 
-        (len(true_positive_countries)/len(gt_countries))*100)
-    )
-    print(true_positive_countries)
-    print("False Positives: {0:d}. That is a {1:1.2f}%.".format(
-        len(false_positive_countries), 
-        (len(false_positive_countries)/len(gt_countries))*100)
-    )
-    print(false_positive_countries)
-    print("Fasle Negatives: {0:d}. That is a {1:1.2f}%.".format(
-        len(false_negative_countries), 
-        (len(false_negative_countries)/len(gt_countries))*100)
-    )
-    print(false_negative_countries)
-    print("########################################")
-
 def print_area_gt_definitions():
     print("""########################################
 # Definitions:
@@ -100,7 +66,21 @@ detected anycast instance that does not have any known anycast instance.
 Operation: Intersection((ALL - AREA), RS) - GT.
 ########################################""")
 
-def area_intances_check(gt: dict, results: dict, area: set):
+def global_instances_check(gt: dict, results: dict) -> dict:
+    # In code RS == results_countries
+    results_countries = set(results.keys())
+    # In code GT == gt_countries
+    gt_countries = set(gt.keys())
+    # In code ALL == all_countries
+    all_countries = get_alpha2_country_codes_from_file(Constants.ALL_COUNTRIES_FILE_PATH)
+
+    true_positive_countries = results_countries.intersection(gt_countries)
+    false_positive_countries = results_countries.difference(gt_countries)
+    false_negative_countries = gt_countries.difference(results_countries)
+
+    return dict()
+
+def area_intances_check(gt: dict, results: dict, area: set) -> dict:
     # In code RS == results_countries
     results_countries = set(results.keys())
     # In code GT == gt_countries
@@ -113,37 +93,6 @@ def area_intances_check(gt: dict, results: dict, area: set):
     true_negative_countries = (area-gt_countries).intersection(area-results_countries)
     false_negative_countries = area.intersection(gt) - results_countries
 
-    # Print results
-    print("Ground Truth countries number: %1.0f" %len(gt_countries))
-    print(gt_countries)
-    print("Results countries number: %1.0f" %len(results_countries))
-    print(results_countries)
-
-    print("True Positives: {0:d}. That is a {1:1.2f}%.".format(
-        len(true_positive_countries), 
-        (len(true_positive_countries)/len(gt_countries))*100)
-    )
-    print(true_positive_countries)
-
-    print("False Positives: {0:d}. That is a {1:1.2f}%.".format(
-        len(false_positive_countries), 
-        (len(false_positive_countries)/len(gt_countries))*100)
-    )
-    print(false_positive_countries)
-
-    print("True Negatives: {0:d}. That is a {1:1.2f}%.".format(
-        len(true_negative_countries), 
-        (len(true_negative_countries)/len(gt_countries))*100)
-    )
-    print(true_negative_countries)
-
-    print("Fasle Negatives: {0:d}. That is a {1:1.2f}%.".format(
-        len(false_negative_countries), 
-        (len(false_negative_countries)/len(gt_countries))*100)
-    )
-    print(false_negative_countries)
-    print("########################################")
-
     # Ouside area countries stadistics
     instances_outside_true_detected = (all_countries - area).intersection(
         results_countries, gt_countries)
@@ -152,9 +101,5 @@ def area_intances_check(gt: dict, results: dict, area: set):
     instances_outside_non_detected = (all_countries - area).intersection(
         gt_countries) - results_countries
     
-    print("Countries outside area with instance detected: ")
-    print(instances_outside_true_detected)
-    print("Countries outside area with a false detected instance: ")
-    print(instances_outside_false_detected)
-    print("Countries outside area with instances not detected")
-    print(instances_outside_non_detected)
+    #TODO
+    return dict()
