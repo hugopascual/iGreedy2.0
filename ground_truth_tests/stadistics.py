@@ -32,6 +32,11 @@ Operation: Intersection((AREA-RS), (AREA-GT))
 that does not have any detected anycast instance.
 Operation: Intersection(AREA, GT) - RS
 
++Stadistics metrics
+- Accuracy: (TP+TN)/(TP+FP+TN+FN)
+- Precision: (TP)/(TP+FP)
+- Recall: (TP)/(TP+FN)
+
 It could be possible that iGreedy detects a anycast instance outside the probes 
 area. This cases could be interesting to known and present, for this reason the 
 following sets are defined.
