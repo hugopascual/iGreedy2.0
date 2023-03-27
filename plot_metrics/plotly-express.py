@@ -56,38 +56,85 @@ def plot_geo():
     plot = px.scatter_geo(df, locations="alpha2", color="type")
     plot.show()
 
-def get_measurement_probes_location(measurement_path: str):
-    measurement_path = "../datasets/measurement/campaigns/20230324/North-Central_1000_192.5.5.241.json"
-    #measurement_path = "../datasets/measurement/campaigns/20230324/North-Central_1000_192.5.5.241.json"
-    measurement_dict = json_file_to_dict(measurement_path)
-
-results_analisis_markers_locations = {
-    "type": [],
-    "latitude": [],
-    "longitude": []
-}
-
-results_analisis_probes_locations = {
-    "type": [],
-    "latitude": [],
-    "longitude": []
-}
-
 def get_gt_intances_locations():
-    filepath = "datasets/ground-truth/root_servers/root_servers_A.json" 
+    filepath = "datasets/ground-truth/root_servers/root_servers_F.json" 
     
     df = pd.DataFrame(json_file_to_dict(filepath)["Sites"])
     df = df[["Country", "Town", "Latitude", "Longitude" ]]
-    df.drop_duplicates(subset=['Town'], inplace=True)
+    df.rename(
+        columns={
+        "Country": "country_code", 
+        "Town": "city", 
+        "Latitude": "latitude", 
+        "Longitude": "longitude"},
+        inplace=True)
+    df.drop_duplicates(subset=['city'], inplace=True)
+    df["type"] = "gt_instance"
 
     return df
 
 def get_results_intances_locations():
-    filepath = "results/campaings/20230324/North-Central_1000_192.5.5.241_1.0.json" 
+    filepath = "results/campaigns/20230324/North-Central_1000_192.5.5.241_1.0.json" 
+    anycast_instances = json_file_to_dict(filepath)["anycast_intances"]
+    markers = []
+    for instance in anycast_instances:
+        markers.append(instance["marker"])
     
-    df = pd.DataFrame(json_file_to_dict(filepath)["anycast_intances"])
+    df = pd.DataFrame(markers)
+    df = df[["code_country", "city", "latitude", "longitude"]]
+    df.rename(
+        columns={
+        "code_country": "country_code"},
+        inplace=True)
+    df["type"] = "result_instance"
 
-    print(df)
     return df
 
-get_results_intances_locations()
+def get_results_probes_locations():
+    filepath = "results/campaigns/20230324/North-Central_1000_192.5.5.241_1.0.json" 
+    anycast_instances = json_file_to_dict(filepath)["anycast_intances"]
+    circles = []
+    for instance in anycast_instances:
+        circles.append(instance["circle"])
+    
+    df = pd.DataFrame(circles)
+    df = df[["id", "latitude", "longitude"]]
+    df.rename(
+        columns={
+        "id": "hostname"},
+        inplace=True)
+    df['city'] = df.loc[:, 'hostname']
+    df["type"] = "result_probe"
+
+    return df
+
+def get_measurement_probes_locations():
+    filepath = "datasets/measurement/campaigns/20230324/North-Central_1000_192.5.5.241.json" 
+    measurement_probes = json_file_to_dict(filepath)["measurement_results"]
+    
+    df = pd.DataFrame(measurement_probes)
+    df = df[["hostname", "latitude", "longitude"]]
+    df['city'] = df.loc[:, 'hostname']
+    df["type"] = "probe"
+
+    return df
+
+def plot_gt_and_results():
+    df = pd.concat([get_gt_intances_locations(), 
+                    get_results_intances_locations(),
+                    get_results_probes_locations(),
+                    #get_measurement_probes_locations()
+                    ])
+
+    plot = px.scatter_geo(df, 
+                        lat="latitude", 
+                        lon="longitude", 
+                        hover_name="city",
+                        color="type")
+    plot.show()
+
+    df.sort_values("country_code", inplace=True)
+    df.to_csv("plot_metrics/test.csv")
+    return df
+
+plot_gt_and_results()
