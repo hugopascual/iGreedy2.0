@@ -12,8 +12,19 @@ import json
 #
 #print(json.dumps(response, indent=4))
 
-path = "./probes_sets/default_ripe_probes.json"
+def json_file_to_dict(file_path: str) -> list:
+    with open(file_path) as file:
+        raw_json = file.read()
+    
+    return json.loads(raw_json)
 
-filename = path.split("/")[-1]
-print(path.split("/"))
-print(filename[:-5])
+filepath = "ground_truth_tests/ground_truth_metrics/North-Central_campaign_20230324.csv"
+
+import plotly.express as px
+df = px.data.gapminder().query("country=='Canada'")
+fig = px.line(df, x="year", y="lifeExp", title='Life expectancy in Canada')
+fig.show()
+
+
+import pandas as pd
+df = pd.read_csv(filepath)

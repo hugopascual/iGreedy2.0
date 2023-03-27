@@ -80,6 +80,18 @@ def area_intances_check(gt_countries: set, results_countries: set, area: set) ->
     stadistics["precision"] = ((tp)/(tp+fp))*100
     stadistics["recall"] = ((tp)/(tp+fn))*100
 
+    stadistics["sets"] = {
+        "results_countries": sorted(results_countries),
+        "ground_truth_countries": sorted(gt_countries),
+        "area_countries": sorted(area), 
+        "true_positive_countries": sorted(true_positive_countries),
+        "false_positive_countries": sorted(false_positive_countries),
+        "true_negative_countries": sorted(true_negative_countries),
+        "false_negative_countries": sorted(false_negative_countries),
+        "instances_outside_true_detected": sorted(instances_outside_true_detected),
+        "instances_outside_false_detected": sorted(instances_outside_false_detected)
+    }
+
     return stadistics
 
 

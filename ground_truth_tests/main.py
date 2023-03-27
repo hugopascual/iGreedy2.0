@@ -45,6 +45,7 @@ def build_stadistics(area_name: str, area_set: set):
         gt_stadistics.append(stadistics_dict)
         
     list_to_json_file(gt_stadistics, gt_stadistics_filename+".json")
+    [item.pop("sets") for item in gt_stadistics]
     list_of_dicts_to_csv(gt_stadistics, gt_stadistics_filename+".csv")
 
 # Check performance
@@ -63,3 +64,5 @@ gt_instances = get_countries_set_from_root_servers(gt_filename)
 
 build_stadistics("North-Central", area_north_central)
 build_stadistics("WW", area_ww)
+
+
