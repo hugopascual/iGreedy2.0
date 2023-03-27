@@ -60,3 +60,34 @@ def get_measurement_probes_location(measurement_path: str):
     measurement_path = "../datasets/measurement/campaigns/20230324/North-Central_1000_192.5.5.241.json"
     #measurement_path = "../datasets/measurement/campaigns/20230324/North-Central_1000_192.5.5.241.json"
     measurement_dict = json_file_to_dict(measurement_path)
+
+results_analisis_markers_locations = {
+    "type": [],
+    "latitude": [],
+    "longitude": []
+}
+
+results_analisis_probes_locations = {
+    "type": [],
+    "latitude": [],
+    "longitude": []
+}
+
+def get_gt_intances_locations():
+    filepath = "datasets/ground-truth/root_servers/root_servers_A.json" 
+    
+    df = pd.DataFrame(json_file_to_dict(filepath)["Sites"])
+    df = df[["Country", "Town", "Latitude", "Longitude" ]]
+    df.drop_duplicates(subset=['Town'], inplace=True)
+
+    return df
+
+def get_results_intances_locations():
+    filepath = "results/campaings/20230324/North-Central_1000_192.5.5.241_1.0.json" 
+    
+    df = pd.DataFrame(json_file_to_dict(filepath)["anycast_intances"])
+
+    print(df)
+    return df
+
+get_results_intances_locations()
