@@ -8,8 +8,8 @@ from auxiliar import (
 )
 
 # Constants
-results_path = "../results/"
-root_servers_gt_path = "../datasets/ground-truth/root_servers/"
+results_path = "results/"
+root_servers_gt_path = "datasets/ground-truth/root_servers/"
 
 # Funtions
 def get_countries_set_from_root_servers(file_name:str) -> set:

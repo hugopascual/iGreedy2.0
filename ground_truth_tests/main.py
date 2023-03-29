@@ -61,7 +61,7 @@ area_north_central = get_alpha2_country_codes_from_file(Constants.NORTH_CENTRAL_
 # Load sets of instances
 gt_instances = get_countries_set_from_root_servers(gt_filename)
 
-build_stadistics("North-Central", area_north_central)
-build_stadistics("WW", area_ww)
+#build_stadistics("North-Central", area_north_central)
+#build_stadistics("WW", area_ww)
 
-
+city_intances_check(area_north_central)

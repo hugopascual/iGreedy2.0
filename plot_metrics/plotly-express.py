@@ -1,6 +1,6 @@
 import plotly.express as px
 import pandas as pd
-import geopandas as gpd
+
 import json
 
 def json_file_to_dict(file_path: str) -> dict:
@@ -137,11 +137,20 @@ def plot_gt_and_results():
     df.to_csv("plot_metrics/test.csv")
     return df
 
-def plot_metrics():
-    metrics_df = pd.read_csv("metrics.csv")
+def get_alpha2_country_codes_from_file(filename: str) -> set:
+    country_codes = set()
+    countries_list = json_file_to_dict(filename)
+    for country in countries_list:
+        country_codes.add(country["alpha-2"])
+    return country_codes
 
-    df = pd.concat([get_gt_intances_locations(),
-                    metrics_df])
+def plot_metrics():
+    area_north_central = get_alpha2_country_codes_from_file("datasets/countries_lists/North-Central_countries.json")
+    metrics_df = pd.read_csv("metrics.csv")
+    metrics_df.drop(columns="Unnamed: 0", inplace=True)
+    gt_df = get_gt_intances_locations()
+    gt_df = gt_df[gt_df["country_code"].isin(area_north_central)]
+    df = pd.concat([gt_df, metrics_df])
     plot = px.scatter_geo(df, 
                         lat="latitude", 
                         lon="longitude", 

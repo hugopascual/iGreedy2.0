@@ -136,6 +136,10 @@ def city_intances_check(area: set):
     
     metrics.sort_values(by=["country_code", "city"], inplace=True)
     metrics.to_csv("metrics.csv")
+    results_df.sort_values(by=["country_code", "city"], inplace=True)
+    results_df.to_csv("results.csv")
+    gt_df.sort_values(by=["country_code", "city"], inplace=True)
+    gt_df.to_csv("gt.csv")
 
 def check_tp_and_fp_city(gt_df, city_name: str, lat: float, lon: float):
     if city_name in gt_df.city.values:
@@ -153,12 +157,5 @@ def check_tp_and_fp_city(gt_df, city_name: str, lat: float, lon: float):
         gt_df.drop(columns="distance", inplace=True)
         if num_instances_near == 0:
             return "FP"
-        elif num_instances_near == 1:
-            return "TP"
         else:
-            return "NN"
-        
-
-
-area_north_central = get_alpha2_country_codes_from_file(Constants.NORTH_CENTRAL_COUNTRIES_FILE_PATH)
-city_intances_check(area_north_central)
+            return "TP"
