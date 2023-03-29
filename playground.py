@@ -3,6 +3,7 @@
 
 import requests
 import json
+import pandas as pd
 
 #base_url = "https://atlas.ripe.net/api/v2/measurements/{}/results"
 #
@@ -18,13 +19,8 @@ def json_file_to_dict(file_path: str) -> list:
     
     return json.loads(raw_json)
 
-filepath = "ground_truth_tests/ground_truth_metrics/North-Central_campaign_20230324.csv"
-
-import plotly.express as px
-df = px.data.gapminder().query("country=='Canada'")
-fig = px.line(df, x="year", y="lifeExp", title='Life expectancy in Canada')
-fig.show()
-
-
-import pandas as pd
-df = pd.read_csv(filepath)
+filepath = "gt_test.csv"
+gt_df = pd.read_csv(filepath)
+num_instances_near = len(gt_df[(gt_df["distance"]<100.0)])
+print(gt_df)
+print(num_instances_near)

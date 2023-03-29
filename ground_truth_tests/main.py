@@ -16,9 +16,8 @@ from load_data import (
     get_countries_set_from_results
 )
 from stadistics import (
-    print_global_gt_definitions,
-    global_instances_check,
-    area_intances_check
+    area_intances_check,
+    city_intances_check
 )
 
 def build_stadistics(area_name: str, area_set: set):

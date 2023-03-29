@@ -122,8 +122,8 @@ def get_measurement_probes_locations():
 def plot_gt_and_results():
     df = pd.concat([get_gt_intances_locations(), 
                     get_results_intances_locations(),
-                    get_results_probes_locations(),
-                    #get_measurement_probes_locations()
+                    #get_results_probes_locations(),
+                    get_measurement_probes_locations()
                     ])
 
     plot = px.scatter_geo(df, 
@@ -137,4 +137,19 @@ def plot_gt_and_results():
     df.to_csv("plot_metrics/test.csv")
     return df
 
-plot_gt_and_results()
+def plot_metrics():
+    metrics_df = pd.read_csv("metrics.csv")
+
+    df = pd.concat([get_gt_intances_locations(),
+                    metrics_df])
+    plot = px.scatter_geo(df, 
+                        lat="latitude", 
+                        lon="longitude", 
+                        hover_name="city",
+                        color="type")
+    plot.show()
+
+    df.sort_values("country_code", inplace=True)
+    df.to_csv("plot_metrics/test.csv")
+
+plot_metrics()
