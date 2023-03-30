@@ -3,6 +3,7 @@
 
 import requests
 import json
+import pandas as pd
 
 #base_url = "https://atlas.ripe.net/api/v2/measurements/{}/results"
 #
@@ -12,8 +13,14 @@ import json
 #
 #print(json.dumps(response, indent=4))
 
-path = "./probes_sets/default_ripe_probes.json"
+def json_file_to_dict(file_path: str) -> list:
+    with open(file_path) as file:
+        raw_json = file.read()
+    
+    return json.loads(raw_json)
 
-filename = path.split("/")[-1]
-print(path.split("/"))
-print(filename[:-5])
+filepath = "gt_test.csv"
+gt_df = pd.read_csv(filepath)
+num_instances_near = len(gt_df[(gt_df["distance"]<100.0)])
+print(gt_df)
+print(num_instances_near)

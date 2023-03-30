@@ -16,9 +16,8 @@ from load_data import (
     get_countries_set_from_results
 )
 from stadistics import (
-    print_global_gt_definitions,
-    global_instances_check,
-    area_intances_check
+    area_intances_check,
+    city_intances_check
 )
 
 def build_stadistics(area_name: str, area_set: set):
@@ -31,8 +30,8 @@ def build_stadistics(area_name: str, area_set: set):
             results_filename_list.append("{}_{}_{}_{}.json".format(area_name, num_probes, ip_direcction, alpha))
 
     for results_filename in results_filename_list:
-        results = json_file_to_dict("../results/campaings/20230324/"+results_filename)
-        results_instances = get_countries_set_from_results("campaings/20230324/"+results_filename)
+        results = json_file_to_dict("../results/campaigns/20230324/"+results_filename)
+        results_instances = get_countries_set_from_results("campaigns/20230324/"+results_filename)
         stadistics_dict = area_intances_check(gt_instances, results_instances, area_set)
         stadistics_dict["num_probes"] = int(results_filename.split("_")[1])
         stadistics_dict["alpha"] = results["alpha"]
@@ -45,6 +44,7 @@ def build_stadistics(area_name: str, area_set: set):
         gt_stadistics.append(stadistics_dict)
         
     list_to_json_file(gt_stadistics, gt_stadistics_filename+".json")
+    [item.pop("sets") for item in gt_stadistics]
     list_of_dicts_to_csv(gt_stadistics, gt_stadistics_filename+".csv")
 
 # Check performance
@@ -61,5 +61,7 @@ area_north_central = get_alpha2_country_codes_from_file(Constants.NORTH_CENTRAL_
 # Load sets of instances
 gt_instances = get_countries_set_from_root_servers(gt_filename)
 
-build_stadistics("North-Central", area_north_central)
-build_stadistics("WW", area_ww)
+#build_stadistics("North-Central", area_north_central)
+#build_stadistics("WW", area_ww)
+
+city_intances_check(area_north_central)
