@@ -36,6 +36,7 @@ asciiart = """
 
 """
 
+# external modules imports
 import json
 import time
 import os
@@ -46,13 +47,15 @@ import getopt
 import socket
 import collections
 import webbrowser
-
 import requests
-
-import RIPEAtlas
-from base_functions import (
+# internal modules imports
+from utils.constants import (
+    MEASUREMENTS_PATH
+)
+from utils.functions import (
     dict_to_json_file
 )
+import RIPEAtlas
 
 class Measurement(object):
     def __init__(self, ip, ripeProbes=None):
@@ -200,7 +203,7 @@ class Measurement(object):
             self._probes_filename, 
             self._ip)
 
-        dict_to_json_file(data_to_save, "datasets/measurement/{}".
+        dict_to_json_file(data_to_save, MEASUREMENTS_PATH+"{}".
                           format(self._measurement_filename))
         
     def get_measurement_nums(self,ripe_measurement_results: dict) -> tuple[int, int, int, int, int]:
@@ -237,7 +240,7 @@ class Measurement(object):
         (num_probes_answer, num_probes_timeout, num_probes_fail, 
          num_latency_measurement, total_rtt) = self.get_measurement_nums(self.result)
         
-        pathFile = "datasets/measurement/{}".format(self._measurement_filename)
+        pathFile = MEASUREMENTS_PATH+"{}".format(self._measurement_filename)
         
         print("Number of answers: %s" % len(self.result))
         if num_probes_answer == 0:

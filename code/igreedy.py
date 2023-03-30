@@ -40,21 +40,20 @@ asciiart = """
 
 """
 
+# external modules imports
 import sys, getopt, math,  time
 import os.path, json
-
-#./igreedy.py inputFile outputFile json <----json output
-#inputFile: separated by \t:hostname\tlatitude\tlongitude\tping
-#outputFile:
-
 import sys
 from anycast import Anycast,Object
 from measurement import Measurement
 from disc import *
 import webbrowser
 from threading import Thread
-
-from base_functions import (
+# internal modules imports
+from utils.constants import (
+    DEFAULT_PROBES_PATH
+)
+from utils.functions import (
     json_file_to_dict,
     dict_to_json_file
 )
@@ -75,7 +74,7 @@ GTnum = 0
 
 input_file = None
 ip = None
-probes_file = './probes_sets/default_ripe_probes.json'
+probes_file = DEFAULT_PROBES_PATH
 output_path = './results/'
 output_file = "output"
 gt_file = None

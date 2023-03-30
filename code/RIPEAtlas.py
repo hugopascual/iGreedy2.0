@@ -20,7 +20,7 @@ import json
 import time
 import requests
 
-from custom_exceptions import (
+from utils.custom_exceptions import (
     AuthFileNotFound,
     FieldsQueryError,
     InternalError,

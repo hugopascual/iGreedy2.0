@@ -41,7 +41,7 @@ import collections
 import json,sys
 import random
 
-from base_functions import (
+from utils.functions import (
     json_file_to_dict
 )
 
