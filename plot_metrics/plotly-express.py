@@ -150,7 +150,7 @@ def plot_metrics():
     metrics_df.drop(columns="Unnamed: 0", inplace=True)
     gt_df = get_gt_intances_locations()
     gt_df = gt_df[gt_df["country_code"].isin(area_north_central)]
-    df = pd.concat([gt_df, metrics_df])
+    df = pd.concat([get_measurement_probes_locations(), metrics_df])
     plot = px.scatter_geo(df, 
                         lat="latitude", 
                         lon="longitude", 
