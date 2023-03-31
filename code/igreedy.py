@@ -8,38 +8,6 @@
 # TODO: take auxiliar functions out of main file
 # TODO: revise and document code
 
-asciiart = """
-180 150W  120W  90W   60W   30W  000   30E   60E   90E   120E  150E 180
-|    |     |     |     |     |    |     |     |     |     |     |     |
-+90N-+-----+-----+-----+-----+----+-----+-----+-----+-----+-----+-----+
-|          . _..::__:  ,-"-"._       |7       ,     _,.__             |
-|  _.___ _ _<_>`!(._`.`-.    /        _._     `_ ,_/  '  '-._.---.-.__|
-|.{     " " `-==,',._\{  \  / {)     / _ ">_,-' `                mt-2_|
-+ \_.:--.       `._ )`^-. "'      , [_/( G        e      o     __,/-' +
-|'"'     \         "    _L       0o_,--'                )     /. (|   |
-|         | A  n     y,'          >_.\\._<> 6              _,' /  '   |
-|         `. c   s   /          [~/_'` `"(   l     o      <'}  )      |
-+30N       \\  a .-.t)          /   `-'"..' `:._        c  _)  '      +
-|   `        \  (  `(          /         `:\  > \  ,-^.  /' '         |
-|             `._,   ""        |           \`'   \|   ?_)  {\         |
-|                `=.---.       `._._ i     ,'     "`  |' ,- '.        |
-+000               |a    `-._       |     /          `:`<_|h--._      +
-|                  (      l >       .     | ,          `=.__.`-'\     |
-|                   `.     /        |     |{|              ,-.,\     .|
-|                    |   ,'          \ z / `'            ," a   \     |
-+30S                 |  /             |_'                |  __ t/     +
-|                    |o|                                 '-'  `-'  i\.|
-|                    |/                                        "  n / |
-|                    \.          _                              _     |
-+60S                            / \   _ __  _   _  ___ __ _ ___| |_   +
-|                     ,/       / _ \ | '_ \| | | |/ __/ _` / __| __|  |
-|    ,-----"-..?----_/ )      / ___ \| | | | |_| | (_| (_| \__ \ |_ _ |
-|.._(                  `----'/_/   \_\_| |_|\__, |\___\__,_|___/\__| -|
-+90S-+-----+-----+-----+-----+-----+-----+--___/ /--+-----+-----+-----+
-     Based on 1998 Map by Matthew Thomas   |____/ Hacked on 2015 by 8^/  
-
-"""
-
 # external modules imports
 import sys, getopt, math,  time
 import os.path, json
@@ -51,7 +19,10 @@ import webbrowser
 from threading import Thread
 # internal modules imports
 from utils.constants import (
-    DEFAULT_PROBES_PATH
+    AIRPORTS_INFO_FILEPATH,
+    DEFAULT_PROBES_PATH,
+    RESULTS_PATH,
+    ASCIIART
 )
 from utils.functions import (
     json_file_to_dict,
@@ -60,7 +31,7 @@ from utils.functions import (
 
 # TODO: This variables could be constants or be inside a config file
 # TODO: Study use of each one
-IATA_file = './datasets/airports.csv'
+IATA_file = AIRPORTS_INFO_FILEPATH
 
 IATA = []
 IATAlat = {}
@@ -75,7 +46,7 @@ GTnum = 0
 input_file = None
 ip = None
 probes_file = DEFAULT_PROBES_PATH
-output_path = './results/'
+output_path = RESULTS_PATH
 output_file = "output"
 gt_file = None
 alpha = 1       # advised settings
@@ -459,48 +430,48 @@ def threaded_browser():
 def help():
     """Print the options avaliable on iGreedy"""  
 
-    print (asciiart + """
-Usage:  igreedy.py -i filename [ OPTIONS ]
-        igreedy.py -m IP_direction [ -p filename ] [ OPTIONS ] 
+    print (ASCIIART + """
+Usage:  igreedy.py -i measurement_filepath [ OPTIONS ]
+        igreedy.py -m IP_direction [ -p probes_filepath ] [ -c boolean ] [ OPTIONS ]
 
 Commands:
 Either long or short options are allowed
-    --input         -i  filename
-                                Input filename which contains the data of an 
-                                specific measurement to be analyzed
+    --input         -i  measurement_filepath
+                                Input filepath which contains the data of an 
+                                specific measurement to be analyzed.
     --measurement   -m  IP_direction
                                 Real time measurements from Ripe Atlas using the
                                 ripe probes in datasets/ripeProbes. IPV4/IPv6.
 
 Parameters:
-    --probes        -p  filename    
-                                Filename of the JSON document which contains the
+    --probes        -p  probes_filepath    
+                                Filepath of the JSON document which contains the
                                 specification of the probes to use in the 
-                                measurement (default 
-                                "probes_sets/ripe_probes.json")
+                                measurement (default "{}")
+    --calculate     -c  boolean        
+                                Use it when you want that iGreedy automaticaly 
+                                calculate the results based on the measurement 
+                                realized. If not present iGreedy do not analyze 
+                                the measurement results. (default False)
 
 Options:
     --alpha         -a  alpha   
-                                alpha (tune population vs distance score, 
-                                see INFOCOM'15) (default 1)
-    --noise         -n  noise   
-                                Average of exponentially distributed 
-                                additive latency noise; only for sensitivity 
-                                (default 0)
+                                Alpha (tune population vs distance score, 
+                                see INFOCOM'15). (default 1)
     --threshold     -t  threshold   
-                                Discard disks having latency larger 
-                                than threshold to bound the error
-    --output        -o  filename
-                                Filename to use in the output file with the 
-                                measurements (.csv and .json)
-    --groundtruth   -g  filename
-                                Filename of the measured ground truth (GT) or 
-                                publicly available information (PAI) files 
-                                (format: "hostname iata" lines for GT, "iata" 
-                                lines for PAI)
-    --browser       -b          Visualize the results in a browser with
-                                a map (default false) 
-    """)
+                                Discard disks having latency larger than 
+                                threshold to bound the error. If negative is 
+                                counted as infinity. (default -1)
+    --noise         -n  noise   
+                                Average of exponentially distributed additive 
+                                latency noise, only for sensitivity. (default 0)
+    --output        -o  filepath
+                                Filepath to use in the output file with the 
+                                measurements (.csv and .json).
+    --groundtruth   -g  filepath
+                                Filepath of the ground truth.
+    --visualize     -v          Visualize the results. 
+    """.format(DEFAULT_PROBES_PATH))
 
     sys.exit(0)
 
@@ -520,14 +491,16 @@ def main(argv):
 
     maker_time = time.time()
 
+    analyze_measurement = False
+
     # This sections parse the options selected and their values
     try:
         options, args = getopt.getopt(argv, 
-                                      "i:m:p:a:n:t:o:g:b", 
+                                      "i:m:p:c:a:t:n:o:g:v", 
                                       ["input",
-                                       "measurement", "probes", 
-                                       "alpha", "noise", "threshold",
-                                       "output", "groundtruth", "browser"])
+                                       "measurement", "probes", "calculate",
+                                       "alpha", "threshold", "noise",
+                                       "output", "groundtruth", "visualize"])
     except getopt.GetoptError as e:
         print(e)
 
@@ -549,19 +522,29 @@ def main(argv):
             sys.exit(2)
 
         # Options if measurement command selected
-        elif (option in ("-p", "--probes")) and (ip):
+        elif option in ("-p", "--probes"):
             if not os.path.isfile(arg):
-                print ("Input file <"+arg+"> does not exist")
+                print ("Input file <{}> does not exist".format(arg))
                 sys.exit(2)
             else: 
                 probes_file = arg
+
+        elif option in ("-c", "--calculate"):
+            if arg.lower() == "true":
+                analyze_measurement = True
+            elif arg.lower() == "false":
+                analyze_measurement = False
+            else:
+                print("Argument for -c option not valid. Try with True or False")
+                sys.exit(2)
 
         # Inputs for the analysis part
         elif option in ("-a", "--alpha"):
             alpha = float(arg)
             if alpha<0 or alpha>1:
                 print ("alpha must be [0,1], wrong choice:", alpha)
-                sys.exit(-1)
+                sys.exit(2)
+            print("Alpha selected: ", alpha)
 
         elif option in ("-n", "--noise"):
             noise = float(arg)
@@ -577,32 +560,30 @@ def main(argv):
         
         if option in ("-g", "--groundtruth"):
             if not os.path.isfile(arg):
-                print ("Ground-truth file <"+arg+"> does not exist")
+                print ("Ground-truth file <{}> does not exist".format(arg))
                 sys.exit(2)
             else: 
                 gt_file = arg
         
-        if option in ("-b", "--browser"):
+        if option in ("-v", "--visualize"):
             browser = True
 
-    # Print th values to inform the user about the parameters are going to be used
-    if ip:
-        print("Probes data from: ", probes_file)
-    print ('Airports:', IATA_file)
+    # Print important values to inform the user about the parameters are going to be used
+    print ('Airports info from:', IATA_file)
     readIATA()
     if input_file:
-        print ('Measurement:', input_file)
+        print ('Measurement filepath:', input_file)
     if gt_file:
-        print ('Ground-truth:', gt_file)
+        print ('Ground-truth filetpath:', gt_file)
         readGT()
-    if output_file:
-        print ('Output:', output_file + ".{csv,json}")
-
     # Insert directory path in output_file
-    output_file = output_path + output_file
-    
+    if analyze_measurement or input_file:
+        output_file = output_path + output_file
+        print ('Output filepath:', output_file + ".{csv,json}")
+
     # If the measurement option is used make a new measurement to get the latency records
     if ip:
+        print("Probes data from: ", probes_file)
         measure=Measurement(ip)
         ripe_probes_geo = measure.doMeasure(probes_file)
         numLatencyMeasurement, input_file=measure.retrieveResult(ripe_probes_geo)
@@ -613,7 +594,8 @@ def main(argv):
     # Analyze the data and get a mark of time spend getting the data and analyzing it 
     load_time = time.time() - maker_time
     maker_time = time.time()
-    analyze()
+    if analyze_measurement or input_file:
+        analyze()
     run_time = time.time() - maker_time
     output()
 
