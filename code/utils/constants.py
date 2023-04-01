@@ -9,8 +9,11 @@ COUNTRIES_SETS_PATH = __DATASETS_PATH+"countries_sets/"
 ALL_COUNTRIES_FILE_PATH = COUNTRIES_SETS_PATH+"all_countries.json"
 EU_COUNTRIES_FILE_PATH = COUNTRIES_SETS_PATH+"EU_countries.json"
 EEE_COUNTRIES_FILE_PATH = COUNTRIES_SETS_PATH+"EEE_countries.json"
-NORTH_CENTRAL_COUNTRIES_FILE_PATH = COUNTRIES_SETS_PATH+"North-Central_countries.json"
-ADECUATE_INTERNACIONAL_TRANSFERS_COUNTRIES_FILE_PATH = COUNTRIES_SETS_PATH+"adecuate_internacional_trasnfer_countries.json"
+NORTH_CENTRAL_COUNTRIES_FILE_PATH = COUNTRIES_SETS_PATH + \
+                                    "North-Central_countries.json"
+ADEQUATE_INTERNATIONAL_TRANSFER_COUNTRIES_FILE_PATH = \
+    COUNTRIES_SETS_PATH + "adequate_international_transfer_countries.json"
+AREA_OF_INTEREST_FILEPATH = NORTH_CENTRAL_COUNTRIES_FILE_PATH
 
 __GROUND_TRUTH_PATH = __DATASETS_PATH+"ground-truth/"
 ROOT_SERVERS_PATH = __GROUND_TRUTH_PATH+"root_servers/"
@@ -30,7 +33,9 @@ RESULTS_PATH = "results/"
 ROOT_SERVERS_URL = "https://root-servers.org/root/"
 
 # others
-ROOT_SERVERS_NAMES = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]
+ROOT_SERVERS_NAMES = [
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
+]
 ASCIIART = """
 180 150W  120W  90W   60W   30W  000   30E   60E   90E   120E  150E 180
 |    |     |     |     |     |    |     |     |     |     |     |     |
@@ -60,5 +65,5 @@ ASCIIART = """
 |.._(                  `----'/_/   \_\_| |_|\__, |\___\__,_|___/\__| -|
 +90S-+-----+-----+-----+-----+-----+-----+--___/ /--+-----+-----+-----+
      Based on 1998 Map by Matthew Thomas   |____/ Hacked on 2015 by 8^/  
-
 """
+
