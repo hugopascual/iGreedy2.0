@@ -42,6 +42,7 @@ class Measurement(object):
 
         self._percentageSuccessful = 0.8 
 
+        self._probes_filepath = None
         self._probes_filename = None
         self._measurement_filename = None
         
@@ -105,6 +106,7 @@ class Measurement(object):
             af = 4
         data["definitions"][0]['af'] = af
 
+        self._probes_filepath = probes_file
         self._probes_filename = probes_file.split("/")[-1][:-5]
 
         with open(probes_file) as file:
@@ -118,8 +120,8 @@ class Measurement(object):
         data = self.load_data_request(probes_file)
         self._request_data = data
 
-        print ("Running measurement from Ripe Atlas with this data:")
-        print (json.dumps(data, indent=4))
+        #print ("Running measurement from Ripe Atlas with this data:")
+        #print (json.dumps(data, indent=4))
         self._measurement = RIPEAtlas.Measurement(data)
         print ("ID measure: %s\tTARGET: %s\tNumber of Vantage Points: %i " % (
             self._measurement.id,  self._ip, self._measurement.num_probes))
@@ -146,12 +148,15 @@ class Measurement(object):
             longitude = probe_response["geometry"]["coordinates"][0]
             self._ripe_probes_geo[hostname]=[latitude, longitude]
 
-    def save_measurement_results(self, ripe_measurement_results: dict, info_probes:dict):
-        data_to_save = {}
-        data_to_save["target"] = self._ip
-        data_to_save["measurement_id"] = self._measurement.id
-        data_to_save["request_data"] = self._request_data
-        data_to_save["measurement_results"] = []
+    def save_measurement_results(self, 
+                                 ripe_measurement_results: dict, 
+                                 info_probes: dict):
+        data_to_save = {
+            "target": self._ip,
+            "measurement_id": self._measurement.id,
+            "request_data": self._request_data,
+            "probes_filepath": self._probes_filepath,
+            "measurement_results": []}
 
         for probe_result in ripe_measurement_results:
             probe_id = probe_result["prb_id"]
@@ -167,9 +172,11 @@ class Measurement(object):
                         print(exception.__str__())
                     data_to_save["measurement_results"].append(measure)
 
-        self._measurement_filename = "{}_{}.json".format(
-            self._probes_filename, 
-            self._ip)
+        self._measurement_filename = "{}_{}_{}.json".format(
+            self._ip,
+            self._probes_filename,
+            self.get_measurement_id()
+        )
 
         dict_to_json_file(data_to_save, MEASUREMENTS_PATH+"{}".
                           format(self._measurement_filename))
@@ -208,7 +215,7 @@ class Measurement(object):
         (num_probes_answer, num_probes_timeout, num_probes_fail, 
          num_latency_measurement, total_rtt) = self.get_measurement_nums(self.result)
         
-        pathFile = MEASUREMENTS_PATH+"{}".format(self._measurement_filename)
+        path_file = MEASUREMENTS_PATH+"{}".format(self._measurement_filename)
         
         print("Number of answers: %s" % len(self.result))
         if num_probes_answer == 0:
@@ -223,5 +230,5 @@ class Measurement(object):
                        num_probes_timeout, num_probes_timeout*100.0/num_probes_answer, total_rtt/num_latency_measurement))
             except:
                   c=0
-        return (num_latency_measurement, pathFile)
+        return (num_latency_measurement, path_file)
 

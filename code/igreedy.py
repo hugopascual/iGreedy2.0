@@ -50,53 +50,53 @@ output_path = RESULTS_PATH
 output_file = "output"
 gt_file = None
 alpha = 1       # advised settings
-browser  = False 
+browser  = False
 noise = 0       # exponential additive noise, only for sensitivity analysis
 
 numberOfInstance = 0
 truePositive = 0
-falsePositive = 0 
+falsePositive = 0
 load_time = 0
 run_time = 0
 threshold = -1 # negative means infinity
 
 
 def airportDistance(a,b):
-        if (a not in IATAlat) or  (b not in IATAlat):  
-            return "NaN"  
-        lat1 = IATAlat[a] 
+        if (a not in IATAlat) or  (b not in IATAlat):
+            return "NaN"
+        lat1 = IATAlat[a]
         lat2 = IATAlat[b]
-        lon1 = IATAlon[a] 
-        lon2 = IATAlon[b] 
+        lon1 = IATAlon[a]
+        lon2 = IATAlon[b]
 
-        # Convert latitude and longitude to 
+        # Convert latitude and longitude to
         # spherical coordinates in radians.
         degrees_to_radians = math.pi/180.0
-            
+
         # phi = 90 - latitude
         phi1 = (90.0 - lat1)*degrees_to_radians
         phi2 = (90.0 - lat2)*degrees_to_radians
-            
+
         # theta = longitude
         theta1 = lon1*degrees_to_radians
         theta2 = lon2*degrees_to_radians
-            
+
         # Compute spherical distance from spherical coordinates.
-            
-        # For two locations in spherical coordinates 
+
+        # For two locations in spherical coordinates
         # (1, theta, phi) and (1, theta, phi)
-        # cosine( arc length ) = 
+        # cosine( arc length ) =
         #    sin phi sin phi' cos(theta-theta') + cos phi cos phi'
         # distance = rho * arc length
-        
-        cos = (math.sin(phi1)*math.sin(phi2)*math.cos(theta1 - theta2) + 
+
+        cos = (math.sin(phi1)*math.sin(phi2)*math.cos(theta1 - theta2) +
                math.cos(phi1)*math.cos(phi2))
         if (abs(cos - 1.0) <0.000000000000001):
-            arc=0.0   
+            arc=0.0
         else:
             arc = math.acos( cos )
-            
-        # Remember to multiply arc by the radius of the earth 
+
+        # Remember to multiply arc by the radius of the earth
         # in your favorite set of units to get length.
         return arc*6371
 
@@ -144,7 +144,7 @@ def readGT():
             continue
         iata = ""
         fields = line.strip().split("\t")
-        if(len(fields)==2):  
+        if(len(fields)==2):
             #ground truth measured from a specific vantage point
             hostname  = fields[0]
             iata = fields[1].upper()
@@ -168,7 +168,7 @@ def readGT():
 
         elif(len(fields)==1):
             #publicly avlable information, but not tied to a specific host
-            iata=fields[0].upper() 
+            iata=fields[0].upper()
             temp.append( iata )
             if (iata not in IATA):
                 print("Weird publicly available information: <" + iata + ">")
@@ -182,16 +182,16 @@ def readGT():
                 IATAlon[iata]=0
                 IATAcity[iata]="Weird"
             else:
-                PAIlist.append( iata ) 
+                PAIlist.append( iata )
 
         else:
             print("Unexpected ground truth format: " + line)
 
-    PAI = set(PAIlist)   
+    PAI = set(PAIlist)
     PAInum = len(set(PAIlist))
     GTtotal=set(GTlist)
     GTnum = len(set(GTlist))
-    
+
 
 def analyze():
     """Routine to iteratively enumerate and geolocate anycast instances"""
@@ -212,29 +212,29 @@ def analyze():
 
         iteration=False
         resultEnumeration=anycast.enumeration()
-  
+
         numberOfInstance+=resultEnumeration[0]
         if(numberOfInstance<=1):
             print("No anycast instance detected")
             sys.exit()
-        for radius, discList in resultEnumeration[1].getOrderedDisc().items(): 
+        for radius, discList in resultEnumeration[1].getOrderedDisc().items():
             for disc in discList:
                 # if the disc was not geolocated before, geolocate it!
                 if(not disc[1]):
                     # used for the csv output
                     #discs.append(disc[0])      # append the disc to the results
-                    
+
                     # remove old disc from MIS of disc
                     # MIS = Maximum Independent Set
                     resultEnumeration[1].removeDisc(disc)
-                    
+
                     # result geolocation with the stadistics of airports
                     city=anycast.geolocation(disc[0],treshold)
 
                     #if there is a city inside the disc
                     if(city is not False):
                         # geolocated one disc, re-run enumeration!
-                        iteration=True 
+                        iteration=True
                         # save for the results the city. Used for .csv output
                         #markers.append(newDisc)
 
@@ -242,11 +242,11 @@ def analyze():
                         #insert the new disc in the MIS
                         resultEnumeration[1].add(
                             Disc("Geolocated",
-                                 float(city[1]), 
-                                 float(city[2]), 
-                                 radiusGeolocated), 
+                                 float(city[1]),
+                                 float(city[2]),
+                                 radiusGeolocated),
                             True)
-                          
+
                         break       # exit for rerun MIS
                     else:
                         # insert the old disc in the MIS
@@ -256,8 +256,8 @@ def analyze():
                                                        disc[0].getLatitude(),
                                                        disc[0].getLongitude(),
                                                        "N/A",
-                                                       "N/A"])) 
-                        
+                                                       "N/A"]))
+
             if(iteration):
                 break
 
@@ -266,34 +266,28 @@ def output():
     """Routine to output results to a JSON (for GoogleMaps) and a CSV (for 
     further processing)
     """
-    
+
     global input_file, output_file, gt_file
     global base, load_time, run_time
 
     global ip, probes_file
     global alpha, noise, threshold
-        
-    global numberOfInstance, discSolution, truePositive, falsePositive 
+
+    global numberOfInstance, discSolution, truePositive, falsePositive
     global GT, PAI, IATAlat, IATAlon, IATAcity, GTnum, PAInum, weirdGtSolution
     weirdGtSolution=0
 
     # Format of result file if no name is provided
     # $ip_$probes-filename_$alpha_$threshold_$noise.json
-    # If noise or threshold are the deafult values they do not appear
+    # If noise or threshold are the default values they do not appear
     result_filename = ""
-    probes_filename = probes_file.split("/")[-1][:-5]
     if output_file == (output_path+"output"):
-        if not ip:
-            # If the result is from an input file, it use the same as the input
-            result_filename = input_file.split("/")[-1][:-5] + "_" + str(alpha)
-        else: 
-            result_filename = probes_filename + "_" + ip + "_" + str(alpha)
-        if threshold != -1:
-            result_filename += "_" + str(threshold)
-        if noise != 0:
-            result_filename += "_" + str(noise)
-        result_filename += ".json"
-        result_filename = "./results/"+result_filename
+        measurement_filename = input_file.split("/")[-1][:-5]
+        result_filename = RESULTS_PATH + "{}_{}_{}_{}.json".format(
+            measurement_filename,
+            alpha,
+            threshold,
+            noise)
     else:
         result_filename = output_file
 
@@ -312,12 +306,12 @@ def output():
         pseudoVar = 0
         meanOld = 0
         #fragile
-    
+
         for instance in discsSolution:  #circle to csv
             #comparing vs. GT or PAI
             iata = instance[1][0]
             gt=""
-            Mlist.append( iata )   #measured airport instance 
+            Mlist.append( iata )   #measured airport instance
             if GTnum>0: #if there is at least one GT
                 gt = GT[instance[0].getHostname()]
                 if(IATAcity[gt] == "Weird"):
@@ -327,7 +321,7 @@ def output():
                 print("True Positive [GT] "+ gt +"("+ IATAcity[gt] +")")
                 truePositive += 1
             elif (iata in PAI):
-                print("True Positive [PAI] " + iata) 
+                print("True Positive [PAI] " + iata)
                 truePositive += 1
             else:
                 if GTnum>0 : #if there is a gt
@@ -366,8 +360,8 @@ def output():
                     print("True Positive [CloseCity] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") ")
                     truePositive += 1
 
-                else:    
-                    print("False Positive [ERROR!!!] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") ") 
+                else:
+                    print("False Positive [ERROR!!!] "+ gt +"("+ IATAcity[gt] +") "+ iata +"("+ IATAcity[iata] +") ")
                     falsePositive += 1
                     try:
                         meanErr += float((distance-meanOld)/float(falsePositive))
@@ -377,11 +371,11 @@ def output():
                     except:
                         print ("cannot do much; distance is not a number likely \
                         because the selected City is not the provided IATA list")
-                        pass    
+                        pass
                         # cannot do much; distance is not a number likely because 
                         # the selected City is not the provided IATA list                        
-                        
-        if falsePositive>1:                
+
+        if falsePositive>1:
             stdErr = math.pow(pseudoVar / (falsePositive-1), 0.5)
         else:
             stdErr = 0
@@ -393,44 +387,45 @@ def output():
     data = dict()
 
     data["target"] = ip
-    data["probes_filename"] = probes_file
+    data["probes_filepath"] = probes_file
     data["alpha"] = alpha
     data["threshold"] = threshold
     data["noise"] = noise
     data["num_anycast_instances"] = numberOfInstance
-    data["anycast_intances"] = []
+    data["anycast_instances"] = []
     for instance in discsSolution:
         # circle
         tempCircle=instance[0]
         circle = dict()
-        circle["id"]= tempCircle.getHostname()
-        circle["latitude"]= tempCircle.getLatitude()
-        circle["longitude"]= tempCircle.getLongitude()
-        circle["radius"]= tempCircle.getRadius()
+        circle["id"] = tempCircle.getHostname()
+        circle["latitude"] = tempCircle.getLatitude()
+        circle["longitude"] = tempCircle.getLongitude()
+        circle["radius"] = tempCircle.getRadius()
         # marker
-        tempMarker=instance[1]
+        tempMarker = instance[1]
         marker = dict()
-        marker["id"]= tempMarker[0]
-        marker["latitude"]= tempMarker[1]
-        marker["longitude"]= tempMarker[2]
-        marker["city"]=tempMarker[3]
-        marker["code_country"]=tempMarker[4]
+        marker["id"] = tempMarker[0]
+        marker["latitude"] = tempMarker[1]
+        marker["longitude"] = tempMarker[2]
+        marker["city"] = tempMarker[3]
+        marker["code_country"] = tempMarker[4]
         # union of circle and marker
-        markCircle= dict()
-        markCircle["marker"]=marker
-        markCircle["circle"]=circle
-        data["anycast_intances"].append(markCircle)
-    
+        markCircle = dict()
+        markCircle["marker"] = marker
+        markCircle["circle"] = circle
+        data["anycast_instances"].append(markCircle)
+
     dict_to_json_file(data, result_filename)
 
 def threaded_browser():
     url = "./code/webDemo/demo.html"
     webbrowser.open(url,new=2)      # open in a new tab, if possible
 
-def help():
-    """Print the options avaliable on iGreedy"""  
 
-    print (ASCIIART + """
+def print_help_text() -> None:
+    """Print the options available on iGreedy"""
+
+    print(ASCIIART + """
 Usage:  igreedy.py -i measurement_filepath [ OPTIONS ]
         igreedy.py -m IP_direction [ -p probes_filepath ] [ -c boolean ] [ OPTIONS ]
 
@@ -449,7 +444,7 @@ Parameters:
                                 specification of the probes to use in the 
                                 measurement (default "{}")
     --calculate     -c  boolean        
-                                Use it when you want that iGreedy automaticaly 
+                                Use it when you want that iGreedy automatically 
                                 calculate the results based on the measurement 
                                 realized. If not present iGreedy do not analyze 
                                 the measurement results. (default False)
@@ -475,14 +470,15 @@ Options:
 
     sys.exit(0)
 
+
 def main(argv):
-    """Main function that execute on every run of igreedy.
+    """Main function that execute on every run of iGreedy.
     Checks input arguments and decide what code needs to be executed.
     """
 
     # First check for help option
     if ("-h" in argv) or ("--help" in argv):
-        help()
+        print_help_text()
 
     # Varibles needed to make the measurement and analisis
     global input_file, probes_file, ip
@@ -493,16 +489,17 @@ def main(argv):
 
     analyze_measurement = False
 
-    # This sections parse the options selected and their values
+    # These sections parse the options selected and their values
     try:
-        options, args = getopt.getopt(argv, 
-                                      "i:m:p:c:a:t:n:o:g:v", 
+        options, args = getopt.getopt(argv,
+                                      "i:m:p:c:a:t:n:o:g:v",
                                       ["input",
                                        "measurement", "probes", "calculate",
                                        "alpha", "threshold", "noise",
                                        "output", "groundtruth", "visualize"])
     except getopt.GetoptError as e:
         print(e)
+        sys.exit(2)
 
     # This section set as variables the values of the different options used
     for option, arg in options:
@@ -511,14 +508,14 @@ def main(argv):
             if not os.path.isfile(arg):
                 print ("Input file <"+arg+"> does not exist")
                 sys.exit(2)
-            else: 
+            else:
                 input_file = arg
-                
+
         elif option in ("-m", "--measurement"):
             ip = arg
 
         elif (ip != None) and (input_file != None):
-            print ("Sorry, you can't use input file and measurement options at the same time.")
+            print("Sorry, you can't use input file and measurement options at the same time.")
             sys.exit(2)
 
         # Options if measurement command selected
@@ -526,7 +523,7 @@ def main(argv):
             if not os.path.isfile(arg):
                 print ("Input file <{}> does not exist".format(arg))
                 sys.exit(2)
-            else: 
+            else:
                 probes_file = arg
 
         elif option in ("-c", "--calculate"):
@@ -549,7 +546,7 @@ def main(argv):
         elif option in ("-n", "--noise"):
             noise = float(arg)
             print ("Additive noise, mean: ", noise)
-        
+
         if option in ("-t", "--threshold"):
             threshold = float(arg)
             print ("Latency measurement threshold [ms]: ", threshold)
@@ -557,29 +554,30 @@ def main(argv):
         # Other options
         if option in ("-o", "--output"):
             output_file = arg
-        
+
         if option in ("-g", "--groundtruth"):
             if not os.path.isfile(arg):
                 print ("Ground-truth file <{}> does not exist".format(arg))
                 sys.exit(2)
-            else: 
+            else:
                 gt_file = arg
-        
+
         if option in ("-v", "--visualize"):
             browser = True
 
     # Print important values to inform the user about the parameters are going to be used
-    print ('Airports info from:', IATA_file)
+    print('Airports info from:', IATA_file)
     readIATA()
     if input_file:
-        print ('Measurement filepath:', input_file)
+        analyze_measurement = True
+        print('Measurement filepath:', input_file)
     if gt_file:
-        print ('Ground-truth filetpath:', gt_file)
+        print('Ground-truth filepath:', gt_file)
         readGT()
     # Insert directory path in output_file
-    if analyze_measurement or input_file:
+    if analyze_measurement:
         output_file = output_path + output_file
-        print ('Output filepath:', output_file + ".{csv,json}")
+        print('Output filepath:', output_file + ".{csv,json}")
 
     # If the measurement option is used make a new measurement to get the latency records
     if ip:
@@ -594,17 +592,21 @@ def main(argv):
     # Analyze the data and get a mark of time spend getting the data and analyzing it 
     load_time = time.time() - maker_time
     maker_time = time.time()
-    if analyze_measurement or input_file:
+    if analyze_measurement:
+        measurement_data = json_file_to_dict(input_file)
+        probes_file = measurement_data["probes_filepath"]
+        ip = measurement_data["target"]
         analyze()
+        output()
     run_time = time.time() - maker_time
-    output()
 
     # TODO: Check webDemo files because the code does not work
     if browser:
         os.rename(output_file+".json", "code/webDemo/data/anycastJson/output.json")
-        # open a public URL, in this case, the webbrowser docs
+        # open a public URL, in this case, the web browser docs
         thread = Thread(target = threaded_browser)
         thread.start()
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

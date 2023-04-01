@@ -55,7 +55,7 @@ detected anycast instance that does not have any known anycast instance.
 Operation: Intersection((ALL - AREA), RS) - GT.
 ########################################""")
 
-def area_intances_check(gt_countries: set, results_countries: set, area: set) -> dict:
+def area_instances_check(gt_countries: set, results_countries: set, area: set) -> dict:
     # In code RS == results_countries
     # In code GT == gt_countries
     # In code ALL == all_countries

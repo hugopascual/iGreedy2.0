@@ -16,7 +16,7 @@ from load_data import (
     get_countries_set_from_results
 )
 from stadistics import (
-    area_intances_check,
+    area_instances_check,
     city_intances_check
 )
 
@@ -32,7 +32,7 @@ def build_stadistics(area_name: str, area_set: set):
     for results_filename in results_filename_list:
         results = json_file_to_dict("../results/campaigns/20230324/"+results_filename)
         results_instances = get_countries_set_from_results("campaigns/20230324/"+results_filename)
-        stadistics_dict = area_intances_check(gt_instances, results_instances, area_set)
+        stadistics_dict = area_instances_check(gt_instances, results_instances, area_set)
         stadistics_dict["num_probes"] = int(results_filename.split("_")[1])
         stadistics_dict["alpha"] = results["alpha"]
         stadistics_dict["threshold"] = results["threshold"]
