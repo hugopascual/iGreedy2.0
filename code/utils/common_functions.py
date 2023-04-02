@@ -8,10 +8,11 @@ import csv
 import math
 # internal modules imports
 from utils.constants import (
+    ROOT_SERVERS_NAMES,
     ROOT_SERVERS_URL,
     ROOT_SERVERS_PATH,
-    ROOT_SERVERS_NAMES,
-    EARTH_RADIUS_KM
+    EARTH_RADIUS_KM,
+    ALL_COUNTRIES_FILE_PATH
 )
 
 
@@ -87,3 +88,10 @@ def distance(a: dict, b: dict) -> float:
     # Remember to multiply arc by the radius of the earth
     # in your favorite set of units to get length.
     return arc * EARTH_RADIUS_KM
+
+
+def alpha2_code_to_alpha3(alpha2: str) -> str:
+    all_countries_list = json_file_to_dict(ALL_COUNTRIES_FILE_PATH)
+    for country in all_countries_list:
+        if alpha2 == country["alpha-2"]:
+            return country["alpha-3"]

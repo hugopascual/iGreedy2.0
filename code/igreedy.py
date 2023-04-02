@@ -19,11 +19,11 @@ from utils.constants import (
     RESULTS_PATH,
     ASCIIART
 )
-from utils.functions import (
+from utils.common_functions import (
     json_file_to_dict,
     dict_to_json_file
 )
-from groundtruth import compare_to_gt
+from groundtruth import compare_cities_gt
 
 IATA_file = AIRPORTS_INFO_FILEPATH
 
@@ -437,8 +437,8 @@ def main(argv):
         analyze()
         output()
         if gt_file:
-            compare_to_gt(results_filepath=results_filename,
-                          gt_filepath=gt_file)
+            compare_cities_gt(results_filepath=results_filename,
+                              gt_filepath=gt_file)
     run_time = time.time() - maker_time
 
     if visualize:

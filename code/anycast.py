@@ -9,7 +9,7 @@ import collections
 import json,sys
 import random
 
-from utils.functions import (
+from utils.common_functions import (
     json_file_to_dict
 )
 

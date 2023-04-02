@@ -1,15 +1,22 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# external modules imports
 import plotly.express as px
 import pandas as pd
-
 import json
+# internal modules imports
+from utils.constants import (
+    GROUND_TRUTH_VALIDATIONS_PATH
+)
+from utils.common_functions import (
+    json_file_to_dict,
+    dict_to_json_file,
+    alpha2_code_to_alpha3
+)
 
-def json_file_to_dict(file_path: str) -> dict:
-    with open(file_path) as file:
-        raw_json = file.read()
-    
-    return json.loads(raw_json)
 
-def plot_metrics():
+def plot_metrics2():
     filepath = "ground_truth_tests/ground_truth_metrics/North-Central_campaign_20230324.csv"
     df = pd.read_csv(filepath)
     metric = "recall"
@@ -18,18 +25,13 @@ def plot_metrics():
                       of probes".format(metric))
     fig.show()
 
+
 def plot_geo_example():
     df = px.data.gapminder().query("year == 2007")
 
     plot = px.scatter_geo(df, locations="iso_alpha")
     plot.show()
 
-def alpha2_code_to_alpha3(alpha2: str):
-    all_countries_path = "datasets/countries_lists/all_countries.json"
-    all_countries_list = json_file_to_dict(all_countries_path)
-    for country in all_countries_list:
-        if alpha2 == country["alpha-2"]:
-            return country["alpha-3"]
 
 def plot_geo():
     filepath = "ground_truth_tests/ground_truth_metrics/North-Central_campaign_20230324.json"
@@ -56,6 +58,7 @@ def plot_geo():
     plot = px.scatter_geo(df, locations="alpha2", color="type")
     plot.show()
 
+
 def get_gt_intances_locations():
     filepath = "datasets/ground-truth/root_servers/root_servers_F.json" 
     
@@ -73,6 +76,7 @@ def get_gt_intances_locations():
 
     return df
 
+
 def get_results_intances_locations():
     filepath = "results/campaigns/20230324/North-Central_1000_192.5.5.241_1.0.json" 
     anycast_instances = json_file_to_dict(filepath)["anycast_intances"]
@@ -89,6 +93,7 @@ def get_results_intances_locations():
     df["type"] = "result_instance"
 
     return df
+
 
 def get_results_probes_locations():
     filepath = "results/campaigns/20230324/North-Central_1000_192.5.5.241_1.0.json" 
@@ -108,6 +113,7 @@ def get_results_probes_locations():
 
     return df
 
+
 def get_measurement_probes_locations():
     filepath = "datasets/measurement/campaigns/20230324/North-Central_1000_192.5.5.241.json" 
     measurement_probes = json_file_to_dict(filepath)["measurement_results"]
@@ -118,6 +124,7 @@ def get_measurement_probes_locations():
     df["type"] = "probe"
 
     return df
+
 
 def plot_gt_and_results():
     df = pd.concat([get_gt_intances_locations(), 
@@ -137,12 +144,14 @@ def plot_gt_and_results():
     df.to_csv("plot_metrics/test.csv")
     return df
 
+
 def get_alpha2_country_codes_from_file(filename: str) -> set:
     country_codes = set()
     countries_list = json_file_to_dict(filename)
     for country in countries_list:
         country_codes.add(country["alpha-2"])
     return country_codes
+
 
 def plot_metrics():
     area_north_central = get_alpha2_country_codes_from_file("datasets/countries_lists/North-Central_countries.json")
@@ -160,5 +169,3 @@ def plot_metrics():
 
     df.sort_values("country_code", inplace=True)
     df.to_csv("plot_metrics/test.csv")
-
-plot_metrics()

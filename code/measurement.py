@@ -20,7 +20,7 @@ import requests
 from utils.constants import (
     MEASUREMENTS_PATH
 )
-from utils.functions import (
+from utils.common_functions import (
     dict_to_json_file
 )
 import RIPEAtlas
