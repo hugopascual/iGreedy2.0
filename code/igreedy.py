@@ -247,7 +247,7 @@ def output():
         marker["latitude"] = tempMarker[1]
         marker["longitude"] = tempMarker[2]
         marker["city"] = tempMarker[3]
-        marker["code_country"] = tempMarker[4]
+        marker["country_code"] = tempMarker[4]
         # union of circle and marker
         markCircle = dict()
         markCircle["marker"] = marker

@@ -13,7 +13,8 @@ NORTH_CENTRAL_COUNTRIES_FILE_PATH = COUNTRIES_SETS_PATH + \
                                     "North-Central_countries.json"
 ADEQUATE_INTERNATIONAL_TRANSFER_COUNTRIES_FILE_PATH = \
     COUNTRIES_SETS_PATH + "adequate_international_transfer_countries.json"
-AREA_OF_INTEREST_FILEPATH = NORTH_CENTRAL_COUNTRIES_FILE_PATH
+#AREA_OF_INTEREST_FILEPATH = NORTH_CENTRAL_COUNTRIES_FILE_PATH
+AREA_OF_INTEREST_FILEPATH = ALL_COUNTRIES_FILE_PATH
 
 __GROUND_TRUTH_PATH = __DATASETS_PATH+"ground-truth/"
 ROOT_SERVERS_PATH = __GROUND_TRUTH_PATH+"root_servers/"
@@ -28,6 +29,7 @@ CAMPAIGNS_PATH = MEASUREMENTS_PATH+"campaigns/"
 ####
 RESULTS_PATH = "results/"
 ####
+GROUND_TRUTH_VALIDATIONS_PATH = "groundtruth_validations/"
 
 # URLs
 ROOT_SERVERS_URL = "https://root-servers.org/root/"
@@ -36,6 +38,8 @@ ROOT_SERVERS_URL = "https://root-servers.org/root/"
 ROOT_SERVERS_NAMES = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 ]
+EARTH_RADIUS_KM = 6371
+NEAR_CITY_TP_KM = 100
 ASCIIART = """
 180 150W  120W  90W   60W   30W  000   30E   60E   90E   120E  150E 180
 |    |     |     |     |     |    |     |     |     |     |     |     |
