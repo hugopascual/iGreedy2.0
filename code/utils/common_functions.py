@@ -6,6 +6,8 @@ import requests
 import json
 import csv
 import math
+from os import listdir
+from os.path import isfile, join
 # internal modules imports
 from utils.constants import (
     ROOT_SERVERS_NAMES,
@@ -95,3 +97,7 @@ def alpha2_code_to_alpha3(alpha2: str) -> str:
     for country in all_countries_list:
         if alpha2 == country["alpha-2"]:
             return country["alpha-3"]
+
+def get_list_files_in_path(path: str) -> list:
+    files_in_path = [f for f in listdir(path) if isfile(join(path, f))]
+    return files_in_path
