@@ -17,7 +17,7 @@ from utils.common_functions import (
 )
 
 
-def compare_cities_gt(results_filepath: str, gt_filepath: str) -> None:
+def compare_cities_gt(results_filepath: str, gt_filepath: str) -> str:
     area_of_interest = get_alpha2_country_codes(AREA_OF_INTEREST_FILEPATH)
     results_df = get_results_instances_locations(results_filepath)
     results_df = results_df[results_df["country_code"].isin(area_of_interest)]
@@ -55,9 +55,12 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str) -> None:
 
     results_filename = results_filepath.split("/")[-1][:-5]
     gt_filename = gt_filepath.split("/")[-1][:-5]
+    gt_validation_filepath = GROUND_TRUTH_VALIDATIONS_PATH + \
+                             "{}_{}.json".format(results_filename, gt_filename)
     dict_to_json_file(dict=comparison_result,
-                      file_path=GROUND_TRUTH_VALIDATIONS_PATH + "{}_{}.json"
-                      .format(results_filename, gt_filename))
+                      file_path=gt_validation_filepath)
+
+    return gt_validation_filepath
 
 
 def check_city_positive(gt_df, city_name: str, lat: float, lon: float):
@@ -158,10 +161,18 @@ def compare_countries_gt(results_filepath: str, gt_filepath: str) -> None:
 
 
 def calculate_performance_statistics_cities(validation: pd.DataFrame) -> dict:
-    tp = int(validation["type"].value_counts()["TP"])
-    fp = int(validation["type"].value_counts()["FP"])
-    tn = 0
-    fn = int(validation["type"].value_counts()["FN"])
+    try:
+        tp = int(validation["type"].value_counts()["TP"])
+    except: tp = 0
+    try:
+        fp = int(validation["type"].value_counts()["FP"])
+    except: fp = 0
+    try:
+        tn = int(validation["type"].value_counts()["TN"])
+    except: tn = 0
+    try:
+        fn = int(validation["type"].value_counts()["FN"])
+    except: fn = 0
 
     precision = tp/(tp+fp)
     recall = tp/(tp+fn)

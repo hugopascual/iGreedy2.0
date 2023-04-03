@@ -16,156 +16,118 @@ from utils.common_functions import (
 )
 
 
-def plot_metrics2():
-    filepath = "ground_truth_tests/ground_truth_metrics/North-Central_campaign_20230324.csv"
-    df = pd.read_csv(filepath)
-    metric = "recall"
-    fig = px.line(df, x="alpha", y=metric, color='num_probes')
-    fig.update_layout(title = "Metrics of {} in relation to alpha and number \
-                      of probes".format(metric))
-    fig.show()
+def plot_file(filepath: str) -> None:
+    try:
+        data_keys = json_file_to_dict(filepath).keys()
+    except Exception as e:
+        print("Exception provocated because bad file")
+        print(e)
+        return
+
+    if "measurement_id" in data_keys:
+        plot_measurement(filepath)
+    elif "num_anycast_instances" in data_keys:
+        plot_result(filepath)
+    elif "statistics" in data_keys:
+        plot_groundtruth_validation(filepath)
+    else:
+        print("File is neither a measurement, a result or a gt validation "
+              "recognized")
 
 
-def plot_geo_example():
-    df = px.data.gapminder().query("year == 2007")
+def plot_measurement(measurement_path: str) -> None:
+    # TODO add radius of rtt to the plot
+    measurement_results_df = pd.DataFrame(
+        json_file_to_dict(measurement_path)["measurement_results"])
 
-    plot = px.scatter_geo(df, locations="iso_alpha")
+    plot = px.scatter_geo(measurement_results_df,
+                          lat="latitude",
+                          lon="longitude",
+                          hover_name="hostname")
     plot.show()
 
 
-def plot_geo():
-    filepath = "ground_truth_tests/ground_truth_metrics/North-Central_campaign_20230324.json"
-    metrics_sets_dict = json_file_to_dict(filepath)[-1]["sets"]
-    geo_dict =  {
-        "alpha2": [],
-        "type": []
-    }
-    metrics_sets_names = [
-        "true_positive_countries", 
-        "false_positive_countries",
-        "true_negative_countries",
-        "false_negative_countries",
-        "instances_outside_true_detected",
-        "instances_outside_false_detected"]
+def get_measurement_probes_from_results_file(result_path: str) -> pd.DataFrame:
+    measurement_filepath = json_file_to_dict(
+        result_path)["measurement_filepath"]
+    measurement_probes = json_file_to_dict(
+        measurement_filepath)["measurement_results"]
 
-    for set_name in metrics_sets_names:
-        for country_code in metrics_sets_dict[set_name]:
-            geo_dict["alpha2"].append(alpha2_code_to_alpha3(country_code)) 
-            geo_dict["type"].append(set_name)
+    measurement_probes_df = pd.DataFrame(measurement_probes)
+    measurement_probes_df = measurement_probes_df[
+        ["hostname", "latitude", "longitude"]
+    ]
+    measurement_probes_df['id'] = measurement_probes_df.loc[:, 'hostname']
+    measurement_probes_df.rename(columns={"hostname": "city"}, inplace=True)
+    measurement_probes_df["type"] = "probe"
 
-    df = pd.DataFrame(geo_dict)
-
-    plot = px.scatter_geo(df, locations="alpha2", color="type")
-    plot.show()
+    return measurement_probes_df
 
 
-def get_gt_intances_locations():
-    filepath = "datasets/ground-truth/root_servers/root_servers_F.json" 
-    
-    df = pd.DataFrame(json_file_to_dict(filepath)["Sites"])
-    df = df[["Country", "Town", "Latitude", "Longitude" ]]
-    df.rename(
-        columns={
-        "Country": "country_code", 
-        "Town": "city", 
-        "Latitude": "latitude", 
-        "Longitude": "longitude"},
-        inplace=True)
-    df.drop_duplicates(subset=['city'], inplace=True)
-    df["type"] = "gt_instance"
+def plot_result(result_path: str) -> None:
+    results_instances = json_file_to_dict(result_path)["anycast_instances"]
+    measurement_probes_df = get_measurement_probes_from_results_file(
+        result_path)
 
-    return df
-
-
-def get_results_intances_locations():
-    filepath = "results/campaigns/20230324/North-Central_1000_192.5.5.241_1.0.json" 
-    anycast_instances = json_file_to_dict(filepath)["anycast_intances"]
     markers = []
-    for instance in anycast_instances:
+    for instance in results_instances:
         markers.append(instance["marker"])
-    
-    df = pd.DataFrame(markers)
-    df = df[["code_country", "city", "latitude", "longitude"]]
-    df.rename(
-        columns={
-        "code_country": "country_code"},
-        inplace=True)
-    df["type"] = "result_instance"
+    result_instances_df = pd.DataFrame(markers)
+    result_instances_df["type"] = "result_instance"
 
-    return df
-
-
-def get_results_probes_locations():
-    filepath = "results/campaigns/20230324/North-Central_1000_192.5.5.241_1.0.json" 
-    anycast_instances = json_file_to_dict(filepath)["anycast_intances"]
-    circles = []
-    for instance in anycast_instances:
-        circles.append(instance["circle"])
-    
-    df = pd.DataFrame(circles)
-    df = df[["id", "latitude", "longitude"]]
-    df.rename(
-        columns={
-        "id": "hostname"},
-        inplace=True)
-    df['city'] = df.loc[:, 'hostname']
-    df["type"] = "result_probe"
-
-    return df
-
-
-def get_measurement_probes_locations():
-    filepath = "datasets/measurement/campaigns/20230324/North-Central_1000_192.5.5.241.json" 
-    measurement_probes = json_file_to_dict(filepath)["measurement_results"]
-    
-    df = pd.DataFrame(measurement_probes)
-    df = df[["hostname", "latitude", "longitude"]]
-    df['city'] = df.loc[:, 'hostname']
-    df["type"] = "probe"
-
-    return df
-
-
-def plot_gt_and_results():
-    df = pd.concat([get_gt_intances_locations(), 
-                    get_results_intances_locations(),
-                    #get_results_probes_locations(),
-                    get_measurement_probes_locations()
-                    ])
-
-    plot = px.scatter_geo(df, 
-                        lat="latitude", 
-                        lon="longitude", 
-                        hover_name="city",
-                        color="type")
+    plot_df = pd.concat([measurement_probes_df, result_instances_df])
+    plot = px.scatter_geo(plot_df,
+                          lat="latitude",
+                          lon="longitude",
+                          hover_name="city",
+                          color="type")
     plot.show()
 
-    df.sort_values("country_code", inplace=True)
-    df.to_csv("plot_metrics/test.csv")
-    return df
+
+def plot_groundtruth_validation(gt_validation_path: str) -> None:
+    gt_validation_dict = json_file_to_dict(gt_validation_path)
+    measurement_probes_df = get_measurement_probes_from_results_file(
+        gt_validation_dict["results_filepath"])
+    instances_validated_df = pd.DataFrame(gt_validation_dict["instances"])
+
+    # Remove unshared fields
+    measurement_probes_df.drop(columns="id", inplace=True)
+    instances_validated_df.drop(columns="country_code", inplace=True)
+
+    plot_df = pd.concat([measurement_probes_df, instances_validated_df])
+    plot = px.scatter_geo(plot_df,
+                          lat="latitude",
+                          lon="longitude",
+                          hover_name="city",
+                          color="type")
+    plot.show()
 
 
-def get_alpha2_country_codes_from_file(filename: str) -> set:
-    country_codes = set()
-    countries_list = json_file_to_dict(filename)
-    for country in countries_list:
-        country_codes.add(country["alpha-2"])
-    return country_codes
+def plot_metrics2():
+    # filepath = "ground_truth_tests/ground_truth_metrics/North-Central_campaign_20230324.csv"
+    # df = pd.read_csv(filepath)
+    # metric = "recall"
+    # fig = px.line(df, x="alpha", y=metric, color='num_probes')
+    # fig.update_layout(title = "Metrics of {} in relation to alpha and number \
+    #                   of probes".format(metric))
+    # fig.show()
+    return
 
 
 def plot_metrics():
-    area_north_central = get_alpha2_country_codes_from_file("datasets/countries_lists/North-Central_countries.json")
-    metrics_df = pd.read_csv("metrics.csv")
-    metrics_df.drop(columns="Unnamed: 0", inplace=True)
-    gt_df = get_gt_intances_locations()
-    gt_df = gt_df[gt_df["country_code"].isin(area_north_central)]
-    df = pd.concat([get_measurement_probes_locations(), metrics_df])
-    plot = px.scatter_geo(df, 
-                        lat="latitude", 
-                        lon="longitude", 
-                        hover_name="city",
-                        color="type")
-    plot.show()
-
-    df.sort_values("country_code", inplace=True)
-    df.to_csv("plot_metrics/test.csv")
+    # area_north_central = get_alpha2_country_codes_from_file("datasets/countries_lists/North-Central_countries.json")
+    # metrics_df = pd.read_csv("metrics.csv")
+    # metrics_df.drop(columns="Unnamed: 0", inplace=True)
+    # gt_df = get_gt_intances_locations()
+    # gt_df = gt_df[gt_df["country_code"].isin(area_north_central)]
+    # df = pd.concat([get_measurement_probes_locations(), metrics_df])
+    # plot = px.scatter_geo(df,
+    #                     lat="latitude",
+    #                     lon="longitude",
+    #                     hover_name="city",
+    #                     color="type")
+    # plot.show()
+    #
+    # df.sort_values("country_code", inplace=True)
+    # df.to_csv("plot_metrics/test.csv")
+    return

@@ -24,6 +24,9 @@ from utils.common_functions import (
     dict_to_json_file
 )
 from groundtruth import compare_cities_gt
+from visualize import (
+    plot_file
+)
 
 IATA_file = AIRPORTS_INFO_FILEPATH
 
@@ -226,6 +229,7 @@ def output():
     data = dict()
 
     data["target"] = ip
+    data["measurement_filepath"] = input_file
     data["probes_filepath"] = probes_file
     data["alpha"] = alpha
     data["threshold"] = threshold
@@ -401,6 +405,10 @@ def main(argv):
 
         if option in ("-v", "--visualize"):
             visualize = True
+            try:
+                visualization_filepath = args[0]
+            except:
+                visualization_filepath = None
 
     # Print important values
     print('Airports info from:', IATA_file)
@@ -437,13 +445,20 @@ def main(argv):
         analyze()
         output()
         if gt_file:
-            compare_cities_gt(results_filepath=results_filename,
-                              gt_filepath=gt_file)
+            gt_validation_filepath = compare_cities_gt(
+                results_filepath=results_filename,
+                gt_filepath=gt_file)
     run_time = time.time() - maker_time
 
     if visualize:
-        # TODO: Make plotly integration
-        print("visualize option TRUE")
+        if visualization_filepath == "" or visualization_filepath is None:
+            if gt_file:
+                visualization_filepath = gt_validation_filepath
+            elif analyze_measurement:
+                visualization_filepath = results_filename
+            else:
+                visualization_filepath = input_file
+        plot_file(visualization_filepath)
 
 
 if __name__ == "__main__":
