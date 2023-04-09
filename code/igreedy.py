@@ -282,7 +282,7 @@ Parameters:
                                 Filepath of the JSON document which contains 
                                 the specification of the probes to use in the 
                                 measurement (default "{}")
-    --calculate     -c  boolean        
+    --results       -r  boolean        
                                 Use it when you want that iGreedy automatically 
                                 calculate the results based on the measurement 
                                 realized. If not present iGreedy do not analyze 
@@ -332,9 +332,9 @@ def main(argv):
     # These sections parse the options selected and their values
     try:
         options, args = getopt.getopt(argv,
-                                      "i:m:p:c:a:t:n:o:g:v",
+                                      "i:m:p:r:a:t:n:o:g:v",
                                       ["input",
-                                       "measurement", "probes", "calculate",
+                                       "measurement", "probes", "results",
                                        "alpha", "threshold", "noise",
                                        "output", "groundtruth", "visualize"])
     except getopt.GetoptError as e:
@@ -367,13 +367,14 @@ def main(argv):
             else:
                 probes_file = arg
 
-        elif option in ("-c", "--calculate"):
+        elif option in ("-r", "--results"):
             if arg.lower() == "true":
                 analyze_measurement = True
             elif arg.lower() == "false":
                 analyze_measurement = False
             else:
-                print("-c option argument not valid. Try with True or False")
+                print("Results option argument not valid. "
+                      "Try with True or False")
                 sys.exit(2)
 
         # Inputs for the analysis part

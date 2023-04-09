@@ -8,7 +8,7 @@ areas_array=("North-Central")
 
 root_servers_ip_directions=(
 "198.41.0.4" "199.9.14.201" "192.33.4.12" "199.7.91.13" "192.203.230.10"
-"192.112.36.4" "198.97.190.53" "192.36.148.17" "192.58.128.30"
+"192.5.5.241" "192.112.36.4" "198.97.190.53" "192.36.148.17" "192.58.128.30"
 "193.0.14.129" "199.7.83.42" "202.12.27.33")
 root_server_ip_direction_selected="192.5.5.241"
 root_servers_names=(
@@ -17,6 +17,8 @@ root_servers_names=(
 
 probes_filenames_array=()
 probes_filepaths_array=()
+
+campaign_name="20230408"
 
 fill_probes_arrays()
 {
@@ -45,12 +47,29 @@ measurement_campaign_ip_selected()
   done
 }
 
-analyze_alpha()
+alpha_iterations_results()
 {
-  alpha_tunning_log_file="Alpha_tunning_"$1"_$(date +%F_%T).txt"
+  campaign_measurements_directory=$1
+  groundtruth_comparison_file=$2
+
+  for measurement in "$campaign_measurements_directory"/*; do
+    for alpha in "${alpha_array[@]}"; do
+      ./igreedy.sh -i "$measurement" \
+      -a "$alpha" \
+      -g "$groundtruth_comparison_file"
+    done
+  done
 }
 
 fill_probes_arrays
-for ip in "${root_servers_ip_directions[@]}"; do
-  measurement_campaign_ip_selected "$ip"
+for index in "${!root_servers_ip_directions[@]}"; do
+  # Make measurements with all probes files to an ip
+  ip="${root_servers_ip_directions[$index]}"
+  #measurement_campaign_ip_selected "$ip"
+
+  # Generate results with alpha iterations
+  root_server_filename="root_servers_${root_servers_names[$index]}"
+  alpha_iterations_results "datasets/measurements/" \
+  "datasets/ground-truth/root_servers/$root_server_filename"
 done
+
