@@ -17,6 +17,7 @@ from utils.constants import (
     AIRPORTS_INFO_FILEPATH,
     DEFAULT_PROBES_PATH,
     RESULTS_PATH,
+    RESULTS_CAMPAIGNS_PATH,
     ASCIIART
 )
 from utils.common_functions import (
@@ -47,6 +48,7 @@ output_path = RESULTS_PATH
 output_file = "output"
 results_filename = ""
 gt_file = None
+campaign_name = None
 alpha = 1  # advised settings
 visualize = False
 noise = 0  # exponential additive noise, only for sensitivity analysis
@@ -211,7 +213,7 @@ def output():
     # If noise or threshold are the default values they do not appear
     if output_file == (output_path + "output"):
         measurement_filename = input_file.split("/")[-1][:-5]
-        results_filename = RESULTS_PATH + "{}_{}_{}_{}.json".format(
+        results_filename = output_path + "{}_{}_{}_{}.json".format(
             measurement_filename,
             alpha,
             threshold,
@@ -305,6 +307,11 @@ Options:
                                 measurements (.csv and .json).
     --groundtruth   -g  filepath
                                 Filepath of the ground truth.
+    --campaign      -c  campaign_name
+                                specify a campaign for measurements, results 
+                                and groundtruth validations. Just put the name 
+                                of the campaign not the path. The campaign 
+                                directory must be created.
     --visualize     -v          Visualize the results. 
     """.format(DEFAULT_PROBES_PATH))
     sys.exit(0)
@@ -321,6 +328,7 @@ def main(argv):
 
     # Variables needed to make the measurement and analysis
     global input_file, probes_file, gt_file, output_path, output_file
+    global campaign_name
     global ip
     global threshold, alpha, visualize, noise
     global load_time, run_time
@@ -332,11 +340,12 @@ def main(argv):
     # These sections parse the options selected and their values
     try:
         options, args = getopt.getopt(argv,
-                                      "i:m:p:r:a:t:n:o:g:v",
+                                      "i:m:p:r:a:t:n:o:c:g:v",
                                       ["input",
                                        "measurement", "probes", "results",
                                        "alpha", "threshold", "noise",
-                                       "output", "groundtruth", "visualize"])
+                                       "output", "campaign", "groundtruth",
+                                       "visualize"])
     except getopt.GetoptError as e:
         print(e)
         sys.exit(2)
@@ -397,6 +406,10 @@ def main(argv):
         if option in ("-o", "--output"):
             output_file = arg
 
+        if option in ("-c", "--campaign"):
+            campaign_name = arg
+            output_path = RESULTS_CAMPAIGNS_PATH + campaign_name + "/"
+
         if option in ("-g", "--groundtruth"):
             if not os.path.isfile(arg):
                 print("Ground-truth file <{}> does not exist".format(arg))
@@ -430,7 +443,7 @@ def main(argv):
         measure = Measurement(ip)
         ripe_probes_geo = measure.doMeasure(probes_file)
         numLatencyMeasurement, input_file = measure.retrieveResult(
-            ripe_probes_geo)
+            ripe_probes_geo, campaign_name)
         if numLatencyMeasurement < 2:
             print("Error: for the anycast detection at least 2 latency "
                   "measurement are needed")
@@ -448,7 +461,8 @@ def main(argv):
         if gt_file:
             gt_validation_filepath = compare_cities_gt(
                 results_filepath=results_filename,
-                gt_filepath=gt_file)
+                gt_filepath=gt_file,
+                campaign_name=campaign_name)
     run_time = time.time() - maker_time
 
     if visualize:

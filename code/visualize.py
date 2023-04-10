@@ -101,33 +101,3 @@ def plot_groundtruth_validation(gt_validation_path: str) -> None:
                           hover_name="city",
                           color="type")
     plot.show()
-
-
-def plot_metrics2():
-    # filepath = "ground_truth_tests/ground_truth_metrics/North-Central_campaign_20230324.csv"
-    # df = pd.read_csv(filepath)
-    # metric = "recall"
-    # fig = px.line(df, x="alpha", y=metric, color='num_probes')
-    # fig.update_layout(title = "Metrics of {} in relation to alpha and number \
-    #                   of probes".format(metric))
-    # fig.show()
-    return
-
-
-def plot_metrics():
-    # area_north_central = get_alpha2_country_codes_from_file("datasets/countries_lists/North-Central_countries.json")
-    # metrics_df = pd.read_csv("metrics.csv")
-    # metrics_df.drop(columns="Unnamed: 0", inplace=True)
-    # gt_df = get_gt_intances_locations()
-    # gt_df = gt_df[gt_df["country_code"].isin(area_north_central)]
-    # df = pd.concat([get_measurement_probes_locations(), metrics_df])
-    # plot = px.scatter_geo(df,
-    #                     lat="latitude",
-    #                     lon="longitude",
-    #                     hover_name="city",
-    #                     color="type")
-    # plot.show()
-    #
-    # df.sort_values("country_code", inplace=True)
-    # df.to_csv("plot_metrics/test.csv")
-    return

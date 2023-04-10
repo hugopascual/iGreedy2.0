@@ -6,6 +6,7 @@ import pandas as pd
 # internal modules imports
 from utils.constants import (
     GROUND_TRUTH_VALIDATIONS_PATH,
+    GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH,
     ALL_COUNTRIES_FILE_PATH,
     AREA_OF_INTEREST_FILEPATH,
     NEAR_CITY_TP_KM
@@ -17,7 +18,8 @@ from utils.common_functions import (
 )
 
 
-def compare_cities_gt(results_filepath: str, gt_filepath: str) -> str:
+def compare_cities_gt(results_filepath: str, gt_filepath: str,
+                      campaign_name: str) -> str:
     area_of_interest = get_alpha2_country_codes(AREA_OF_INTEREST_FILEPATH)
     results_df = get_results_instances_locations(results_filepath)
     results_df = results_df[results_df["country_code"].isin(area_of_interest)]
@@ -55,8 +57,13 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str) -> str:
 
     results_filename = results_filepath.split("/")[-1][:-5]
     gt_filename = gt_filepath.split("/")[-1][:-5]
-    gt_validation_filepath = GROUND_TRUTH_VALIDATIONS_PATH + \
-                             "{}_{}.json".format(results_filename, gt_filename)
+    if campaign_name is not None:
+        gt_validation_filepath = GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH + \
+                                 campaign_name + "/{}_{}.json".format(
+                                    results_filename, gt_filename)
+    else:
+        gt_validation_filepath = GROUND_TRUTH_VALIDATIONS_PATH + "{}_{}.json".\
+            format(results_filename, gt_filename)
     dict_to_json_file(dict=comparison_result,
                       file_path=gt_validation_filepath)
 

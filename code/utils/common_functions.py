@@ -6,8 +6,7 @@ import requests
 import json
 import csv
 import math
-from os import listdir
-from os.path import isfile, join
+import os
 # internal modules imports
 from utils.constants import (
     ROOT_SERVERS_NAMES,
@@ -16,6 +15,15 @@ from utils.constants import (
     EARTH_RADIUS_KM,
     ALL_COUNTRIES_FILE_PATH
 )
+
+
+def create_directory_structure(path: str) -> None:
+    # Remove files from path, only directories
+    if path[-1] != "/":
+        path = "/".join(path.split("/")[:-1])
+
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 
 def update_root_servers_json():
@@ -27,6 +35,7 @@ def update_root_servers_json():
 
 
 def json_file_to_dict(file_path: str) -> dict:
+    create_directory_structure(file_path)
     with open(file_path) as file:
         raw_json = file.read()
     
@@ -34,21 +43,24 @@ def json_file_to_dict(file_path: str) -> dict:
 
 
 def dict_to_json_file(dict: dict, file_path: str):
+    create_directory_structure(file_path)
     file = open(file_path, "w")
     file.write(json.dumps(dict, indent=4))
     file.close()
 
 
 def list_to_json_file(dict: list, file_path: str):
+    create_directory_structure(file_path)
     file = open(file_path, "w")
     file.write(json.dumps(dict, indent=4))
     file.close()
 
 
-def list_of_dicts_to_csv(list: list, filepath: str):
+def list_of_dicts_to_csv(list: list, file_path: str):
+    create_directory_structure(file_path)
     keys = list[0].keys()
 
-    with open(filepath, 'w', newline='') as output_file:
+    with open(file_path, 'w', newline='') as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(list)
@@ -98,6 +110,8 @@ def alpha2_code_to_alpha3(alpha2: str) -> str:
         if alpha2 == country["alpha-2"]:
             return country["alpha-3"]
 
+
 def get_list_files_in_path(path: str) -> list:
-    files_in_path = [f for f in listdir(path) if isfile(join(path, f))]
+    files_in_path = \
+        [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
     return files_in_path

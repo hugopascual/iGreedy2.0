@@ -18,7 +18,8 @@ import webbrowser
 import requests
 # internal modules imports
 from utils.constants import (
-    MEASUREMENTS_PATH
+    MEASUREMENTS_PATH,
+    MEASUREMENTS_CAMPAIGNS_PATH
 )
 from utils.common_functions import (
     dict_to_json_file
@@ -120,8 +121,8 @@ class Measurement(object):
         data = self.load_data_request(probes_file)
         self._request_data = data
 
-        #print ("Running measurement from Ripe Atlas with this data:")
-        #print (json.dumps(data, indent=4))
+        # print ("Running measurement from Ripe Atlas with this data:")
+        # print (json.dumps(data, indent=4))
         self._measurement = RIPEAtlas.Measurement(data)
         print ("ID measure: %s\tTARGET: %s\tNumber of Vantage Points: %i " % (
             self._measurement.id,  self._ip, self._measurement.num_probes))
@@ -148,9 +149,10 @@ class Measurement(object):
             longitude = probe_response["geometry"]["coordinates"][0]
             self._ripe_probes_geo[hostname]=[latitude, longitude]
 
-    def save_measurement_results(self, 
-                                 ripe_measurement_results: dict, 
-                                 info_probes: dict):
+    def save_measurement_results(self,
+                                 ripe_measurement_results: dict,
+                                 info_probes: dict,
+                                 campaign_name: str) -> str:
         data_to_save = {
             "target": self._ip,
             "measurement_id": self._measurement.id,
@@ -178,8 +180,16 @@ class Measurement(object):
             self.get_measurement_id()
         )
 
-        dict_to_json_file(data_to_save, MEASUREMENTS_PATH+"{}".
-                          format(self._measurement_filename))
+        if campaign_name is not None:
+            measurement_filepath = MEASUREMENTS_CAMPAIGNS_PATH + \
+                                   campaign_name + \
+                                   "/{}".format(self._measurement_filename)
+        else:
+            measurement_filepath = MEASUREMENTS_PATH + "{}".format(
+                self._measurement_filename)
+
+        dict_to_json_file(data_to_save, measurement_filepath)
+        return measurement_filepath
         
     def get_measurement_nums(self,ripe_measurement_results: dict) -> tuple[int, int, int, int, int]:
         num_probes_answer = 0
@@ -207,28 +217,37 @@ class Measurement(object):
         return (num_probes_answer, num_probes_timeout, num_probes_fail, 
                 num_latency_measurement, total_rtt)
 
-    def retrieveResult(self,infoProbes):
+    def retrieveResult(self, info_probes, campaign_name: str):
         self.result = self._measurement.results(
             wait=True, percentage_required=self._percentageSuccessful)
 
-        self.save_measurement_results(self.result, infoProbes)
-        (num_probes_answer, num_probes_timeout, num_probes_fail, 
-         num_latency_measurement, total_rtt) = self.get_measurement_nums(self.result)
-        
-        path_file = MEASUREMENTS_PATH+"{}".format(self._measurement_filename)
+        path_file = self.save_measurement_results(
+            self.result,
+            info_probes,
+            campaign_name)
+
+        (num_probes_answer,
+         num_probes_timeout,
+         num_probes_fail,
+         num_latency_measurement,
+         total_rtt) = self.get_measurement_nums(self.result)
         
         print("Number of answers: %s" % len(self.result))
         if num_probes_answer == 0:
             print("Watson, we have a problem, no successful test!")
             sys.exit(0)
         else:
-
             try:
-                print("Resume: %i successful tests (%.1f %%), %i errors (%.1f %%), %i timeouts (%.1f %%), average RTT: %i ms" % \
-                      (num_latency_measurement,num_latency_measurement*100.0/num_probes_answer, 
-                       num_probes_fail, num_probes_fail*100.0/num_probes_answer, 
-                       num_probes_timeout, num_probes_timeout*100.0/num_probes_answer, total_rtt/num_latency_measurement))
+                print("Resume: %i successful tests (%.1f %%), %i errors "
+                      "(%.1f %%), %i timeouts (%.1f %%), average RTT: %i ms" %
+                      (num_latency_measurement,
+                       num_latency_measurement*100.0/num_probes_answer,
+                       num_probes_fail,
+                       num_probes_fail*100.0/num_probes_answer,
+                       num_probes_timeout,
+                       num_probes_timeout*100.0/num_probes_answer,
+                       total_rtt/num_latency_measurement))
             except:
-                  c=0
-        return (num_latency_measurement, path_file)
+                  c = 0
+        return num_latency_measurement, path_file
 
