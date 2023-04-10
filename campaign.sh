@@ -10,7 +10,6 @@ root_servers_ip_directions=(
 "198.41.0.4" "199.9.14.201" "192.33.4.12" "199.7.91.13" "192.203.230.10"
 "192.5.5.241" "192.112.36.4" "198.97.190.53" "192.36.148.17" "192.58.128.30"
 "193.0.14.129" "199.7.83.42" "202.12.27.33")
-root_server_ip_direction_selected="192.5.5.241"
 root_servers_names=(
 "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M"
 )
@@ -18,7 +17,8 @@ root_servers_names=(
 probes_filenames_array=()
 probes_filepaths_array=()
 
-campaign_name="20230408"
+campaign_name="North-Central_20230410"
+campaign_directories_names_array=()
 
 fill_probes_arrays()
 {
@@ -30,46 +30,58 @@ fill_probes_arrays()
   done
 }
 
-measurement_campaign_ip_selected()
+fill_campaign_directories_names_array()
 {
-  campaign_log_file="Campaign_"$1"_$(date +%F_%T).txt"
+  for ip in "${root_servers_ip_directions[@]}"; do
+    campaign_directories_names_array+=("$campaign_name"_"$ip")
+  done
+}
+
+measurement_campaign_to_ip()
+{
+  ip=$1
+  campaign_selected=$2
   for probes_filepath in "${probes_filepaths_array[@]}"; do
+    # echo the command used
     echo ./igreedy.sh -m "$1" \
     -p "$probes_filepath" \
-    | tee -a "campaigns_logs/$campaign_log_file"
-
-    #Start the measurements and save the results in a txt file
+    -c "$campaign_selected"
+    # Start the measurement
     ./igreedy.sh -m "$1" \
     -p "$probes_filepath" \
-    | tee -a "campaigns_logs/$campaign_log_file"
-
-    echo "########################################" >> "campaigns_logs/$campaign_log_file"
+    -c "$campaign_selected"
   done
 }
 
 alpha_iterations_results()
 {
-  campaign_measurements_directory=$1
-  groundtruth_comparison_file=$2
+  groundtruth_comparison_file=$1
+  campaign_selected=$2
 
   for measurement in "$campaign_measurements_directory"/*; do
     for alpha in "${alpha_array[@]}"; do
       ./igreedy.sh -i "$measurement" \
       -a "$alpha" \
-      -g "$groundtruth_comparison_file"
+      -g "$groundtruth_comparison_file" \
+      -c "$campaign_measurements_directory"
     done
   done
 }
 
 fill_probes_arrays
-for index in "${!root_servers_ip_directions[@]}"; do
+fill_campaign_directories_names_array
+for index in "${campaign_directories_names_array[@]}"; do
   # Make measurements with all probes files to an ip
-  ip="${root_servers_ip_directions[$index]}"
-  #measurement_campaign_ip_selected "$ip"
-
-  # Generate results with alpha iterations
-  root_server_filename="root_servers_${root_servers_names[$index]}"
-  alpha_iterations_results "datasets/measurements/" \
-  "datasets/ground-truth/root_servers/$root_server_filename"
+  ip_selected="${root_servers_ip_directions[$index]}"
+  campaign_selected="${campaign_directories_names_array[$index]}"
+  measurement_campaign_to_ip "$ip_selected" "$campaign_selected"
 done
 
+for index in "${campaign_directories_names_array[@]}"; do
+  # Generate results with alpha iterations
+  campaign_selected="${campaign_directories_names_array[$index]}"
+  root_server_filename="root_servers_${root_servers_names[$index]}.json"
+  alpha_iterations_results \
+  "datasets/ground-truth/root_servers/$root_server_filename" \
+  "datasets/measurements/campaigns/$campaign_selected"
+done
