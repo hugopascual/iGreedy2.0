@@ -17,8 +17,11 @@ from utils.common_functions import (
 )
 
 
-def plot_campaign_statistics_comparison(validations_df: pd.DataFrame):
+def plot_campaign_statistics_comparison(validations_df: pd.DataFrame,
+                                        campaign_name: str):
     alpha_unique_values = validations_df["alpha"].unique()
+    alpha_unique_values.sort()
+    print(alpha_unique_values)
     probes_filename_unique_values = validations_df["probes_filename"].unique()
 
     figure = make_subplots(rows=2,
@@ -62,6 +65,7 @@ def plot_campaign_statistics_comparison(validations_df: pd.DataFrame):
             ["f1"],
             name=probes_filename),
                         row=2, col=2)
+    figure.update_layout(title_text=campaign_name)
     figure.show()
 
 
@@ -92,7 +96,32 @@ def compare_campaign_statistics(campaign_name: str):
                 validations_df],
             ignore_index=True)
     validations_df.sort_values(by=["probes_filename", "alpha"], inplace=True)
-    plot_campaign_statistics_comparison(validations_df)
+    validations_df.to_csv(
+        "datasets/ploted_metrics_csv/{}.csv".format(campaign_name),
+        sep='\t',
+        encoding='utf-8')
+    plot_campaign_statistics_comparison(validations_df, campaign_name)
 
+'''
+campaign_name_prefix = "North-Central_20230410"
+root_servers_ip_directions = [
+    "198.41.0.4",
+    #"199.9.14.201",
+    "192.33.4.12",
+    "199.7.91.13",
+    "192.203.230.10",
+    "192.5.5.241",
+    #"192.112.36.4",
+    "198.97.190.53",
+    "192.36.148.17",
+    "192.58.128.30",
+    "193.0.14.129",
+    "199.7.83.42",
+    "202.12.27.33"]
 
-compare_campaign_statistics("20230408_192.5.5.241")
+for ip in root_servers_ip_directions:
+    campaign_name_complete = "{}_{}".format(campaign_name_prefix, ip)
+    compare_campaign_statistics(campaign_name_complete)
+'''
+
+compare_campaign_statistics("North-Central_20230410_198.41.0.4")
