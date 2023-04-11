@@ -54,9 +54,9 @@ def get_measurement_probes_from_results_file(result_path: str) -> pd.DataFrame:
         measurement_filepath)["measurement_results"]
 
     measurement_probes_df = pd.DataFrame(measurement_probes)
-    measurement_probes_df = measurement_probes_df[
-        ["hostname", "latitude", "longitude"]
-    ]
+    #measurement_probes_df = measurement_probes_df[
+    #    ["hostname", "latitude", "longitude"]
+    #]
     measurement_probes_df['id'] = measurement_probes_df.loc[:, 'hostname']
     measurement_probes_df.rename(columns={"hostname": "city"}, inplace=True)
     measurement_probes_df["type"] = "probe"
@@ -75,11 +75,18 @@ def plot_result(result_path: str) -> None:
     result_instances_df = pd.DataFrame(markers)
     result_instances_df["type"] = "result_instance"
 
+    id_probes_selected = []
+    for instance in results_instances:
+        id_probes_selected.append(instance["circle"]["id"])
+    measurement_probes_df["type"] = measurement_probes_df["id"].apply(
+        lambda x: "probe_selected" if x in id_probes_selected else "probe")
+
     plot_df = pd.concat([measurement_probes_df, result_instances_df])
     plot = px.scatter_geo(plot_df,
                           lat="latitude",
                           lon="longitude",
                           hover_name="city",
+                          hover_data=['rtt_ms'],
                           color="type")
     plot.show()
 

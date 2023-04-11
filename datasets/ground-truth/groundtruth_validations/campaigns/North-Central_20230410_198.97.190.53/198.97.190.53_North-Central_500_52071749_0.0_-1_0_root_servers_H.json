@@ -1,0 +1,35 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_20230410_198.97.190.53/198.97.190.53_North-Central_500_52071749_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 0,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Mainz",
+            "latitude": 49.9674987793,
+            "longitude": 8.1472215652,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Southend",
+            "latitude": 51.5713996887,
+            "longitude": 0.695555985,
+            "type": "TP"
+        }
+    ]
+}

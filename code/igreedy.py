@@ -284,7 +284,7 @@ Parameters:
                                 Filepath of the JSON document which contains 
                                 the specification of the probes to use in the 
                                 measurement (default "{}")
-    --results       -r  boolean        
+    --results       -r  boolean
                                 Use it when you want that iGreedy automatically 
                                 calculate the results based on the measurement 
                                 realized. If not present iGreedy do not analyze 

@@ -1,0 +1,49 @@
+{
+    "target": "192.33.4.12",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.5,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_20230410_192.33.4.12/192.33.4.12_North-Central_500_52069932_0.5_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_C.json",
+    "statistics": {
+        "TP": 4,
+        "FP": 0,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+    },
+    "instances": [
+        {
+            "country_code": "AT",
+            "city": "Vienna",
+            "latitude": 48.1102981567,
+            "longitude": 16.5697002411,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Mannheim",
+            "latitude": 49.4730567932,
+            "longitude": 8.514166832,
+            "type": "TP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.3707008362,
+            "longitude": -3.7851400375,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.7252998352,
+            "longitude": 2.3594400883,
+            "type": "TP"
+        }
+    ]
+}
