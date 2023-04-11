@@ -83,7 +83,7 @@ for index in "${!campaign_directories_names_array[@]}"; do
   # Make measurements with all probes files to an ip
   ip_selected="${root_servers_ip_directions[$index]}"
   campaign_selected="${campaign_directories_names_array[$index]}"
-  #measurement_campaign_to_ip "$ip_selected" "$campaign_selected"
+  measurement_campaign_to_ip "$ip_selected" "$campaign_selected"
 
   # Generate results with alpha iterations
   root_server_filename="root_servers_${root_servers_names[$index]}.json"
