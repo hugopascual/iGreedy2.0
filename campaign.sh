@@ -2,6 +2,7 @@
 
 num_probes_array=(100 300 500 1000)
 alpha_array=(0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1)
+threshold_array=(-1 0.5 1 5 10 20 30)
 #areas_array=("North-Central" "North-East" "South-Central" "South-East" "West" "WW")
 #areas_array=("North-Central" "WW")
 areas_array=("North-Central")
@@ -66,7 +67,23 @@ alpha_iterations_results()
       ./igreedy.sh -i "$measurement" \
       -a "$alpha" \
       -g "$groundtruth_comparison_file" \
-      -c "$campaign_selected"
+      -c "$campaign_selected""_alpha"
+    done
+  done
+}
+
+threshold_iteration_results()
+{
+  groundtruth_comparison_file=$1
+  campaign_selected=$2
+  campaign_measurements_directory="datasets/measurements/campaigns/$2"
+
+  for measurement in "$campaign_measurements_directory"/*; do
+    for threshold in "${threshold_array[@]}"; do
+      ./igreedy.sh -i "$measurement" \
+      -t "$threshold" \
+      -g "$groundtruth_comparison_file" \
+      -c "$campaign_selected""_threshold"
     done
   done
 }
@@ -75,14 +92,20 @@ fill_probes_arrays
 fill_campaign_directories_names_array
 for index in "${!campaign_directories_names_array[@]}"; do
 
-  # Make measurements with all probes files to an ip
   ip_selected="${root_servers_ip_directions[$index]}"
   campaign_selected="${campaign_directories_names_array[$index]}"
-  measurement_campaign_to_ip "$ip_selected" "$campaign_selected"
+  root_server_filename="root_servers_${root_servers_names[$index]}.json"
+
+  # Make measurements with all probes files to an ip
+  #measurement_campaign_to_ip "$ip_selected" "$campaign_selected"
 
   # Generate results with alpha iterations
-  root_server_filename="root_servers_${root_servers_names[$index]}.json"
   alpha_iterations_results \
+  "datasets/ground-truth/root_servers/$root_server_filename" \
+  "$campaign_selected"
+
+  # Generate results with threshold iterations
+  threshold_iteration_results \
   "datasets/ground-truth/root_servers/$root_server_filename" \
   "$campaign_selected"
 done
