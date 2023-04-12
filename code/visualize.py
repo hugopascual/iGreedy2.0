@@ -43,25 +43,9 @@ def plot_measurement(measurement_path: str) -> None:
     plot = px.scatter_geo(measurement_results_df,
                           lat="latitude",
                           lon="longitude",
-                          hover_name="hostname")
+                          hover_name="hostname",
+                          hover_data=['rtt_ms'])
     plot.show()
-
-
-def get_measurement_probes_from_results_file(result_path: str) -> pd.DataFrame:
-    measurement_filepath = json_file_to_dict(
-        result_path)["measurement_filepath"]
-    measurement_probes = json_file_to_dict(
-        measurement_filepath)["measurement_results"]
-
-    measurement_probes_df = pd.DataFrame(measurement_probes)
-    #measurement_probes_df = measurement_probes_df[
-    #    ["hostname", "latitude", "longitude"]
-    #]
-    measurement_probes_df['id'] = measurement_probes_df.loc[:, 'hostname']
-    measurement_probes_df.rename(columns={"hostname": "city"}, inplace=True)
-    measurement_probes_df["type"] = "probe"
-
-    return measurement_probes_df
 
 
 def plot_result(result_path: str) -> None:
@@ -106,5 +90,22 @@ def plot_groundtruth_validation(gt_validation_path: str) -> None:
                           lat="latitude",
                           lon="longitude",
                           hover_name="city",
+                          hover_data=['rtt_ms'],
                           color="type")
     plot.show()
+
+
+def get_measurement_probes_from_results_file(result_path: str) -> pd.DataFrame:
+    measurement_filepath = json_file_to_dict(
+        result_path)["measurement_filepath"]
+    measurement_probes = json_file_to_dict(
+        measurement_filepath)["measurement_results"]
+
+    measurement_probes_df = pd.DataFrame(measurement_probes)
+    measurement_probes_df = measurement_probes_df[
+        ["hostname", "latitude", "longitude", "rtt_ms"]]
+    measurement_probes_df['id'] = measurement_probes_df.loc[:, 'hostname']
+    measurement_probes_df.rename(columns={"hostname": "city"}, inplace=True)
+    measurement_probes_df["type"] = "probe"
+
+    return measurement_probes_df

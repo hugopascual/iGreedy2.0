@@ -42,6 +42,14 @@ def json_file_to_dict(file_path: str) -> dict:
     return json.loads(raw_json)
 
 
+def json_file_to_list(file_path: str) -> list:
+    create_directory_structure(file_path)
+    with open(file_path) as file:
+        raw_json = file.read()
+
+    return json.loads(raw_json)
+
+
 def dict_to_json_file(dict: dict, file_path: str):
     create_directory_structure(file_path)
     file = open(file_path, "w")
