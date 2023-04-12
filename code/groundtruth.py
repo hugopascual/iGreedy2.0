@@ -221,6 +221,8 @@ def get_results_instances_locations(filepath: str) -> pd.DataFrame:
 def get_gt_instances_locations(filepath: str) -> pd.DataFrame:
     if "root" in filepath:
         return get_root_servers_instances_locations(filepath)
+    elif "cloudfare" in filepath:
+        return get_cloudfare_servers_instances_locations(filepath)
     else:
         raise Exception("Sorry, gt file pattern not recognized")
 
@@ -235,6 +237,19 @@ def get_root_servers_instances_locations(filepath: str) -> pd.DataFrame:
             "Town": "city",
             "Latitude": "latitude",
             "Longitude": "longitude"},
+        inplace=True)
+    df["type"] = "gt_instance"
+
+    return df
+
+
+def get_cloudfare_servers_instances_locations(filepath: str) -> pd.DataFrame:
+    df = pd.DataFrame(json_file_to_dict(filepath))
+    df = df[["country_code", "city_name", "latitude", "longitude"]]
+    df.drop_duplicates(subset=['city_name'], inplace=True)
+    df.rename(
+        columns={
+            "city_name": "city"},
         inplace=True)
     df["type"] = "gt_instance"
 
