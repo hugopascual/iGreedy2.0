@@ -225,7 +225,7 @@ def get_gt_instances_locations(filepath: str) -> pd.DataFrame:
         raise Exception("Sorry, gt file pattern not recognized")
 
 
-def get_root_servers_instances_locations(filepath:str) -> pd.DataFrame:
+def get_root_servers_instances_locations(filepath: str) -> pd.DataFrame:
     df = pd.DataFrame(json_file_to_dict(filepath)["Sites"])
     df = df[["Country", "Town", "Latitude", "Longitude"]]
     df.drop_duplicates(subset=['Town'], inplace=True)
