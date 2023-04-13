@@ -82,7 +82,8 @@ def compare_campaign_statistics(campaign_name: str, parameter: str):
     validations_df = pd.DataFrame(columns=[
         "target", "probes_filename",
         "alpha", "threshold", "noise",
-        "accuracy", "precision", "recall", "f1"
+        "accuracy", "precision", "recall", "f1",
+        "TP", "FP", "TN", "FN"
     ])
     for validation_file in validations_list:
         data = json_file_to_dict(campaign_filepath + validation_file)
@@ -96,7 +97,11 @@ def compare_campaign_statistics(campaign_name: str, parameter: str):
                 data["statistics"]["accuracy"],
                 data["statistics"]["precision"],
                 data["statistics"]["recall"],
-                data["statistics"]["f1"]
+                data["statistics"]["f1"],
+                data["statistics"]["TP"],
+                data["statistics"]["FP"],
+                data["statistics"]["TN"],
+                data["statistics"]["FN"]
             ]], columns=validations_df.columns),
                 validations_df],
             ignore_index=True)
@@ -135,29 +140,12 @@ cloudfare_servers_ip_directions = [
 campaign_name_prefix = cloudfare_campaign_name_prefix
 servers_ip_directions = cloudfare_servers_ip_directions
 
-compare_campaign_statistics("North-Central_20230410_198.41.0.4",
-                            parameter="alpha")
-compare_campaign_statistics("North-Central_20230410_198.41.0.4",
-                            parameter="threshold")
+#compare_campaign_statistics("North-Central_20230410_198.41.0.4",
+#                            parameter="alpha")
+#compare_campaign_statistics("North-Central_20230410_198.41.0.4",
+#                            parameter="threshold")
 
-'''
 for ip in servers_ip_directions:
     campaign_name_complete = "{}_{}".format(campaign_name_prefix, ip)
-    csv_metrics_files = get_list_files_in_path("datasets/ploted_metrics_csv/")
-
-    #compare_campaign_statistics(campaign_name_complete, "alpha")
-    #compare_campaign_statistics(campaign_name_complete, "threshold")
-
-    for csv_metrics_file in csv_metrics_files:
-        metrics_df = pd.read_csv(
-            "datasets/ploted_metrics_csv/" + csv_metrics_file,
-            sep="\t")
-        plot_campaign_statistics_comparison(
-            validations_df=metrics_df,
-            campaign_name=campaign_name_complete,
-            parameter="alpha")
-        plot_campaign_statistics_comparison(
-            validations_df=metrics_df,
-            campaign_name=campaign_name_complete,
-            parameter="threshold")
-'''
+    compare_campaign_statistics(campaign_name_complete, "alpha")
+    compare_campaign_statistics(campaign_name_complete, "threshold")
