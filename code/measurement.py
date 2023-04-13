@@ -171,6 +171,7 @@ class Measurement(object):
                         measure["longitude"] = info_probes[str(probe_id)][1]
                         measure["rtt_ms"] = probe_measure["rtt"]
                     except KeyError as exception:
+                        print("Key Exception Error")
                         print(exception.__str__())
                     data_to_save["measurement_results"].append(measure)
 
