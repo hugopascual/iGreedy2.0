@@ -5,9 +5,14 @@ import json
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
+import shapely
+from shapely.geometry import MultiPolygon, Polygon, box, MultiPoint, Point, shape
+from shapely import wkt
+from shapely import from_geojson, GeometryCollection
 from utils.common_functions import (
     json_file_to_list,
-    dict_to_json_file
+    dict_to_json_file,
+    json_file_to_dict
 )
 
 
@@ -59,40 +64,38 @@ def map_grid():
         ignore_index=True)
 
 
-def test_docu():
-    from shapely.geometry import MultiPolygon, Polygon, box, MultiPoint, Point
-    from shapely import wkt
+def get_geometries(top_left, bottom_right, spacing=0.08):
+    polygons = []
+    points = []
+    xmin = top_left[0]
+    xmax = bottom_right[0]
+    ymax = top_left[1]
+    y = bottom_right[1]
+    i = -1
+    while True:
+        if y > ymax:
+            break
+        x = xmin
 
-    def get_geometries(top_left, bottom_right, spacing=0.08):
-        polygons = []
-        points = []
-        xmin = top_left[0]
-        xmax = bottom_right[0]
-        ymax = top_left[1]
-        y = bottom_right[1]
-        i = -1
         while True:
-            if y > ymax:
+            if x > xmax:
                 break
-            x = xmin
 
-            while True:
-                if x > xmax:
-                    break
+            # components for polygon grid
+            polygon = box(x, y, x + spacing, y + spacing)
+            polygons.append(polygon)
 
-                # components for polygon grid
-                polygon = box(x, y, x + spacing, y + spacing)
-                polygons.append(polygon)
+            # components for point grid
+            point = Point(x, y)
+            points.append(point)
+            i = i + 1
+            x = x + spacing
 
-                # components for point grid
-                point = Point(x, y)
-                points.append(point)
-                i = i + 1
-                x = x + spacing
+        y = y + spacing
+    return polygons, points
 
-            y = y + spacing
-        return polygons, points
 
+def test_docu():
     polygons, points = get_geometries((14, 54), (24, 49), 0.5)
 
     ##country_geom is a shapely polygon with country boundaries
@@ -111,10 +114,141 @@ def test_docu():
 
     polygon_grid = MultiPolygon(intersecting_polygons)
     point_grid = MultiPoint(intersecting_points)
+    print(point_grid)
 
-    # grids are shapely geometries. You can output them as WKT format
-    print(point_grid.wkt)
-    print(polygon_grid.wkt)
+    longitudes = []
+    latitudes = []
+    areas = []
+    for polygon in list(polygon_grid.geoms):
+        bounds = polygon.bounds
+        print(polygon)
+        areas.append({
+            "longitude_min": bounds[0],
+            "latitude_min": bounds[1],
+            "longitude_max": bounds[2],
+            "latitude_max": bounds[3]
+        })
+
+        polygon_ext_coords_x, polygon_ext_coords_y = polygon.exterior.coords.xy
+        longitudes = longitudes + polygon_ext_coords_x.tolist()
+        latitudes = latitudes + polygon_ext_coords_y.tolist()
+    print(areas)
+    fig = go.Figure(data=go.Scattergeo(
+        lon=longitudes,
+        lat=latitudes,
+        mode='markers'
+    ))
+    fig.update_layout(
+        title='Test Mesh'
+    )
+    fig.show()
 
 
-test_docu()
+def get_borders_good():
+    selected_countries = get_selected_countries_borders(
+        "../datasets/countries_sets/North-Central_countries.json")
+    features = selected_countries["features"]
+    # NOTE: buffer(0) is a trick for fixing scenarios where polygons have overlapping coordinates
+    countries_geometry_collection = GeometryCollection(
+        [shape(feature["geometry"]).buffer(0) for feature in features])
+
+    north_central = {
+        "top_left_latitude": 90,
+        "top_left_longitude": -30,
+        "bottom_right_latitude": 30,
+        "bottom_right_longitude": 45
+    }
+    ww = {
+        "top_left_latitude": 90,
+        "top_left_longitude": -180,
+        "bottom_right_latitude": -90,
+        "bottom_right_longitude": 180
+    }
+    area_polygons, area_points = get_geometries(
+        (ww["top_left_longitude"], ww["top_left_latitude"]),
+        (ww["bottom_right_longitude"], ww["bottom_right_latitude"]),
+        1)
+
+    intersecting_polygons = []
+    for polygon in area_polygons:
+        if polygon.intersects(countries_geometry_collection):
+            intersecting_polygons.append(polygon)
+
+    polygon_grid = MultiPolygon(intersecting_polygons)
+    plot_multipolygon(polygon_grid)
+
+
+def get_area_of_polygon(polygon: shapely.Polygon) -> dict:
+    bounds = polygon.bounds
+    return {
+        "longitude_min": bounds[0],
+        "latitude_min": bounds[1],
+        "longitude_max": bounds[2],
+        "latitude_max": bounds[3]
+    }
+
+
+def plot_multipolygon(multipolygon: shapely.MultiPolygon):
+    longitudes = []
+    latitudes = []
+    for polygon in list(multipolygon.geoms):
+        polygon_ext_coords_x, polygon_ext_coords_y = polygon.exterior.coords.xy
+        longitudes = longitudes + polygon_ext_coords_x.tolist()
+        latitudes = latitudes + polygon_ext_coords_y.tolist()
+
+    fig = go.Figure(data=go.Scattergeo(
+        lon=longitudes,
+        lat=latitudes,
+        mode='markers'
+    ))
+    #fig.update_geos(
+    #    projection_type="natural earth"
+    #)
+    fig.update_layout(
+        title='Test Mesh'
+    )
+    fig.show()
+
+
+def plot_polygon(polygon: shapely.Polygon):
+    longitudes = []
+    latitudes = []
+
+    polygon_ext_coords_x, polygon_ext_coords_y = polygon.exterior.coords.xy
+    longitudes = longitudes + polygon_ext_coords_x.tolist()
+    latitudes = latitudes + polygon_ext_coords_y.tolist()
+
+    fig = go.Figure(data=go.Scattergeo(
+        lon=longitudes,
+        lat=latitudes,
+        mode='markers'
+    ))
+    #fig.update_geos(
+    #    projection_type="natural earth"
+    #)
+    fig.update_layout(
+        title='Test Mesh'
+    )
+    fig.show()
+
+
+def get_selected_countries_borders(country_set_filepath: str) -> dict:
+    countries_names_set = set()
+    countries_list = json_file_to_list(country_set_filepath)
+    for country in countries_list:
+        countries_names_set.add(country["name"])
+    # Because some name issues find in Europe
+    countries_names_set.update(["Russia", "United Kingdom"])
+
+    countries_borders_file_path = "../datasets/UIA_Latitude_Longitude_Graticules_and_World_Countries_Boundaries.geojson"
+    countries_borders_dict = json_file_to_dict(countries_borders_file_path)
+    selected_features = []
+    for country_border in countries_borders_dict["features"]:
+        if country_border["properties"]["CNTRY_NAME"] in countries_names_set:
+            selected_features.append(country_border)
+    countries_borders_dict["features"] = selected_features
+
+    return countries_borders_dict
+
+
+get_borders_good()
