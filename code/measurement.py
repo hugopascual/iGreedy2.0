@@ -6,53 +6,59 @@
 
 # external modules imports
 import json
-import time
-import os
-import string
+import random
 import sys
-import time
-import getopt
 import socket
-import collections
-import webbrowser
 import requests
+from shapely.geometry import(
+    MultiPolygon,
+    Polygon,
+    box,
+    shape,
+    GeometryCollection
+)
 # internal modules imports
 from utils.constants import (
     MEASUREMENTS_PATH,
-    MEASUREMENTS_CAMPAIGNS_PATH
+    MEASUREMENTS_CAMPAIGNS_PATH,
+    COUNTRY_BORDERS_GEOJSON_FILEPATH
 )
 from utils.common_functions import (
-    dict_to_json_file
+    dict_to_json_file,
+    json_file_to_dict,
+    get_section_borders_of_polygon,
+    is_probe_inside_section
 )
 import RIPEAtlas
 
 class Measurement(object):
-    def __init__(self, ip, ripeProbes=None):
+    def __init__(self, ip, ripe_probes=None, mesh_area=None):
 
         if(self.checkIP(ip)):
             self._ip = ip
         else:
             print >>sys.stderr, ("Target must be an IP address, NOT AN HOST NAME")
             sys.exit(1)
-        self._ripeProbes = ripeProbes
+        self._ripeProbes = ripe_probes
+        self._mesh_area = mesh_area
         self._numberOfPacket = 2 #to improve
         self._numberOfProbes = 5 #to improve, introduce as parameter, in alternative to the list of probes
         self._measurement = None
         self.result = None
         self._ripe_probes_geo = {}
 
-        self._percentageSuccessful = 0.8 
+        self._percentageSuccessful = 0.8
 
         self._probes_filepath = None
         self._probes_filename = None
         self._measurement_filename = None
-        
+
     def getIP(self):
         return self._ip
 
     def getRipeProbes(self):
         return self._ripeProbes
-    
+
     def get_measurement_id(self):
         return self._measurement.id
 
@@ -76,25 +82,25 @@ class Measurement(object):
         tempListProbes=[]
         for line in open(pathVPs,'r').readlines():
             if line.startswith("#"): #skip header and comments
-                continue 
+                continue
             hostname,latitude,longitude = line.strip().split("\t")
             temp_list_probes.append(hostname)
             temp_information_probes[hostname]=[latitude,longitude]
         self._numberOfProbes=len(temp_list_probes)
-        
+
         print("Information retrived of probes")
         print(temp_information_probes)
-        
+
         return (",".join(temp_list_probes),temp_information_probes) #building the list
 
     def load_data_request(self, probes_file):
         data = {
             "definitions": [
                 {
-                    "target": self._ip, 
-                    "description": "Ping %s" % self._ip, 
-                    "type": "ping", 
-                    "is_oneoff": True, 
+                    "target": self._ip,
+                    "description": "Ping %s" % self._ip,
+                    "type": "ping",
+                    "is_oneoff": True,
                     "packets": self._numberOfPacket,
                     "af": 4
                 }
@@ -106,16 +112,102 @@ class Measurement(object):
         else:
             af = 4
         data["definitions"][0]['af'] = af
-
-        self._probes_filepath = probes_file
-        self._probes_filename = probes_file.split("/")[-1][:-5]
-
-        with open(probes_file) as file:
-            probes_data_json = file.read()
-
-        self._ripeProbes = json.loads(probes_data_json)
+        self.build_probes_object(probes_file)
         data["probes"] = self._ripeProbes["probes"]
         return data
+
+    def build_probes_object(self, probes_file):
+        if not self._mesh_area:
+            # Build probes object from a file
+            self._probes_filepath = probes_file
+            self._probes_filename = probes_file.split("/")[-1][:-5]
+
+            with open(probes_file) as file:
+                probes_data_json = file.read()
+            self._ripeProbes = json.loads(probes_data_json)
+        else:
+            # Build probes object from an area
+            probes_data_json = self.mesh_area_probes_object()
+            self._ripeProbes = {}
+
+    def get_probes_in_mesh_area(self) -> dict:
+        base_url = "https://atlas.ripe.net/api/v2/probes/"
+        filters = "longitude__gte={}&longitude__lte={}&latitude__gte={}&latitude__lte={}".format(
+            self._mesh_area[0], self._mesh_area[2],
+            self._mesh_area[3], self._mesh_area[1])
+        fields = "fields=id,geometry"
+        url = "{}?{}&{}".format(base_url, filters, fields)
+        return requests.get(url=url).json()
+
+    def mesh_area_probes_object(self) -> dict:
+        polygon_grid = self.build_intersection_grid_with_countries()
+        sections_borders = []
+        for polygon in list(polygon_grid.geoms):
+            sections_borders.append(get_section_borders_of_polygon(polygon))
+        probes_in_mesh_area = self.get_probes_in_mesh_area()
+
+        probes_id_list = []
+        for section in sections_borders:
+            probes_filtered = filter(
+                lambda probe: is_probe_inside_section(
+                    probe=probe, section=section),
+                probes_in_mesh_area["results"])
+            probes_filtered = list(probes_filtered)
+            probes_id_list += random.choice(probes_filtered)
+
+        if len(probes_id_list) > 1000:
+            print("More than 1000 probes in grid, selecting a set of 1000")
+            probes_id_list = random.sample(probes_id_list, 1000)
+
+        return {
+            "probes": {
+                "requested": len(probes_id_list),
+                "type": "probes",
+                "value": probes_id_list
+            }
+        }
+
+    def build_intersection_grid_with_countries(self):
+        countries_borders_dict = json_file_to_dict(
+            COUNTRY_BORDERS_GEOJSON_FILEPATH)
+        features = countries_borders_dict["features"]
+        # NOTE: buffer(0) is a trick for fixing scenarios where polygons have overlapping coordinates
+        countries_geometry_collection = GeometryCollection(
+            [shape(feature["geometry"]).buffer(0) for feature in features])
+        area_polygons = self.get_polygons_in_mesh_area()
+        intersecting_polygons = []
+        for polygon in area_polygons:
+            if polygon.intersects(countries_geometry_collection):
+                intersecting_polygons.append(polygon)
+
+        return MultiPolygon(intersecting_polygons)
+
+    def get_polygons_in_mesh_area(self) -> list:
+        spacing = 1
+        polygons = []
+        x_min = self._mesh_area[0]
+        x_max = self._mesh_area[2]
+        y_max = self._mesh_area[1]
+        y = self._mesh_area[3]
+        i = -1
+        while True:
+            if y > y_max:
+                break
+            x = x_min
+
+            while True:
+                if x > x_max:
+                    break
+
+                # components for polygon grid
+                polygon = box(x, y, x + spacing, y + spacing)
+                polygons.append(polygon)
+
+                i = i + 1
+                x = x + spacing
+
+            y = y + spacing
+        return polygons
 
     def doMeasure(self, probes_file):
         data = self.load_data_request(probes_file)
@@ -124,7 +216,7 @@ class Measurement(object):
         # print ("Running measurement from Ripe Atlas with this data:")
         # print (json.dumps(data, indent=4))
         self._measurement = RIPEAtlas.Measurement(data)
-        print ("ID measure: %s\tTARGET: %s\tNumber of Vantage Points: %i " % (
+        print("ID measure: %s\tTARGET: %s\tNumber of Vantage Points: %i " % (
             self._measurement.id,  self._ip, self._measurement.num_probes))
         self.get_measurement_probes()
 
@@ -144,10 +236,10 @@ class Measurement(object):
             url = probes_url + "/%s" % hostname
 
             probe_response = requests.get(url).json()
-            
+
             latitude = probe_response["geometry"]["coordinates"][1]
             longitude = probe_response["geometry"]["coordinates"][0]
-            self._ripe_probes_geo[hostname]=[latitude, longitude]
+            self._ripe_probes_geo[hostname] = [latitude, longitude]
 
     def save_measurement_results(self,
                                  ripe_measurement_results: dict,
@@ -191,8 +283,9 @@ class Measurement(object):
 
         dict_to_json_file(data_to_save, measurement_filepath)
         return measurement_filepath
-        
-    def get_measurement_nums(self,ripe_measurement_results: dict) -> tuple[int, int, int, int, int]:
+
+    def get_measurement_nums(self, ripe_measurement_results: dict) -> \
+            tuple[int, int, int, int, int]:
         num_probes_answer = 0
         num_probes_timeout = 0
         num_probes_fail=0
@@ -203,7 +296,7 @@ class Measurement(object):
             for measure in result["result"]:
                 num_probes_answer += 1
                 if "rtt" in measure.keys():
-                    try: 
+                    try:
                         total_rtt += int(measure["rtt"])
                         num_latency_measurement += 1
                     except KeyError as exception:
@@ -215,7 +308,7 @@ class Measurement(object):
                 else:
                     print("Error in the measurement: result has no field rtt, \
                           or x or error")
-        return (num_probes_answer, num_probes_timeout, num_probes_fail, 
+        return (num_probes_answer, num_probes_timeout, num_probes_fail,
                 num_latency_measurement, total_rtt)
 
     def retrieveResult(self, info_probes, campaign_name: str):
@@ -232,7 +325,7 @@ class Measurement(object):
          num_probes_fail,
          num_latency_measurement,
          total_rtt) = self.get_measurement_nums(self.result)
-        
+
         print("Number of answers: %s" % len(self.result))
         if num_probes_answer == 0:
             print("Watson, we have a problem, no successful test!")

@@ -7,6 +7,7 @@ import json
 import csv
 import math
 import os
+from shapely import Polygon, box
 # internal modules imports
 from utils.constants import (
     ROOT_SERVERS_NAMES,
@@ -123,3 +124,29 @@ def get_list_files_in_path(path: str) -> list:
     files_in_path = \
         [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
     return files_in_path
+
+
+def get_section_borders_of_polygon(polygon: Polygon) -> dict:
+    bounds = polygon.bounds
+    return {
+        "longitude_min": bounds[0],
+        "latitude_min": bounds[1],
+        "longitude_max": bounds[2],
+        "latitude_max": bounds[3]
+    }
+
+
+def get_polygon_from_section(section: dict) -> Polygon:
+    return box(
+        section["longitude_min"],
+        section["latitude_min"],
+        section["longitude_max"],
+        section["latitude_max"]
+    )
+
+
+def is_probe_inside_section(probe: dict, section: dict) -> bool:
+    return (probe["geometry"]["coordinates"][0] >= section["longitude_min"]) \
+        & (probe["geometry"]["coordinates"][0] <= section["longitude_max"]) \
+        & (probe["geometry"]["coordinates"][1] >= section["latitude_min"]) \
+        & (probe["geometry"]["coordinates"][1] <= section["latitude_max"])

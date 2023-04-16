@@ -12,6 +12,7 @@ import sys
 from anycast import Anycast
 from measurement import Measurement
 from disc import *
+import ast
 # internal modules imports
 from utils.constants import (
     AIRPORTS_INFO_FILEPATH,
@@ -52,6 +53,7 @@ campaign_name = None
 alpha = 1  # advised settings
 visualize = False
 noise = 0  # exponential additive noise, only for sensitivity analysis
+mesh_area = None
 
 numberOfInstance = 0
 truePositive = 0
@@ -284,6 +286,11 @@ Parameters:
                                 Filepath of the JSON document which contains 
                                 the specification of the probes to use in the 
                                 measurement (default "{}")
+    --mesh_probes   -w  python tuple
+                                Python tuple with the coordinates of the area 
+                                to get the probes of. Use the following format:
+                                (top_left_longitude, top_left_latitude, 
+                                bottom_right_longitude, bottom_right_latitude)
     --results       -r  boolean
                                 Use it when you want that iGreedy automatically 
                                 calculate the results based on the measurement 
@@ -330,7 +337,7 @@ def main(argv):
     global input_file, probes_file, gt_file, output_path, output_file
     global campaign_name
     global ip
-    global threshold, alpha, visualize, noise
+    global threshold, alpha, visualize, noise, mesh_area
     global load_time, run_time
 
     maker_time = time.time()
@@ -340,9 +347,10 @@ def main(argv):
     # These sections parse the options selected and their values
     try:
         options, args = getopt.getopt(argv,
-                                      "i:m:p:r:a:t:n:o:c:g:v",
+                                      "i:m:p:w:r:a:t:n:o:c:g:v",
                                       ["input",
-                                       "measurement", "probes", "results",
+                                       "measurement", "probes", "mesh-probes",
+                                       "results",
                                        "alpha", "threshold", "noise",
                                        "output", "campaign", "groundtruth",
                                        "visualize"])
@@ -376,6 +384,12 @@ def main(argv):
             else:
                 probes_file = arg
 
+        elif option in ("-w", "--mesh_probes"):
+            try:
+                mesh_area = ast.literal_eval(arg)
+            except Exception as e:
+                print("Probes mesh not recognized, try again")
+                print(e)
         elif option in ("-r", "--results"):
             if arg.lower() == "true":
                 analyze_measurement = True
@@ -440,7 +454,7 @@ def main(argv):
     # If the measurement option selected make a new measurement
     if ip:
         print("Probes data from: ", probes_file)
-        measure = Measurement(ip)
+        measure = Measurement(ip, mesh_area=mesh_area)
         ripe_probes_geo = measure.doMeasure(probes_file)
         numLatencyMeasurement, input_file = measure.retrieveResult(
             ripe_probes_geo, campaign_name)

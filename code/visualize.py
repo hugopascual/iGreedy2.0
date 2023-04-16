@@ -3,8 +3,10 @@
 
 # external modules imports
 import plotly.express as px
+import plotly.graph_objects as go
 import pandas as pd
 import json
+from shapely import Polygon, MultiPolygon
 # internal modules imports
 from utils.constants import (
     GROUND_TRUTH_VALIDATIONS_PATH
@@ -109,3 +111,47 @@ def get_measurement_probes_from_results_file(result_path: str) -> pd.DataFrame:
     measurement_probes_df["type"] = "probe"
 
     return measurement_probes_df
+
+
+def plot_polygon(polygon: Polygon):
+    longitudes = []
+    latitudes = []
+
+    polygon_ext_coords_x, polygon_ext_coords_y = polygon.exterior.coords.xy
+    longitudes = longitudes + polygon_ext_coords_x.tolist()
+    latitudes = latitudes + polygon_ext_coords_y.tolist()
+
+    fig = go.Figure(data=go.Scattergeo(
+        lon=longitudes,
+        lat=latitudes,
+        mode='markers'
+    ))
+    #fig.update_geos(
+    #    projection_type="natural earth"
+    #)
+    fig.update_layout(
+        title='Test Mesh'
+    )
+    fig.show()
+
+
+def plot_multipolygon(multipolygon: MultiPolygon):
+    longitudes = []
+    latitudes = []
+    for polygon in list(multipolygon.geoms):
+        polygon_ext_coords_x, polygon_ext_coords_y = polygon.exterior.coords.xy
+        longitudes = longitudes + polygon_ext_coords_x.tolist()
+        latitudes = latitudes + polygon_ext_coords_y.tolist()
+
+    fig = go.Figure(data=go.Scattergeo(
+        lon=longitudes,
+        lat=latitudes,
+        mode='markers'
+    ))
+    #fig.update_geos(
+    #    projection_type="natural earth"
+    #)
+    fig.update_layout(
+        title='Test Mesh'
+    )
+    fig.show()

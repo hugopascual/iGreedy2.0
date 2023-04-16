@@ -38,6 +38,9 @@ DEFAULT_PROBES_PATH = PROBES_SETS_PATH + "WW_10.json"
 
 # Alone files
 AIRPORTS_INFO_FILEPATH = __DATASETS_PATH + "airports.csv"
+COUNTRY_BORDERS_GEOJSON_FILEPATH = \
+    __DATASETS_PATH + \
+    "UIA_Latitude_Longitude_Graticules_and_World_Countries_Boundaries.geojson"
 
 ###############################################################################
 

@@ -6,13 +6,21 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 import shapely
+import ast
+import requests
 from shapely.geometry import MultiPolygon, Polygon, box, MultiPoint, Point, shape
 from shapely import wkt
 from shapely import from_geojson, GeometryCollection
 from utils.common_functions import (
     json_file_to_list,
     dict_to_json_file,
-    json_file_to_dict
+    json_file_to_dict,
+    is_probe_inside_section,
+    get_polygon_from_section
+)
+from visualize import (
+    plot_polygon,
+    plot_multipolygon
 )
 
 
@@ -175,61 +183,6 @@ def get_borders_good():
             intersecting_polygons.append(polygon)
 
     polygon_grid = MultiPolygon(intersecting_polygons)
-    plot_multipolygon(polygon_grid)
-
-
-def get_area_of_polygon(polygon: shapely.Polygon) -> dict:
-    bounds = polygon.bounds
-    return {
-        "longitude_min": bounds[0],
-        "latitude_min": bounds[1],
-        "longitude_max": bounds[2],
-        "latitude_max": bounds[3]
-    }
-
-
-def plot_multipolygon(multipolygon: shapely.MultiPolygon):
-    longitudes = []
-    latitudes = []
-    for polygon in list(multipolygon.geoms):
-        polygon_ext_coords_x, polygon_ext_coords_y = polygon.exterior.coords.xy
-        longitudes = longitudes + polygon_ext_coords_x.tolist()
-        latitudes = latitudes + polygon_ext_coords_y.tolist()
-
-    fig = go.Figure(data=go.Scattergeo(
-        lon=longitudes,
-        lat=latitudes,
-        mode='markers'
-    ))
-    #fig.update_geos(
-    #    projection_type="natural earth"
-    #)
-    fig.update_layout(
-        title='Test Mesh'
-    )
-    fig.show()
-
-
-def plot_polygon(polygon: shapely.Polygon):
-    longitudes = []
-    latitudes = []
-
-    polygon_ext_coords_x, polygon_ext_coords_y = polygon.exterior.coords.xy
-    longitudes = longitudes + polygon_ext_coords_x.tolist()
-    latitudes = latitudes + polygon_ext_coords_y.tolist()
-
-    fig = go.Figure(data=go.Scattergeo(
-        lon=longitudes,
-        lat=latitudes,
-        mode='markers'
-    ))
-    #fig.update_geos(
-    #    projection_type="natural earth"
-    #)
-    fig.update_layout(
-        title='Test Mesh'
-    )
-    fig.show()
 
 
 def get_selected_countries_borders(country_set_filepath: str) -> dict:
@@ -251,4 +204,28 @@ def get_selected_countries_borders(country_set_filepath: str) -> dict:
     return countries_borders_dict
 
 
-get_borders_good()
+def get_probes_in_mesh_area(area: tuple):
+    base_url = "https://atlas.ripe.net/api/v2/probes/"
+    filters = "longitude__gte={}&longitude__lte={}&latitude__gte={}&latitude__lte={}".format(
+        area[0], area[2],
+        area[3], area[1])
+    fields = "fields=id,geometry"
+    url = "{}?{}&{}".format(base_url, filters, fields)
+    return requests.get(url=url).json()
+
+
+section = {
+        "longitude_min": -9.55,
+        "latitude_min": 36.22,
+        "longitude_max": 0,
+        "latitude_max": 43.76
+    }
+section2 = {
+        "longitude_min": 9.55,
+        "latitude_min": -36.22,
+        "longitude_max": 10,
+        "latitude_max": 0
+    }
+probes = get_probes_in_mesh_area(area=(-9.55, 43.76, 0, 36.22))
+print(is_probe_inside_section(probes["results"][0], section))
+
