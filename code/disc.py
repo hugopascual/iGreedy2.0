@@ -5,7 +5,9 @@
 
 import math,collections
 # Index of refraction for optical fiber
-FIBER_RI = 1.52
+# FIBER_RI = 1.52
+# Based on Verloc experience
+FIBER_RI = 2.5
 SPEED_OF_LIGHT = 299792.458 # km/s
 
 class Disc(object):
@@ -13,7 +15,7 @@ class Disc(object):
         """
         ping (float): (in ms)
         """ 
-        self._radius    = ping*0.001 * SPEED_OF_LIGHT / FIBER_RI / 2  # in km:ping*98,615940132
+        self._radius    = ping*0.001 * SPEED_OF_LIGHT / (FIBER_RI * 2)  # in km:ping*98,615940132
         self._hostname  = hostname
         #self._instance  = instance
         #self._city=city

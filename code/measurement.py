@@ -29,6 +29,9 @@ from utils.common_functions import (
     get_section_borders_of_polygon,
     is_probe_inside_section
 )
+from visualize import (
+    plot_multipolygon
+)
 import RIPEAtlas
 
 class Measurement(object):
@@ -128,43 +131,54 @@ class Measurement(object):
         else:
             # Build probes object from an area
             probes_data_json = self.mesh_area_probes_object()
-            self._ripeProbes = {}
+            self._ripeProbes = probes_data_json
 
-    def get_probes_in_mesh_area(self) -> dict:
+    def get_probes_in_section(self, section: dict) -> dict:
         base_url = "https://atlas.ripe.net/api/v2/probes/"
         filters = "longitude__gte={}&longitude__lte={}&latitude__gte={}&latitude__lte={}".format(
-            self._mesh_area[0], self._mesh_area[2],
-            self._mesh_area[3], self._mesh_area[1])
+            section["longitude_min"], section["longitude_max"],
+            section["latitude_min"], section["latitude_max"])
         fields = "fields=id,geometry"
         url = "{}?{}&{}".format(base_url, filters, fields)
         return requests.get(url=url).json()
 
     def mesh_area_probes_object(self) -> dict:
         polygon_grid = self.build_intersection_grid_with_countries()
+        plot_multipolygon(polygon_grid)
         sections_borders = []
         for polygon in list(polygon_grid.geoms):
             sections_borders.append(get_section_borders_of_polygon(polygon))
-        probes_in_mesh_area = self.get_probes_in_mesh_area()
 
         probes_id_list = []
+        print("Number of sections to select probes: {}".format(len(sections_borders)))
         for section in sections_borders:
+            probes_in_mesh_area = self.get_probes_in_section(section)
             probes_filtered = filter(
                 lambda probe: is_probe_inside_section(
                     probe=probe, section=section),
                 probes_in_mesh_area["results"])
             probes_filtered = list(probes_filtered)
-            probes_id_list += random.choice(probes_filtered)
+            try:
+                id_selected = random.choice(probes_filtered)["id"]
+                print(id_selected)
+                probes_id_list.append(id_selected)
+            except IndexError:
+                # Inside the selected section there is no probe
+                continue
 
         if len(probes_id_list) > 1000:
             print("More than 1000 probes in grid, selecting a set of 1000")
             probes_id_list = random.sample(probes_id_list, 1000)
 
         return {
-            "probes": {
-                "requested": len(probes_id_list),
-                "type": "probes",
-                "value": probes_id_list
-            }
+            "probes": [
+                {
+                    "requested": len(probes_id_list),
+                    "type": "probes",
+                    "value": ",".join(map(str, probes_id_list))
+                }
+            ]
+
         }
 
     def build_intersection_grid_with_countries(self):
@@ -183,7 +197,7 @@ class Measurement(object):
         return MultiPolygon(intersecting_polygons)
 
     def get_polygons_in_mesh_area(self) -> list:
-        spacing = 1
+        spacing = 0.3
         polygons = []
         x_min = self._mesh_area[0]
         x_max = self._mesh_area[2]

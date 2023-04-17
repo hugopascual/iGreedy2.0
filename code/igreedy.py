@@ -386,7 +386,7 @@ def main(argv):
 
         elif option in ("-w", "--mesh_probes"):
             try:
-                mesh_area = ast.literal_eval(arg)
+                mesh_area = ast.literal_eval(json_file_to_dict(arg)["area"])
             except Exception as e:
                 print("Probes mesh not recognized, try again")
                 print(e)

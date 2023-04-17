@@ -29,6 +29,7 @@ from utils.custom_exceptions import (
     RequestSubmissionError,
     ResultError
 )
+import utils.common_functions as cm
 
 authfile = "datasets/auth"
 base_url = "https://atlas.ripe.net/api/v2/measurements"
@@ -87,6 +88,8 @@ class Measurement():
                 self.notification = sleep_notification
                 # Start the measurement and get measurement id
                 results = requests.post(self.url, json=data).json()
+                cm.dict_to_json_file(dict=data,
+                                     file_path="last_measurement_data.json")
                 self.id = results["measurements"][0]
 
             except requests.HTTPError as e:

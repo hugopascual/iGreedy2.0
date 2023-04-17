@@ -22,7 +22,8 @@ def create_directory_structure(path: str) -> None:
     # Remove files from path, only directories
     if path[-1] != "/":
         path = "/".join(path.split("/")[:-1])
-
+    if path == "":
+        return
     if not os.path.exists(path):
         os.makedirs(path)
 

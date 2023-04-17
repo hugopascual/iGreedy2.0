@@ -7,6 +7,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import shapely
 import ast
+import random
 import requests
 from shapely.geometry import MultiPolygon, Polygon, box, MultiPoint, Point, shape
 from shapely import wkt
@@ -183,6 +184,7 @@ def get_borders_good():
             intersecting_polygons.append(polygon)
 
     polygon_grid = MultiPolygon(intersecting_polygons)
+    plot_multipolygon(polygon_grid)
 
 
 def get_selected_countries_borders(country_set_filepath: str) -> dict:
@@ -213,19 +215,7 @@ def get_probes_in_mesh_area(area: tuple):
     url = "{}?{}&{}".format(base_url, filters, fields)
     return requests.get(url=url).json()
 
-
-section = {
-        "longitude_min": -9.55,
-        "latitude_min": 36.22,
-        "longitude_max": 0,
-        "latitude_max": 43.76
-    }
-section2 = {
-        "longitude_min": 9.55,
-        "latitude_min": -36.22,
-        "longitude_max": 10,
-        "latitude_max": 0
-    }
-probes = get_probes_in_mesh_area(area=(-9.55, 43.76, 0, 36.22))
-print(is_probe_inside_section(probes["results"][0], section))
+list = [2,2,2,2,1,12,3126345,4,12,41,25,1]
+probes_id = ",".join(map(str, list))
+print(probes_id)
 
