@@ -51,9 +51,6 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
         instances_validated = filter_replicas_by_country_codes(
             instances_validated, area_of_interest)
 
-    print("Instancias validadas filtradas")
-    print(instances_validated)
-
     comparison_result = {
         "target": results_dict["target"],
         "probes_filepath": results_dict["probes_filepath"],
