@@ -46,6 +46,9 @@ COUNTRY_BORDERS_GEOJSON_FILEPATH = \
 
 # URLs
 ROOT_SERVERS_URL = "https://root-servers.org/root/"
+RIPE_ATLAS_API_BASE_URL = "https://atlas.ripe.net/api/v2/"
+RIPE_ATLAS_MEASUREMENTS_BASE_URL = RIPE_ATLAS_API_BASE_URL + "measurements/"
+RIPE_ATLAS_PROBES_BASE_URL = RIPE_ATLAS_API_BASE_URL + "probes/"
 
 # Others
 ROOT_SERVERS_NAMES = [
