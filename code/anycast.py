@@ -13,14 +13,6 @@ from utils.common_functions import (
     json_file_to_dict
 )
 
-class Object:
-    """
-    Class used to write a JSON more readable
-    """
-    def to_JSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__, 
-            sort_keys=True, indent=4)
-
 class Anycast(object):
     """
     

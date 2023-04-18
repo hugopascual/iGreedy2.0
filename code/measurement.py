@@ -17,6 +17,7 @@ from shapely.geometry import(
     shape,
     GeometryCollection
 )
+import ast
 # internal modules imports
 from utils.constants import (
     MEASUREMENTS_PATH,
@@ -120,18 +121,17 @@ class Measurement(object):
         return data
 
     def build_probes_object(self, probes_file):
-        if not self._mesh_area:
-            # Build probes object from a file
-            self._probes_filepath = probes_file
-            self._probes_filename = probes_file.split("/")[-1][:-5]
-
-            with open(probes_file) as file:
-                probes_data_json = file.read()
-            self._ripeProbes = json.loads(probes_data_json)
-        else:
+        probes_info = json_file_to_dict(probes_file)
+        self._probes_filepath = probes_file
+        self._probes_filename = probes_file.split("/")[-1][:-5]
+        if "probes_per_section" in probes_info.keys():
             # Build probes object from an area
+            self._mesh_area = ast.literal_eval(probes_info["area"])
             probes_data_json = self.mesh_area_probes_object()
             self._ripeProbes = probes_data_json
+        else:
+            # Build probes object from a file
+            self._ripeProbes = probes_info
 
     def get_probes_in_section(self, section: dict) -> dict:
         base_url = "https://atlas.ripe.net/api/v2/probes/"
@@ -160,7 +160,6 @@ class Measurement(object):
             probes_filtered = list(probes_filtered)
             try:
                 id_selected = random.choice(probes_filtered)["id"]
-                print(id_selected)
                 probes_id_list.append(id_selected)
             except IndexError:
                 # Inside the selected section there is no probe

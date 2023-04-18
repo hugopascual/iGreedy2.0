@@ -146,8 +146,22 @@ def get_polygon_from_section(section: dict) -> Polygon:
     )
 
 
+def is_point_inside_area(point: tuple, area: tuple) -> bool:
+    """
+    :param point: (longitude, latitude)
+    :param area: (top_left_lon,top_left_lat, bottom_right_lon,bottom_right_lat)
+    :return: True is point inside box, False otherwise
+    """
+    return (point[0] >= area[0]) & (point[0] <= area[2]) \
+        & (point[1] >= area[3]) & (point[1] <= area[1])
+
+
 def is_probe_inside_section(probe: dict, section: dict) -> bool:
-    return (probe["geometry"]["coordinates"][0] >= section["longitude_min"]) \
-        & (probe["geometry"]["coordinates"][0] <= section["longitude_max"]) \
-        & (probe["geometry"]["coordinates"][1] >= section["latitude_min"]) \
-        & (probe["geometry"]["coordinates"][1] <= section["latitude_max"])
+    return is_point_inside_area(
+        point=(probe["geometry"]["coordinates"][0],
+               probe["geometry"]["coordinates"][1]),
+        area=(section["longitude_min"],
+              section["latitude_max"],
+              section["longitude_max"],
+              section["latitude_min"])
+    )

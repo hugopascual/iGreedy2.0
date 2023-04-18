@@ -3,6 +3,7 @@
 
 # external modules imports
 import pandas as pd
+import ast
 # internal modules imports
 from utils.constants import (
     GROUND_TRUTH_VALIDATIONS_PATH,
@@ -14,17 +15,17 @@ from utils.constants import (
 from utils.common_functions import (
     json_file_to_dict,
     dict_to_json_file,
-    distance
+    distance,
+    is_point_inside_area
 )
 
 
 def compare_cities_gt(results_filepath: str, gt_filepath: str,
                       campaign_name: str) -> str:
-    area_of_interest = get_alpha2_country_codes(AREA_OF_INTEREST_FILEPATH)
     results_df = get_results_instances_locations(results_filepath)
-    results_df = results_df[results_df["country_code"].isin(area_of_interest)]
+    #results_df = results_df[results_df["country_code"].isin(area_of_interest)]
     gt_df = get_gt_instances_locations(gt_filepath)
-    gt_df = gt_df[gt_df["country_code"].isin(area_of_interest)]
+    #gt_df = gt_df[gt_df["country_code"].isin(area_of_interest)]
 
     # Check for every city TP or FP
     results_df["type"] = results_df.apply(
@@ -42,6 +43,16 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
     instances_validated.sort_values(by=["country_code", "city"], inplace=True)
 
     results_dict = json_file_to_dict(results_filepath)
+    if "probes_area" in results_dict["probes_filepath"]:
+        area = ast.literal_eval(
+            json_file_to_dict(results_dict["probes_filepath"])["area"])
+        instances_validated = filter_replicas_by_area(
+            instances_validated, area)
+    else:
+        area_of_interest = get_alpha2_country_codes(AREA_OF_INTEREST_FILEPATH)
+        instances_validated = filter_replicas_by_country_codes(
+            instances_validated, area_of_interest)
+
     comparison_result = {
         "target": results_dict["target"],
         "probes_filepath": results_dict["probes_filepath"],
@@ -68,6 +79,56 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
                       file_path=gt_validation_filepath)
 
     return gt_validation_filepath
+
+
+def filter_replicas_by_area(replicas_validated: pd.DataFrame,
+                            area: tuple) -> pd.DataFrame:
+    def test_type_and_inside(validation: str,
+                             point: tuple) -> str:
+        if not is_point_inside_area(point, area):
+            if validation == "TP":
+                return "OT"
+            elif validation == "FP":
+                return "OF"
+            elif validation == "FN":
+                return "DELETE"
+            else:
+                return validation
+
+    replicas_validated["type"] = replicas_validated.apply(
+        lambda x:
+        test_type_and_inside(validation=x.type,
+                             point=(x.longitude, x.latitude)),
+        axis=1)
+    replicas_validated = replicas_validated[
+        replicas_validated["type"] == "DELETE"]
+
+    return replicas_validated
+
+
+def filter_replicas_by_country_codes(replicas_validated: pd.DataFrame,
+                                     codes_set: set) -> pd.DataFrame:
+    def test_type_adn_inside(validation: str,
+                             country_code: str) -> str:
+        if country_code not in codes_set:
+            if validation == "TP":
+                return "OT"
+            elif validation == "FP":
+                return "OF"
+            elif validation == "FN":
+                return "DELETE"
+            else:
+                return validation
+
+    replicas_validated["type"] = replicas_validated.apply(
+        lambda x:
+        test_type_adn_inside(validation=x.type,
+                             country_code=x.country_code),
+        axis=1)
+    replicas_validated = replicas_validated[
+        replicas_validated["type"] == "DELETE"]
+
+    return replicas_validated
 
 
 def check_city_positive(gt_df, city_name: str, lat: float, lon: float):
@@ -180,6 +241,12 @@ def calculate_performance_statistics_cities(validation: pd.DataFrame) -> dict:
     try:
         fn = int(validation["type"].value_counts()["FN"])
     except: fn = 0
+    try:
+        ot = int(validation["type"].value_counts()["OT"])
+    except: ot = 0
+    try:
+        of = int(validation["type"].value_counts()["OF"])
+    except: of = 0
 
     precision = tp/(tp+fp)
     recall = tp/(tp+fn)
@@ -191,7 +258,9 @@ def calculate_performance_statistics_cities(validation: pd.DataFrame) -> dict:
         "accuracy": (tp+tn)/(tp+fp+fn),
         "precision": precision,
         "recall": recall,
-        "f1": 2*((precision*recall)/(precision+recall))
+        "f1": 2*((precision*recall)/(precision+recall)),
+        "OT": ot,
+        "OF": of
     }
 
     return statistics

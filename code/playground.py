@@ -215,7 +215,9 @@ def get_probes_in_mesh_area(area: tuple):
     url = "{}?{}&{}".format(base_url, filters, fields)
     return requests.get(url=url).json()
 
-list = [2,2,2,2,1,12,3126345,4,12,41,25,1]
-probes_id = ",".join(map(str, list))
-print(probes_id)
-
+hola = "hola"
+test = " hola y adios"
+if hola in test:
+    print(True)
+else:
+    print(False)

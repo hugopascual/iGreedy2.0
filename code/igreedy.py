@@ -63,6 +63,18 @@ run_time = 0
 threshold = -1  # negative means infinity
 
 
+class iGreedy:
+    # TODO make a class of iGreedy to make it maintainable
+    def __init__(self, target: str,
+                 alpha=1, threshold=-1, noise=0):
+        # Data to make measurement
+        self._target = ""
+
+        # Data to analyze the results
+        self._alpha = alpha
+        self._threshold = threshold
+        self._noise = noise
+
 def airportDistance(a, b):
     if (a not in IATAlat) or (b not in IATAlat):
         return "NaN"
@@ -347,10 +359,9 @@ def main(argv):
     # These sections parse the options selected and their values
     try:
         options, args = getopt.getopt(argv,
-                                      "i:m:p:w:r:a:t:n:o:c:g:v",
+                                      "i:m:p:r:a:t:n:o:c:g:v",
                                       ["input",
-                                       "measurement", "probes", "mesh-probes",
-                                       "results",
+                                       "measurement", "probes", "results",
                                        "alpha", "threshold", "noise",
                                        "output", "campaign", "groundtruth",
                                        "visualize"])
@@ -383,13 +394,7 @@ def main(argv):
                 sys.exit(2)
             else:
                 probes_file = arg
-
-        elif option in ("-w", "--mesh_probes"):
-            try:
-                mesh_area = ast.literal_eval(json_file_to_dict(arg)["area"])
-            except Exception as e:
-                print("Probes mesh not recognized, try again")
-                print(e)
+                
         elif option in ("-r", "--results"):
             if arg.lower() == "true":
                 analyze_measurement = True
