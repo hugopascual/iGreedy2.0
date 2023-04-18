@@ -53,7 +53,6 @@ campaign_name = None
 alpha = 1  # advised settings
 visualize = False
 noise = 0  # exponential additive noise, only for sensitivity analysis
-mesh_area = None
 
 numberOfInstance = 0
 truePositive = 0
@@ -298,11 +297,6 @@ Parameters:
                                 Filepath of the JSON document which contains 
                                 the specification of the probes to use in the 
                                 measurement (default "{}")
-    --mesh_probes   -w  python tuple
-                                Python tuple with the coordinates of the area 
-                                to get the probes of. Use the following format:
-                                (top_left_longitude, top_left_latitude, 
-                                bottom_right_longitude, bottom_right_latitude)
     --results       -r  boolean
                                 Use it when you want that iGreedy automatically 
                                 calculate the results based on the measurement 
@@ -349,7 +343,7 @@ def main(argv):
     global input_file, probes_file, gt_file, output_path, output_file
     global campaign_name
     global ip
-    global threshold, alpha, visualize, noise, mesh_area
+    global threshold, alpha, visualize, noise
     global load_time, run_time
 
     maker_time = time.time()
@@ -459,7 +453,7 @@ def main(argv):
     # If the measurement option selected make a new measurement
     if ip:
         print("Probes data from: ", probes_file)
-        measure = Measurement(ip, mesh_area=mesh_area)
+        measure = Measurement(ip)
         ripe_probes_geo = measure.doMeasure(probes_file)
         numLatencyMeasurement, input_file = measure.retrieveResult(
             ripe_probes_geo, campaign_name)

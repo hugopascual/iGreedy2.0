@@ -36,7 +36,7 @@ from visualize import (
 import RIPEAtlas
 
 class Measurement(object):
-    def __init__(self, ip, ripe_probes=None, mesh_area=None):
+    def __init__(self, ip, ripe_probes=None):
 
         if(self.checkIP(ip)):
             self._ip = ip
@@ -44,7 +44,8 @@ class Measurement(object):
             print >>sys.stderr, ("Target must be an IP address, NOT AN HOST NAME")
             sys.exit(1)
         self._ripeProbes = ripe_probes
-        self._mesh_area = mesh_area
+        self._mesh_area = None
+        self._spacing = None
         self._numberOfPacket = 2 #to improve
         self._numberOfProbes = 5 #to improve, introduce as parameter, in alternative to the list of probes
         self._measurement = None
@@ -127,6 +128,7 @@ class Measurement(object):
         if "probes_per_section" in probes_info.keys():
             # Build probes object from an area
             self._mesh_area = ast.literal_eval(probes_info["area"])
+            self._spacing = probes_info["spacing"]
             probes_data_json = self.mesh_area_probes_object()
             self._ripeProbes = probes_data_json
         else:
@@ -150,7 +152,8 @@ class Measurement(object):
             sections_borders.append(get_section_borders_of_polygon(polygon))
 
         probes_id_list = []
-        print("Number of sections to select probes: {}".format(len(sections_borders)))
+        print("Number of sections to select probes: {}".format(
+            len(sections_borders)))
         for section in sections_borders:
             probes_in_mesh_area = self.get_probes_in_section(section)
             probes_filtered = filter(
@@ -168,6 +171,8 @@ class Measurement(object):
         if len(probes_id_list) > 1000:
             print("More than 1000 probes in grid, selecting a set of 1000")
             probes_id_list = random.sample(probes_id_list, 1000)
+
+        print("Number of probes ID selected: {}".format(len(probes_id_list)))
 
         return {
             "probes": [
@@ -196,7 +201,6 @@ class Measurement(object):
         return MultiPolygon(intersecting_polygons)
 
     def get_polygons_in_mesh_area(self) -> list:
-        spacing = 0.3
         polygons = []
         x_min = self._mesh_area[0]
         x_max = self._mesh_area[2]
@@ -213,13 +217,13 @@ class Measurement(object):
                     break
 
                 # components for polygon grid
-                polygon = box(x, y, x + spacing, y + spacing)
+                polygon = box(x, y, x + self._spacing, y + self._spacing)
                 polygons.append(polygon)
 
                 i = i + 1
-                x = x + spacing
+                x = x + self._spacing
 
-            y = y + spacing
+            y = y + self._spacing
         return polygons
 
     def doMeasure(self, probes_file):

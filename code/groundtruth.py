@@ -23,9 +23,7 @@ from utils.common_functions import (
 def compare_cities_gt(results_filepath: str, gt_filepath: str,
                       campaign_name: str) -> str:
     results_df = get_results_instances_locations(results_filepath)
-    #results_df = results_df[results_df["country_code"].isin(area_of_interest)]
     gt_df = get_gt_instances_locations(gt_filepath)
-    #gt_df = gt_df[gt_df["country_code"].isin(area_of_interest)]
 
     # Check for every city TP or FP
     results_df["type"] = results_df.apply(
@@ -52,6 +50,9 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
         area_of_interest = get_alpha2_country_codes(AREA_OF_INTEREST_FILEPATH)
         instances_validated = filter_replicas_by_country_codes(
             instances_validated, area_of_interest)
+
+    print("Instancias validadas filtradas")
+    print(instances_validated)
 
     comparison_result = {
         "target": results_dict["target"],
@@ -94,6 +95,8 @@ def filter_replicas_by_area(replicas_validated: pd.DataFrame,
                 return "DELETE"
             else:
                 return validation
+        else:
+            return validation
 
     replicas_validated["type"] = replicas_validated.apply(
         lambda x:
@@ -101,7 +104,7 @@ def filter_replicas_by_area(replicas_validated: pd.DataFrame,
                              point=(x.longitude, x.latitude)),
         axis=1)
     replicas_validated = replicas_validated[
-        replicas_validated["type"] == "DELETE"]
+        replicas_validated["type"] != "DELETE"]
 
     return replicas_validated
 
