@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #areas_array=("WW")
-#areas_array=("North-Central")
+areas_array=("North-Central")
 #areas_array=("North-Central" "WW")
 #areas_array=("North-Central" "North-East" "South-Central" "South-East" "West" "WW")
-#num_probes_array=(100 300 500 1000)
+num_probes_array=(100 300 500 1000)
 
-areas_array=("Europe_countries")
-num_probes_array=(5 10 15)
+#areas_array=("Europe_countries")
+#num_probes_array=(5 10 15)
 
 root_servers_ip_directions=(
 "198.41.0.4" "199.9.14.201" "192.33.4.12" "199.7.91.13" "192.203.230.10"
@@ -44,8 +44,8 @@ threshold_array=(-1 0.5 1 5 10 20 30)
 probes_filenames_array=()
 probes_filepaths_array=()
 
-#campaign_name="North-Central_20230410"
-campaign_name="Europe_countries_20230413"
+campaign_name="North-Central_20230418"
+#campaign_name="Europe_countries_20230413"
 campaign_directories_names_array=()
 
 fill_probes_arrays()
@@ -61,7 +61,7 @@ fill_probes_arrays()
 fill_campaign_directories_names_array()
 {
   for ip in "${servers_ip_directions[@]}"; do
-    campaign_directories_names_array+=("$campaign_name"_"$ip")
+    campaign_directories_names_array+=("$ip"_"$campaign_name")
   done
 }
 

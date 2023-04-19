@@ -140,9 +140,9 @@ cloudfare_servers_ip_directions = [
 campaign_name_prefix = cloudfare_campaign_name_prefix
 servers_ip_directions = cloudfare_servers_ip_directions
 
-#compare_campaign_statistics("North-Central_20230410_198.41.0.4",
+#compare_campaign_statistics("198.41.0.4_North-Central_20230410",
 #                            parameter="alpha")
-#compare_campaign_statistics("North-Central_20230410_198.41.0.4",
+#compare_campaign_statistics("198.41.0.4_North-Central_20230410",
 #                            parameter="threshold")
 
 for ip in servers_ip_directions:
