@@ -35,6 +35,7 @@ from visualize import (
 )
 import RIPEAtlas
 
+
 class Measurement(object):
     def __init__(self, ip, ripe_probes=None):
 

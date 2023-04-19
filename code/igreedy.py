@@ -9,9 +9,6 @@ import getopt
 import time
 import os.path
 import sys
-from anycast import Anycast
-from measurement import Measurement
-from disc import *
 import ast
 # internal modules imports
 from utils.constants import (
@@ -25,6 +22,10 @@ from utils.common_functions import (
     json_file_to_dict,
     dict_to_json_file
 )
+from anycast import Anycast
+from measurement import Measurement
+from disc import *
+from hunter import Hunter
 from groundtruth import compare_cities_gt
 from visualize import (
     plot_file
@@ -44,6 +45,8 @@ GTnum = 0
 
 input_file = None
 ip = None
+hunter_target = None
+start_point = None
 probes_file = DEFAULT_PROBES_PATH
 output_path = RESULTS_PATH
 output_file = "output"
@@ -342,7 +345,7 @@ def main(argv):
     # Variables needed to make the measurement and analysis
     global input_file, probes_file, gt_file, output_path, output_file
     global campaign_name
-    global ip
+    global ip, hunter_target, start_point
     global threshold, alpha, visualize, noise
     global load_time, run_time
 
@@ -353,9 +356,10 @@ def main(argv):
     # These sections parse the options selected and their values
     try:
         options, args = getopt.getopt(argv,
-                                      "i:m:p:r:a:t:n:o:c:g:v",
+                                      "i:m:p:r:w:s:a:t:n:o:c:g:v",
                                       ["input",
                                        "measurement", "probes", "results",
+                                       "hunter", "start",
                                        "alpha", "threshold", "noise",
                                        "output", "campaign", "groundtruth",
                                        "visualize"])
@@ -398,6 +402,13 @@ def main(argv):
                 print("Results option argument not valid. "
                       "Try with True or False")
                 sys.exit(2)
+
+        # Hunter option
+        elif option in ("-w", "--hunter"):
+            hunter_target = arg
+
+        elif option in ("-s", "--start_point"):
+            start_point = ast.literal_eval(arg)
 
         # Inputs for the analysis part
         elif option in ("-a", "--alpha"):
@@ -461,6 +472,14 @@ def main(argv):
             print("Error: for the anycast detection at least 2 latency "
                   "measurement are needed")
             sys.exit(-1)
+
+    # Hunter option
+    if hunter_target:
+        if start_point:
+            hunter = Hunter(target=hunter_target, origin=start_point)
+        else:
+            hunter = Hunter(target=hunter_target)
+        hunter.hunt()
 
     # Analyze the data and print the time of process
     load_time = time.time() - maker_time
