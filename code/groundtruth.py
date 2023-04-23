@@ -117,8 +117,8 @@ def filter_replicas_by_country_codes(replicas_validated: pd.DataFrame,
                 return "OF"
             elif validation == "FN":
                 return "DELETE"
-            else:
-                return validation
+        else:
+            return validation
 
     replicas_validated["type"] = replicas_validated.apply(
         lambda x:
@@ -126,7 +126,7 @@ def filter_replicas_by_country_codes(replicas_validated: pd.DataFrame,
                              country_code=x.country_code),
         axis=1)
     replicas_validated = replicas_validated[
-        replicas_validated["type"] == "DELETE"]
+        replicas_validated["type"] != "DELETE"]
 
     return replicas_validated
 

@@ -112,9 +112,9 @@ def compare_campaign_statistics(campaign_name: str, parameter: str):
         sep='\t',
         encoding='utf-8')
 
-    plot_campaign_statistics_comparison(validations_df,
-                                        campaign_name,
-                                        parameter)
+    #plot_campaign_statistics_comparison(validations_df,
+    #                                    campaign_name,
+    #                                    parameter)
 
 
 root_campaign_name_prefix = "North-Central_20230410"
@@ -132,13 +132,13 @@ root_servers_ip_directions = [
     "193.0.14.129",
     "199.7.83.42",
     "202.12.27.33"]
-cloudfare_campaign_name_prefix = "Europe_countries_20230413"
+cloudfare_campaign_name_prefix = "North-Central_20230418"
 cloudfare_servers_ip_directions = [
     "104.16.123.96"
 ]
 
-campaign_name_prefix = cloudfare_campaign_name_prefix
-servers_ip_directions = cloudfare_servers_ip_directions
+campaign_name_prefix = root_campaign_name_prefix
+servers_ip_directions = root_servers_ip_directions
 
 #compare_campaign_statistics("198.41.0.4_North-Central_20230410",
 #                            parameter="alpha")
@@ -146,6 +146,6 @@ servers_ip_directions = cloudfare_servers_ip_directions
 #                            parameter="threshold")
 
 for ip in servers_ip_directions:
-    campaign_name_complete = "{}_{}".format(campaign_name_prefix, ip)
+    campaign_name_complete = "{}_{}".format(ip, campaign_name_prefix)
     compare_campaign_statistics(campaign_name_complete, "alpha")
     compare_campaign_statistics(campaign_name_complete, "threshold")

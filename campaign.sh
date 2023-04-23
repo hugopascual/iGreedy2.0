@@ -8,7 +8,7 @@ num_probes_array=(100 300 500 1000)
 
 #areas_array=("Europe_countries")
 #num_probes_array=(5 10 15)
-
+###############################################################################
 root_servers_ip_directions=(
 "198.41.0.4" "199.9.14.201" "192.33.4.12" "199.7.91.13" "192.203.230.10"
 "192.5.5.241" "192.112.36.4" "198.97.190.53" "192.36.148.17" "192.58.128.30"
@@ -29,14 +29,10 @@ cloudfare_servers_names=(
 "cloudfare_servers_europe.json"
 )
 cloudfare_servers_directory_name="datasets/ground-truth/cloudfare/"
-
-servers_ip_directions=(
-"104.16.123.96"
-)
-servers_names=(
-"cloudfare_servers_europe.json"
-)
-servers_directory_name="datasets/ground-truth/cloudfare/"
+###############################################################################
+servers_ip_directions+=("${cloudfare_servers_ip_directions[@]}")
+servers_names+=("${cloudfare_servers_names[@]}")
+servers_directory_name=$cloudfare_servers_directory_name
 
 alpha_array=(0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1)
 threshold_array=(-1 0.5 1 5 10 20 30)
@@ -90,6 +86,11 @@ alpha_iterations_results()
 
   for measurement in "$campaign_measurements_directory"/*; do
     for alpha in "${alpha_array[@]}"; do
+      echo ./igreedy.sh -i "$measurement" \
+      -a "$alpha" \
+      -g "$groundtruth_comparison_file" \
+      -c "$campaign_selected""_alpha"
+
       ./igreedy.sh -i "$measurement" \
       -a "$alpha" \
       -g "$groundtruth_comparison_file" \
@@ -106,6 +107,11 @@ threshold_iteration_results()
 
   for measurement in "$campaign_measurements_directory"/*; do
     for threshold in "${threshold_array[@]}"; do
+      echo ./igreedy.sh -i "$measurement" \
+      -t "$threshold" \
+      -g "$groundtruth_comparison_file" \
+      -c "$campaign_selected""_threshold"
+
       ./igreedy.sh -i "$measurement" \
       -t "$threshold" \
       -g "$groundtruth_comparison_file" \
@@ -116,6 +122,14 @@ threshold_iteration_results()
 
 fill_probes_arrays
 fill_campaign_directories_names_array
+
+echo "Directions"
+echo "${servers_ip_directions[@]}"
+echo "Servers Names"
+echo "${servers_names[@]}"
+echo "Servers groundtruth directory"
+echo "$servers_directory_name"
+
 for index in "${!campaign_directories_names_array[@]}"; do
 
   ip_selected="${servers_ip_directions[$index]}"
@@ -123,15 +137,15 @@ for index in "${!campaign_directories_names_array[@]}"; do
   gt_server_filename="${servers_names[$index]}"
 
   # Make measurements with all probes files to an ip
-  measurement_campaign_to_ip "$ip_selected" "$campaign_selected"
+  #measurement_campaign_to_ip "$ip_selected" "$campaign_selected"
 
   # Generate results with alpha iterations
   alpha_iterations_results \
-  "datasets/ground-truth/cloudfare/$gt_server_filename" \
+  "$servers_directory_name$gt_server_filename" \
   "$campaign_selected"
 
   # Generate results with threshold iterations
   threshold_iteration_results \
-  "datasets/ground-truth/cloudfare/$gt_server_filename" \
+  "$servers_directory_name$gt_server_filename" \
   "$campaign_selected"
 done
