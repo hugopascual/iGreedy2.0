@@ -1,0 +1,107 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central_1000.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central_20230410_alpha_light-factor_0.30/198.97.190.53_North-Central_1000_52071953_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 10,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.16666666666666666,
+        "precision": 0.16666666666666666,
+        "recall": 1.0,
+        "f1": 0.2857142857142857,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Augsburg",
+            "latitude": 48.42527771,
+            "longitude": 10.9316673279,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Egelsbach",
+            "latitude": 49.9599990845,
+            "longitude": 8.6458330154,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Neubrandenburg",
+            "latitude": 53.6021995544,
+            "longitude": 13.3059997559,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Stuttgart",
+            "latitude": 48.6898994446,
+            "longitude": 9.2219600677,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Auxerre/Branches",
+            "latitude": 47.8502006531,
+            "longitude": 3.49710989,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Calais/Dunkerque",
+            "latitude": 50.9621009827,
+            "longitude": 1.9547599554,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Laval/Entrammes",
+            "latitude": 48.0313987732,
+            "longitude": -0.7429860234,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.4706001282,
+            "longitude": -0.4619410038,
+            "type": "TP"
+        },
+        {
+            "country_code": "IM",
+            "city": "Castletown",
+            "latitude": 54.0833015442,
+            "longitude": -4.6238899231,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Rome",
+            "latitude": 41.7994003296,
+            "longitude": 12.5949001312,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Lelystad",
+            "latitude": 52.4603004456,
+            "longitude": 5.5272197723,
+            "type": "FP"
+        },
+        {
+            "country_code": "SK",
+            "city": "Ko\u0161ice",
+            "latitude": 48.6631011963,
+            "longitude": 21.2411003113,
+            "type": "FP"
+        }
+    ]
+}

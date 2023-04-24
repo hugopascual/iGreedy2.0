@@ -1,0 +1,58 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_sets/North-Central_300.json",
+    "alpha": 1,
+    "threshold": 10.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/199.9.14.201_North-Central_20230410_threshold_light-factor_0.18/199.9.14.201_North-Central_300_52069565_1_10.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 4,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.2,
+        "precision": 0.2,
+        "recall": 1.0,
+        "f1": 0.33333333333333337,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BE",
+            "city": "Brussels",
+            "latitude": 50.4592018127,
+            "longitude": 4.4538202286,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Cologne",
+            "latitude": 50.8658981323,
+            "longitude": 7.1427397728,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Dortmund",
+            "latitude": 51.5182991028,
+            "longitude": 7.6122398377,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.3307991028,
+            "longitude": 0.0324999988,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.3086013794,
+            "longitude": 4.7638897896,
+            "type": "TP"
+        }
+    ]
+}

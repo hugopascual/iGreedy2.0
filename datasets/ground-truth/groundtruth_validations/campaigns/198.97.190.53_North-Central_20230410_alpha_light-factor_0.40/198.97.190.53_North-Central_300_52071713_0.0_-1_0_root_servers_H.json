@@ -1,0 +1,65 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central_300.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central_20230410_alpha_light-factor_0.40/198.97.190.53_North-Central_300_52071713_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 4,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.16666666666666666,
+        "precision": 0.2,
+        "recall": 0.5,
+        "f1": 0.28571428571428575,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Mainz",
+            "latitude": 49.9674987793,
+            "longitude": 8.1472215652,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Beauvais/Till\u00e9",
+            "latitude": 49.4543991089,
+            "longitude": 2.1127800941,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.523551,
+            "longitude": -0.100785,
+            "type": "FN"
+        },
+        {
+            "country_code": "GB",
+            "city": "Thetford",
+            "latitude": 52.3426017761,
+            "longitude": 0.7729390264,
+            "type": "FP"
+        },
+        {
+            "country_code": "RO",
+            "city": "Craiova",
+            "latitude": 44.3180999756,
+            "longitude": 23.8885993958,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "Saransk",
+            "latitude": 54.1251296997,
+            "longitude": 45.2122573853,
+            "type": "FP"
+        }
+    ]
+}

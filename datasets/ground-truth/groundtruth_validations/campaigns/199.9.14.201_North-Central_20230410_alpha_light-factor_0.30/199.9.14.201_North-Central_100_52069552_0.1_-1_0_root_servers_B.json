@@ -1,0 +1,58 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_sets/North-Central_100.json",
+    "alpha": 0.1,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/199.9.14.201_North-Central_20230410_alpha_light-factor_0.30/199.9.14.201_North-Central_100_52069552_0.1_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 3,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.25,
+        "precision": 0.25,
+        "recall": 1.0,
+        "f1": 0.4,
+        "OT": 0,
+        "OF": 1
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Munich",
+            "latitude": 48.3538017273,
+            "longitude": 11.7861003876,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Leeds",
+            "latitude": 53.8658981323,
+            "longitude": -1.6605700254,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.8746986389,
+            "longitude": -0.3683330119,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Den Helder",
+            "latitude": 52.9234008789,
+            "longitude": 4.7806200981,
+            "type": "TP"
+        },
+        {
+            "country_code": "UA",
+            "city": "Kiev",
+            "latitude": 50.3450012207,
+            "longitude": 30.8946990967,
+            "type": "OF"
+        }
+    ]
+}

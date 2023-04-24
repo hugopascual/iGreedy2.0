@@ -1,0 +1,65 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central_20230410_alpha_light-factor_0.40/198.97.190.53_North-Central_500_52071749_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 4,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.3333333333333333,
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "f1": 0.5,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BG",
+            "city": "Sofia",
+            "latitude": 42.6966934204,
+            "longitude": 23.4114360809,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Egelsbach",
+            "latitude": 49.9599990845,
+            "longitude": 8.6458330154,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Manching",
+            "latitude": 48.7156982422,
+            "longitude": 11.5340003967,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5530014038,
+            "longitude": -0.418166995,
+            "type": "TP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Olbia",
+            "latitude": 40.8987007141,
+            "longitude": 9.5176296234,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Enschede",
+            "latitude": 52.2700004578,
+            "longitude": 6.8741698265,
+            "type": "FP"
+        }
+    ]
+}

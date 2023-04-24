@@ -1,0 +1,79 @@
+{
+    "target": "198.41.0.4",
+    "probes_filepath": "datasets/probes_sets/North-Central_100.json",
+    "alpha": 0.2,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.41.0.4_North-Central_20230410_alpha_light-factor_1.52/198.41.0.4_North-Central_100_52069359_0.2_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_A.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 2,
+        "TN": 0,
+        "FN": 5,
+        "accuracy": 0.125,
+        "precision": 0.3333333333333333,
+        "recall": 0.16666666666666666,
+        "f1": 0.2222222222222222,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Frankfurt-am-Main",
+            "latitude": 50.121212,
+            "longitude": 8.6365638,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Marseille",
+            "latitude": 43.2961743,
+            "longitude": 5.3699525,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.856614,
+            "longitude": 2.3522219,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Reims/Champagne",
+            "latitude": 49.3100013733,
+            "longitude": 4.0500001907,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5073509,
+            "longitude": -0.1277583,
+            "type": "FN"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.3702157,
+            "longitude": 4.8951679,
+            "type": "FN"
+        },
+        {
+            "country_code": "NO",
+            "city": "Oslo",
+            "latitude": 60.193901062,
+            "longitude": 11.100399971,
+            "type": "FP"
+        },
+        {
+            "country_code": "SE",
+            "city": "Stockholm",
+            "latitude": 59.3293235,
+            "longitude": 18.0685808,
+            "type": "FN"
+        }
+    ]
+}

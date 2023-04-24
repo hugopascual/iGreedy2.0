@@ -1,0 +1,100 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.5,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central_20230410_alpha_light-factor_0.30/198.97.190.53_North-Central_500_52071749_0.5_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 7,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.2222222222222222,
+        "precision": 0.2222222222222222,
+        "recall": 1.0,
+        "f1": 0.3636363636363636,
+        "OT": 0,
+        "OF": 2
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Berlin",
+            "latitude": 52.3800010681,
+            "longitude": 13.5225000381,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Cologne",
+            "latitude": 50.8658981323,
+            "longitude": 7.1427397728,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt-am-Main",
+            "latitude": 50.0264015198,
+            "longitude": 8.543129921,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Munich",
+            "latitude": 48.3538017273,
+            "longitude": 11.7861003876,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 49.0127983093,
+            "longitude": 2.5499999523,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.3307991028,
+            "longitude": 0.0324999988,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5052986145,
+            "longitude": 0.0552779995,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Milan",
+            "latitude": 45.445098877,
+            "longitude": 9.2767400742,
+            "type": "FP"
+        },
+        {
+            "country_code": "MA",
+            "city": "Casablanca",
+            "latitude": 33.3675003052,
+            "longitude": -7.5899701118,
+            "type": "OF"
+        },
+        {
+            "country_code": "RU",
+            "city": "Moscow",
+            "latitude": 55.4087982178,
+            "longitude": 37.9062995911,
+            "type": "FP"
+        },
+        {
+            "country_code": "TR",
+            "city": "Istanbul",
+            "latitude": 40.898601532,
+            "longitude": 29.3092002869,
+            "type": "OF"
+        }
+    ]
+}

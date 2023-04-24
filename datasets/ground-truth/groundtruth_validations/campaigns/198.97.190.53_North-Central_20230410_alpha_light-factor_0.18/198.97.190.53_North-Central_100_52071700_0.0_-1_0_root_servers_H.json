@@ -1,0 +1,149 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central_100.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central_20230410_alpha_light-factor_0.18/198.97.190.53_North-Central_100_52071700_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 15,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.058823529411764705,
+        "precision": 0.0625,
+        "recall": 0.5,
+        "f1": 0.1111111111111111,
+        "OT": 0,
+        "OF": 1
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Cologne",
+            "latitude": 50.8658981323,
+            "longitude": 7.1427397728,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Eisenach",
+            "latitude": 50.9927787781,
+            "longitude": 10.4727783203,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt",
+            "latitude": 50.11944,
+            "longitude": 8.735556,
+            "type": "FN"
+        },
+        {
+            "country_code": "DE",
+            "city": "Manching",
+            "latitude": 48.7156982422,
+            "longitude": 11.5340003967,
+            "type": "FP"
+        },
+        {
+            "country_code": "DZ",
+            "city": "Hassi Messaoud",
+            "latitude": 31.6730003357,
+            "longitude": 6.1404399872,
+            "type": "OF"
+        },
+        {
+            "country_code": "EE",
+            "city": "Tallinn",
+            "latitude": 59.4132995605,
+            "longitude": 24.8327999115,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Cognac/Ch\u00e2teaubernard",
+            "latitude": 45.6582984924,
+            "longitude": -0.3174999952,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Laval/Entrammes",
+            "latitude": 48.0313987732,
+            "longitude": -0.7429860234,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5286416,
+            "longitude": -0.1015987,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5530014038,
+            "longitude": -0.418166995,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Stornoway",
+            "latitude": 58.2155990601,
+            "longitude": -6.3311100006,
+            "type": "FP"
+        },
+        {
+            "country_code": "GR",
+            "city": "Kalamata",
+            "latitude": 37.0682983398,
+            "longitude": 22.0254993439,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Bergamo",
+            "latitude": 45.6739006042,
+            "longitude": 9.7041702271,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Bologna",
+            "latitude": 44.5354003906,
+            "longitude": 11.2887001038,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Enschede",
+            "latitude": 52.2700004578,
+            "longitude": 6.8741698265,
+            "type": "FP"
+        },
+        {
+            "country_code": "PL",
+            "city": "Wroc\u0142aw",
+            "latitude": 51.1026992798,
+            "longitude": 16.885799408,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "Kaliningrad",
+            "latitude": 54.8899993896,
+            "longitude": 20.5925998688,
+            "type": "FP"
+        },
+        {
+            "country_code": "SI",
+            "city": "Ljubljana",
+            "latitude": 46.2237014771,
+            "longitude": 14.4575996399,
+            "type": "FP"
+        }
+    ]
+}

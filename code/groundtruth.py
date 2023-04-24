@@ -41,7 +41,7 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
     instances_validated.sort_values(by=["country_code", "city"], inplace=True)
 
     results_dict = json_file_to_dict(results_filepath)
-    if "probes_area" in results_dict["probes_filepath"]:
+    if "probes_section" in results_dict["probes_filepath"]:
         area = ast.literal_eval(
             json_file_to_dict(results_dict["probes_filepath"])["area"])
         instances_validated = filter_replicas_by_area(
@@ -250,6 +250,9 @@ def calculate_performance_statistics_cities(validation: pd.DataFrame) -> dict:
 
     precision = tp/(tp+fp)
     recall = tp/(tp+fn)
+    try:
+        f1 = 2*((precision*recall)/(precision+recall))
+    except: f1 = 0
     statistics = {
         "TP": tp,
         "FP": fp,
@@ -258,7 +261,7 @@ def calculate_performance_statistics_cities(validation: pd.DataFrame) -> dict:
         "accuracy": (tp+tn)/(tp+fp+fn),
         "precision": precision,
         "recall": recall,
-        "f1": 2*((precision*recall)/(precision+recall)),
+        "f1": f1,
         "OT": ot,
         "OF": of
     }

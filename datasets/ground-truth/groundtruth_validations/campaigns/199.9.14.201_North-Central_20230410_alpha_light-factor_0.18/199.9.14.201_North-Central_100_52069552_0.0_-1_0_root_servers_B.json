@@ -1,0 +1,100 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_sets/North-Central_100.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/199.9.14.201_North-Central_20230410_alpha_light-factor_0.18/199.9.14.201_North-Central_100_52069552_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 10,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.09090909090909091,
+        "precision": 0.09090909090909091,
+        "recall": 1.0,
+        "f1": 0.16666666666666669,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BE",
+            "city": "Brussels",
+            "latitude": 50.4592018127,
+            "longitude": 4.4538202286,
+            "type": "FP"
+        },
+        {
+            "country_code": "BG",
+            "city": "Dolna Mitropoliya",
+            "latitude": 43.4514007568,
+            "longitude": 24.5027999878,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Berlin",
+            "latitude": 52.3800010681,
+            "longitude": 13.5225000381,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Erfurt",
+            "latitude": 50.979801178,
+            "longitude": 10.9581003189,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Neubrandenburg",
+            "latitude": 53.6021995544,
+            "longitude": 13.3059997559,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Rodez/Marcillac",
+            "latitude": 44.4079017639,
+            "longitude": 2.4826700687,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Bristol",
+            "latitude": 51.5194015503,
+            "longitude": -2.5908300877,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Forl\u00ec",
+            "latitude": 44.1948013306,
+            "longitude": 12.0700998306,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Piacenza",
+            "latitude": 44.9131011963,
+            "longitude": 9.7233295441,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Breda",
+            "latitude": 51.567401886,
+            "longitude": 4.9318299294,
+            "type": "TP"
+        },
+        {
+            "country_code": "RU",
+            "city": "Rybinsk",
+            "latitude": 58.1041984558,
+            "longitude": 38.9294013977,
+            "type": "FP"
+        }
+    ]
+}

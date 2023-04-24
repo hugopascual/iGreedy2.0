@@ -5,8 +5,13 @@
 
 import math,collections
 # Index of refraction for optical fiber
-FIBER_RI = 1.52
-REDUCTION_FACTOR = FIBER_RI
+FIBER_RI = 1/1.52
+FACTOR_5000 = 0.40
+FACTOR_3000 = 0.35
+FACTOR_2000 = 0.30
+FACTOR_1000 = 0.25
+FACTOR_500 = 0.18
+REDUCTION_FACTOR = FACTOR_500
 SPEED_OF_LIGHT = 299792.458 # km/s
 
 class Disc(object):
@@ -15,7 +20,7 @@ class Disc(object):
         ping (float): (in ms)
         """
         # in km:ping*98,615940132
-        self._radius = ((ping/2)*0.001) * (SPEED_OF_LIGHT/REDUCTION_FACTOR)
+        self._radius = ((ping/2)*0.001) * (REDUCTION_FACTOR*SPEED_OF_LIGHT)
         self._hostname  = hostname
         #self._instance  = instance
         #self._city=city

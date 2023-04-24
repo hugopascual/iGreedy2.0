@@ -1,0 +1,65 @@
+{
+    "target": "192.33.4.12",
+    "probes_filepath": "datasets/probes_sets/North-Central_300.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/192.33.4.12_North-Central_20230410_alpha_light-factor_1.52/192.33.4.12_North-Central_300_52069826_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_C.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 2,
+        "TN": 0,
+        "FN": 2,
+        "accuracy": 0.3333333333333333,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Mainz",
+            "latitude": 49.9674987793,
+            "longitude": 8.1472215652,
+            "type": "TP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.4167754,
+            "longitude": -3.7037902,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Biarritz/Anglet/Bayonne",
+            "latitude": 43.4683990479,
+            "longitude": -1.5233199596,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "\u00c9vreux/Fauville",
+            "latitude": 49.0287017822,
+            "longitude": 1.2198599577,
+            "type": "TP"
+        },
+        {
+            "country_code": "SK",
+            "city": "Bratislava",
+            "latitude": 48.1458923,
+            "longitude": 17.1071373,
+            "type": "FN"
+        },
+        {
+            "country_code": "SK",
+            "city": "Poprad",
+            "latitude": 49.073600769,
+            "longitude": 20.2411003113,
+            "type": "FP"
+        }
+    ]
+}

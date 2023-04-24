@@ -1,0 +1,79 @@
+{
+    "target": "198.41.0.4",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.2,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.41.0.4_North-Central_20230410_alpha_light-factor_1.52/198.41.0.4_North-Central_500_52069420_0.2_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_A.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 2,
+        "TN": 0,
+        "FN": 4,
+        "accuracy": 0.25,
+        "precision": 0.5,
+        "recall": 0.3333333333333333,
+        "f1": 0.4,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Mainz",
+            "latitude": 49.9674987793,
+            "longitude": 8.1472215652,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Marseille",
+            "latitude": 43.2961743,
+            "longitude": 5.3699525,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.856614,
+            "longitude": 2.3522219,
+            "type": "FN"
+        },
+        {
+            "country_code": "GB",
+            "city": "Cardiff",
+            "latitude": 51.3967018127,
+            "longitude": -3.3433299065,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5073509,
+            "longitude": -0.1277583,
+            "type": "FN"
+        },
+        {
+            "country_code": "NL",
+            "city": "Uden",
+            "latitude": 51.6563987732,
+            "longitude": 5.7086100578,
+            "type": "TP"
+        },
+        {
+            "country_code": "SE",
+            "city": "Stockholm",
+            "latitude": 59.3293235,
+            "longitude": 18.0685808,
+            "type": "FN"
+        },
+        {
+            "country_code": "SE",
+            "city": "\u00d6rebro",
+            "latitude": 59.2237014771,
+            "longitude": 15.0380001068,
+            "type": "FP"
+        }
+    ]
+}

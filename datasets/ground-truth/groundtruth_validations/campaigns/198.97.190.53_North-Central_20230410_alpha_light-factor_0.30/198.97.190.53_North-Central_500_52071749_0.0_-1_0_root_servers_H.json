@@ -1,0 +1,100 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central_20230410_alpha_light-factor_0.30/198.97.190.53_North-Central_500_52071749_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 9,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.18181818181818182,
+        "precision": 0.18181818181818182,
+        "recall": 1.0,
+        "f1": 0.3076923076923077,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BY",
+            "city": "Minsk",
+            "latitude": 53.8824996948,
+            "longitude": 28.0307006836,
+            "type": "FP"
+        },
+        {
+            "country_code": "CZ",
+            "city": "Karlovy Vary",
+            "latitude": 50.202999115,
+            "longitude": 12.9149999619,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Egelsbach",
+            "latitude": 49.9599990845,
+            "longitude": 8.6458330154,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Kassel",
+            "latitude": 51.4083328247,
+            "longitude": 9.3774995804,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Manching",
+            "latitude": 48.7156982422,
+            "longitude": 11.5340003967,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "M\u00e2con/Charnay",
+            "latitude": 46.2951011658,
+            "longitude": 4.7957701683,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Troyes/Barberey",
+            "latitude": 48.322101593,
+            "longitude": 4.016699791,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.3307991028,
+            "longitude": 0.0324999988,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5052986145,
+            "longitude": 0.0552779995,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Manston",
+            "latitude": 51.3422012329,
+            "longitude": 1.3461099863,
+            "type": "FP"
+        },
+        {
+            "country_code": "PL",
+            "city": "Babimost",
+            "latitude": 52.1385002136,
+            "longitude": 15.7986001968,
+            "type": "FP"
+        }
+    ]
+}

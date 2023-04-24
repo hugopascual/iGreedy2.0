@@ -1,0 +1,79 @@
+{
+    "target": "192.33.4.12",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/192.33.4.12_North-Central_20230410_alpha_light-factor_0.40/192.33.4.12_North-Central_500_52069932_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_C.json",
+    "statistics": {
+        "TP": 3,
+        "FP": 4,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.375,
+        "precision": 0.42857142857142855,
+        "recall": 0.75,
+        "f1": 0.5454545454545454,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "AT",
+            "city": "Vienna",
+            "latitude": 48.1102981567,
+            "longitude": 16.5697002411,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hof",
+            "latitude": 50.2886123657,
+            "longitude": 11.8563890457,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Mainz",
+            "latitude": 49.9674987793,
+            "longitude": 8.1472215652,
+            "type": "TP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.4167754,
+            "longitude": -3.7037902,
+            "type": "FN"
+        },
+        {
+            "country_code": "ES",
+            "city": "Salamanca",
+            "latitude": 40.9520988464,
+            "longitude": -5.5019898415,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Pontoise",
+            "latitude": 49.0965995789,
+            "longitude": 2.0408298969,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Verdun/Le Rozelier",
+            "latitude": 49.1223983765,
+            "longitude": 5.4690499306,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "Rybinsk",
+            "latitude": 58.1041984558,
+            "longitude": 38.9294013977,
+            "type": "FP"
+        }
+    ]
+}
