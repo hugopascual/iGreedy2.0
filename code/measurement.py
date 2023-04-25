@@ -141,9 +141,17 @@ class Measurement(object):
         filters = "longitude__gte={}&longitude__lte={}&latitude__gte={}&latitude__lte={}".format(
             section["longitude_min"], section["longitude_max"],
             section["latitude_min"], section["latitude_max"])
-        fields = "fields=id,geometry"
+        fields = "fields=id,geometry,status"
         url = "{}?{}&{}".format(base_url, filters, fields)
         return requests.get(url=url).json()
+
+    def is_probe_usable(self, probe: dict, section: dict):
+        if probe["status"]["name"] == "Connected":
+            print(is_probe_inside_section(probe=probe, section=section))
+            return is_probe_inside_section(probe=probe, section=section)
+        else:
+            print(False)
+            return False
 
     def mesh_area_probes_object(self) -> dict:
         polygon_grid = self.build_intersection_grid_with_countries()
@@ -157,15 +165,11 @@ class Measurement(object):
             len(sections_borders)))
         for section in sections_borders:
             probes_in_mesh_area = self.get_probes_in_section(section)
-            print(section)
             probes_filtered = filter(
-                lambda probe: is_probe_inside_section(
+                lambda probe: self.is_probe_usable(
                     probe=probe, section=section),
                 probes_in_mesh_area["results"])
             probes_filtered = list(probes_filtered)
-
-            print(probes_in_mesh_area["results"])
-            print(probes_filtered)
 
             try:
                 id_selected = random.choice(probes_filtered)["id"]
