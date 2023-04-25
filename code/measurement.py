@@ -157,11 +157,16 @@ class Measurement(object):
             len(sections_borders)))
         for section in sections_borders:
             probes_in_mesh_area = self.get_probes_in_section(section)
+            print(section)
             probes_filtered = filter(
                 lambda probe: is_probe_inside_section(
                     probe=probe, section=section),
                 probes_in_mesh_area["results"])
             probes_filtered = list(probes_filtered)
+
+            print(probes_in_mesh_area["results"])
+            print(probes_filtered)
+
             try:
                 id_selected = random.choice(probes_filtered)["id"]
                 probes_id_list.append(id_selected)

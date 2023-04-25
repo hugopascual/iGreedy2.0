@@ -148,9 +148,9 @@ def plot_multipolygon(multipolygon: MultiPolygon):
         lat=latitudes,
         mode='markers'
     ))
-    #fig.update_geos(
-    #    projection_type="natural earth"
-    #)
+    fig.update_geos(
+        projection_type="natural earth"
+    )
     fig.update_layout(
         title='Test Mesh'
     )

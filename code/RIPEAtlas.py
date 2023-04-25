@@ -88,6 +88,7 @@ class Measurement():
                 self.notification = sleep_notification
                 # Start the measurement and get measurement id
                 results = requests.post(self.url, json=data).json()
+                # TODO remove only for test
                 cm.dict_to_json_file(dict=data,
                                      file_path="last_measurement_data.json")
                 self.id = results["measurements"][0]

@@ -25,9 +25,19 @@ from visualize import (
     plot_multipolygon
 )
 
-metrics_csv_file = "104.16.123.96_Europe-countries_20230413_alpha_light-factor_0.18.csv"
-array_split = metrics_csv_file.split("_")
-print(array_split)
-campaign_name = array_split[1:3] + array_split[4:]
-print(campaign_name)
 
+def is_point_inside_area(point: tuple, area: tuple) -> bool:
+    """
+    :param point: (longitude, latitude)
+    :param area: (top_left_lon,top_left_lat, bottom_right_lon,bottom_right_lat)
+    :return: True is point inside box, False otherwise
+    """
+    return (point[0] >= area[0]) & (point[0] <= area[2]) \
+        & (point[1] >= area[3]) & (point[1] <= area[1])
+
+
+print(is_point_inside_area(
+    point=(-0.0025, 51.4875),
+    area=(0, 51.95,
+          1, 50.95)
+))
