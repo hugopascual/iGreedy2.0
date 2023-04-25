@@ -158,17 +158,17 @@ class Measurement():
         if wait:
             enough = False
             attempts = 0
-            results_delay = results_delay_base + (self.num_probes * results_delay_factor)
-            maximum_time_for_results = maximum_time_for_results_base + \
-                                       (self.num_probes * maximum_time_for_results_factor)
+            results_delay = 15
+            maximum_time_for_results = 360
             start = time.time()
             elapsed = 0
             result_data = None
             while not enough and elapsed < maximum_time_for_results:
                 if self.notification is not None:
                     self.notification(results_delay)
-                time.sleep(results_delay) 
-                results_delay *= 2
+                print("Wait 15 seconds for results. Number of attempts {}".
+                      format(attempts))
+                time.sleep(results_delay)
                 attempts += 1
                 elapsed = time.time() - start
                 try:

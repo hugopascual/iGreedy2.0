@@ -147,10 +147,8 @@ class Measurement(object):
 
     def is_probe_usable(self, probe: dict, section: dict):
         if probe["status"]["name"] == "Connected":
-            print(is_probe_inside_section(probe=probe, section=section))
             return is_probe_inside_section(probe=probe, section=section)
         else:
-            print(False)
             return False
 
     def mesh_area_probes_object(self) -> dict:
@@ -163,7 +161,13 @@ class Measurement(object):
         probes_id_list = []
         print("Number of sections to select probes: {}".format(
             len(sections_borders)))
+        sections_analyzed = 0
+        print("Analyzing sections to select probes")
         for section in sections_borders:
+            sections_analyzed += 1
+            if (sections_analyzed % 100) == 0:
+                print("Sections already analyzed: {}".
+                      format(sections_analyzed))
             probes_in_mesh_area = self.get_probes_in_section(section)
             probes_filtered = filter(
                 lambda probe: self.is_probe_usable(
