@@ -150,22 +150,6 @@ def compare_campaign_statistics(campaign_name: str,
     #                                    parameter)
 
 
-def plot_target_statistics_comparison(target: str, parameter: str):
-    files = get_list_files_in_path(METRICS_CSV_PATH)
-    files.sort()
-
-    for metrics_csv_file in files:
-        if (target in metrics_csv_file) and (parameter in metrics_csv_file):
-            validations_df = pd.read_csv(METRICS_CSV_PATH+metrics_csv_file,
-                                         sep="\t")
-            plot_campaign_statistics_comparison(
-                validations_df=validations_df,
-                campaign_name=metrics_csv_file,
-                parameter=parameter
-            )
-        else:
-            continue
-
 def do_campaign():
     root_campaign_name = "North-Central_20230410"
     root_servers_ip_directions = [
@@ -221,8 +205,24 @@ def do_campaign():
                                     "threshold",
                                     light_factor)
 
+
+def plot_target_statistics_comparison(target: str, parameter: str):
+    files = get_list_files_in_path(METRICS_CSV_PATH)
+    files.sort()
+
+    for metrics_csv_file in files:
+        if (target in metrics_csv_file) and (parameter in metrics_csv_file):
+            validations_df = pd.read_csv(METRICS_CSV_PATH+metrics_csv_file,
+                                         sep="\t")
+            plot_campaign_statistics_comparison(
+                validations_df=validations_df,
+                campaign_name=metrics_csv_file,
+                parameter=parameter
+            )
+        else:
+            continue
 ###############################################################################
 
 
-plot_target_statistics_comparison(target="192.5.5.241", parameter="alpha")
+plot_target_statistics_comparison(target="104.16.123.96", parameter="alpha")
 
