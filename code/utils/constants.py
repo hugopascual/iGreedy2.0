@@ -36,6 +36,9 @@ RESULTS_CAMPAIGNS_PATH = RESULTS_PATH + "campaigns/"
 PROBES_SETS_PATH = __DATASETS_PATH + "probes_sets/"
 DEFAULT_PROBES_PATH = PROBES_SETS_PATH + "WW_10.json"
 
+# Metrics comparison
+METRICS_CSV_PATH = __DATASETS_PATH + "ploted_metrics_csv/"
+
 # Alone files
 AIRPORTS_INFO_FILEPATH = __DATASETS_PATH + "airports.csv"
 COUNTRY_BORDERS_GEOJSON_FILEPATH = \

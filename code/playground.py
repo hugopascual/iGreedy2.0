@@ -25,7 +25,9 @@ from visualize import (
     plot_multipolygon
 )
 
+metrics_csv_file = "104.16.123.96_Europe-countries_20230413_alpha_light-factor_0.18.csv"
+array_split = metrics_csv_file.split("_")
+print(array_split)
+campaign_name = array_split[1:3] + array_split[4:]
+print(campaign_name)
 
-location = geocoder.ip("me").latlng
-print(location)
-print(type(()))
