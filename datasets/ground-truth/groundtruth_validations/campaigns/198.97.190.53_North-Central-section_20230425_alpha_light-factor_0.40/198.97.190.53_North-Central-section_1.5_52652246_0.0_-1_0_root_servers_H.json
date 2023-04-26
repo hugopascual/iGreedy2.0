@@ -1,0 +1,86 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.5.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central-section_20230425_alpha_light-factor_0.40/198.97.190.53_North-Central-section_1.5_52652246_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 0,
+        "FP": 7,
+        "TN": 0,
+        "FN": 2,
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Frankfurt",
+            "latitude": 50.11944,
+            "longitude": 8.735556,
+            "type": "FN"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hof",
+            "latitude": 50.2886123657,
+            "longitude": 11.8563890457,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Nuremberg",
+            "latitude": 49.4986991882,
+            "longitude": 11.0669002533,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Reims/Champagne",
+            "latitude": 49.3100013733,
+            "longitude": 4.0500001907,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Rouen/Vall\u00e9e de Seine",
+            "latitude": 49.3842010498,
+            "longitude": 1.1748000383,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Aberdeen",
+            "latitude": 57.2019004822,
+            "longitude": -2.1977798939,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Cardiff",
+            "latitude": 51.3967018127,
+            "longitude": -3.3433299065,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.523551,
+            "longitude": -0.100785,
+            "type": "FN"
+        },
+        {
+            "country_code": "TR",
+            "city": "\u015eanl\u0131urfa",
+            "latitude": 37.0942993164,
+            "longitude": 38.8470993042,
+            "type": "FP"
+        }
+    ]
+}

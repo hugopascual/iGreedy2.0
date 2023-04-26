@@ -1,0 +1,79 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_section/North-Central-section_2.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/199.9.14.201_North-Central-section_20230425_alpha_light-factor_0.30/199.9.14.201_North-Central-section_2_52640650_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "statistics": {
+        "TP": 0,
+        "FP": 6,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0,
+        "OT": 0,
+        "OF": 1
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Hahn",
+            "latitude": 49.9486999512,
+            "longitude": 7.2638897896,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Kiel",
+            "latitude": 54.3794441223,
+            "longitude": 10.145277977,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Troyes/Barberey",
+            "latitude": 48.322101593,
+            "longitude": 4.016699791,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Enniskillen",
+            "latitude": 54.3988990784,
+            "longitude": -7.6516699791,
+            "type": "FP"
+        },
+        {
+            "country_code": "LT",
+            "city": "Palanga",
+            "latitude": 55.9732017517,
+            "longitude": 21.0939006805,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.366,
+            "longitude": 4.894,
+            "type": "FN"
+        },
+        {
+            "country_code": "SE",
+            "city": "V\u00e4xj\u00f6",
+            "latitude": 56.9291000366,
+            "longitude": 14.7279996872,
+            "type": "FP"
+        },
+        {
+            "country_code": "TM",
+            "city": "T\u00fcrkmenabat",
+            "latitude": 39.0833015442,
+            "longitude": 63.6133003235,
+            "type": "OF"
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/199.9.14.201_North-Central-section_20230425_alpha_light-factor_0.35/199.9.14.201_North-Central-section_1_52639768_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 6,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.14285714285714285,
+        "precision": 0.14285714285714285,
+        "recall": 1.0,
+        "f1": 0.25,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BE",
+            "city": "Brussels",
+            "latitude": 50.4592018127,
+            "longitude": 4.4538202286,
+            "type": "FP"
+        },
+        {
+            "country_code": "CZ",
+            "city": "P\u0159erov",
+            "latitude": 49.4258003235,
+            "longitude": 17.4046993256,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Erfurt",
+            "latitude": 50.979801178,
+            "longitude": 10.9581003189,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Inverness",
+            "latitude": 57.5424995422,
+            "longitude": -4.0475001335,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Lelystad",
+            "latitude": 52.4603004456,
+            "longitude": 5.5272197723,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Uden",
+            "latitude": 51.6563987732,
+            "longitude": 5.7086100578,
+            "type": "TP"
+        },
+        {
+            "country_code": "PL",
+            "city": "Katowice",
+            "latitude": 50.4743003845,
+            "longitude": 19.0799999237,
+            "type": "FP"
+        }
+    ]
+}

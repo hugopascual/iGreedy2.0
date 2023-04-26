@@ -1,0 +1,107 @@
+{
+    "target": "202.12.27.33",
+    "probes_filepath": "datasets/probes_section/North-Central-section_2.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/202.12.27.33_North-Central-section_20230425_alpha_light-factor_0.25/202.12.27.33_North-Central-section_2_52655917_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_M.json",
+    "statistics": {
+        "TP": 0,
+        "FP": 11,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "D\u00fcsseldorf",
+            "latitude": 51.2895011902,
+            "longitude": 6.7667798996,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hannover",
+            "latitude": 52.461101532,
+            "longitude": 9.6850795746,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "L\u00fcbeck",
+            "latitude": 53.8054008484,
+            "longitude": 10.7192001343,
+            "type": "FP"
+        },
+        {
+            "country_code": "FI",
+            "city": "Kittila",
+            "latitude": 67.7009963989,
+            "longitude": 24.8467998505,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Cambrai/\u00c9pinoy",
+            "latitude": 50.2218017578,
+            "longitude": 3.154239893,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Niort/Souch\u00e9",
+            "latitude": 46.3112983704,
+            "longitude": -0.4015029967,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.856614,
+            "longitude": 2.3522219,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Rodez/Marcillac",
+            "latitude": 44.4079017639,
+            "longitude": 2.4826700687,
+            "type": "FP"
+        },
+        {
+            "country_code": "NO",
+            "city": "Bod\u00f8",
+            "latitude": 67.269203186,
+            "longitude": 14.3653001785,
+            "type": "FP"
+        },
+        {
+            "country_code": "PL",
+            "city": "Wroc\u0142aw",
+            "latitude": 51.1026992798,
+            "longitude": 16.885799408,
+            "type": "FP"
+        },
+        {
+            "country_code": "PT",
+            "city": "Ponta Delgada",
+            "latitude": 37.7411994934,
+            "longitude": -25.6979007721,
+            "type": "FP"
+        },
+        {
+            "country_code": "RO",
+            "city": "Arad",
+            "latitude": 46.1766014099,
+            "longitude": 21.2619991302,
+            "type": "FP"
+        }
+    ]
+}

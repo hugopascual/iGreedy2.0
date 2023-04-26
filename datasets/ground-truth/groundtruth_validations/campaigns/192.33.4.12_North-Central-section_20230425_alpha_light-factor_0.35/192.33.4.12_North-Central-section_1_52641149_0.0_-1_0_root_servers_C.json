@@ -1,0 +1,121 @@
+{
+    "target": "192.33.4.12",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/192.33.4.12_North-Central-section_20230425_alpha_light-factor_0.35/192.33.4.12_North-Central-section_1_52641149_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_C.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 10,
+        "TN": 0,
+        "FN": 3,
+        "accuracy": 0.07142857142857142,
+        "precision": 0.09090909090909091,
+        "recall": 0.25,
+        "f1": 0.13333333333333333,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "CZ",
+            "city": "Brno",
+            "latitude": 49.1512985229,
+            "longitude": 16.6944007874,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Berlin",
+            "latitude": 52.5597000122,
+            "longitude": 13.2876996994,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Egelsbach",
+            "latitude": 49.9599990845,
+            "longitude": 8.6458330154,
+            "type": "TP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Corvera",
+            "latitude": 37.803,
+            "longitude": -1.125,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.4167754,
+            "longitude": -3.7037902,
+            "type": "FN"
+        },
+        {
+            "country_code": "ES",
+            "city": "Valencia",
+            "latitude": 39.4892997742,
+            "longitude": -0.4816249907,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Valladolid",
+            "latitude": 41.7061004639,
+            "longitude": -4.851940155,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Clermont-Ferrand/Auvergne",
+            "latitude": 45.7867012024,
+            "longitude": 3.1691699028,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Maubeuge/\u00c9lesmes",
+            "latitude": 50.3105010986,
+            "longitude": 4.0331201553,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.856614,
+            "longitude": 2.3522219,
+            "type": "FN"
+        },
+        {
+            "country_code": "GB",
+            "city": "Brighton",
+            "latitude": 50.8356018066,
+            "longitude": -0.2972219884,
+            "type": "FP"
+        },
+        {
+            "country_code": "SK",
+            "city": "Bratislava",
+            "latitude": 48.1458923,
+            "longitude": 17.1071373,
+            "type": "FN"
+        },
+        {
+            "country_code": "UA",
+            "city": "Kiev",
+            "latitude": 50.3450012207,
+            "longitude": 30.8946990967,
+            "type": "FP"
+        },
+        {
+            "country_code": "UA",
+            "city": "Uzhhorod",
+            "latitude": 48.6343002319,
+            "longitude": 22.2633991241,
+            "type": "FP"
+        }
+    ]
+}

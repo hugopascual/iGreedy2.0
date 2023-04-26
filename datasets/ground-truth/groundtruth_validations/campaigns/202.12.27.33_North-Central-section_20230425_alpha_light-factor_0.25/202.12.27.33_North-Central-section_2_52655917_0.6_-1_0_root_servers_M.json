@@ -1,0 +1,100 @@
+{
+    "target": "202.12.27.33",
+    "probes_filepath": "datasets/probes_section/North-Central-section_2.json",
+    "alpha": 0.6,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/202.12.27.33_North-Central-section_20230425_alpha_light-factor_0.25/202.12.27.33_North-Central-section_2_52655917_0.6_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_M.json",
+    "statistics": {
+        "TP": 0,
+        "FP": 10,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BE",
+            "city": "Brussels",
+            "latitude": 50.9014015198,
+            "longitude": 4.4844398499,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Berlin",
+            "latitude": 52.5597000122,
+            "longitude": 13.2876996994,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Barcelona",
+            "latitude": 41.2971000671,
+            "longitude": 2.0784599781,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.4967002869,
+            "longitude": -3.4458699226,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Angers/Marc\u00e9",
+            "latitude": 47.5602989197,
+            "longitude": -0.3122220039,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.856614,
+            "longitude": 2.3522219,
+            "type": "FN"
+        },
+        {
+            "country_code": "IE",
+            "city": "Dublin",
+            "latitude": 53.4212989807,
+            "longitude": -6.270070076,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Rome",
+            "latitude": 41.799444,
+            "longitude": 12.597222,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Torino",
+            "latitude": 45.2008018494,
+            "longitude": 7.6496300697,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "St Petersburg",
+            "latitude": 59.8003005981,
+            "longitude": 30.2625007629,
+            "type": "FP"
+        },
+        {
+            "country_code": "TR",
+            "city": "Istanbul",
+            "latitude": 40.9768981934,
+            "longitude": 28.8145999908,
+            "type": "FP"
+        }
+    ]
+}

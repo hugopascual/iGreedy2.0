@@ -1,0 +1,86 @@
+{
+    "target": "202.12.27.33",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.json",
+    "alpha": 1,
+    "threshold": 10.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/202.12.27.33_North-Central-section_20230425_threshold_light-factor_0.18/202.12.27.33_North-Central-section_1_52655636_1_10.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_M.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 8,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.1111111111111111,
+        "precision": 0.1111111111111111,
+        "recall": 1.0,
+        "f1": 0.19999999999999998,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Frankfurt-am-Main",
+            "latitude": 50.121212,
+            "longitude": 8.6365638,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Munich",
+            "latitude": 48.3538017273,
+            "longitude": 11.7861003876,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Lyon",
+            "latitude": 45.726398468,
+            "longitude": 5.0908298492,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Nantes",
+            "latitude": 47.1531982422,
+            "longitude": -1.610730052,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.9693984985,
+            "longitude": 2.4413900375,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.7252998352,
+            "longitude": 2.3594400883,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Troyes/Barberey",
+            "latitude": 48.322101593,
+            "longitude": 4.016699791,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.3307991028,
+            "longitude": 0.0324999988,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.1481018066,
+            "longitude": -0.1902779937,
+            "type": "FP"
+        }
+    ]
+}

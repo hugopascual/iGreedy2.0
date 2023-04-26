@@ -153,7 +153,7 @@ class Measurement(object):
 
     def mesh_area_probes_object(self) -> dict:
         polygon_grid = self.build_intersection_grid_with_countries()
-        plot_multipolygon(polygon_grid)
+        #plot_multipolygon(polygon_grid)
         sections_borders = []
         for polygon in list(polygon_grid.geoms):
             sections_borders.append(get_section_borders_of_polygon(polygon))

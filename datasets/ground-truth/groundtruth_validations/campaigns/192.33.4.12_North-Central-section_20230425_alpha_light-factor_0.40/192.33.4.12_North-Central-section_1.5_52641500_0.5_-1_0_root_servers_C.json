@@ -1,0 +1,79 @@
+{
+    "target": "192.33.4.12",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.5.json",
+    "alpha": 0.5,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/192.33.4.12_North-Central-section_20230425_alpha_light-factor_0.40/192.33.4.12_North-Central-section_1.5_52641500_0.5_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_C.json",
+    "statistics": {
+        "TP": 3,
+        "FP": 4,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.375,
+        "precision": 0.42857142857142855,
+        "recall": 0.75,
+        "f1": 0.5454545454545454,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "AT",
+            "city": "Vienna",
+            "latitude": 48.1102981567,
+            "longitude": 16.5697002411,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt",
+            "latitude": 50.1109221,
+            "longitude": 8.6821267,
+            "type": "FN"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hamburg",
+            "latitude": 53.6304016113,
+            "longitude": 9.9882297516,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Munich",
+            "latitude": 48.3538017273,
+            "longitude": 11.7861003876,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.4967002869,
+            "longitude": -3.4458699226,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 49.0127983093,
+            "longitude": 2.5499999523,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5286416,
+            "longitude": -0.1015987,
+            "type": "FP"
+        },
+        {
+            "country_code": "TR",
+            "city": "Istanbul",
+            "latitude": 40.898601532,
+            "longitude": 29.3092002869,
+            "type": "FP"
+        }
+    ]
+}

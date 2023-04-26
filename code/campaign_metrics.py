@@ -171,9 +171,10 @@ def do_campaign():
         "104.16.123.96"
     ]
 
+    light_factor = "light-factor_0.18"
+    '''
     campaign_name_prefix = root_campaign_name
     servers_ip_directions = root_servers_ip_directions
-    light_factor = "light-factor_0.18"
     for ip in servers_ip_directions:
         campaign_name_complete = "{}_{}".format(ip, campaign_name_prefix)
         compare_campaign_statistics(campaign_name_complete,
@@ -204,6 +205,28 @@ def do_campaign():
         compare_campaign_statistics(campaign_name_complete,
                                     "threshold",
                                     light_factor)
+                                    
+    campaign_name_prefix = "North-Central-section_20230425"
+    servers_ip_directions = root_servers_ip_directions
+    for ip in servers_ip_directions:
+        campaign_name_complete = "{}_{}".format(ip, campaign_name_prefix)
+        compare_campaign_statistics(campaign_name_complete,
+                                    "alpha",
+                                    light_factor)
+        compare_campaign_statistics(campaign_name_complete,
+                                    "threshold",
+                                    light_factor)
+    '''
+    campaign_name_prefix = "North-Central-section_20230426"
+    servers_ip_directions = cloudfare_servers_ip_directions
+    for ip in servers_ip_directions:
+        campaign_name_complete = "{}_{}".format(ip, campaign_name_prefix)
+        compare_campaign_statistics(campaign_name_complete,
+                                    "alpha",
+                                    light_factor)
+        compare_campaign_statistics(campaign_name_complete,
+                                    "threshold",
+                                    light_factor)
 
 
 def plot_target_statistics_comparison(target: str, parameter: str):
@@ -224,5 +247,20 @@ def plot_target_statistics_comparison(target: str, parameter: str):
 ###############################################################################
 
 
-plot_target_statistics_comparison(target="104.16.123.96", parameter="alpha")
-
+ip_directions = [
+    "198.41.0.4",
+    "199.9.14.201",
+    "192.33.4.12",
+    "199.7.91.13",
+    "192.203.230.10",
+    "192.5.5.241",
+    "192.112.36.4",
+    "198.97.190.53",
+    "192.36.148.17",
+    "192.58.128.30",
+    "193.0.14.129",
+    "199.7.83.42",
+    "202.12.27.33",
+    "104.16.123.96"]
+plot_target_statistics_comparison(target="104.16.123.96", parameter="threshold")
+#do_campaign()

@@ -1,0 +1,114 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.5.json",
+    "alpha": 1,
+    "threshold": 30.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central-section_20230425_threshold_light-factor_0.25/198.97.190.53_North-Central-section_1.5_52652246_1_30.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 11,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.15384615384615385,
+        "precision": 0.15384615384615385,
+        "recall": 1.0,
+        "f1": 0.2666666666666667,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BE",
+            "city": "Brussels",
+            "latitude": 50.4592018127,
+            "longitude": 4.4538202286,
+            "type": "FP"
+        },
+        {
+            "country_code": "CZ",
+            "city": "Prague",
+            "latitude": 50.1007995605,
+            "longitude": 14.2600002289,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt-am-Main",
+            "latitude": 50.121212,
+            "longitude": 8.6365638,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hamburg",
+            "latitude": 53.6304016113,
+            "longitude": 9.9882297516,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Stuttgart",
+            "latitude": 48.6898994446,
+            "longitude": 9.2219600677,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.3707008362,
+            "longitude": -3.7851400375,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Glasgow",
+            "latitude": 55.8718986511,
+            "longitude": -4.4330601692,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.1481018066,
+            "longitude": -0.1902779937,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Southend",
+            "latitude": 51.5713996887,
+            "longitude": 0.695555985,
+            "type": "TP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Rome",
+            "latitude": 41.7994003296,
+            "longitude": 12.5949001312,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "St Petersburg",
+            "latitude": 59.8003005981,
+            "longitude": 30.2625007629,
+            "type": "FP"
+        },
+        {
+            "country_code": "TR",
+            "city": "Istanbul",
+            "latitude": 40.9768981934,
+            "longitude": 28.8145999908,
+            "type": "FP"
+        },
+        {
+            "country_code": "UA",
+            "city": "Kiev",
+            "latitude": 50.6035003662,
+            "longitude": 30.1919002533,
+            "type": "FP"
+        }
+    ]
+}

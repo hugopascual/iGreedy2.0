@@ -1,0 +1,79 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.5.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/199.9.14.201_North-Central-section_20230425_alpha_light-factor_0.30/199.9.14.201_North-Central-section_1.5_52640182_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "statistics": {
+        "TP": 0,
+        "FP": 7,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Weeze",
+            "latitude": 51.6024017334,
+            "longitude": 6.1421699524,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Hondarribia",
+            "latitude": 43.3564987183,
+            "longitude": -1.7906099558,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Swansea",
+            "latitude": 51.6053009033,
+            "longitude": -4.0678300858,
+            "type": "FP"
+        },
+        {
+            "country_code": "IS",
+            "city": "Egilssta\u00f0ir",
+            "latitude": 65.2833023071,
+            "longitude": -14.4013996124,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.366,
+            "longitude": 4.894,
+            "type": "FN"
+        },
+        {
+            "country_code": "NL",
+            "city": "Leeuwarden",
+            "latitude": 53.2285995483,
+            "longitude": 5.7605600357,
+            "type": "FP"
+        },
+        {
+            "country_code": "PL",
+            "city": "Poznan",
+            "latitude": 52.4005285,
+            "longitude": 16.9016658,
+            "type": "FP"
+        },
+        {
+            "country_code": "PL",
+            "city": "Warsaw",
+            "latitude": 52.4510993958,
+            "longitude": 20.6518001556,
+            "type": "FP"
+        }
+    ]
+}

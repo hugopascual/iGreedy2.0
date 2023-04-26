@@ -1,0 +1,135 @@
+{
+    "target": "202.12.27.33",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/202.12.27.33_North-Central-section_20230425_alpha_light-factor_0.25/202.12.27.33_North-Central-section_1_52655636_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_M.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 14,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.06666666666666667,
+        "precision": 0.06666666666666667,
+        "recall": 1.0,
+        "f1": 0.125,
+        "OT": 0,
+        "OF": 1
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Bayreuth",
+            "latitude": 49.9850006104,
+            "longitude": 11.6400003433,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "D\u00fcsseldorf",
+            "latitude": 51.2895011902,
+            "longitude": 6.7667798996,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hamburg",
+            "latitude": 53.6304016113,
+            "longitude": 9.9882297516,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 49.0127983093,
+            "longitude": 2.5499999523,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Pontoise",
+            "latitude": 49.0965995789,
+            "longitude": 2.0408298969,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Rodez/Marcillac",
+            "latitude": 44.4079017639,
+            "longitude": 2.4826700687,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Royan/M\u00e9dis",
+            "latitude": 45.6281013489,
+            "longitude": -0.9725000262,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Valenciennes/Denain",
+            "latitude": 50.3258018494,
+            "longitude": 3.4612600803,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Barrow-in-Furness",
+            "latitude": 54.1311988831,
+            "longitude": -3.2636699677,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Odiham",
+            "latitude": 51.2341003418,
+            "longitude": -0.9428250194,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Wick",
+            "latitude": 58.4589004517,
+            "longitude": -3.0930600166,
+            "type": "FP"
+        },
+        {
+            "country_code": "PL",
+            "city": "Babimost",
+            "latitude": 52.1385002136,
+            "longitude": 15.7986001968,
+            "type": "FP"
+        },
+        {
+            "country_code": "PL",
+            "city": "Wroc\u0142aw",
+            "latitude": 51.1026992798,
+            "longitude": 16.885799408,
+            "type": "FP"
+        },
+        {
+            "country_code": "PT",
+            "city": "Ponta Delgada",
+            "latitude": 37.7411994934,
+            "longitude": -25.6979007721,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "",
+            "latitude": 47.6820983887,
+            "longitude": 42.0727996826,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "Astrakhan",
+            "latitude": 46.2832984924,
+            "longitude": 48.0063018799,
+            "type": "OF"
+        }
+    ]
+}

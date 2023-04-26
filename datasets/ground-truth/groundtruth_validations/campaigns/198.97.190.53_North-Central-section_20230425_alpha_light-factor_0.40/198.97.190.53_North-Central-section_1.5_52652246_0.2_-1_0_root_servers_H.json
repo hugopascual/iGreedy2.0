@@ -1,0 +1,58 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.5.json",
+    "alpha": 0.2,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central-section_20230425_alpha_light-factor_0.40/198.97.190.53_North-Central-section_1.5_52652246_0.2_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 3,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.4,
+        "precision": 0.4,
+        "recall": 1.0,
+        "f1": 0.5714285714285715,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Berlin",
+            "latitude": 52.3800010681,
+            "longitude": 13.5225000381,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt-am-Main",
+            "latitude": 50.121212,
+            "longitude": 8.6365638,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Leeds",
+            "latitude": 53.8658981323,
+            "longitude": -1.6605700254,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.8746986389,
+            "longitude": -0.3683330119,
+            "type": "TP"
+        },
+        {
+            "country_code": "TR",
+            "city": "Istanbul",
+            "latitude": 40.898601532,
+            "longitude": 29.3092002869,
+            "type": "FP"
+        }
+    ]
+}

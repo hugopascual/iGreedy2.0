@@ -1,0 +1,86 @@
+{
+    "target": "192.33.4.12",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.5.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/192.33.4.12_North-Central-section_20230425_alpha_light-factor_0.40/192.33.4.12_North-Central-section_1.5_52641500_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_C.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 5,
+        "TN": 0,
+        "FN": 2,
+        "accuracy": 0.2222222222222222,
+        "precision": 0.2857142857142857,
+        "recall": 0.5,
+        "f1": 0.36363636363636365,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "CH",
+            "city": "Bern",
+            "latitude": 46.914100647,
+            "longitude": 7.4971499443,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt",
+            "latitude": 50.1109221,
+            "longitude": 8.6821267,
+            "type": "FN"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.4967002869,
+            "longitude": -3.4458699226,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Le Havre/Octeville",
+            "latitude": 49.5339012146,
+            "longitude": 0.0880559981,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Nancy/Essey",
+            "latitude": 48.6921005249,
+            "longitude": 6.2304601669,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.856614,
+            "longitude": 2.3522219,
+            "type": "FN"
+        },
+        {
+            "country_code": "GB",
+            "city": "Benson",
+            "latitude": 51.6164016724,
+            "longitude": -1.0958299637,
+            "type": "FP"
+        },
+        {
+            "country_code": "HU",
+            "city": "Gy\u0151r",
+            "latitude": 47.6244010925,
+            "longitude": 17.8136005402,
+            "type": "TP"
+        },
+        {
+            "country_code": "SK",
+            "city": "\u017dilina",
+            "latitude": 49.2314987183,
+            "longitude": 18.6135005951,
+            "type": "FP"
+        }
+    ]
+}

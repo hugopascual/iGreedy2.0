@@ -1,0 +1,121 @@
+{
+    "target": "198.41.0.4",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.41.0.4_North-Central-section_20230425_alpha_light-factor_0.35/198.41.0.4_North-Central-section_1_52638506_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_A.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 8,
+        "TN": 0,
+        "FN": 4,
+        "accuracy": 0.14285714285714285,
+        "precision": 0.2,
+        "recall": 0.3333333333333333,
+        "f1": 0.25,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "CZ",
+            "city": "Brno",
+            "latitude": 49.1512985229,
+            "longitude": 16.6944007874,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt",
+            "latitude": 50.1109221,
+            "longitude": 8.6821267,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Granville",
+            "latitude": 48.8830986023,
+            "longitude": -1.5641700029,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Le Castellet",
+            "latitude": 43.2524986267,
+            "longitude": 5.7851901054,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.856614,
+            "longitude": 2.3522219,
+            "type": "FN"
+        },
+        {
+            "country_code": "GB",
+            "city": "Hawarden",
+            "latitude": 53.1781005859,
+            "longitude": -2.9777801037,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5073509,
+            "longitude": -0.1277583,
+            "type": "FN"
+        },
+        {
+            "country_code": "GB",
+            "city": "Lyneham",
+            "latitude": 51.5051002502,
+            "longitude": -1.9934300184,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.3702157,
+            "longitude": 4.8951679,
+            "type": "FN"
+        },
+        {
+            "country_code": "NL",
+            "city": "Groningen",
+            "latitude": 53.1197013855,
+            "longitude": 6.5794401169,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Maastricht",
+            "latitude": 50.9117012024,
+            "longitude": 5.7701401711,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "Petrozavodsk",
+            "latitude": 61.8852005005,
+            "longitude": 34.1547012329,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "Voronezh",
+            "latitude": 51.814201355,
+            "longitude": 39.229598999,
+            "type": "FP"
+        },
+        {
+            "country_code": "SE",
+            "city": "Eskilstuna",
+            "latitude": 59.3511009216,
+            "longitude": 16.7084007263,
+            "type": "TP"
+        }
+    ]
+}

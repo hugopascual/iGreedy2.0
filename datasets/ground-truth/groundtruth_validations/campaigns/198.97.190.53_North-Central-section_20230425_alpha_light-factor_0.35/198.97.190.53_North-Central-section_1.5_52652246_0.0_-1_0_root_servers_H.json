@@ -1,0 +1,93 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.5.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.97.190.53_North-Central-section_20230425_alpha_light-factor_0.35/198.97.190.53_North-Central-section_1.5_52652246_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 8,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.1,
+        "precision": 0.1111111111111111,
+        "recall": 0.5,
+        "f1": 0.1818181818181818,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Egelsbach",
+            "latitude": 49.9599990845,
+            "longitude": 8.6458330154,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Ramstein",
+            "latitude": 49.4369010925,
+            "longitude": 7.600279808,
+            "type": "FP"
+        },
+        {
+            "country_code": "DK",
+            "city": "Skive",
+            "latitude": 56.550201416,
+            "longitude": 9.1729803085,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Lannion",
+            "latitude": 48.7543983459,
+            "longitude": -3.4716598988,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Le Touquet-Paris-Plage",
+            "latitude": 50.5173988342,
+            "longitude": 1.6205899715,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Belfast",
+            "latitude": 54.6575012207,
+            "longitude": -6.2158298492,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.523551,
+            "longitude": -0.100785,
+            "type": "FN"
+        },
+        {
+            "country_code": "IT",
+            "city": "Bari",
+            "latitude": 41.1389007568,
+            "longitude": 16.7605991364,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Breda",
+            "latitude": 51.567401886,
+            "longitude": 4.9318299294,
+            "type": "FP"
+        },
+        {
+            "country_code": "TR",
+            "city": "Erzurum",
+            "latitude": 39.9565010071,
+            "longitude": 41.1702003479,
+            "type": "FP"
+        }
+    ]
+}

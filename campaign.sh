@@ -3,7 +3,7 @@
 ###############################################################################
 # Constants
 probes_sets_path="datasets/probes_sets/"
-probes_area_path="datasets/probes_section/"
+probes_section_path="datasets/probes_section/"
 measurements_campaigns_path="datasets/measurements/campaigns/"
 light_factor="light-factor_0.18"
 
@@ -138,51 +138,79 @@ get_results_and_validations()
   done
 }
 
+## Campaign to cloudfare servers using North-Central probes_sets
+#campaign_name="North-Central_20230418"
+## Target to measure
+#target_directions=()
+#target_directions+=("${cloudfare_servers_ip_directions[@]}")
+## Probes used in measurement
+#probes_path=$probes_sets_path
+#areas_array=("North-Central")
+#num_probes_array=(100 300 500 1000)
+## GT Comparison
+#servers_directory_name=$cloudfare_servers_directory_name
+#servers_names=()
+#servers_names+=("${cloudfare_servers_names[@]}")
+#get_results_and_validations
+
+## Campaign to cloudfare servers using Europe-countries probes_sets
+#campaign_name="Europe-countries_20230413"
+## Target to measure
+#target_directions=()
+#target_directions+=("${cloudfare_servers_ip_directions[@]}")
+## Probes used in measurement
+#probes_path=$probes_sets_path
+#areas_array=("Europe-countries")
+#num_probes_array=(5 10 15)
+## GT Comparison
+#servers_directory_name=$cloudfare_servers_directory_name
+#servers_names=()
+#servers_names+=("${cloudfare_servers_names[@]}")
+#get_results_and_validations
+
+## Campaign to cloudfare servers using North-Central probes_sets
+#campaign_name="North-Central_20230410"
+## Target to measure
+#target_directions=()
+#target_directions+=("${root_servers_ip_directions[@]}")
+## Probes used in measurement
+#probes_path=$probes_sets_path
+#areas_array=("North-Central")
+#num_probes_array=(100 300 500 1000)
+## GT Comparison
+#servers_directory_name=$root_servers_directory_name
+#servers_names=()
+#servers_names+=("${root_servers_names[@]}")
+#get_results_and_validations
+
+## Campaign to cloudfare servers using North-Central probes_sets
+#campaign_name="North-Central-section_20230425"
+## Target to measure
+#target_directions=()
+#target_directions+=("${root_servers_ip_directions[@]}")
+## Probes used in measurement
+#probes_path=$probes_section_path
+#areas_array=("North-Central-section")
+#num_probes_array=(1 1.5 2)
+## GT Comparison
+#servers_directory_name=$root_servers_directory_name
+#servers_names=()
+#servers_names+=("${root_servers_names[@]}")
+#get_results_and_validations
+
 # Campaign to cloudfare servers using North-Central probes_sets
-campaign_name="North-Central_20230418"
+campaign_name="North-Central-section_20230426"
 # Target to measure
 target_directions=()
 target_directions+=("${cloudfare_servers_ip_directions[@]}")
 # Probes used in measurement
-probes_path=$probes_sets_path
-areas_array=("North-Central")
-num_probes_array=(100 300 500 1000)
+probes_path=$probes_section_path
+areas_array=("North-Central-section")
+num_probes_array=(1 1.5 2)
 # GT Comparison
 servers_directory_name=$cloudfare_servers_directory_name
 servers_names=()
 servers_names+=("${cloudfare_servers_names[@]}")
 get_results_and_validations
-
-# Campaign to cloudfare servers using Europe-countries probes_sets
-campaign_name="Europe-countries_20230413"
-# Target to measure
-target_directions=()
-target_directions+=("${cloudfare_servers_ip_directions[@]}")
-# Probes used in measurement
-probes_path=$probes_sets_path
-areas_array=("Europe-countries")
-num_probes_array=(5 10 15)
-# GT Comparison
-servers_directory_name=$cloudfare_servers_directory_name
-servers_names=()
-servers_names+=("${cloudfare_servers_names[@]}")
-get_results_and_validations
-
-# Campaign to cloudfare servers using North-Central probes_sets
-campaign_name="North-Central_20230410"
-# Target to measure
-target_directions=()
-target_directions+=("${root_servers_ip_directions[@]}")
-# Probes used in measurement
-probes_path=$probes_sets_path
-areas_array=("North-Central")
-num_probes_array=(100 300 500 1000)
-# GT Comparison
-servers_directory_name=$root_servers_directory_name
-servers_names=()
-servers_names+=("${root_servers_names[@]}")
-get_results_and_validations
-
-
 
 

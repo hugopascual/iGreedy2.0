@@ -1,0 +1,107 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/199.9.14.201_North-Central-section_20230425_alpha_light-factor_0.25/199.9.14.201_North-Central-section_1_52639768_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 11,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.08333333333333333,
+        "precision": 0.08333333333333333,
+        "recall": 1.0,
+        "f1": 0.15384615384615385,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Dortmund",
+            "latitude": 51.5182991028,
+            "longitude": 7.6122398377,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Leipzig",
+            "latitude": 51.4323997498,
+            "longitude": 12.2416000366,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Weeze",
+            "latitude": 51.6024017334,
+            "longitude": 6.1421699524,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Bordeaux/M\u00e9rignac",
+            "latitude": 44.8283004761,
+            "longitude": -0.7155560255,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Verdun/Le Rozelier",
+            "latitude": 49.1223983765,
+            "longitude": 5.4690499306,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Belfast",
+            "latitude": 54.6575012207,
+            "longitude": -6.2158298492,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Enniskillen",
+            "latitude": 54.3988990784,
+            "longitude": -7.6516699791,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Leeds",
+            "latitude": 53.8658981323,
+            "longitude": -1.6605700254,
+            "type": "FP"
+        },
+        {
+            "country_code": "HU",
+            "city": "Debrecen",
+            "latitude": 47.488899231,
+            "longitude": 21.6152992249,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Den Helder",
+            "latitude": 52.9234008789,
+            "longitude": 4.7806200981,
+            "type": "TP"
+        },
+        {
+            "country_code": "NO",
+            "city": "Br\u00f8nn\u00f8y",
+            "latitude": 65.4610977173,
+            "longitude": 12.217499733,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "Kaliningrad",
+            "latitude": 54.8899993896,
+            "longitude": 20.5925998688,
+            "type": "FP"
+        }
+    ]
+}

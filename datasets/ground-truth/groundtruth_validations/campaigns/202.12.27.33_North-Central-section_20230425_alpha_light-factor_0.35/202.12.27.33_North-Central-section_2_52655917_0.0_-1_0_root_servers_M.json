@@ -1,0 +1,58 @@
+{
+    "target": "202.12.27.33",
+    "probes_filepath": "datasets/probes_section/North-Central-section_2.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/202.12.27.33_North-Central-section_20230425_alpha_light-factor_0.35/202.12.27.33_North-Central-section_2_52655917_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_M.json",
+    "statistics": {
+        "TP": 1,
+        "FP": 4,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.2,
+        "precision": 0.2,
+        "recall": 1.0,
+        "f1": 0.33333333333333337,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "AT",
+            "city": "Salzburg",
+            "latitude": 47.7933006287,
+            "longitude": 13.0043001175,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Le\u00f3n",
+            "latitude": 42.5890007019,
+            "longitude": -5.6555600166,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Beauvais/Till\u00e9",
+            "latitude": 49.4543991089,
+            "longitude": 2.1127800941,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Colmar/Houssen",
+            "latitude": 48.1099014282,
+            "longitude": 7.3590102196,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "\u00c9vreux/Fauville",
+            "latitude": 49.0287017822,
+            "longitude": 1.2198599577,
+            "type": "FP"
+        }
+    ]
+}

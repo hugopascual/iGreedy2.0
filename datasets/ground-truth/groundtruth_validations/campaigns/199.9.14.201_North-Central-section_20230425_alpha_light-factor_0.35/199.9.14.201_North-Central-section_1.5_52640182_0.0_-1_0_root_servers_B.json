@@ -1,0 +1,79 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.5.json",
+    "alpha": 0.0,
+    "threshold": -1,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/199.9.14.201_North-Central-section_20230425_alpha_light-factor_0.35/199.9.14.201_North-Central-section_1.5_52640182_0.0_-1_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "statistics": {
+        "TP": 0,
+        "FP": 6,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0,
+        "OT": 0,
+        "OF": 1
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Hannover",
+            "latitude": 52.461101532,
+            "longitude": 9.6850795746,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "M\u00fcnster",
+            "latitude": 52.134601593,
+            "longitude": 7.6848301888,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Verdun/Le Rozelier",
+            "latitude": 49.1223983765,
+            "longitude": 5.4690499306,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Thetford",
+            "latitude": 52.3426017761,
+            "longitude": 0.7729390264,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.366,
+            "longitude": 4.894,
+            "type": "FN"
+        },
+        {
+            "country_code": "NL",
+            "city": "Enschede",
+            "latitude": 52.2700004578,
+            "longitude": 6.8741698265,
+            "type": "FP"
+        },
+        {
+            "country_code": "RO",
+            "city": "Tulcea",
+            "latitude": 45.0625,
+            "longitude": 28.7143001556,
+            "type": "FP"
+        },
+        {
+            "country_code": "RU",
+            "city": "Izhevsk",
+            "latitude": 56.8280982971,
+            "longitude": 53.4575004578,
+            "type": "OF"
+        }
+    ]
+}

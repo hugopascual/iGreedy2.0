@@ -1,0 +1,107 @@
+{
+    "target": "198.41.0.4",
+    "probes_filepath": "datasets/probes_section/North-Central-section_1.5.json",
+    "alpha": 1,
+    "threshold": 10.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/198.41.0.4_North-Central-section_20230425_threshold_light-factor_0.30/198.41.0.4_North-Central-section_1.5_52638904_1_10.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_A.json",
+    "statistics": {
+        "TP": 2,
+        "FP": 6,
+        "TN": 0,
+        "FN": 4,
+        "accuracy": 0.16666666666666666,
+        "precision": 0.25,
+        "recall": 0.3333333333333333,
+        "f1": 0.28571428571428575,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BA",
+            "city": "Sarajevo",
+            "latitude": 43.8246002197,
+            "longitude": 18.3314990997,
+            "type": "FP"
+        },
+        {
+            "country_code": "BE",
+            "city": "Brussels",
+            "latitude": 50.4592018127,
+            "longitude": 4.4538202286,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Berlin",
+            "latitude": 52.3800010681,
+            "longitude": 13.5225000381,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt",
+            "latitude": 50.1109221,
+            "longitude": 8.6821267,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Marseille",
+            "latitude": 43.2961743,
+            "longitude": 5.3699525,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.856614,
+            "longitude": 2.3522219,
+            "type": "FN"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.3307991028,
+            "longitude": 0.0324999988,
+            "type": "TP"
+        },
+        {
+            "country_code": "LV",
+            "city": "Riga",
+            "latitude": 56.9235992432,
+            "longitude": 23.9710998535,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.3702157,
+            "longitude": 4.8951679,
+            "type": "FN"
+        },
+        {
+            "country_code": "RU",
+            "city": "St Petersburg",
+            "latitude": 59.8003005981,
+            "longitude": 30.2625007629,
+            "type": "FP"
+        },
+        {
+            "country_code": "SE",
+            "city": "Stockholm",
+            "latitude": 59.6519012451,
+            "longitude": 17.9186000824,
+            "type": "TP"
+        },
+        {
+            "country_code": "SE",
+            "city": "\u00d6rebro",
+            "latitude": 59.2237014771,
+            "longitude": 15.0380001068,
+            "type": "FP"
+        }
+    ]
+}
