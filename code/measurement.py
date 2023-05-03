@@ -28,7 +28,8 @@ from utils.common_functions import (
     dict_to_json_file,
     json_file_to_dict,
     get_section_borders_of_polygon,
-    is_probe_inside_section
+    is_probe_inside_section,
+    is_probe_usable
 )
 from visualize import (
     plot_multipolygon
@@ -145,12 +146,6 @@ class Measurement(object):
         url = "{}?{}&{}".format(base_url, filters, fields)
         return requests.get(url=url).json()
 
-    def is_probe_usable(self, probe: dict, section: dict):
-        if probe["status"]["name"] == "Connected":
-            return is_probe_inside_section(probe=probe, section=section)
-        else:
-            return False
-
     def mesh_area_probes_object(self) -> dict:
         polygon_grid = self.build_intersection_grid_with_countries()
         #plot_multipolygon(polygon_grid)
@@ -170,7 +165,7 @@ class Measurement(object):
                       format(sections_analyzed))
             probes_in_mesh_area = self.get_probes_in_section(section)
             probes_filtered = filter(
-                lambda probe: self.is_probe_usable(
+                lambda probe: is_probe_usable(
                     probe=probe, section=section),
                 probes_in_mesh_area["results"])
             probes_filtered = list(probes_filtered)

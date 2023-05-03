@@ -165,3 +165,9 @@ def is_probe_inside_section(probe: dict, section: dict) -> bool:
               section["longitude_max"],
               section["latitude_min"])
     )
+
+def is_probe_usable(probe: dict, section: dict):
+    if probe["status"]["name"] == "Connected":
+        return is_probe_inside_section(probe=probe, section=section)
+    else:
+        return False

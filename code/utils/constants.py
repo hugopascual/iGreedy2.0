@@ -28,6 +28,10 @@ GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH = \
 MEASUREMENTS_PATH = __DATASETS_PATH + "measurements/"
 MEASUREMENTS_CAMPAIGNS_PATH = MEASUREMENTS_PATH + "campaigns/"
 
+# Measurements
+HUNTER_MEASUREMENTS_PATH = __DATASETS_PATH + "hunter_measurements/"
+HUNTER_MEASUREMENTS_CAMPAIGNS_PATH = MEASUREMENTS_PATH + "campaigns/"
+
 # Results
 RESULTS_PATH = __DATASETS_PATH + "results/"
 RESULTS_CAMPAIGNS_PATH = RESULTS_PATH + "campaigns/"
@@ -41,6 +45,7 @@ METRICS_CSV_PATH = __DATASETS_PATH + "ploted_metrics_csv/"
 
 # Alone files
 AIRPORTS_INFO_FILEPATH = __DATASETS_PATH + "airports.csv"
+KEY_FILEPATH = __DATASETS_PATH + "key.json"
 COUNTRY_BORDERS_GEOJSON_FILEPATH = \
     __DATASETS_PATH + \
     "UIA_Latitude_Longitude_Graticules_and_World_Countries_Boundaries.geojson"
