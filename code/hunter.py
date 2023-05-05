@@ -51,9 +51,8 @@ class Hunter:
         # Location of airports inside intersection
         self.airports_inside_intersection()
 
-        # Save measurements and data generated
-        dict_to_json_file(self._results_measurements,
-                          self._measurement_result_filepath)
+        self.save_measurements()
+
 
     def traceroute_measurement(self):
         # Make traceroute from origin
@@ -221,6 +220,11 @@ class Hunter:
 
     def airports_inside_intersection(self):
         return
+
+    def save_measurements(self):
+        self._results_measurements["target"] = self._target
+        dict_to_json_file(self._results_measurements,
+                          self._measurement_result_filepath)
 
 # Not class exclusive functions
 
