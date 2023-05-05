@@ -27,3 +27,7 @@ from visualize import (
     plot_polygon,
     plot_multipolygon
 )
+
+lista = ["hola", "adios", "que tal", "mal", "bien"]
+index = -2
+print(lista[index])

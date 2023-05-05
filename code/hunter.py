@@ -47,10 +47,12 @@ class Hunter:
         # Pings from near last hop geo
         self.obtain_pings_near_last_hop(last_hop_geo)
         # Intersection of discs from pings
-        self.calculate_area_intersection()
-        # Location of airports inside intersection
-        self.airports_inside_intersection()
-
+        if self.check_ping_discs_intersection():
+            print("All pings generated discs intersect")
+            # Location of airports inside intersection
+            self.check_airports_inside_intersection()
+        else:
+            print("Some pings do not intersect. Bad scenario")
         self.save_measurements()
 
 
@@ -159,12 +161,12 @@ class Hunter:
         return last_hop_geo
 
     def select_last_hop_valid(self) -> dict:
-        measurement_data = self._results_measurements[0]
+        measurement_data = self._results_measurements["traceroute"]
         validated = False
         last_hop_index = -2
         last_hop = {}
         while not validated:
-            last_hop = measurement_data["result"][last_hop_index]
+            last_hop = measurement_data[0]["result"][last_hop_index]
             # Check if there is results
             if "x" in last_hop["result"][0].keys():
                 last_hop_index += -1
@@ -215,10 +217,11 @@ class Hunter:
         self._results_measurements["pings"] = \
             self.get_measurement_results()
 
-    def calculate_area_intersection(self):
-        return
+    def check_ping_discs_intersection(self) -> bool:
+        discs = []
+        return True
 
-    def airports_inside_intersection(self):
+    def check_airports_inside_intersection(self):
         return
 
     def save_measurements(self):
