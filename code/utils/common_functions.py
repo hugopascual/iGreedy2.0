@@ -114,6 +114,22 @@ def distance(a: dict, b: dict) -> float:
     return arc * EARTH_RADIUS_KM
 
 
+def check_discs_intersect(disc1: dict, disc2: dict) -> bool:
+    centers_separation = distance(
+        a={
+            "latitude": disc1["latitude"],
+            "longitude": disc1["longitude"]
+        },
+        b={
+            "latitude": disc2["latitude"],
+            "longitude": disc2["longitude"]
+        })
+    if centers_separation < (disc1["radius"] + disc2["radius"]):
+        return True
+    else:
+        return False
+
+
 def alpha2_code_to_alpha3(alpha2: str) -> str:
     all_countries_list = json_file_to_dict(ALL_COUNTRIES_FILE_PATH)
     for country in all_countries_list:

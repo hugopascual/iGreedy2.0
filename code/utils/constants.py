@@ -64,6 +64,15 @@ ROOT_SERVERS_NAMES = [
 ]
 EARTH_RADIUS_KM = 6371
 NEAR_CITY_TP_KM = 100
+
+FIBER_RI = 1/1.52
+FACTOR_5000 = 0.40
+FACTOR_3000 = 0.35
+FACTOR_2000 = 0.30
+FACTOR_1000 = 0.25
+FACTOR_500 = 0.18
+SPEED_OF_LIGHT = 299792.458 # km/s
+
 ASCIIART = """
 180 150W  120W  90W   60W   30W  000   30E   60E   90E   120E  150E 180
 |    |     |     |     |     |    |     |     |     |     |     |     |

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+import pandas as pd
 # external modules imports
 import requests
 import geocoder
@@ -11,11 +11,15 @@ from utils.constants import (
     RIPE_ATLAS_MEASUREMENTS_BASE_URL,
     RIPE_ATLAS_PROBES_BASE_URL,
     KEY_FILEPATH,
-    HUNTER_MEASUREMENTS_PATH
+    HUNTER_MEASUREMENTS_PATH,
+    SPEED_OF_LIGHT,
+    FIBER_RI
 )
 from utils.common_functions import (
     json_file_to_dict,
-    dict_to_json_file
+    dict_to_json_file,
+    check_discs_intersect,
+    distance
 )
 
 
@@ -38,14 +42,16 @@ class Hunter:
         self._results_measurements = {"traceroute": {}, "pings": {}}
 
     def hunt(self):
-        self.traceroute_measurement()
-        self.build_measurement_filepath()
-        # Geolocate last valid hop in traceroute measurement
-        last_hop_geo = self.geolocate_last_hop()
-        print("Last Hop location: ", last_hop_geo)
+        #self.traceroute_measurement()
+        #self.build_measurement_filepath()
+        ## Geolocate last valid hop in traceroute measurement
+        #last_hop_geo = self.geolocate_last_hop()
+        #print("Last Hop location: ", last_hop_geo)
+        ## Pings from near last hop geo
+        #self.obtain_pings_near_last_hop(last_hop_geo)
 
-        # Pings from near last hop geo
-        self.obtain_pings_near_last_hop(last_hop_geo)
+        # TODO: remove, only for testing
+        self._results_measurements = json_file_to_dict("datasets/hunter_measurements/192.5.5.241_40.405_-3.8783_53314599.json")
         # Intersection of discs from pings
         if self.check_ping_discs_intersection():
             print("All pings generated discs intersect")
@@ -57,6 +63,9 @@ class Hunter:
 
 
     def traceroute_measurement(self):
+        print("###########")
+        print("Traceroute phase initiated")
+        print("###########")
         # Make traceroute from origin
         probe_id = self.find_probes_in_circle(
             latitude=self._origin[0],
@@ -140,7 +149,6 @@ class Hunter:
             time.sleep(delay)
             delay = 15
             attempts += 1
-
             response = requests.get(results_measurement_url).json()
             if len(response) == probes_scheduled:
                 print("Results retrieved")
@@ -181,10 +189,13 @@ class Hunter:
         return last_hop
 
     def obtain_pings_near_last_hop(self, last_hop_geo):
+        print("###########")
+        print("Pings phase initiated")
+        print("###########")
         # Make pings from probes around last_hop_geo
         probes_id_list = self.find_probes_in_circle(
-            latitude=last_hop_geo[0],
-            longitude=last_hop_geo[1],
+            latitude=last_hop_geo["latitude"],
+            longitude=last_hop_geo["longitude"],
             radius=self._radius,
             num_probes=3
         )
@@ -218,11 +229,59 @@ class Hunter:
             self.get_measurement_results()
 
     def check_ping_discs_intersection(self) -> bool:
-        discs = []
+        # Build discs
+        self._ping_discs = []
+        for ping_result in self._results_measurements["pings"]:
+            ping_radius = ((ping_result["min"]/2)*0.001) * \
+                          (FIBER_RI*SPEED_OF_LIGHT)
+            probe_location = self.get_probe_coordinates(ping_result["prb_id"])
+            self._ping_discs.append({
+                "probe_id": ping_result["prb_id"],
+                "latitude": probe_location["latitude"],
+                "longitude": probe_location["longitude"],
+                "rtt_min": ping_result["min"],
+                "radius": ping_radius
+            })
+
+        # Check all disc intersection
+        for disc1 in self._ping_discs:
+            for disc2 in self._ping_discs:
+                if disc1 == disc2:
+                    continue
+                elif check_discs_intersect(disc1, disc2):
+                    continue
+                else:
+                    return False
         return True
 
     def check_airports_inside_intersection(self):
-        return
+        airports_df = pd.read_csv("datasets/airports.csv", sep="\t")
+        print(airports_df.head())
+
+        def check_inside_intersection(airport_code) -> bool:
+            print(airport_code)
+            airport_to_check = airports_df[
+                (airports_df["#IATA"] == airport_code)
+            ]
+            lat_long_string = airport_to_check["lat long"][0]
+            print(lat_long_string)
+            airport_location = str(lat_long_string).split(" ")
+            print(airport_location)
+            a = {"latitude": float(airport_location[0]),
+                 "longitude": float(airport_location[1])}
+            for disc in self._ping_discs:
+                b = {"latitude": disc["latitude"],
+                     "longitude": disc["longitude"]}
+                if distance(a=a, b=b) > disc["radius"]:
+                    continue
+                else:
+                    return False
+            return airport_to_check
+
+        airports_inside_intersection = airports_df["#IATA"].apply(
+            lambda airport_code: check_inside_intersection(airport_code)
+        )
+        print(airports_inside_intersection)
 
     def save_measurements(self):
         self._results_measurements["target"] = self._target
@@ -242,7 +301,8 @@ class Hunter:
         probes_connected = list(filter(
             lambda probe: probe["status"]["name"] == "Connected",
             probes_inside["results"]))
-        print("Probes connected inside area ", len(probes_connected))
+        print("Probes connected inside area (circle of {} km radius): {}".
+              format(self._radius, len(probes_connected)))
         if len(probes_connected) == 0:
             print("No probes in a {} km circle.".format(radius))
             return self.find_probes_in_circle(
@@ -277,6 +337,17 @@ class Hunter:
         return {
             "latitude": latlng[0],
             "longitude": latlng[1]
+        }
+
+    def get_probe_coordinates(self, probe_id: int) -> dict:
+        url = RIPE_ATLAS_PROBES_BASE_URL + "/%s" % probe_id
+        probe_response = requests.get(url).json()
+
+        latitude = probe_response["geometry"]["coordinates"][1]
+        longitude = probe_response["geometry"]["coordinates"][0]
+        return {
+            "latitude": latitude,
+            "longitude": longitude
         }
 
     # def make_box_centered_on_origin(self) -> Polygon:

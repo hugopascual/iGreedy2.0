@@ -3,16 +3,20 @@
 # helper routines 
 #---------------------------------------------------------------------.
 
-import math,collections
-# Index of refraction for optical fiber
-FIBER_RI = 1/1.52
-FACTOR_5000 = 0.40
-FACTOR_3000 = 0.35
-FACTOR_2000 = 0.30
-FACTOR_1000 = 0.25
-FACTOR_500 = 0.18
-REDUCTION_FACTOR = FACTOR_500
-SPEED_OF_LIGHT = 299792.458 # km/s
+import math
+import collections
+from utils.constants import (
+    SPEED_OF_LIGHT,
+    FIBER_RI,
+    FACTOR_500,
+    FACTOR_1000,
+    FACTOR_2000,
+    FACTOR_3000,
+    FACTOR_5000
+)
+# Light speed reduction factor applied
+REDUCTION_FACTOR = FIBER_RI
+
 
 class Disc(object):
     def __init__(self, hostname, latitude, longitude, ping):
