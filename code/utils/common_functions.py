@@ -130,6 +130,11 @@ def check_discs_intersect(disc1: dict, disc2: dict) -> bool:
         return False
 
 
+def get_distance_from_rtt(rtt: float) -> float:
+    # 0.152616ln(0.249285x+129.303)−0.691551
+    return 0
+
+
 def alpha2_code_to_alpha3(alpha2: str) -> str:
     all_countries_list = json_file_to_dict(ALL_COUNTRIES_FILE_PATH)
     for country in all_countries_list:

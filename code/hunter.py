@@ -42,16 +42,14 @@ class Hunter:
         self._results_measurements = {"traceroute": {}, "pings": {}}
 
     def hunt(self):
-        #self.traceroute_measurement()
-        #self.build_measurement_filepath()
-        ## Geolocate last valid hop in traceroute measurement
-        #last_hop_geo = self.geolocate_last_hop()
-        #print("Last Hop location: ", last_hop_geo)
-        ## Pings from near last hop geo
-        #self.obtain_pings_near_last_hop(last_hop_geo)
-
-        # TODO: remove, only for testing
-        self._results_measurements = json_file_to_dict("datasets/hunter_measurements/192.5.5.241_40.405_-3.8783_53314599.json")
+        self.traceroute_measurement()
+        self.build_measurement_filepath()
+        # Geolocate last valid hop in traceroute measurement
+        last_hop_geo = self.geolocate_last_hop()
+        print("Last Hop location: ", last_hop_geo)
+        self._results_measurements["last_hop"] ={"geolocation": last_hop_geo}
+        # Pings from near last hop geo
+        self.obtain_pings_near_last_hop(last_hop_geo)
         # Intersection of discs from pings
         if self.check_ping_discs_intersection():
             print("All pings generated discs intersect")
@@ -60,7 +58,6 @@ class Hunter:
         else:
             print("Some pings do not intersect. Bad scenario")
         self.save_measurements()
-
 
     def traceroute_measurement(self):
         print("###########")
@@ -142,17 +139,24 @@ class Hunter:
         enough_results = False
         attempts = 0
         response = {}
-        probes_scheduled = self.get_probes_scheduled()
+
         while not enough_results:
+            probes_scheduled = self.get_probes_scheduled()
+            print("Total probes scheduled for measurement: ", probes_scheduled)
             print("Wait {} seconds for results. Number of attempts {}".
                   format(delay, attempts))
             time.sleep(delay)
             delay = 15
             attempts += 1
             response = requests.get(results_measurement_url).json()
+            print("Obtained response from {} probes".format(len(response)))
             if len(response) == probes_scheduled:
                 print("Results retrieved")
                 enough_results = True
+            elif attempts >= 10:
+                enough_results = True
+            else:
+                enough_results = False
         return response
 
     def geolocate_last_hop(self) -> dict:
@@ -197,7 +201,7 @@ class Hunter:
             latitude=last_hop_geo["latitude"],
             longitude=last_hop_geo["longitude"],
             radius=self._radius,
-            num_probes=3
+            num_probes=7
         )
         pings_data = {
             "definitions": [
@@ -314,7 +318,7 @@ class Hunter:
         fields = "fields=id,geometry,status"
         url = "{}?{}&{}".format(RIPE_ATLAS_PROBES_BASE_URL, filters, fields)
         probes_inside = requests.get(url=url).json()
-        print("Probes inside area ", len(probes_inside))
+        print("Probes inside area ", len(probes_inside["results"]))
         probes_connected = list(filter(
             lambda probe: probe["status"]["name"] == "Connected",
             probes_inside["results"]))
