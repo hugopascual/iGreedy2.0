@@ -256,32 +256,49 @@ class Hunter:
 
     def check_airports_inside_intersection(self):
         airports_df = pd.read_csv("datasets/airports.csv", sep="\t")
-        print(airports_df.head())
+        airports_df.drop(["pop",
+                          "heuristic",
+                          "1", "2", "3"], axis=1, inplace=True)
 
         def check_inside_intersection(airport_code) -> bool:
-            print(airport_code)
             airport_to_check = airports_df[
                 (airports_df["#IATA"] == airport_code)
             ]
-            lat_long_string = airport_to_check["lat long"][0]
-            print(lat_long_string)
-            airport_location = str(lat_long_string).split(" ")
-            print(airport_location)
-            a = {"latitude": float(airport_location[0]),
-                 "longitude": float(airport_location[1])}
+            lat_long_string = airport_to_check["lat long"].values[0]
+            (airport_lat, airport_lon) = lat_long_string.split(" ")
+            a = {"latitude": float(airport_lat),
+                 "longitude": float(airport_lon)}
             for disc in self._ping_discs:
                 b = {"latitude": disc["latitude"],
                      "longitude": disc["longitude"]}
-                if distance(a=a, b=b) > disc["radius"]:
+                if distance(a=a, b=b) < disc["radius"]:
                     continue
                 else:
                     return False
-            return airport_to_check
+            return True
 
-        airports_inside_intersection = airports_df["#IATA"].apply(
+        airports_df["inside_intersection"] = airports_df["#IATA"].apply(
             lambda airport_code: check_inside_intersection(airport_code)
         )
-        print(airports_inside_intersection)
+
+        airports_inside_df = airports_df[(
+                airports_df["inside_intersection"] == True
+        )].copy()
+
+        cities_results = list(airports_inside_df["city"].unique())
+        airports_inside_df.drop(["inside_intersection"], axis=1, inplace=True)
+        airports_inside_df.rename(columns={"#IATA": "IATA_code"}, inplace=True)
+        airports_located = airports_inside_df.to_dict("records")
+        for airport_located in airports_located:
+            (lat, lon) = airport_located["lat long"].split(" ")
+            airport_located["latitude"] = float(lat)
+            airport_located["longitude"] = float(lon)
+            airport_located.pop("lat long", None)
+
+        self._results_measurements["hunt_results"] = {
+            "cities": cities_results,
+            "airports_located": airports_located
+        }
 
     def save_measurements(self):
         self._results_measurements["target"] = self._target
