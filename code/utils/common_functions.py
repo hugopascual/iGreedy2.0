@@ -14,7 +14,8 @@ from utils.constants import (
     ROOT_SERVERS_URL,
     ROOT_SERVERS_PATH,
     EARTH_RADIUS_KM,
-    ALL_COUNTRIES_FILE_PATH
+    ALL_COUNTRIES_FILE_PATH,
+    SPEED_OF_LIGHT
 )
 
 
@@ -30,17 +31,18 @@ def create_directory_structure(path: str) -> None:
 
 def update_root_servers_json():
     for root_name in ROOT_SERVERS_NAMES:
-        request = requests.get(url=ROOT_SERVERS_URL+root_name+"/json").json()
+        request = requests.get(
+            url=ROOT_SERVERS_URL + root_name + "/json").json()
         root_servers_filename = "root_servers_{}.json".format(root_name)
-        dict_to_json_file(dict=request, 
-                          file_path=ROOT_SERVERS_PATH+root_servers_filename)
+        dict_to_json_file(dict=request,
+                          file_path=ROOT_SERVERS_PATH + root_servers_filename)
 
 
 def json_file_to_dict(file_path: str) -> dict:
     create_directory_structure(file_path)
     with open(file_path) as file:
         raw_json = file.read()
-    
+
     return json.loads(raw_json)
 
 
@@ -130,8 +132,14 @@ def check_discs_intersect(disc1: dict, disc2: dict) -> bool:
         return False
 
 
+def get_light_factor_from_distance(dist: float) -> float:
+    return 0.0061699 * (dist**0.480214) + 0.0497791
+    #return 0.152616 * math.log(0.251783 * dist + 130.598) - 0.693072
+
+def get_time_from_distance(dist: float) -> float:
+    return dist/(get_light_factor_from_distance(dist)*SPEED_OF_LIGHT)
+
 def get_distance_from_rtt(rtt: float) -> float:
-    # 0.152616ln(0.249285x+129.303)−0.691551
     return 0
 
 
@@ -186,6 +194,7 @@ def is_probe_inside_section(probe: dict, section: dict) -> bool:
               section["longitude_max"],
               section["latitude_min"])
     )
+
 
 def is_probe_usable(probe: dict, section: dict):
     if probe["status"]["name"] == "Connected":
