@@ -140,7 +140,21 @@ def get_time_from_distance(dist: float) -> float:
     return dist/(get_light_factor_from_distance(dist)*SPEED_OF_LIGHT)
 
 def get_distance_from_rtt(rtt: float) -> float:
-    return 0
+    # We do not have the direct function, so we approximate it with the inverse
+    # Set approximation values
+    distance_gap = 10
+    max_distance_calculated = 5000 + distance_gap
+    distances = list(range(0, max_distance_calculated, distance_gap))
+    trip_time_ms = rtt/2
+    time_results = {}
+    # Calculate values
+    for dist in distances:
+        time_travel = get_time_from_distance(dist) * 1000
+        time_results[time_travel] = dist
+    # Get nearest value from calculated
+    nearest_value = min(time_results,
+                        key=lambda x: abs(x - trip_time_ms))
+    return time_results[nearest_value]
 
 
 def alpha2_code_to_alpha3(alpha2: str) -> str:

@@ -11,15 +11,14 @@ from utils.constants import (
     RIPE_ATLAS_MEASUREMENTS_BASE_URL,
     RIPE_ATLAS_PROBES_BASE_URL,
     KEY_FILEPATH,
-    HUNTER_MEASUREMENTS_PATH,
-    SPEED_OF_LIGHT,
-    FIBER_RI
+    HUNTER_MEASUREMENTS_PATH
 )
 from utils.common_functions import (
     json_file_to_dict,
     dict_to_json_file,
     check_discs_intersect,
-    distance
+    distance,
+    get_distance_from_rtt
 )
 
 
@@ -40,6 +39,7 @@ class Hunter:
         self._measurement_id = 0
         self._measurement_result_filepath = "hunter_measurement.json"
         self._results_measurements = {"traceroute": {}, "pings": {}}
+        self._ping_discs = []
 
     def hunt(self):
         self.traceroute_measurement()
@@ -234,10 +234,8 @@ class Hunter:
 
     def check_ping_discs_intersection(self) -> bool:
         # Build discs
-        self._ping_discs = []
         for ping_result in self._results_measurements["pings"]:
-            ping_radius = ((ping_result["min"]/2)*0.001) * \
-                          (FIBER_RI*SPEED_OF_LIGHT)
+            ping_radius = get_distance_from_rtt(ping_result["min"])
             probe_location = self.get_probe_coordinates(ping_result["prb_id"])
             self._ping_discs.append({
                 "probe_id": ping_result["prb_id"],
@@ -246,6 +244,8 @@ class Hunter:
                 "rtt_min": ping_result["min"],
                 "radius": ping_radius
             })
+
+        self._results_measurements["ping_discs"] = self._ping_discs
 
         # Check all disc intersection
         for disc1 in self._ping_discs:
@@ -290,6 +290,7 @@ class Hunter:
         )].copy()
 
         cities_results = list(airports_inside_df["city"].unique())
+        countries_results = list(airports_inside_df["country_code"].unique())
         airports_inside_df.drop(["inside_intersection"], axis=1, inplace=True)
         airports_inside_df.rename(columns={"#IATA": "IATA_code"}, inplace=True)
         airports_located = airports_inside_df.to_dict("records")
