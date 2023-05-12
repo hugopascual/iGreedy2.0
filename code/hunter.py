@@ -57,6 +57,9 @@ class Hunter:
             self.check_airports_inside_intersection()
         else:
             print("Some pings do not intersect. Bad scenario")
+
+        self.obtain_cf_ray()
+
         self.save_measurements()
 
     def traceroute_measurement(self):
@@ -377,3 +380,12 @@ class Hunter:
     #                ymin=self._origin[1] - self._separation,
     #                xmax=self._origin[0] + self._separation,
     #                ymax=self._origin[1] + self._separation)
+
+    def obtain_cf_ray(self):
+        headers = requests.get("http://{}".format(self._target)).headers
+        try:
+            cf_ray_iata_code = headers["cf-ray"].split("-")[1]
+        except:
+            print("NO CF-RAY IN HEADERS")
+            cf_ray_iata_code = ""
+        self._results_measurements["cf_ray_iata_code"] = cf_ray_iata_code
