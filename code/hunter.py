@@ -6,6 +6,7 @@ import requests
 import geocoder
 import random
 import time
+import subprocess
 # internal modules imports
 from utils.constants import (
     RIPE_ATLAS_MEASUREMENTS_BASE_URL,
@@ -28,9 +29,11 @@ class Hunter:
         # origin format = (latitude, longitude)
         if origin != ():
             self._origin = origin
+            self._traceroute_from_host = False
         else:
             latlng = geocoder.ip("me").latlng
             self._origin = (latlng[0], latlng[1])
+            self._traceroute_from_host = True
 
         self._radius = 20
         self._url = RIPE_ATLAS_MEASUREMENTS_BASE_URL + "/?key={}".format(
@@ -38,11 +41,12 @@ class Hunter:
         )
         self._measurement_id = 0
         self._measurement_result_filepath = "hunter_measurement.json"
-        self._results_measurements = {"traceroute": {}, "pings": {}}
+        self._results_measurements = {
+            "traceroute_from_host": self._traceroute_from_host}
         self._ping_discs = []
 
     def hunt(self):
-        self.traceroute_measurement()
+        self.make_traceroute_measurement()
         self.build_measurement_filepath()
         # Geolocate last valid hop in traceroute measurement
         last_hop_geo = self.geolocate_last_hop()
@@ -62,7 +66,19 @@ class Hunter:
 
         self.save_measurements()
 
-    def traceroute_measurement(self):
+    def make_traceroute_measurement(self):
+        if self._traceroute_from_host:
+            return
+        else:
+            self.ripe_traceroute_measurement()
+
+    def host_traceroute_measurement(self):
+        result_traceroute = subprocess.run(["traceroute", self._target],
+                                           stdout=subprocess.PIPE)
+        hops_list = ((str(result_traceroute.stdout)).split("\\n")[1:])[:-1]
+        self._results_measurements["traceroute"] = hops_list
+
+    def ripe_traceroute_measurement(self):
         print("###########")
         print("Traceroute phase initiated")
         print("###########")
@@ -166,10 +182,6 @@ class Hunter:
         last_hop = self.select_last_hop_valid()
         last_hop_direction = last_hop["result"][0]["from"]
         print("Last Hop IP direction: ", last_hop_direction)
-        min_rtt = min(result["rtt"] for result in last_hop["result"])
-        print("For {} direction min rtt is {} ms".format(
-            last_hop_direction, min_rtt)
-        )
         # TODO geolocate last_hop_direction better
         last_hop_geo = self.geolocate_ip_commercial_database(
             ip=last_hop_direction)
@@ -194,6 +206,13 @@ class Hunter:
                 continue
             validated = True
         return last_hop
+
+    def build_hops_directions_list(self):
+        # TODO hacer lista de IPs, validar la penultima y geolocalizarla
+        if self._traceroute_from_host:
+            return
+        else:
+            return
 
     def obtain_pings_near_last_hop(self, last_hop_geo):
         print("###########")

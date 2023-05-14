@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import subprocess
+
 import pandas as pd
 import requests
+from scapy.layers.inet import traceroute
+from subprocess import run
 from utils.constants import (
     FIBER_RI,
     SPEED_OF_LIGHT
@@ -13,23 +17,18 @@ from utils.common_functions import (
 )
 
 
-target = "192.5.5.241"
-results = {}
+def host_traceroute_measurement_scapy():
+    result_traceroute = traceroute(target="192.5.5.241")
+    print(result_traceroute)
 
 
-def obtain_cf_ray(target: str, results: dict):
-    url = "http://{}".format(target)
-    print(url)
-    headers = requests.get(url).headers
-    print(headers)
-    try:
-        cf_ray_iata_code = headers["cf-ray"].split("-")[1]
-    except:
-        print("NO CF-RAY IN HEADERS")
-        cf_ray_iata_code = ""
-    results["cf_ray_iata_code"] = cf_ray_iata_code
+def host_traceroute_measurement_shell():
+    target = "192.5.5.241"
+    result_traceroute = run(["traceroute", target], stdout=subprocess.PIPE)
+    hops_list = ((str(result_traceroute.stdout)).split("\\n")[1:])[:-1]
+    print(hops_list)
+    last_hop_info = hops_list[-2]
+    print(last_hop_info)
 
 
-obtain_cf_ray(target, results)
-
-print(results)
+host_traceroute_measurement_shell()
