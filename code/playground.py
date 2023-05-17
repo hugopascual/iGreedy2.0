@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import subprocess
-
+import re
+import geocoder
 import pandas as pd
 import requests
 from scapy.layers.inet import traceroute
@@ -13,22 +14,13 @@ from utils.constants import (
 from utils.common_functions import (
     get_distance_from_rtt,
     get_light_factor_from_distance,
-    get_time_from_distance
+    get_time_from_distance,
+    json_file_to_dict,
+    dict_to_json_file
 )
 
-
-def host_traceroute_measurement_scapy():
-    result_traceroute = traceroute(target="192.5.5.241")
-    print(result_traceroute)
-
-
-def host_traceroute_measurement_shell():
-    target = "192.5.5.241"
-    result_traceroute = run(["traceroute", target], stdout=subprocess.PIPE)
-    hops_list = ((str(result_traceroute.stdout)).split("\\n")[1:])[:-1]
-    print(hops_list)
-    last_hop_info = hops_list[-2]
-    print(last_hop_info)
+result = geocoder.ip("me").geojson
+dict_to_json_file(result, "test.json")
+print(result)
 
 
-host_traceroute_measurement_shell()

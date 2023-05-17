@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+# ./igreedy.sh -w 192.5.5.241 -s "(52.01,4.56)"
+# ./igreedy.sh -w 192.5.5.241
+
 import pandas as pd
 # external modules imports
 import requests
@@ -31,8 +35,8 @@ class Hunter:
             self._origin = origin
             self._traceroute_from_host = False
         else:
-            latlng = geocoder.ip("me").latlng
-            self._origin = (latlng[0], latlng[1])
+            (latitude, longitude) = geocoder.ip("me").latlng
+            self._origin = (latitude, longitude)
             self._traceroute_from_host = True
 
         self._radius = 20
@@ -68,7 +72,7 @@ class Hunter:
 
     def make_traceroute_measurement(self):
         if self._traceroute_from_host:
-            return
+            self.host_traceroute_measurement()
         else:
             self.ripe_traceroute_measurement()
 
@@ -179,40 +183,50 @@ class Hunter:
         return response
 
     def geolocate_last_hop(self) -> dict:
-        last_hop = self.select_last_hop_valid()
-        last_hop_direction = last_hop["result"][0]["from"]
-        print("Last Hop IP direction: ", last_hop_direction)
+        directions_list = self.build_hops_directions_list()
+        last_hop_direction = self.select_last_hop_valid(directions_list)
+        print("Traceroute directions: ")
+        [print(direction) for direction in directions_list]
+        print("Last Hop IP direction valid: ", last_hop_direction)
         # TODO geolocate last_hop_direction better
         last_hop_geo = self.geolocate_ip_commercial_database(
             ip=last_hop_direction)
         return last_hop_geo
 
-    def select_last_hop_valid(self) -> dict:
-        measurement_data = self._results_measurements["traceroute"]
+    def select_last_hop_valid(self, directions_list: list) -> str:
         validated = False
         last_hop_index = -2
-        last_hop = {}
+        last_hop = ""
         while not validated:
-            last_hop = measurement_data[0]["result"][last_hop_index]
+            last_hop = directions_list[last_hop_index]
             # Check if there is results
-            if "x" in last_hop["result"][0].keys():
+            if "*" == last_hop:
                 last_hop_index += -1
                 continue
-            if self.is_IP_anycast(last_hop["result"][0]["from"]):
+            if self.is_IP_anycast(last_hop):
                 last_hop_index += -1
                 continue
-            if not self.hop_from_directions_are_equal(last_hop):
+            if not self.hop_from_directions_are_equal():
                 last_hop_index += -1
                 continue
             validated = True
         return last_hop
 
-    def build_hops_directions_list(self):
-        # TODO hacer lista de IPs, validar la penultima y geolocalizarla
+    def build_hops_directions_list(self) -> list:
+        directions_list = []
         if self._traceroute_from_host:
-            return
+            for result in self._results_measurements["traceroute"]:
+                directions_list.append(result.split('(', 1)[1].split(')')[0])
         else:
-            return
+            traceroute_results = \
+                self._results_measurements["traceroute"][0]["result"]
+            for result in traceroute_results:
+                hop = result["result"][0]
+                if "x" in hop.keys():
+                    directions_list.append(hop["x"])
+                else:
+                    directions_list.append(hop["from"])
+        return directions_list
 
     def obtain_pings_near_last_hop(self, last_hop_geo):
         print("###########")
@@ -322,8 +336,14 @@ class Hunter:
             airport_located["longitude"] = float(lon)
             airport_located.pop("lat long", None)
 
+        print("Cities locations detected: ")
+        [print(city) for city in cities_results]
+        print("Countries detected: ")
+        [print(country) for country in countries_results]
+
         self._results_measurements["hunt_results"] = {
             "cities": cities_results,
+            "countries": countries_results,
             "airports_located": airports_located
         }
 
@@ -367,20 +387,18 @@ class Hunter:
         return json_file_to_dict(KEY_FILEPATH)["key"]
 
     def is_IP_anycast(self, ip: str) -> bool:
+        # TODO validate if ip is anycast or not
         return False
 
-    def hop_from_directions_are_equal(self, hop: dict) -> bool:
-        initial_direction = hop["result"][0]["from"]
-        for result in hop["result"]:
-            if initial_direction != result["from"]:
-                return False
+    def hop_from_directions_are_equal(self) -> bool:
+        # TODO validate if every time is the same ip direction
         return True
 
     def geolocate_ip_commercial_database(self, ip: str) -> dict:
-        latlng = geocoder.ip(ip).latlng
+        (latitude, longitude) = geocoder.ip(ip).latlng
         return {
-            "latitude": latlng[0],
-            "longitude": latlng[1]
+            "latitude": latitude,
+            "longitude": longitude
         }
 
     def get_probe_coordinates(self, probe_id: int) -> dict:
