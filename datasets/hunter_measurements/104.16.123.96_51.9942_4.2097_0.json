@@ -1,0 +1,251 @@
+{
+    "traceroute_from_host": true,
+    "traceroute": [
+        " 1  _gateway (10.30.0.1)  38.638 ms  39.600 ms  39.589 ms",
+        " 2  89.39.107.3 (89.39.107.3)  39.889 ms  39.892 ms  39.878 ms",
+        " 3  109.236.95.224 (109.236.95.224)  39.836 ms 109.236.95.230 (109.236.95.230)  39.827 ms  39.823 ms",
+        " 4  109.236.95.106 (109.236.95.106)  40.692 ms 109.236.95.167 (109.236.95.167)  40.695 ms  40.688 ms",
+        " 5  ams-ix.as13335.net (80.249.211.140)  41.991 ms  42.401 ms  42.161 ms",
+        " 6  172.71.180.2 (172.71.180.2)  42.436 ms 172.71.100.2 (172.71.100.2)  52.445 ms 172.71.92.2 (172.71.92.2)  54.417 ms",
+        " 7  104.16.123.96 (104.16.123.96)  41.881 ms  41.907 ms  41.904 ms"
+    ],
+    "last_hop": {
+        "geolocation": {
+            "latitude": 52.3818,
+            "longitude": 4.8717
+        }
+    },
+    "pings": [
+        {
+            "fw": 4790,
+            "lts": 78,
+            "dst_name": "104.16.123.96",
+            "af": 4,
+            "dst_addr": "104.16.123.96",
+            "src_addr": "10.29.1.205",
+            "proto": "ICMP",
+            "ttl": 54,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 44.572426
+                },
+                {
+                    "rtt": 8.896515
+                },
+                {
+                    "rtt": 8.876547
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 8.876547,
+            "max": 44.572426,
+            "avg": 20.7818293333,
+            "msm_id": 53869383,
+            "prb_id": 3158,
+            "timestamp": 1684403822,
+            "msm_name": "Ping",
+            "from": "87.255.50.145",
+            "type": "ping",
+            "group_id": 53869383,
+            "step": null,
+            "stored_timestamp": 1684403887
+        },
+        {
+            "fw": 4790,
+            "lts": 86,
+            "dst_name": "104.16.123.96",
+            "af": 4,
+            "dst_addr": "104.16.123.96",
+            "src_addr": "192.168.178.21",
+            "proto": "ICMP",
+            "ttl": 58,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 11.028482
+                },
+                {
+                    "rtt": 9.69677
+                },
+                {
+                    "rtt": 16.24858
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 9.69677,
+            "max": 16.24858,
+            "avg": 12.3246106667,
+            "msm_id": 53869383,
+            "prb_id": 4501,
+            "timestamp": 1684403820,
+            "msm_name": "Ping",
+            "from": "45.137.100.57",
+            "type": "ping",
+            "group_id": 53869383,
+            "step": null,
+            "stored_timestamp": 1684403845
+        },
+        {
+            "fw": 4790,
+            "lts": 56,
+            "dst_name": "104.16.123.96",
+            "af": 4,
+            "dst_addr": "104.16.123.96",
+            "src_addr": "192.168.253.100",
+            "proto": "ICMP",
+            "ttl": 59,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 7.114753
+                },
+                {
+                    "rtt": 5.388289
+                },
+                {
+                    "rtt": 5.606401
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 5.388289,
+            "max": 7.114753,
+            "avg": 6.036481,
+            "msm_id": 53869383,
+            "prb_id": 6,
+            "timestamp": 1684403824,
+            "msm_name": "Ping",
+            "from": "31.20.189.63",
+            "type": "ping",
+            "group_id": 53869383,
+            "step": null,
+            "stored_timestamp": 1684403824
+        }
+    ],
+    "ping_discs": [
+        {
+            "probe_id": 3158,
+            "latitude": 52.2415,
+            "longitude": 4.7595,
+            "rtt_min": 8.876547,
+            "radius": 160
+        },
+        {
+            "probe_id": 4501,
+            "latitude": 52.3675,
+            "longitude": 4.8975,
+            "rtt_min": 9.69677,
+            "radius": 180
+        },
+        {
+            "probe_id": 6,
+            "latitude": 52.3505,
+            "longitude": 4.9175,
+            "rtt_min": 5.388289,
+            "radius": 80
+        }
+    ],
+    "hunt_results": {
+        "cities": [
+            "Amsterdam",
+            "Den Helder",
+            "Lelystad",
+            "Arnhem",
+            "Rotterdam"
+        ],
+        "countries": [
+            "NL"
+        ],
+        "airports_located": [
+            {
+                "IATA_code": "AMX",
+                "size": "large_airport",
+                "name": "Amsterdam Airport Schiphol",
+                "country_code": "NL",
+                "city": "Amsterdam",
+                "latitude": 52.3086013794,
+                "longitude": 4.7638897896
+            },
+            {
+                "IATA_code": "AMS",
+                "size": "large_airport",
+                "name": "Amsterdam Airport Schiphol",
+                "country_code": "NL",
+                "city": "Amsterdam",
+                "latitude": 52.3086013794,
+                "longitude": 4.7638897896
+            },
+            {
+                "IATA_code": "AMZ",
+                "size": "large_airport",
+                "name": "Amsterdam Airport Schiphol",
+                "country_code": "NL",
+                "city": "Amsterdam",
+                "latitude": 52.3086013794,
+                "longitude": 4.7638897896
+            },
+            {
+                "IATA_code": "AMS",
+                "size": "large_airport",
+                "name": "Amsterdam Airport Schiphol",
+                "country_code": "NL",
+                "city": "Amsterdam",
+                "latitude": 52.3086013794,
+                "longitude": 4.7638897896
+            },
+            {
+                "IATA_code": "AMS-IX",
+                "size": " ",
+                "name": "Amsterdam",
+                "country_code": "NL",
+                "city": "Amsterdam",
+                "latitude": 52.3747158,
+                "longitude": 4.8986167
+            },
+            {
+                "IATA_code": "DHR",
+                "size": "medium_airport",
+                "name": "De Kooy Airport",
+                "country_code": "NL",
+                "city": "Den Helder",
+                "latitude": 52.9234008789,
+                "longitude": 4.7806200981
+            },
+            {
+                "IATA_code": "LEY",
+                "size": "medium_airport",
+                "name": "Lelystad Airport",
+                "country_code": "NL",
+                "city": "Lelystad",
+                "latitude": 52.4603004456,
+                "longitude": 5.5272197723
+            },
+            {
+                "IATA_code": "QAR",
+                "size": "medium_airport",
+                "name": "Deelen Air Base",
+                "country_code": "NL",
+                "city": "Arnhem",
+                "latitude": 52.0606002808,
+                "longitude": 5.8730602264
+            },
+            {
+                "IATA_code": "RTM",
+                "size": "medium_airport",
+                "name": "Rotterdam Airport",
+                "country_code": "NL",
+                "city": "Rotterdam",
+                "latitude": 51.9569015503,
+                "longitude": 4.4372200966
+            }
+        ]
+    },
+    "cf_ray_iata_code": "AMS",
+    "target": "104.16.123.96"
+}

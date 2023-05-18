@@ -3,6 +3,7 @@
 
 # ./igreedy.sh -w 192.5.5.241 -s "(52.01,4.56)"
 # ./igreedy.sh -w 192.5.5.241
+# ./igreedy.sh -w 104.16.123.96
 
 import pandas as pd
 # external modules imports
@@ -66,11 +67,18 @@ class Hunter:
         else:
             print("Some pings do not intersect. Bad scenario")
 
-        self.obtain_cf_ray()
+        try:
+            self.obtain_cf_ray()
+        except Exception as e:
+            print(e)
+            self._results_measurements["cf_ray_iata_code"] = ""
 
         self.save_measurements()
 
     def make_traceroute_measurement(self):
+        print("###########")
+        print("Traceroute phase initiated")
+        print("###########")
         if self._traceroute_from_host:
             self.host_traceroute_measurement()
         else:
@@ -83,9 +91,6 @@ class Hunter:
         self._results_measurements["traceroute"] = hops_list
 
     def ripe_traceroute_measurement(self):
-        print("###########")
-        print("Traceroute phase initiated")
-        print("###########")
         # Make traceroute from origin
         probe_id = self.find_probes_in_circle(
             latitude=self._origin[0],
@@ -184,9 +189,9 @@ class Hunter:
 
     def geolocate_last_hop(self) -> dict:
         directions_list = self.build_hops_directions_list()
-        last_hop_direction = self.select_last_hop_valid(directions_list)
         print("Traceroute directions: ")
         [print(direction) for direction in directions_list]
+        last_hop_direction = self.select_last_hop_valid(directions_list)
         print("Last Hop IP direction valid: ", last_hop_direction)
         # TODO geolocate last_hop_direction better
         last_hop_geo = self.geolocate_ip_commercial_database(
@@ -216,7 +221,12 @@ class Hunter:
         directions_list = []
         if self._traceroute_from_host:
             for result in self._results_measurements["traceroute"]:
-                directions_list.append(result.split('(', 1)[1].split(')')[0])
+                try:
+                    directions_list.append(
+                        result.split('(', 1)[1].split(')')[0]
+                    )
+                except:
+                    directions_list.append("*")
         else:
             traceroute_results = \
                 self._results_measurements["traceroute"][0]["result"]
@@ -372,12 +382,17 @@ class Hunter:
             return self.find_probes_in_circle(
                 latitude=latitude,
                 longitude=longitude,
-                radius=radius+10,
+                radius=radius + 10,
                 num_probes=num_probes
             )
         elif len(probes_connected) < num_probes:
             print("Less than {} probes suitable in area".format(num_probes))
-            num_probes = len(probes_connected)
+            return self.find_probes_in_circle(
+                latitude=latitude,
+                longitude=longitude,
+                radius=radius + 10,
+                num_probes=num_probes
+            )
         probes_selected = random.sample(probes_connected, num_probes)
         ids_selected = [probe["id"] for probe in probes_selected]
         print("IDs probes selected: ", ids_selected)
