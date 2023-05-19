@@ -29,7 +29,8 @@ from utils.common_functions import (
 
 
 class Hunter:
-    def __init__(self, target: str, origin: (float, float) = ()):
+    def __init__(self, target: str, origin: (float, float) = (),
+                 output_filename: str = "hunter_measurement.json"):
         self._target = target
         # origin format = (latitude, longitude)
         if origin != ():
@@ -45,7 +46,7 @@ class Hunter:
             self.get_ripe_key()
         )
         self._measurement_id = 0
-        self._measurement_result_filepath = "hunter_measurement.json"
+        self._measurement_result_filepath = output_filename
         self._results_measurements = {
             "traceroute_from_host": self._traceroute_from_host}
         self._ping_discs = []
@@ -152,11 +153,15 @@ class Hunter:
                 print("Measure not scheduled yet")
 
     def build_measurement_filepath(self):
-        filename = "{}_{}_{}_{}.json".format(
-            self._target,
-            self._origin[0], self._origin[1],
-            self._measurement_id)
-        self._measurement_result_filepath = HUNTER_MEASUREMENTS_PATH + filename
+        if self._measurement_result_filepath == "hunter_measurement.json":
+            filename = "{}_{}_{}_{}.json".format(
+                self._target,
+                self._origin[0], self._origin[1],
+                self._measurement_id)
+            self._measurement_result_filepath = \
+                HUNTER_MEASUREMENTS_PATH + filename
+        else:
+            return
 
     def get_measurement_results(self) -> dict:
         results_measurement_url = \
@@ -367,17 +372,19 @@ class Hunter:
     def find_probes_in_circle(self,
                               latitude: float, longitude: float,
                               radius: float, num_probes: int) -> list:
-        filters = "radius={},{}:{}".format(latitude, longitude, radius)
-        fields = "fields=id,geometry,status"
-        url = "{}?{}&{}".format(RIPE_ATLAS_PROBES_BASE_URL, filters, fields)
+        radius_filter = "radius={},{}:{}".format(latitude, longitude, radius)
+        connected_filter = "status_name=Connected"
+        fields = "fields=id,geometry,address_v4"
+        url = "{}?{}&{}&{}".format(RIPE_ATLAS_PROBES_BASE_URL,
+                                   radius_filter,
+                                   connected_filter,
+                                   fields)
         probes_inside = requests.get(url=url).json()
-        print("Probes inside area ", len(probes_inside["results"]))
-        probes_connected = list(filter(
-            lambda probe: probe["status"]["name"] == "Connected",
-            probes_inside["results"]))
-        print("Probes connected inside area (circle of {} km radius): {}".
-              format(self._radius, len(probes_connected)))
-        if len(probes_connected) == 0:
+        not_target_ip_filter = filter(
+            lambda probe: probe["address_v4"] != self._target,
+            probes_inside["results"]
+        )
+        if probes_inside["count"] == 0:
             print("No probes in a {} km circle.".format(radius))
             return self.find_probes_in_circle(
                 latitude=latitude,
@@ -385,7 +392,7 @@ class Hunter:
                 radius=radius + 10,
                 num_probes=num_probes
             )
-        elif len(probes_connected) < num_probes:
+        elif probes_inside["count"] < num_probes:
             print("Less than {} probes suitable in area".format(num_probes))
             return self.find_probes_in_circle(
                 latitude=latitude,
@@ -393,10 +400,12 @@ class Hunter:
                 radius=radius + 10,
                 num_probes=num_probes
             )
-        probes_selected = random.sample(probes_connected, num_probes)
-        ids_selected = [probe["id"] for probe in probes_selected]
-        print("IDs probes selected: ", ids_selected)
-        return ids_selected
+        else:
+
+            probes_selected = random.sample(list(not_target_ip_filter),
+                                            num_probes)
+            ids_selected = [probe["id"] for probe in probes_selected]
+            return ids_selected
 
     def get_ripe_key(self) -> str:
         return json_file_to_dict(KEY_FILEPATH)["key"]

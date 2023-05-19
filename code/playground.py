@@ -19,8 +19,11 @@ from utils.common_functions import (
     dict_to_json_file
 )
 
-result = geocoder.ip("me").geojson
-dict_to_json_file(result, "test.json")
-print(result)
+large_airports = pd.read_csv("airports_filtered.csv", sep=",")
+for index, row in large_airports.iterrows():
+    print(row["lat long"].split(" "))
+
+
+
 
 

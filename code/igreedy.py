@@ -476,9 +476,18 @@ def main(argv):
     # Hunter option
     if hunter_target:
         if start_point:
-            hunter = Hunter(target=hunter_target, origin=start_point)
+            if output_file == (output_path + "output"):
+                hunter = Hunter(target=hunter_target,
+                                origin=start_point,
+                                output_filename=output_file)
+            else:
+                hunter = Hunter(target=hunter_target, origin=start_point)
         else:
-            hunter = Hunter(target=hunter_target)
+            if output_file == (output_path + "output"):
+                hunter = Hunter(target=hunter_target,
+                                output_filename=output_file)
+            else:
+                hunter = Hunter(target=hunter_target)
         hunter.hunt()
 
     # Analyze the data and print the time of process

@@ -1,0 +1,360 @@
+{
+    "traceroute_from_host": true,
+    "traceroute": [
+        " 1  _gateway (10.152.0.1)  1.743 ms  2.032 ms  1.998 ms",
+        " 2  138.100.255.194 (138.100.255.194)  2.386 ms  2.359 ms  2.334 ms",
+        " 3  192.168.199.114 (192.168.199.114)  2.273 ms  2.248 ms  2.221 ms",
+        " 4  172.17.0.13 (172.17.0.13)  2.687 ms  2.659 ms  20.084 ms",
+        " 5  193.145.14.233 (193.145.14.233)  3.602 ms  3.725 ms  3.543 ms",
+        " 6  redimadrid-principal.ethtrunk1-103.ciemat.rt2.mad.red.rediris.es (130.206.212.105)  3.696 ms  2.075 ms  3.177 ms",
+        " 7  retn.alta.espanix.net (185.79.175.176)  2.548 ms  3.374 ms  3.192 ms",
+        " 8  ae5-10.rt.tlp.sof.bg.retn.net (87.245.232.164)  49.677 ms  49.644 ms  56.666 ms",
+        " 9  gw-novatel.retn.net (87.245.240.157)  49.349 ms  57.278 ms  49.297 ms",
+        "10  80.72.72.188.ipacct.bg (80.72.72.188)  49.444 ms  49.239 ms  49.213 ms",
+        "11  80.72.72.188.ipacct.bg (80.72.72.188)  49.360 ms  48.513 ms  48.490 ms",
+        "12  87.121.166.233 (87.121.166.233)  49.446 ms  51.159 ms  49.401 ms"
+    ],
+    "last_hop": {
+        "geolocation": {
+            "latitude": 42.6975,
+            "longitude": 23.3241
+        }
+    },
+    "pings": [
+        {
+            "fw": 4790,
+            "lts": 5,
+            "dst_name": "87.121.166.233",
+            "af": 4,
+            "dst_addr": "87.121.166.233",
+            "src_addr": "193.68.3.26",
+            "proto": "ICMP",
+            "ttl": 60,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 7.502594
+                },
+                {
+                    "rtt": 1.970689
+                },
+                {
+                    "rtt": 1.915393
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 1.915393,
+            "max": 7.502594,
+            "avg": 3.7962253333,
+            "msm_id": 53918270,
+            "prb_id": 1251,
+            "timestamp": 1684492464,
+            "msm_name": "Ping",
+            "from": "193.68.3.26",
+            "type": "ping",
+            "group_id": 53918270,
+            "step": null,
+            "stored_timestamp": 1684492465
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 45,
+            "dst_name": "87.121.166.233",
+            "af": 4,
+            "dst_addr": "87.121.166.233",
+            "src_addr": "172.16.44.2",
+            "proto": "ICMP",
+            "ttl": 60,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 1.00783
+                },
+                {
+                    "rtt": 0.858025
+                },
+                {
+                    "rtt": 0.675335
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 0.675335,
+            "max": 1.00783,
+            "avg": 0.8470633333,
+            "msm_id": 53918270,
+            "prb_id": 16228,
+            "timestamp": 1684492464,
+            "msm_name": "Ping",
+            "from": "213.145.103.45",
+            "type": "ping",
+            "group_id": 53918270,
+            "step": null,
+            "stored_timestamp": 1684492465
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 57,
+            "dst_name": "87.121.166.233",
+            "af": 4,
+            "dst_addr": "87.121.166.233",
+            "src_addr": "192.168.3.243",
+            "proto": "ICMP",
+            "ttl": 59,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 1.907293
+                },
+                {
+                    "rtt": 1.999428
+                },
+                {
+                    "rtt": 1.882654
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 1.882654,
+            "max": 1.999428,
+            "avg": 1.9297916667,
+            "msm_id": 53918270,
+            "prb_id": 16565,
+            "timestamp": 1684492463,
+            "msm_name": "Ping",
+            "from": "77.70.9.125",
+            "type": "ping",
+            "group_id": 53918270,
+            "step": null,
+            "stored_timestamp": 1684492465
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 54,
+            "dst_name": "87.121.166.233",
+            "af": 4,
+            "dst_addr": "87.121.166.233",
+            "src_addr": "192.168.4.30",
+            "proto": "ICMP",
+            "ttl": 59,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 2.338175
+                },
+                {
+                    "rtt": 2.064498
+                },
+                {
+                    "rtt": 2.32963
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 2.064498,
+            "max": 2.338175,
+            "avg": 2.244101,
+            "msm_id": 53918270,
+            "prb_id": 16857,
+            "timestamp": 1684492465,
+            "msm_name": "Ping",
+            "from": "77.70.113.170",
+            "type": "ping",
+            "group_id": 53918270,
+            "step": null,
+            "stored_timestamp": 1684492481
+        },
+        {
+            "fw": 4790,
+            "lts": 32,
+            "dst_name": "87.121.166.233",
+            "af": 4,
+            "dst_addr": "87.121.166.233",
+            "src_addr": "93.152.179.2",
+            "proto": "ICMP",
+            "ttl": 60,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 7.546369
+                },
+                {
+                    "rtt": 1.664256
+                },
+                {
+                    "rtt": 1.665792
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 1.664256,
+            "max": 7.546369,
+            "avg": 3.6254723333,
+            "msm_id": 53918270,
+            "prb_id": 2309,
+            "timestamp": 1684492466,
+            "msm_name": "Ping",
+            "from": "93.152.179.2",
+            "type": "ping",
+            "group_id": 53918270,
+            "step": null,
+            "stored_timestamp": 1684492465
+        },
+        {
+            "fw": 4790,
+            "lts": 22,
+            "dst_name": "87.121.166.233",
+            "af": 4,
+            "dst_addr": "87.121.166.233",
+            "src_addr": "10.131.80.30",
+            "proto": "ICMP",
+            "ttl": 58,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 7.104002
+                },
+                {
+                    "rtt": 2.326273
+                },
+                {
+                    "rtt": 2.478337
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 2.326273,
+            "max": 7.104002,
+            "avg": 3.9695373333,
+            "msm_id": 53918270,
+            "prb_id": 4528,
+            "timestamp": 1684492463,
+            "msm_name": "Ping",
+            "from": "95.158.149.142",
+            "type": "ping",
+            "group_id": 53918270,
+            "step": null,
+            "stored_timestamp": 1684492464
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 24,
+            "dst_name": "87.121.166.233",
+            "af": 4,
+            "dst_addr": "87.121.166.233",
+            "src_addr": "213.91.165.187",
+            "proto": "ICMP",
+            "ttl": 59,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 0.874354
+                },
+                {
+                    "rtt": 1.004119
+                },
+                {
+                    "rtt": 0.767176
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 0.767176,
+            "max": 1.004119,
+            "avg": 0.881883,
+            "msm_id": 53918270,
+            "prb_id": 6897,
+            "timestamp": 1684492463,
+            "msm_name": "Ping",
+            "from": "213.91.165.187",
+            "type": "ping",
+            "group_id": 53918270,
+            "step": null,
+            "stored_timestamp": 1684492466
+        }
+    ],
+    "ping_discs": [
+        {
+            "probe_id": 1251,
+            "latitude": 42.6275,
+            "longitude": 23.3695,
+            "rtt_min": 1.915393,
+            "radius": 20
+        },
+        {
+            "probe_id": 16228,
+            "latitude": 42.6215,
+            "longitude": 23.3485,
+            "rtt_min": 0.675335,
+            "radius": 10
+        },
+        {
+            "probe_id": 16565,
+            "latitude": 42.6595,
+            "longitude": 23.3505,
+            "rtt_min": 1.882654,
+            "radius": 20
+        },
+        {
+            "probe_id": 16857,
+            "latitude": 42.7205,
+            "longitude": 23.2495,
+            "rtt_min": 2.064498,
+            "radius": 20
+        },
+        {
+            "probe_id": 2309,
+            "latitude": 42.7015,
+            "longitude": 23.3275,
+            "rtt_min": 1.664256,
+            "radius": 20
+        },
+        {
+            "probe_id": 4528,
+            "latitude": 42.6915,
+            "longitude": 23.3985,
+            "rtt_min": 2.326273,
+            "radius": 30
+        },
+        {
+            "probe_id": 6897,
+            "latitude": 42.6605,
+            "longitude": 23.3715,
+            "rtt_min": 0.767176,
+            "radius": 10
+        }
+    ],
+    "hunt_results": {
+        "cities": [
+            "Sofia"
+        ],
+        "countries": [
+            "BG"
+        ],
+        "airports_located": [
+            {
+                "IATA_code": "SOF",
+                "size": "large_airport",
+                "name": "Sofia Airport",
+                "country_code": "BG",
+                "city": "Sofia",
+                "latitude": 42.6966934204,
+                "longitude": 23.4114360809
+            }
+        ]
+    },
+    "cf_ray_iata_code": "",
+    "target": "87.121.166.233"
+}
