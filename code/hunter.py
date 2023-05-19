@@ -57,7 +57,7 @@ class Hunter:
         # Geolocate last valid hop in traceroute measurement
         last_hop_geo = self.geolocate_last_hop()
         print("Last Hop location: ", last_hop_geo)
-        self._results_measurements["last_hop"] ={"geolocation": last_hop_geo}
+        self._results_measurements["last_hop"] = {"geolocation": last_hop_geo}
         # Pings from near last hop geo
         self.obtain_pings_near_last_hop(last_hop_geo)
         # Intersection of discs from pings
@@ -213,10 +213,13 @@ class Hunter:
             if "*" == last_hop:
                 last_hop_index += -1
                 continue
-            if self.is_IP_anycast(last_hop):
+            elif self.is_IP_anycast(last_hop):
                 last_hop_index += -1
                 continue
-            if not self.hop_from_directions_are_equal():
+            elif not self.hop_from_directions_are_equal():
+                last_hop_index += -1
+                continue
+            elif last_hop == self._target:
                 last_hop_index += -1
                 continue
             validated = True
@@ -364,8 +367,10 @@ class Hunter:
 
     def save_measurements(self):
         self._results_measurements["target"] = self._target
+        self._results_measurements["target"] = self._target
         dict_to_json_file(self._results_measurements,
-                          self._measurement_result_filepath)
+                          self._measurement_result_filepath,
+                          sort_keys=True)
 
 # Not class exclusive functions
 
@@ -380,11 +385,11 @@ class Hunter:
                                    connected_filter,
                                    fields)
         probes_inside = requests.get(url=url).json()
-        not_target_ip_filter = filter(
+        not_target_ip_probes = list(filter(
             lambda probe: probe["address_v4"] != self._target,
             probes_inside["results"]
-        )
-        if probes_inside["count"] == 0:
+        ))
+        if len(not_target_ip_probes) == 0:
             print("No probes in a {} km circle.".format(radius))
             return self.find_probes_in_circle(
                 latitude=latitude,
@@ -392,7 +397,7 @@ class Hunter:
                 radius=radius + 10,
                 num_probes=num_probes
             )
-        elif probes_inside["count"] < num_probes:
+        elif len(not_target_ip_probes) < num_probes:
             print("Less than {} probes suitable in area".format(num_probes))
             return self.find_probes_in_circle(
                 latitude=latitude,
@@ -401,9 +406,7 @@ class Hunter:
                 num_probes=num_probes
             )
         else:
-
-            probes_selected = random.sample(list(not_target_ip_filter),
-                                            num_probes)
+            probes_selected = random.sample(not_target_ip_probes, num_probes)
             ids_selected = [probe["id"] for probe in probes_selected]
             return ids_selected
 

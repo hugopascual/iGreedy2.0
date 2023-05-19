@@ -1,0 +1,133 @@
+{
+    "cf_ray_iata_code": "",
+    "hunt_results": {
+        "airports_located": [
+            {
+                "IATA_code": "JAM",
+                "city": "Yambol",
+                "country_code": "BG",
+                "latitude": 42.4548988342,
+                "longitude": 26.3521995544,
+                "name": "Bezmer Air Base",
+                "size": "medium_airport"
+            },
+            {
+                "IATA_code": "KVA",
+                "city": "Kavala",
+                "country_code": "GR",
+                "latitude": 40.9132995605,
+                "longitude": 24.6191997528,
+                "name": "Alexander the Great International Airport",
+                "size": "medium_airport"
+            },
+            {
+                "IATA_code": "PDV",
+                "city": "Plovdiv",
+                "country_code": "BG",
+                "latitude": 42.0677986145,
+                "longitude": 24.8507995605,
+                "name": "Plovdiv International Airport",
+                "size": "large_airport"
+            },
+            {
+                "IATA_code": "PVN",
+                "city": "Dolna Mitropoliya",
+                "country_code": "BG",
+                "latitude": 43.4514007568,
+                "longitude": 24.5027999878,
+                "name": "Dolna Mitropoliya Air Base",
+                "size": "medium_airport"
+            },
+            {
+                "IATA_code": "SOF",
+                "city": "Sofia",
+                "country_code": "BG",
+                "latitude": 42.6966934204,
+                "longitude": 23.4114360809,
+                "name": "Sofia Airport",
+                "size": "large_airport"
+            }
+        ],
+        "cities": [
+            "Yambol",
+            "Kavala",
+            "Plovdiv",
+            "Dolna Mitropoliya",
+            "Sofia"
+        ],
+        "countries": [
+            "BG",
+            "GR"
+        ]
+    },
+    "last_hop": {
+        "geolocation": {
+            "latitude": 42.15,
+            "longitude": 24.75
+        }
+    },
+    "ping_discs": [
+        {
+            "latitude": 42.1285,
+            "longitude": 24.7375,
+            "probe_id": 61513,
+            "radius": 160,
+            "rtt_min": 8.974927
+        }
+    ],
+    "pings": [
+        {
+            "af": 4,
+            "avg": 9.529192,
+            "dst_addr": "78.83.80.5",
+            "dst_name": "78.83.80.5",
+            "dup": 0,
+            "from": "91.148.187.168",
+            "fw": 5080,
+            "group_id": 53930194,
+            "lts": 55,
+            "max": 9.886772,
+            "min": 8.974927,
+            "msm_id": 53930194,
+            "msm_name": "Ping",
+            "mver": "2.6.2",
+            "prb_id": 61513,
+            "proto": "ICMP",
+            "rcvd": 3,
+            "result": [
+                {
+                    "rtt": 9.725877
+                },
+                {
+                    "rtt": 8.974927
+                },
+                {
+                    "rtt": 9.886772
+                }
+            ],
+            "sent": 3,
+            "size": 64,
+            "src_addr": "192.168.0.85",
+            "step": null,
+            "stored_timestamp": 1684508850,
+            "timestamp": 1684508850,
+            "ttl": 59,
+            "type": "ping"
+        }
+    ],
+    "target": "78.83.80.5",
+    "traceroute": [
+        " 1  _gateway (10.152.0.1)  1.587 ms  2.074 ms  2.051 ms",
+        " 2  138.100.255.194 (138.100.255.194)  2.026 ms  1.997 ms  1.973 ms",
+        " 3  192.168.199.114 (192.168.199.114)  1.950 ms  2.428 ms  2.405 ms",
+        " 4  172.17.0.13 (172.17.0.13)  2.363 ms  2.341 ms  2.319 ms",
+        " 5  193.145.14.233 (193.145.14.233)  2.285 ms  4.193 ms  3.196 ms",
+        " 6  redimadrid-principal.ethtrunk1-103.ciemat.rt2.mad.red.rediris.es (130.206.212.105)  3.135 ms  3.594 ms  2.492 ms",
+        " 7  retn.alta.espanix.net (185.79.175.176)  5.376 ms  3.415 ms  3.185 ms",
+        " 8  ae5-10.rt.tlp.sof.bg.retn.net (87.245.232.164)  49.874 ms  50.122 ms  50.384 ms",
+        " 9  gw-a1bulgaria.retn.net (87.245.211.89)  48.904 ms  48.879 ms  48.857 ms",
+        "10  78-83-80-2.spectrumnet.bg (78.83.80.2)  51.912 ms  51.890 ms  51.862 ms",
+        "11  78-83-80-5.spectrumnet.bg (78.83.80.5)  53.876 ms  56.429 ms  53.799 ms"
+    ],
+    "traceroute_from_host": true
+}

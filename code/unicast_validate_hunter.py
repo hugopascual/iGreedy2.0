@@ -23,7 +23,7 @@ class UnicastValidation:
         for index, airport in airports_filtered.iterrows():
             target_location = self.airport_location(airport)
             output_filename = "datasets/hunter_measurements/campaigns/" \
-                              "unicast_validation/{}_{}_{}.json".\
+                              "unicast_validation_ripe_probes/{}_{}_{}.json".\
                 format(airport["#IATA"],
                        airport["city"],
                        airport["country_code"]

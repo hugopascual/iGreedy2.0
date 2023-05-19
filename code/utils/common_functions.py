@@ -54,10 +54,10 @@ def json_file_to_list(file_path: str) -> list:
     return json.loads(raw_json)
 
 
-def dict_to_json_file(dict: dict, file_path: str):
+def dict_to_json_file(dict: dict, file_path: str, sort_keys: bool = False):
     create_directory_structure(file_path)
     file = open(file_path, "w")
-    file.write(json.dumps(dict, indent=4))
+    file.write(json.dumps(dict, indent=4, sort_keys=sort_keys))
     file.close()
 
 
