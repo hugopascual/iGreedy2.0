@@ -6,7 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import json
-from shapely import Polygon, MultiPolygon
+from shapely import Point, Polygon, MultiPolygon
 # internal modules imports
 from utils.constants import (
     GROUND_TRUTH_VALIDATIONS_PATH
@@ -14,7 +14,9 @@ from utils.constants import (
 from utils.common_functions import (
     json_file_to_dict,
     dict_to_json_file,
-    alpha2_code_to_alpha3
+    alpha2_code_to_alpha3,
+    convert_km_radius_to_degrees,
+    calculate_intersection
 )
 
 
@@ -102,59 +104,79 @@ def plot_groundtruth_validation(gt_validation_path: str) -> None:
 def plot_hunter_result(filepath: str) -> None:
     hunter_result = json_file_to_dict(filepath)
     results_df = pd.DataFrame(columns=["type", "latitude", "longitude"])
+    fig = go.Figure()
     # Add origin
-    results_df = pd.concat([
-        pd.DataFrame([[
-            "origin",
-            hunter_result["origin"]["latitude"],
-            hunter_result["origin"]["longitude"]
-        ]], columns=results_df.columns),
-        results_df], ignore_index=True)
+    fig.add_trace(go.Scattergeo(
+        lat=[hunter_result["origin"]["latitude"]],
+        lon=[hunter_result["origin"]["longitude"]],
+        mode="markers",
+        marker={"color": "green"},
+        name="origin"
+    ))
     # Add last hop
-    results_df = pd.concat([
-        pd.DataFrame([[
-            "last_hop",
-            hunter_result["last_hop"]["geolocation"]["latitude"],
-            hunter_result["last_hop"]["geolocation"]["longitude"]
-        ]], columns=results_df.columns),
-        results_df], ignore_index=True)
+    fig.add_trace(go.Scattergeo(
+        lat=[hunter_result["last_hop"]["geolocation"]["latitude"]],
+        lon=[hunter_result["last_hop"]["geolocation"]["longitude"]],
+        mode="markers",
+        marker={"color": "blue"},
+        name="last_hop"
+    ))
     # Add pings valid
+    discs_to_intersect = []
+    probes_latitudes = []
+    probes_longitudes = []
     for ping_disc in hunter_result["ping_discs"]:
-        results_df = pd.concat([
-            pd.DataFrame([[
-                "ping_disc",
-                ping_disc["latitude"],
-                ping_disc["longitude"]
-            ]], columns=results_df.columns),
-            results_df], ignore_index=True)
+        probes_latitudes.append(ping_disc["latitude"])
+        probes_longitudes.append(ping_disc["longitude"])
+        disc = Point(
+            ping_disc["longitude"],
+            ping_disc["latitude"]
+        ).buffer(convert_km_radius_to_degrees(ping_disc["radius"]))
+        discs_to_intersect.append(disc)
+
+    fig.add_trace(go.Scattergeo(
+        lat=probes_latitudes,
+        lon=probes_longitudes,
+        mode="markers",
+        marker={"color": "magenta"},
+        name="ping_probes"
+    ))
+
+    ###
+    for disc in discs_to_intersect:
+        disc_ext_coords_x, disc_ext_coords_y = disc.exterior.coords.xy
+
+        fig.add_trace(go.Scattergeo(
+            lat=disc_ext_coords_y.tolist(),
+            lon=disc_ext_coords_x.tolist(),
+            mode="markers+lines",
+            marker={"color": "red"},
+            name="ping_discs"
+        ))
+    ###
+
+    intersection = calculate_intersection(discs_to_intersect)
+    intersection_ext_coords_x, \
+        intersection_ext_coords_y = intersection.exterior.coords.xy
+    fig.add_trace(go.Scattergeo(
+        lat=intersection_ext_coords_y.tolist(),
+        lon=intersection_ext_coords_x.tolist(),
+        mode="markers+lines",
+        marker={"color": "goldenrod"},
+        name="pings_intersection"
+    ))
     # Add airports located
     for airport in hunter_result["hunt_results"]["airports_located"]:
-        results_df = pd.concat([
-            pd.DataFrame([[
-                "ping_disc",
-                airport["latitude"],
-                airport["longitude"]
-            ]], columns=results_df.columns),
-            results_df], ignore_index=True)
+        print()
 
-    # Plot points
-    plot = px.scatter_geo(results_df,
-                          lat="latitude",
-                          lon="longitude",
-                          hover_name="type",
-                          color="type")
-    plot.show()
-    #fig = go.Figure(data=go.Scattergeo(
-    #    lon=results_df["longitude"],
-    #    lat=results_df["latitude"],
-    #    mode="markers",
-    #    marker_color=results_df["type"]
-    #))
-    #fig.update_layout(
-    #    title='Hunter Result'
-    #)
-    #fig.show()
-
+    # Custom figure
+    fig.update_geos(
+        projection_type="natural earth"
+    )
+    fig.update_layout(
+        title='Hunter Result'
+    )
+    fig.show()
 
 def get_measurement_probes_from_results_file(result_path: str) -> pd.DataFrame:
     measurement_filepath = json_file_to_dict(

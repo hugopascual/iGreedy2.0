@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+# python3 code/validate_hunter_unicast_ripe.py | tee -a "validation_unicast_ripe_logs.txt"
 # external modules imports
 import pandas as pd
 import requests
@@ -16,18 +16,20 @@ class UnicastValidation:
 
     def __init__(self):
         self._radius = 20
-        self._unicast_list = []
+        self._probe_target_ip = ""
 
     def validate_with_ripe_probes(self):
         airports_filtered = self.get_airports_filtered()
         for index, airport in airports_filtered.iterrows():
             target_location = self.airport_location(airport)
-            output_filename = "datasets/hunter_measurements/campaigns/" \
-                              "unicast_validation/{}_{}_{}.json".\
-                format(airport["#IATA"],
-                       airport["city"],
-                       airport["country_code"]
-                       )
+            output_filename = \
+                "datasets/hunter_measurements/campaigns/" \
+                "validation_unicast_ripe_{}/{}_{}_{}.json".format(
+                    "20230521",
+                    airport["#IATA"],
+                    airport["city"],
+                    airport["country_code"]
+                )
 
             probe_target = self.find_probes_in_circle(
                 latitude=target_location["latitude"],
@@ -35,8 +37,9 @@ class UnicastValidation:
                 radius=self._radius,
                 num_probes=1
             )[0]
+            self._probe_target_ip = probe_target["address_v4"]
 
-            hunter = Hunter(target=probe_target["address_v4"],
+            hunter = Hunter(target=self._probe_target_ip,
                             output_filename=output_filename)
             hunter.hunt()
 
@@ -93,8 +96,6 @@ class UnicastValidation:
                 num_probes=num_probes
             )
         else:
-            print("Probes connected inside area (circle of {} km radius): {}".
-                  format(radius, probes_inside["count"]))
             probes_selected = random.sample(probes_inside["results"],
                                             num_probes)
             probes_target = [{"id": probe["id"],

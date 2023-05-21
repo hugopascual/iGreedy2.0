@@ -7,7 +7,9 @@ import json
 import csv
 import math
 import os
-from shapely import Polygon, box
+from shapely import Point, Polygon, box
+from shapely.ops import unary_union
+from rtree import index
 # internal modules imports
 from utils.constants import (
     ROOT_SERVERS_NAMES,
@@ -217,3 +219,27 @@ def is_probe_usable(probe: dict, section: dict):
         return is_probe_inside_section(probe=probe, section=section)
     else:
         return False
+
+
+def convert_km_radius_to_degrees(km_radius: float) -> float:
+    degree = km_radius * (360/(2*EARTH_RADIUS_KM*math.pi))
+    return degree
+
+
+def calculate_intersection(polygons: list) -> Polygon:
+    intersections = []
+    idx = index.Index()
+
+    for pos, circle in enumerate(polygons):
+        idx.insert(pos, circle.bounds)
+
+    for polygon in polygons:
+        merged_polygons = unary_union([
+            polygons[pos]
+            for pos in idx.intersection(polygon.bounds)
+            if polygons[pos] != polygon])
+
+        intersections.append(polygon.intersection(merged_polygons))
+
+    return unary_union(intersections)
+
