@@ -30,7 +30,8 @@ from utils.common_functions import (
 
 class Hunter:
     def __init__(self, target: str, origin: (float, float) = (),
-                 output_filename: str = "hunter_measurement.json"):
+                 output_filename: str = "hunter_measurement.json",
+                 check_cf_ray: bool = False):
         self._target = target
         # origin format = (latitude, longitude)
         if origin != ():
@@ -47,11 +48,31 @@ class Hunter:
         )
         self._measurement_id = 0
         self._measurement_result_filepath = output_filename
-        self._results_measurements = {
-            "traceroute_from_host": self._traceroute_from_host}
         self._ping_discs = []
+        self._check_cf_ray = check_cf_ray
+        self._results_measurements = {
+            "origin": {
+                "latitude": self._origin[0],
+                "longitude": self._origin[1]
+            },
+            "target": self._target,
+            "traceroute_from_host": self._traceroute_from_host,
+            "gt_code": "",
+            "hunt_results": {
+                "cities": [],
+                "countries": [],
+                "airports_located": []
+            },
+            "traceroute": [],
+            "last_hop": {},
+            "discs_intersect": False,
+            "ping_discs": [],
+            "pings": []
+        }
 
     def hunt(self):
+        if self._target is None or self._target == "":
+            return
         self.make_traceroute_measurement()
         self.build_measurement_filepath()
         # Geolocate last valid hop in traceroute measurement
@@ -63,16 +84,14 @@ class Hunter:
         # Intersection of discs from pings
         if self.check_ping_discs_intersection():
             print("All pings generated discs intersect")
+            self._results_measurements["discs_intersect"] = True
             # Location of airports inside intersection
             self.check_airports_inside_intersection()
         else:
             print("Some pings do not intersect. Bad scenario")
 
-        try:
+        if self._check_cf_ray:
             self.obtain_cf_ray()
-        except Exception as e:
-            print(e)
-            self._results_measurements["cf_ray_iata_code"] = ""
 
         self.save_measurements()
 
@@ -80,6 +99,7 @@ class Hunter:
         print("###########")
         print("Traceroute phase initiated")
         print("###########")
+        print("Target to hunt: ", self._target)
         if self._traceroute_from_host:
             self.host_traceroute_measurement()
         else:
@@ -163,7 +183,7 @@ class Hunter:
         else:
             return
 
-    def get_measurement_results(self) -> dict:
+    def get_measurement_results(self) -> list:
         results_measurement_url = \
             RIPE_ATLAS_MEASUREMENTS_BASE_URL + "{}/results".format(
                 self._measurement_id
@@ -171,16 +191,16 @@ class Hunter:
         delay = 5
         enough_results = False
         attempts = 0
-        response = {}
+        response = []
 
         while not enough_results:
-            probes_scheduled = self.get_probes_scheduled()
-            print("Total probes scheduled for measurement: ", probes_scheduled)
             print("Wait {} seconds for results. Number of attempts {}".
                   format(delay, attempts))
             time.sleep(delay)
             delay = 15
             attempts += 1
+            probes_scheduled = self.get_probes_scheduled()
+            print("Total probes scheduled for measurement: ", probes_scheduled)
             response = requests.get(results_measurement_url).json()
             print("Obtained response from {} probes".format(len(response)))
             if len(response) == probes_scheduled:
@@ -196,14 +216,17 @@ class Hunter:
         directions_list = self.build_hops_directions_list()
         print("Traceroute directions: ")
         [print(direction) for direction in directions_list]
-        last_hop_direction = self.select_last_hop_valid(directions_list)
+        (last_hop_direction, last_hop_index) = self.select_last_hop_valid(
+            directions_list)
         print("Last Hop IP direction valid: ", last_hop_direction)
         # TODO geolocate last_hop_direction better
-        last_hop_geo = self.geolocate_ip_commercial_database(
+        last_hop = self.geolocate_ip_commercial_database(
             ip=last_hop_direction)
-        return last_hop_geo
+        last_hop["ip"] = last_hop_direction
+        last_hop["index"] = last_hop_index
+        return last_hop
 
-    def select_last_hop_valid(self, directions_list: list) -> str:
+    def select_last_hop_valid(self, directions_list: list) -> (str, int):
         validated = False
         last_hop_index = -2
         last_hop = ""
@@ -223,7 +246,7 @@ class Hunter:
                 last_hop_index += -1
                 continue
             validated = True
-        return last_hop
+        return last_hop, (len(directions_list) + last_hop_index)
 
     def build_hops_directions_list(self) -> list:
         directions_list = []
@@ -289,7 +312,8 @@ class Hunter:
     def check_ping_discs_intersection(self) -> bool:
         # Build discs
         for ping_result in self._results_measurements["pings"]:
-            ping_radius = get_distance_from_rtt(ping_result["min"])
+            min_rtt = ping_result["min"]
+            ping_radius = get_distance_from_rtt(min_rtt)
             probe_location = self.get_probe_coordinates(ping_result["prb_id"])
             self._ping_discs.append({
                 "probe_id": ping_result["prb_id"],
@@ -301,10 +325,15 @@ class Hunter:
 
         self._results_measurements["ping_discs"] = self._ping_discs
 
+        if all(ping["radius"] == -1 for ping in self._ping_discs):
+            return False
+
         # Check all disc intersection
         for disc1 in self._ping_discs:
             for disc2 in self._ping_discs:
                 if disc1 == disc2:
+                    continue
+                elif disc1["radius"] == -1 or disc2["radius"] == -1:
                     continue
                 elif check_discs_intersect(disc1, disc2):
                     continue
@@ -366,11 +395,8 @@ class Hunter:
         }
 
     def save_measurements(self):
-        self._results_measurements["target"] = self._target
-        self._results_measurements["target"] = self._target
         dict_to_json_file(self._results_measurements,
-                          self._measurement_result_filepath,
-                          sort_keys=True)
+                          self._measurement_result_filepath)
 
 # Not class exclusive functions
 
@@ -446,10 +472,9 @@ class Hunter:
     #                ymax=self._origin[1] + self._separation)
 
     def obtain_cf_ray(self):
-        headers = requests.get("http://{}".format(self._target)).headers
         try:
+            headers = requests.get("http://{}".format(self._target)).headers
             cf_ray_iata_code = headers["cf-ray"].split("-")[1]
-        except:
+            self._results_measurements["gt_code"] = cf_ray_iata_code
+        except Exception as e:
             print("NO CF-RAY IN HEADERS")
-            cf_ray_iata_code = ""
-        self._results_measurements["cf_ray_iata_code"] = cf_ray_iata_code

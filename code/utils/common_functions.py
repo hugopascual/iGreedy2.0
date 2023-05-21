@@ -142,6 +142,8 @@ def get_time_from_distance(dist: float) -> float:
 def get_distance_from_rtt(rtt: float) -> float:
     # We do not have the direct function, so we approximate it with the inverse
     # Set approximation values
+    if rtt < 0:
+        return rtt
     distance_gap = 10
     max_distance_calculated = 5000 + distance_gap
     distances = list(range(0, max_distance_calculated, distance_gap))

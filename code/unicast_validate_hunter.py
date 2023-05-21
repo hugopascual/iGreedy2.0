@@ -22,12 +22,13 @@ class UnicastValidation:
         airports_filtered = self.get_airports_filtered()
         for index, airport in airports_filtered.iterrows():
             target_location = self.airport_location(airport)
-            output_filename = "datasets/hunter_measurements/campaigns/" \
-                              "unicast_validation_ripe_probes/{}_{}_{}.json".\
-                format(airport["#IATA"],
-                       airport["city"],
-                       airport["country_code"]
-                       )
+            output_filename = \
+                "datasets/hunter_measurements/campaigns/" \
+                "unicast_validation_ripe_probes20230521/{}_{}_{}.json".format(
+                    airport["#IATA"],
+                    airport["city"],
+                    airport["country_code"]
+                )
 
             probe_target = self.find_probes_in_circle(
                 latitude=target_location["latitude"],

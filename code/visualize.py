@@ -32,6 +32,8 @@ def plot_file(filepath: str) -> None:
         plot_result(filepath)
     elif "statistics" in data_keys:
         plot_groundtruth_validation(filepath)
+    elif "last_hop" in data_keys:
+        plot_hunter_result(filepath)
     else:
         print("File is neither a measurement, a result or a gt validation "
               "recognized")
@@ -95,6 +97,63 @@ def plot_groundtruth_validation(gt_validation_path: str) -> None:
                           hover_data=['rtt_ms'],
                           color="type")
     plot.show()
+
+
+def plot_hunter_result(filepath: str) -> None:
+    hunter_result = json_file_to_dict(filepath)
+    results_df = pd.DataFrame(columns=["type", "latitude", "longitude"])
+    # Add origin
+    results_df = pd.concat([
+        pd.DataFrame([[
+            "origin",
+            hunter_result["origin"]["latitude"],
+            hunter_result["origin"]["longitude"]
+        ]], columns=results_df.columns),
+        results_df], ignore_index=True)
+    # Add last hop
+    results_df = pd.concat([
+        pd.DataFrame([[
+            "last_hop",
+            hunter_result["last_hop"]["geolocation"]["latitude"],
+            hunter_result["last_hop"]["geolocation"]["longitude"]
+        ]], columns=results_df.columns),
+        results_df], ignore_index=True)
+    # Add pings valid
+    for ping_disc in hunter_result["ping_discs"]:
+        results_df = pd.concat([
+            pd.DataFrame([[
+                "ping_disc",
+                ping_disc["latitude"],
+                ping_disc["longitude"]
+            ]], columns=results_df.columns),
+            results_df], ignore_index=True)
+    # Add airports located
+    for airport in hunter_result["hunt_results"]["airports_located"]:
+        results_df = pd.concat([
+            pd.DataFrame([[
+                "ping_disc",
+                airport["latitude"],
+                airport["longitude"]
+            ]], columns=results_df.columns),
+            results_df], ignore_index=True)
+
+    # Plot points
+    plot = px.scatter_geo(results_df,
+                          lat="latitude",
+                          lon="longitude",
+                          hover_name="type",
+                          color="type")
+    plot.show()
+    #fig = go.Figure(data=go.Scattergeo(
+    #    lon=results_df["longitude"],
+    #    lat=results_df["latitude"],
+    #    mode="markers",
+    #    marker_color=results_df["type"]
+    #))
+    #fig.update_layout(
+    #    title='Hunter Result'
+    #)
+    #fig.show()
 
 
 def get_measurement_probes_from_results_file(result_path: str) -> pd.DataFrame:

@@ -1,0 +1,370 @@
+{
+    "origin": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+    },
+    "target": "59.167.217.120",
+    "traceroute_from_host": true,
+    "gt_code": "",
+    "hunt_results": {
+        "cities": [
+            "Brisbane",
+            "Ballina",
+            "Lismore",
+            "Gold Coast"
+        ],
+        "countries": [
+            "AU"
+        ],
+        "airports_located": [
+            {
+                "IATA_code": "APNIC",
+                "size": " ",
+                "name": "Brisbane",
+                "country_code": "AU",
+                "city": "Brisbane",
+                "latitude": -27.4702796,
+                "longitude": 153.023036
+            },
+            {
+                "IATA_code": "BNE",
+                "size": "large_airport",
+                "name": "Brisbane International Airport",
+                "country_code": "AU",
+                "city": "Brisbane",
+                "latitude": -27.3841991425,
+                "longitude": 153.1170043945
+            },
+            {
+                "IATA_code": "BNK",
+                "size": "medium_airport",
+                "name": "Ballina Byron Gateway Airport",
+                "country_code": "AU",
+                "city": "Ballina",
+                "latitude": -28.8339004517,
+                "longitude": 153.56199646
+            },
+            {
+                "IATA_code": "LSY",
+                "size": "medium_airport",
+                "name": "Lismore Airport",
+                "country_code": "AU",
+                "city": "Lismore",
+                "latitude": -28.8302993774,
+                "longitude": 153.259994507
+            },
+            {
+                "IATA_code": "OOL",
+                "size": "medium_airport",
+                "name": "Gold Coast Airport",
+                "country_code": "AU",
+                "city": "Gold Coast",
+                "latitude": -28.1644001007,
+                "longitude": 153.505004883
+            }
+        ]
+    },
+    "traceroute": [
+        " 1  _gateway (192.168.1.1)  0.346 ms  0.490 ms  0.633 ms",
+        " 2  * * *",
+        " 3  * 81.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.81)  5.918 ms *",
+        " 4  * 82.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.82)  5.745 ms  6.382 ms",
+        " 5  69.red-80-58-96.staticip.rima-tde.net (80.58.96.69)  6.657 ms *  6.892 ms",
+        " 6  213.140.51.56 (213.140.51.56)  7.152 ms ae-0-400-grtmadde3.net.telefonicaglobalsolutions.com (213.140.51.58)  2.955 ms 213.140.51.56 (213.140.51.56)  4.481 ms",
+        " 7  5.53.6.76 (5.53.6.76)  4.355 ms 176.52.248.172 (176.52.248.172)  5.468 ms 5.53.6.76 (5.53.6.76)  5.282 ms",
+        " 8  * 176.52.248.178 (176.52.248.178)  6.544 ms *",
+        " 9  94.142.107.207 (94.142.107.207)  6.338 ms prs-bb2-link.ip.twelve99.net (62.115.123.220)  21.247 ms  20.562 ms",
+        "10  prs-bb2-link.ip.twelve99.net (80.91.248.130)  21.890 ms * prs-bb1-link.ip.twelve99.net (213.155.131.152)  24.836 ms",
+        "11  ldn-bb1-link.ip.twelve99.net (62.115.135.24)  34.679 ms nyk-bb2-link.ip.twelve99.net (62.115.113.20)  110.336 ms *",
+        "12  nyk-bb2-link.ip.twelve99.net (62.115.113.20)  110.308 ms nyk-bb1-link.ip.twelve99.net (62.115.112.244)  106.665 ms palo-b24-link.ip.twelve99.net (62.115.118.121)  175.542 ms",
+        "13  lax-b22-link.ip.twelve99.net (62.115.119.91)  187.145 ms palo-b24-link.ip.twelve99.net (62.115.122.36)  180.550 ms palo-b24-link.ip.twelve99.net (62.115.118.121)  176.826 ms",
+        "14  lax-b22-link.ip.twelve99.net (62.115.119.91)  189.085 ms tpg-ic-322668.ip.twelve99-cust.net (213.248.95.233)  347.314 ms  347.330 ms",
+        "15  syd-gls-har-crt4-be-100.tpg.com.au (203.221.3.34)  335.681 ms  335.739 ms tpg-ic-322668.ip.twelve99-cust.net (213.248.95.233)  339.256 ms",
+        "16  bri-apt-wic-crt2-BE20.tpgi.com.au (203.26.22.58)  352.571 ms syd-sot-ken-bog1-ge-0-0.tpgi.com.au (203.29.135.110)  345.310 ms syd-gls-har-crt4-be-100.tpg.com.au (203.221.3.34)  339.665 ms",
+        "17  bri-apt-wic-crt2-BE20.tpgi.com.au (203.26.22.58)  352.657 ms  352.784 ms  347.999 ms",
+        "18  bri-pow-que-crt4-be-20.tpg.com.au (203.219.107.77)  346.859 ms  352.934 ms 60-240-241-84.static.tpgi.com.au (60.240.241.84)  349.793 ms",
+        "19  60-240-241-84.static.tpgi.com.au (60.240.241.84)  350.432 ms ppp217-120.static.internode.on.net (59.167.217.120)  354.551 ms 60-240-241-84.static.tpgi.com.au (60.240.241.84)  350.878 ms"
+    ],
+    "last_hop": {
+        "geolocation": {
+            "latitude": -27.4679,
+            "longitude": 153.0281,
+            "ip": "203.219.107.77",
+            "index": 21
+        }
+    },
+    "discs_intersect": true,
+    "ping_discs": [
+        {
+            "probe_id": 1095,
+            "latitude": -27.5005,
+            "longitude": 153.1215,
+            "rtt_min": 14.312452,
+            "radius": 320
+        },
+        {
+            "probe_id": 12428,
+            "latitude": -27.4685,
+            "longitude": 153.0185,
+            "rtt_min": 11.427137,
+            "radius": 230
+        },
+        {
+            "probe_id": 25079,
+            "latitude": -27.5785,
+            "longitude": 153.1005,
+            "rtt_min": 20.882538,
+            "radius": 560
+        },
+        {
+            "probe_id": 51788,
+            "latitude": -27.4985,
+            "longitude": 153.0415,
+            "rtt_min": 14.740291,
+            "radius": 330
+        },
+        {
+            "probe_id": 6849,
+            "latitude": -27.4685,
+            "longitude": 153.0295,
+            "rtt_min": 35.045314,
+            "radius": 1260
+        },
+        {
+            "probe_id": 51023,
+            "latitude": -27.4715,
+            "longitude": 153.0285,
+            "rtt_min": 17.934,
+            "radius": 440
+        }
+    ],
+    "pings": [
+        {
+            "fw": 4790,
+            "lts": 863,
+            "dst_name": "59.167.217.120",
+            "af": 4,
+            "dst_addr": "59.167.217.120",
+            "src_addr": "192.168.1.70",
+            "proto": "ICMP",
+            "ttl": 246,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 17.20474
+                },
+                {
+                    "rtt": 15.11194
+                },
+                {
+                    "rtt": 14.312452
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 14.312452,
+            "max": 17.20474,
+            "avg": 15.543044,
+            "msm_id": 54124434,
+            "prb_id": 1095,
+            "timestamp": 1684672398,
+            "msm_name": "Ping",
+            "from": "122.199.0.195",
+            "type": "ping",
+            "group_id": 54124434,
+            "step": null,
+            "stored_timestamp": 1684672399
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 11,
+            "dst_name": "59.167.217.120",
+            "af": 4,
+            "dst_addr": "59.167.217.120",
+            "src_addr": "10.20.120.99",
+            "proto": "ICMP",
+            "ttl": 246,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 12.715891
+                },
+                {
+                    "rtt": 11.427137
+                },
+                {
+                    "rtt": 11.648506
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 11.427137,
+            "max": 12.715891,
+            "avg": 11.9305113333,
+            "msm_id": 54124434,
+            "prb_id": 12428,
+            "timestamp": 1684672396,
+            "msm_name": "Ping",
+            "from": "122.199.1.220",
+            "type": "ping",
+            "group_id": 54124434,
+            "step": null,
+            "stored_timestamp": 1684672397
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 41,
+            "dst_name": "59.167.217.120",
+            "af": 4,
+            "dst_addr": "59.167.217.120",
+            "src_addr": "117.120.46.25",
+            "proto": "ICMP",
+            "ttl": 240,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 23.8893
+                },
+                {
+                    "rtt": 22.741915
+                },
+                {
+                    "rtt": 20.882538
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 20.882538,
+            "max": 23.8893,
+            "avg": 22.5045843333,
+            "msm_id": 54124434,
+            "prb_id": 25079,
+            "timestamp": 1684672395,
+            "msm_name": "Ping",
+            "from": "117.120.46.25",
+            "type": "ping",
+            "group_id": 54124434,
+            "step": null,
+            "stored_timestamp": 1684672396
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 65,
+            "dst_name": "59.167.217.120",
+            "af": 4,
+            "dst_addr": "59.167.217.120",
+            "src_addr": "172.16.11.248",
+            "proto": "ICMP",
+            "ttl": 243,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 14.740291
+                },
+                {
+                    "rtt": 22.551791
+                },
+                {
+                    "rtt": 16.643209
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 14.740291,
+            "max": 22.551791,
+            "avg": 17.9784303333,
+            "msm_id": 54124434,
+            "prb_id": 51788,
+            "timestamp": 1684672395,
+            "msm_name": "Ping",
+            "from": "103.100.225.206",
+            "type": "ping",
+            "group_id": 54124434,
+            "step": null,
+            "stored_timestamp": 1684672395
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 317,
+            "dst_name": "59.167.217.120",
+            "af": 4,
+            "dst_addr": "59.167.217.120",
+            "src_addr": "203.119.111.139",
+            "proto": "ICMP",
+            "ttl": 241,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 35.862942
+                },
+                {
+                    "rtt": 36.182921
+                },
+                {
+                    "rtt": 35.045314
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 35.045314,
+            "max": 36.182921,
+            "avg": 35.697059,
+            "msm_id": 54124434,
+            "prb_id": 6849,
+            "timestamp": 1684672397,
+            "msm_name": "Ping",
+            "from": "203.119.111.139",
+            "type": "ping",
+            "group_id": 54124434,
+            "step": null,
+            "stored_timestamp": 1684672409
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 34,
+            "dst_name": "59.167.217.120",
+            "af": 4,
+            "dst_addr": "59.167.217.120",
+            "src_addr": "192.168.0.3",
+            "proto": "ICMP",
+            "ttl": 250,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 25.893375
+                },
+                {
+                    "rtt": 17.934
+                },
+                {
+                    "rtt": 22.439708
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 17.934,
+            "max": 25.893375,
+            "avg": 22.0890276667,
+            "msm_id": 54124434,
+            "prb_id": 51023,
+            "timestamp": 1684672441,
+            "msm_name": "Ping",
+            "from": "59.167.214.206",
+            "type": "ping",
+            "group_id": 54124434,
+            "step": null,
+            "stored_timestamp": 1684672440
+        }
+    ]
+}

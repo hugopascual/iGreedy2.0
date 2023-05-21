@@ -1,0 +1,399 @@
+{
+    "origin": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+    },
+    "target": "24.104.17.47",
+    "traceroute_from_host": true,
+    "gt_code": "",
+    "hunt_results": {
+        "cities": [
+            "Ashburn",
+            "Camp Springs",
+            "Washington",
+            "Fort Belvoir"
+        ],
+        "countries": [
+            "US"
+        ],
+        "airports_located": [
+            {
+                "IATA_code": "ASH",
+                "size": "large_airport",
+                "name": "Ashburn Airport",
+                "country_code": "US",
+                "city": "Ashburn",
+                "latitude": 39.043611,
+                "longitude": -77.4875
+            },
+            {
+                "IATA_code": "ADW",
+                "size": "large_airport",
+                "name": "Andrews Air Force Base",
+                "country_code": "US",
+                "city": "Camp Springs",
+                "latitude": 38.810798645,
+                "longitude": -76.8669967651
+            },
+            {
+                "IATA_code": "DCA",
+                "size": "large_airport",
+                "name": "Ronald Reagan Washington National Airport",
+                "country_code": "US",
+                "city": "Washington",
+                "latitude": 38.8521003723,
+                "longitude": -77.0376968384
+            },
+            {
+                "IATA_code": "DAA",
+                "size": "medium_airport",
+                "name": "Davison Army Air Field",
+                "country_code": "US",
+                "city": "Fort Belvoir",
+                "latitude": 38.7150001526,
+                "longitude": -77.1809997559
+            },
+            {
+                "IATA_code": "DCA",
+                "size": "large_airport",
+                "name": "Ronald Reagan Washington National Airport",
+                "country_code": "US",
+                "city": "Washington",
+                "latitude": 38.8521003723,
+                "longitude": -77.0376968384
+            },
+            {
+                "IATA_code": "IAD",
+                "size": "large_airport",
+                "name": "Washington Dulles International Airport",
+                "country_code": "US",
+                "city": "Washington",
+                "latitude": 38.94449997,
+                "longitude": -77.45580292
+            },
+            {
+                "IATA_code": "WAS",
+                "size": NaN,
+                "name": "Ronald Reagan Washington National Airport",
+                "country_code": "US",
+                "city": "Washington",
+                "latitude": 38.8521003723,
+                "longitude": -77.0376968384
+            }
+        ]
+    },
+    "traceroute": [
+        " 1  _gateway (192.168.1.1)  0.392 ms  0.501 ms  0.638 ms",
+        " 2  * * *",
+        " 3  * * 77.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.77)  5.319 ms",
+        " 4  74.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.74)  5.671 ms * *",
+        " 5  * * *",
+        " 6  213.140.51.56 (213.140.51.56)  7.255 ms ae-0-400-grtmadde3.net.telefonicaglobalsolutions.com (213.140.51.58)  2.640 ms  3.543 ms",
+        " 7  213.140.37.110 (213.140.37.110)  33.558 ms 176.52.248.151 (176.52.248.151)  39.328 ms 213.140.37.122 (213.140.37.122)  30.985 ms",
+        " 8  * * *",
+        " 9  be2348.ccr41.lon13.atlas.cogentco.com (130.117.51.73)  33.994 ms be2350.ccr42.lon13.atlas.cogentco.com (130.117.51.137)  36.013 ms be2348.ccr41.lon13.atlas.cogentco.com (130.117.51.73)  32.661 ms",
+        "10  be2317.ccr41.jfk02.atlas.cogentco.com (154.54.30.185)  106.537 ms  110.155 ms  108.301 ms",
+        "11  be2807.ccr42.dca01.atlas.cogentco.com (154.54.40.110)  108.216 ms be2806.ccr41.dca01.atlas.cogentco.com (154.54.40.106)  97.487 ms  97.602 ms",
+        "12  be2676.ccr22.iad02.atlas.cogentco.com (154.54.47.166)  106.480 ms  101.591 ms be2658.ccr22.iad02.atlas.cogentco.com (154.54.47.138)  95.521 ms",
+        "13  38.142.5.226 (38.142.5.226)  105.871 ms  106.047 ms  112.666 ms",
+        "14  * * *",
+        "15  * * *",
+        "16  * * *",
+        "17  * * *",
+        "18  * * *",
+        "19  * * *",
+        "20  * * *",
+        "21  * * *",
+        "22  * * *",
+        "23  * * *",
+        "24  * * *",
+        "25  * * *",
+        "26  * * *",
+        "27  * * *",
+        "28  * * *",
+        "29  * * *",
+        "30  * * *"
+    ],
+    "last_hop": {
+        "geolocation": {
+            "latitude": 39.0437,
+            "longitude": -77.4875,
+            "ip": "38.142.5.226",
+            "index": 48
+        }
+    },
+    "discs_intersect": true,
+    "ping_discs": [
+        {
+            "probe_id": 1004212,
+            "latitude": 38.9685,
+            "longitude": -77.5325,
+            "rtt_min": 46.910842,
+            "radius": 2030
+        },
+        {
+            "probe_id": 10692,
+            "latitude": 39.0385,
+            "longitude": -77.4885,
+            "rtt_min": 18.804212,
+            "radius": 480
+        },
+        {
+            "probe_id": 13249,
+            "latitude": 38.9415,
+            "longitude": -77.3305,
+            "rtt_min": 12.192359,
+            "radius": 250
+        },
+        {
+            "probe_id": 31250,
+            "latitude": 38.9475,
+            "longitude": -77.3405,
+            "rtt_min": 3.94863,
+            "radius": 50
+        },
+        {
+            "probe_id": 3410,
+            "latitude": 38.9675,
+            "longitude": -77.5025,
+            "rtt_min": 15.792387,
+            "radius": 370
+        },
+        {
+            "probe_id": 34275,
+            "latitude": 39.1195,
+            "longitude": -77.5595,
+            "rtt_min": 4.815861,
+            "radius": 70
+        }
+    ],
+    "pings": [
+        {
+            "fw": 5040,
+            "mver": "2.4.1",
+            "lts": 3,
+            "dst_name": "24.104.17.47",
+            "af": 4,
+            "dst_addr": "24.104.17.47",
+            "src_addr": "192.168.3.251",
+            "proto": "ICMP",
+            "ttl": 52,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 46.910842
+                },
+                {
+                    "rtt": 98.0862
+                },
+                {
+                    "rtt": 61.98492
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 46.910842,
+            "max": 98.0862,
+            "avg": 68.9939873333,
+            "msm_id": 54123284,
+            "prb_id": 1004212,
+            "timestamp": 1684671171,
+            "msm_name": "Ping",
+            "from": "107.77.203.48",
+            "type": "ping",
+            "group_id": 54123284,
+            "step": null,
+            "stored_timestamp": 1684671180
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 61,
+            "dst_name": "24.104.17.47",
+            "af": 4,
+            "dst_addr": "24.104.17.47",
+            "src_addr": "192.168.1.51",
+            "proto": "ICMP",
+            "ttl": 55,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 18.953197
+                },
+                {
+                    "rtt": 22.311769
+                },
+                {
+                    "rtt": 18.804212
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 18.804212,
+            "max": 22.311769,
+            "avg": 20.0230593333,
+            "msm_id": 54123284,
+            "prb_id": 10692,
+            "timestamp": 1684671169,
+            "msm_name": "Ping",
+            "from": "73.147.244.111",
+            "type": "ping",
+            "group_id": 54123284,
+            "step": null,
+            "stored_timestamp": 1684671200
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 23,
+            "dst_name": "24.104.17.47",
+            "af": 4,
+            "dst_addr": "24.104.17.47",
+            "src_addr": "192.168.116.222",
+            "proto": "ICMP",
+            "ttl": 54,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 12.763614
+                },
+                {
+                    "rtt": 12.192359
+                },
+                {
+                    "rtt": 12.426252
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 12.192359,
+            "max": 12.763614,
+            "avg": 12.4607416667,
+            "msm_id": 54123284,
+            "prb_id": 13249,
+            "timestamp": 1684671170,
+            "msm_name": "Ping",
+            "from": "69.255.21.229",
+            "type": "ping",
+            "group_id": 54123284,
+            "step": null,
+            "stored_timestamp": 1684671202
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 3,
+            "dst_name": "24.104.17.47",
+            "af": 4,
+            "dst_addr": "24.104.17.47",
+            "src_addr": "192.168.202.144",
+            "proto": "ICMP",
+            "ttl": 57,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 4.143515
+                },
+                {
+                    "rtt": 3.94863
+                },
+                {
+                    "rtt": 6.624068
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 3.94863,
+            "max": 6.624068,
+            "avg": 4.9054043333,
+            "msm_id": 54123284,
+            "prb_id": 31250,
+            "timestamp": 1684671169,
+            "msm_name": "Ping",
+            "from": "71.163.255.14",
+            "type": "ping",
+            "group_id": 54123284,
+            "step": null,
+            "stored_timestamp": 1684671180
+        },
+        {
+            "fw": 4790,
+            "lts": 11,
+            "dst_name": "24.104.17.47",
+            "af": 4,
+            "dst_addr": "24.104.17.47",
+            "src_addr": "192.168.0.90",
+            "proto": "ICMP",
+            "ttl": 55,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 18.778372
+                },
+                {
+                    "rtt": 15.792387
+                },
+                {
+                    "rtt": 17.472772
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 15.792387,
+            "max": 18.778372,
+            "avg": 17.3478436667,
+            "msm_id": 54123284,
+            "prb_id": 3410,
+            "timestamp": 1684671170,
+            "msm_name": "Ping",
+            "from": "76.104.43.89",
+            "type": "ping",
+            "group_id": 54123284,
+            "step": null,
+            "stored_timestamp": 1684671172
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 67,
+            "dst_name": "24.104.17.47",
+            "af": 4,
+            "dst_addr": "24.104.17.47",
+            "src_addr": "172.30.251.100",
+            "proto": "ICMP",
+            "ttl": 58,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 5.282738
+                },
+                {
+                    "rtt": 5.326709
+                },
+                {
+                    "rtt": 4.815861
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 4.815861,
+            "max": 5.326709,
+            "avg": 5.1417693333,
+            "msm_id": 54123284,
+            "prb_id": 34275,
+            "timestamp": 1684671170,
+            "msm_name": "Ping",
+            "from": "108.44.193.162",
+            "type": "ping",
+            "group_id": 54123284,
+            "step": null,
+            "stored_timestamp": 1684671171
+        }
+    ]
+}
