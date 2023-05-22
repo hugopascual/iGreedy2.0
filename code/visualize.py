@@ -6,6 +6,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import json
+
+import shapely
 from shapely import Point, Polygon, MultiPolygon
 # internal modules imports
 from utils.constants import (
@@ -15,8 +17,7 @@ from utils.common_functions import (
     json_file_to_dict,
     dict_to_json_file,
     alpha2_code_to_alpha3,
-    convert_km_radius_to_degrees,
-    calculate_intersection
+    convert_km_radius_to_degrees
 )
 
 
@@ -143,19 +144,19 @@ def plot_hunter_result(filepath: str) -> None:
     ))
 
     ###
-    for disc in discs_to_intersect:
-        disc_ext_coords_x, disc_ext_coords_y = disc.exterior.coords.xy
-
-        fig.add_trace(go.Scattergeo(
-            lat=disc_ext_coords_y.tolist(),
-            lon=disc_ext_coords_x.tolist(),
-            mode="markers+lines",
-            marker={"color": "red"},
-            name="ping_discs"
-        ))
+    #for disc in discs_to_intersect:
+    #    disc_ext_coords_x, disc_ext_coords_y = disc.exterior.coords.xy
+    #
+    #    fig.add_trace(go.Scattergeo(
+    #        lat=disc_ext_coords_y.tolist(),
+    #        lon=disc_ext_coords_x.tolist(),
+    #        mode="markers+lines",
+    #        marker={"color": "red"},
+    #        name="ping_discs"
+    #    ))
     ###
 
-    intersection = calculate_intersection(discs_to_intersect)
+    intersection = shapely.intersection_all(discs_to_intersect)
     intersection_ext_coords_x, \
         intersection_ext_coords_y = intersection.exterior.coords.xy
     fig.add_trace(go.Scattergeo(
@@ -166,8 +167,21 @@ def plot_hunter_result(filepath: str) -> None:
         name="pings_intersection"
     ))
     # Add airports located
-    for airport in hunter_result["hunt_results"]["airports_located"]:
-        print()
+    airports_latitudes = [
+        airport["latitude"]
+        for airport in hunter_result["hunt_results"]["airports_located"]
+    ]
+    airports_longitudes = [
+        airport["longitude"]
+        for airport in hunter_result["hunt_results"]["airports_located"]
+    ]
+    fig.add_trace(go.Scattergeo(
+        lat=airports_latitudes,
+        lon=airports_longitudes,
+        mode="markers",
+        marker={"color": "red"},
+        name="airports_result"
+    ))
 
     # Custom figure
     fig.update_geos(
@@ -177,6 +191,7 @@ def plot_hunter_result(filepath: str) -> None:
         title='Hunter Result'
     )
     fig.show()
+
 
 def get_measurement_probes_from_results_file(result_path: str) -> pd.DataFrame:
     measurement_filepath = json_file_to_dict(

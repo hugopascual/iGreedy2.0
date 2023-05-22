@@ -39,7 +39,10 @@ class Hunter:
             self._origin = origin
             self._traceroute_from_host = False
         else:
-            (latitude, longitude) = geocoder.ip("me").latlng
+            try:
+                (latitude, longitude) = geocoder.ip("me").latlng
+            except:
+                (latitude, longitude) = (0, 0)
             self._origin = (latitude, longitude)
             self._traceroute_from_host = True
 

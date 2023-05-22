@@ -225,21 +225,3 @@ def convert_km_radius_to_degrees(km_radius: float) -> float:
     degree = km_radius * (360/(2*EARTH_RADIUS_KM*math.pi))
     return degree
 
-
-def calculate_intersection(polygons: list) -> Polygon:
-    intersections = []
-    idx = index.Index()
-
-    for pos, circle in enumerate(polygons):
-        idx.insert(pos, circle.bounds)
-
-    for polygon in polygons:
-        merged_polygons = unary_union([
-            polygons[pos]
-            for pos in idx.intersection(polygon.bounds)
-            if polygons[pos] != polygon])
-
-        intersections.append(polygon.intersection(merged_polygons))
-
-    return unary_union(intersections)
-
