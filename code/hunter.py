@@ -82,11 +82,11 @@ class Hunter:
         self.make_traceroute_measurement()
         self.build_measurement_filepath()
         # Geolocate last valid hop in traceroute measurement
-        last_hop_geo = self.geolocate_last_hop()
-        print("Last Hop location: ", last_hop_geo)
-        self._results_measurements["last_hop"] = {"geolocation": last_hop_geo}
+        last_hop= self.geolocate_last_hop()
+        print("Last Hop location: ", last_hop)
+        self._results_measurements["last_hop"] = last_hop
         # Pings from near last hop geo
-        self.obtain_pings_near_last_hop(last_hop_geo)
+        self.obtain_pings_near_last_hop(last_hop["geolocation"])
         # Intersection of discs from pings
         if self.check_ping_discs_intersection():
             print("All pings generated discs intersect")
@@ -222,37 +222,44 @@ class Hunter:
         directions_list = self.build_hops_directions_list()
         print("Traceroute directions: ")
         [print(direction) for direction in directions_list]
-        (last_hop_direction, last_hop_index) = self.select_last_hop_valid(
-            directions_list)
-        print("Last Hop IP direction valid: ", last_hop_direction)
-        # TODO geolocate last_hop_direction better
-        last_hop = self.geolocate_ip_commercial_database(
-            ip=last_hop_direction)
-        last_hop["ip"] = last_hop_direction
-        last_hop["index"] = last_hop_index
+        last_hop = self.select_last_hop_valid(directions_list)
+        print("Last Hop IP direction valid: ", last_hop["ip"])
         return last_hop
 
-    def select_last_hop_valid(self, directions_list: list) -> (str, int):
+    def select_last_hop_valid(self, directions_list: list) -> dict:
         validated = False
         last_hop_index = -2
-        last_hop = ""
+        last_hop_direction = ""
+        last_hop_geo = {}
         while not validated:
-            last_hop = directions_list[last_hop_index]
+            last_hop_direction = directions_list[last_hop_index]
             # Check if there is results
-            if "*" == last_hop:
+            if "*" == last_hop_direction:
                 last_hop_index += -1
                 continue
-            elif self.is_IP_anycast(last_hop):
+            elif self.is_IP_anycast(last_hop_direction):
                 last_hop_index += -1
                 continue
             elif not self.hop_from_directions_are_equal():
                 last_hop_index += -1
                 continue
-            elif last_hop == self._target:
+            elif last_hop_direction == self._target:
                 last_hop_index += -1
                 continue
+
+            try:
+                # TODO geolocate last_hop_direction better
+                last_hop_geo = self.geolocate_ip_commercial_database(
+                    ip=last_hop_direction)
+            except:
+                continue
             validated = True
-        return last_hop, (len(directions_list) + last_hop_index)
+        last_hop = {
+            "ip": last_hop_direction,
+            "index": (len(directions_list) + last_hop_index),
+            "geolocation": last_hop_geo
+        }
+        return last_hop
 
     def build_hops_directions_list(self) -> list:
         directions_list = []
@@ -275,7 +282,7 @@ class Hunter:
                     directions_list.append(hop["from"])
         return directions_list
 
-    def obtain_pings_near_last_hop(self, last_hop_geo):
+    def obtain_pings_near_last_hop(self, last_hop_geo: dict):
         print("###########")
         print("Pings phase initiated")
         print("###########")

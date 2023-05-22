@@ -1,0 +1,356 @@
+{
+    "origin": {
+        "latitude": 56.946,
+        "longitude": 24.1059
+    },
+    "target": "192.5.5.241",
+    "traceroute_from_host": true,
+    "gt_code": "RIX",
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": []
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  64.082 ms  65.336 ms  65.412 ms",
+        " 2  196.240.54.113 (196.240.54.113)  72.482 ms  72.818 ms  72.855 ms",
+        " 3  e0-1.core2.rix1.he.net (184.104.191.189)  67.234 ms  67.569 ms  67.817 ms",
+        " 4  cloudflare.smile-ixp.net (195.246.227.15)  66.507 ms  66.798 ms  66.876 ms",
+        " 5  f.root-servers.net (192.5.5.241)  66.219 ms  66.229 ms  66.199 ms"
+    ],
+    "last_hop": {
+        "geolocation": {
+            "latitude": 56.946,
+            "longitude": 24.1059,
+            "ip": "195.246.227.15",
+            "index": 3
+        }
+    },
+    "discs_intersect": true,
+    "ping_discs": [
+        {
+            "probe_id": 1005489,
+            "latitude": 56.9515,
+            "longitude": 24.1015,
+            "rtt_min": 4.33513,
+            "radius": 60
+        },
+        {
+            "probe_id": 1005505,
+            "latitude": 56.9495,
+            "longitude": 24.0975,
+            "rtt_min": 6.506569,
+            "radius": 100
+        },
+        {
+            "probe_id": 14319,
+            "latitude": 56.9415,
+            "longitude": 24.2075,
+            "rtt_min": 0.894817,
+            "radius": 10
+        },
+        {
+            "probe_id": 28632,
+            "latitude": 56.9785,
+            "longitude": 24.1885,
+            "rtt_min": 21.370588,
+            "radius": 580
+        },
+        {
+            "probe_id": 33536,
+            "latitude": 56.9205,
+            "longitude": 24.1385,
+            "rtt_min": 5.101371,
+            "radius": 80
+        },
+        {
+            "probe_id": 33572,
+            "latitude": 56.9485,
+            "longitude": 24.1005,
+            "rtt_min": 7.043448,
+            "radius": 120
+        },
+        {
+            "probe_id": 4016,
+            "latitude": 56.9605,
+            "longitude": 24.4275,
+            "rtt_min": 1.597441,
+            "radius": 20
+        }
+    ],
+    "pings": [
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 26,
+            "dst_name": "192.5.5.241",
+            "af": 4,
+            "dst_addr": "192.5.5.241",
+            "src_addr": "10.0.0.100",
+            "proto": "ICMP",
+            "ttl": 60,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 4.521667
+                },
+                {
+                    "rtt": 4.33513
+                },
+                {
+                    "rtt": 4.361982
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 4.33513,
+            "max": 4.521667,
+            "avg": 4.4062596667,
+            "msm_id": 54247025,
+            "prb_id": 1005489,
+            "timestamp": 1684775547,
+            "msm_name": "Ping",
+            "from": "84.237.198.46",
+            "type": "ping",
+            "group_id": 54247025,
+            "step": null,
+            "stored_timestamp": 1684775557
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 62,
+            "dst_name": "192.5.5.241",
+            "af": 4,
+            "dst_addr": "192.5.5.241",
+            "src_addr": "185.135.86.79",
+            "proto": "ICMP",
+            "ttl": 60,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 8.63654
+                },
+                {
+                    "rtt": 6.6568
+                },
+                {
+                    "rtt": 6.506569
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 6.506569,
+            "max": 8.63654,
+            "avg": 7.2666363333,
+            "msm_id": 54247025,
+            "prb_id": 1005505,
+            "timestamp": 1684775547,
+            "msm_name": "Ping",
+            "from": "185.135.86.79",
+            "type": "ping",
+            "group_id": 54247025,
+            "step": null,
+            "stored_timestamp": 1684775556
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 26,
+            "dst_name": "192.5.5.241",
+            "af": 4,
+            "dst_addr": "192.5.5.241",
+            "src_addr": "10.1.0.162",
+            "proto": "ICMP",
+            "ttl": 59,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 1.052201
+                },
+                {
+                    "rtt": 0.894817
+                },
+                {
+                    "rtt": 0.922081
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 0.894817,
+            "max": 1.052201,
+            "avg": 0.9563663333,
+            "msm_id": 54247025,
+            "prb_id": 14319,
+            "timestamp": 1684775546,
+            "msm_name": "Ping",
+            "from": "77.93.28.8",
+            "type": "ping",
+            "group_id": 54247025,
+            "step": null,
+            "stored_timestamp": 1684775553
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 18,
+            "dst_name": "192.5.5.241",
+            "af": 4,
+            "dst_addr": "192.5.5.241",
+            "src_addr": "78.154.148.10",
+            "proto": "ICMP",
+            "ttl": 62,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 21.547468
+                },
+                {
+                    "rtt": 21.370588
+                },
+                {
+                    "rtt": 21.381758
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 21.370588,
+            "max": 21.547468,
+            "avg": 21.4332713333,
+            "msm_id": 54247025,
+            "prb_id": 28632,
+            "timestamp": 1684775545,
+            "msm_name": "Ping",
+            "from": "78.154.148.10",
+            "type": "ping",
+            "group_id": 54247025,
+            "step": null,
+            "stored_timestamp": 1684775551
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 50,
+            "dst_name": "192.5.5.241",
+            "af": 4,
+            "dst_addr": "192.5.5.241",
+            "src_addr": "212.70.175.242",
+            "proto": "ICMP",
+            "ttl": 59,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 5.255818
+                },
+                {
+                    "rtt": 5.101371
+                },
+                {
+                    "rtt": 5.161073
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 5.101371,
+            "max": 5.255818,
+            "avg": 5.172754,
+            "msm_id": 54247025,
+            "prb_id": 33536,
+            "timestamp": 1684775546,
+            "msm_name": "Ping",
+            "from": "212.70.175.242",
+            "type": "ping",
+            "group_id": 54247025,
+            "step": null,
+            "stored_timestamp": 1684775557
+        },
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 24,
+            "dst_name": "192.5.5.241",
+            "af": 4,
+            "dst_addr": "192.5.5.241",
+            "src_addr": "10.10.99.102",
+            "proto": "ICMP",
+            "ttl": 59,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 12.213426
+                },
+                {
+                    "rtt": 7.044738
+                },
+                {
+                    "rtt": 7.043448
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 7.043448,
+            "max": 12.213426,
+            "avg": 8.767204,
+            "msm_id": 54247025,
+            "prb_id": 33572,
+            "timestamp": 1684775546,
+            "msm_name": "Ping",
+            "from": "185.113.168.7",
+            "type": "ping",
+            "group_id": 54247025,
+            "step": null,
+            "stored_timestamp": 1684775548
+        },
+        {
+            "fw": 4790,
+            "lts": 151,
+            "dst_name": "192.5.5.241",
+            "af": 4,
+            "dst_addr": "192.5.5.241",
+            "src_addr": "195.10.204.13",
+            "proto": "ICMP",
+            "ttl": 60,
+            "size": 64,
+            "result": [
+                {
+                    "rtt": 7.238401
+                },
+                {
+                    "rtt": 2.969857
+                },
+                {
+                    "rtt": 1.597441
+                }
+            ],
+            "dup": 0,
+            "rcvd": 3,
+            "sent": 3,
+            "min": 1.597441,
+            "max": 7.238401,
+            "avg": 3.935233,
+            "msm_id": 54247025,
+            "prb_id": 4016,
+            "timestamp": 1684775547,
+            "msm_name": "Ping",
+            "from": "195.10.204.13",
+            "type": "ping",
+            "group_id": 54247025,
+            "step": null,
+            "stored_timestamp": 1684775554
+        }
+    ],
+    "additional_info": {
+        "params": [
+            "196.240.54.116",
+            "LV#2",
+            "Latvia",
+            "OpenVPN (TCP)"
+        ]
+    }
+}
