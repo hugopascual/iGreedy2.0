@@ -2,43 +2,65 @@
 # -*- coding: utf-8 -*-
 # python3 code/validate_hunter_anycast_cloudfare.py | tee -a "validation_anycast_cloudfare_logs.txt"
 # external modules imports
-import pandas as pd
-import requests
-import random
+import subprocess
 # internal modules imports
 from hunter import Hunter
-from utils.constants import (
-    RIPE_ATLAS_PROBES_BASE_URL
-)
 
 
 class AnycastValidationCloudfare:
 
     def __init__(self):
         self._targets_list = ["192.5.5.241", "104.16.123.96"]
-        self._vpn_servers_names = ["Host"]
+        self._vpn_servers_names = [
+            "Host", "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
+            "GE", "DE", "GR", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MT",
+            "MD", "NL", "NO", "PL", "PT", "RO", "RU", "RS", "SK", "SI", "ES",
+            "SE", "CH", "TR", "UA", "UK"
+        ]
 
     def validate_anycast_from_vpn(self):
+        today = "20230522"
         for vpn_server in self._vpn_servers_names:
+            additional_info = self.connect_to_vpn_server(vpn_server)
             for target in self._targets_list:
                 output_filename = \
                     "datasets/hunter_measurements/campaigns/" \
-                    "validation_anycast_cloudfare_{}/{}_{}.json".format(
-                        "202230521",
+                    "{}_validation_anycast_cloudfare/{}_{}_{}.json".format(
+                        today,
+                        today,
                         target,
                         vpn_server)
                 hunter = Hunter(
                     target=target,
                     check_cf_ray=True,
-                    output_filename=output_filename
+                    output_filename=output_filename,
+                    additional_info=additional_info
                 )
                 hunter.hunt()
 
-    def connect_to_vpn_server(self, vpn_server: str):
+    def connect_to_vpn_server(self, vpn_server: str) -> dict:
         if vpn_server == "Host":
-            return
+            return None
         else:
-            return
+            connection_result = subprocess.run([
+                "protonvpn-cli", "connect", "--cc",
+                vpn_server,
+                "--protocol", "tcp"], stdout=subprocess.PIPE)
+            connection_status = subprocess.run([
+                "protonvpn-cli", "status"], stdout=subprocess.PIPE)
+            status_params_raw = (connection_status.stdout.split("\\n")[3:])[
+                                :-6]
+            status_params = []
+            for param_raw in status_params_raw:
+                status_params.append((param_raw.split("\\t")[-1])[1:])
+
+            return {
+                "ip": status_params[0],
+                "server_name": status_params[1],
+                "country": status_params[2],
+                "protocol": status_params[3],
+                "server_load": status_params[4]
+            }
 
 
 validator = AnycastValidationCloudfare()

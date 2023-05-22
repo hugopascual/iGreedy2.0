@@ -31,7 +31,8 @@ from utils.common_functions import (
 class Hunter:
     def __init__(self, target: str, origin: (float, float) = (),
                  output_filename: str = "hunter_measurement.json",
-                 check_cf_ray: bool = False):
+                 check_cf_ray: bool = False,
+                 additional_info: dict = None):
         self._target = target
         # origin format = (latitude, longitude)
         if origin != ():
@@ -69,6 +70,8 @@ class Hunter:
             "ping_discs": [],
             "pings": []
         }
+        if additional_info:
+            self._results_measurements["additional_info"] = additional_info
 
     def hunt(self):
         if self._target is None or self._target == "":

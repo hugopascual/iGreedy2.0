@@ -57,7 +57,7 @@ class UnicastValidation:
             keep='first',
             inplace=True)
 
-        large_airports = large_airports.sample(n=100)
+        #large_airports = large_airports.sample(n=100)
 
         return large_airports
 
