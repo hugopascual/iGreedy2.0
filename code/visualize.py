@@ -183,6 +183,18 @@ def plot_hunter_result(filepath: str) -> None:
         name="airports_result"
     ))
 
+    # Add GT location
+    gt_info = hunter_result["gt_info"]
+    (gt_latitude, gt_longitude) = gt_info["lat long"].split(" ")
+    fig.add_trace(go.Scattergeo(
+        lat=[gt_latitude],
+        lon=[gt_longitude],
+        mode="markers",
+        marker={"color": "black"},
+        name="gt"
+    ))
+
+
     # Custom figure
     fig.update_geos(
         projection_type="natural earth"

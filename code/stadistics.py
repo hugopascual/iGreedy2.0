@@ -46,7 +46,7 @@ class Statistics:
             if result_dict["gt_info"] == {}:
                 print("No ground-truth info to compare in {}".format(
                     result_filename))
-                return
+                continue
 
             validation_results_df = pd.concat(
                 [pd.DataFrame([[
