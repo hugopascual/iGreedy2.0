@@ -37,7 +37,7 @@ campaign_path = "{}{}".format(
     "20230522_validation_anycast_cloudfare")
 results_filenames = get_list_files_in_path(campaign_path)
 
-airports_df = pd.read_csv("../datasets/airports.csv", sep="\t")
+airports_df = pd.read_csv("datasets/airports.csv", sep="\t")
 airports_df.drop(["pop",
                   "heuristic",
                   "1", "2", "3"], axis=1, inplace=True)
