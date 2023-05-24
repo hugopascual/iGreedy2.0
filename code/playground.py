@@ -47,8 +47,9 @@ for result_filename in results_filenames:
         campaign_path, result_filename)
     )
     gt_iata_code = result_dict["gt_code"]
-    mask = airports_df["#IATA"].values == "gt_iata_code"
-    gt_airport = airports_df[mask].to_dict("records")[0]
+    print(gt_iata_code)
+    mask = airports_df["#IATA"].values == gt_iata_code
+    gt_airport = airports_df[mask].to_dict("records")
 
     result_dict["gt_info"] = result_dict.pop("gt_code")
     result_dict["gt_info"] = gt_airport
