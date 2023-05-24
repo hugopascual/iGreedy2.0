@@ -12,7 +12,7 @@ class AnycastValidationCloudfare:
     def __init__(self):
         self._targets_list = ["192.5.5.241", "104.16.123.96"]
         self._vpn_servers_names = [
-            "Host", "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
+            "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
             "GE", "DE", "GR", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MT",
             "MD", "NL", "NO", "PL", "PT", "RO", "RU", "RS", "SK", "SI", "ES",
             "SE", "CH", "TR", "UA", "UK"
@@ -59,7 +59,6 @@ class AnycastValidationCloudfare:
                     "server_name": status_params[1],
                     "country": status_params[2],
                     "protocol": status_params[3],
-                    "server_load": status_params[4]
                 }
             except Exception as e:
                 print(e)
