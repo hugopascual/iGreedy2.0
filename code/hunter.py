@@ -31,7 +31,7 @@ from utils.common_functions import (
 class Hunter:
     def __init__(self, target: str, origin: (float, float) = (),
                  output_filename: str = "hunter_measurement.json",
-                 check_cf_ray: bool = False,
+                 check_cf_ray: bool = True,
                  additional_info: dict = None):
         self._target = target
         # origin format = (latitude, longitude)
@@ -61,7 +61,7 @@ class Hunter:
             },
             "target": self._target,
             "traceroute_from_host": self._traceroute_from_host,
-            "gt_code": "",
+            "gt_info": {},
             "hunt_results": {
                 "cities": [],
                 "countries": [],
@@ -488,6 +488,15 @@ class Hunter:
         try:
             headers = requests.get("http://{}".format(self._target)).headers
             cf_ray_iata_code = headers["cf-ray"].split("-")[1]
-            self._results_measurements["gt_code"] = cf_ray_iata_code
+
+            airports_df = pd.read_csv("datasets/airports.csv", sep="\t")
+            airports_df.drop(["pop",
+                              "heuristic",
+                              "1", "2", "3"], axis=1, inplace=True)
+            mask = airports_df["#IATA"].values == "MAD"
+            airport_cf_ray = airports_df[mask].to_dict("records")[0]
+
+            self._results_measurements["gt_info"] = airport_cf_ray
+
         except Exception as e:
             print("NO CF-RAY IN HEADERS")
