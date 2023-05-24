@@ -7,6 +7,7 @@ import json
 import csv
 import math
 import os
+import pandas as pd
 from shapely import Point, Polygon, box
 from shapely.ops import unary_union
 from rtree import index
@@ -225,3 +226,25 @@ def convert_km_radius_to_degrees(km_radius: float) -> float:
     degree = km_radius * (360/(2*EARTH_RADIUS_KM*math.pi))
     return degree
 
+def get_nearest_airport_to_point(point: Point):
+    airports_df = pd.read_csv("datasets/airports.csv", sep="\t")
+    airports_df.drop(["pop",
+                      "heuristic",
+                      "1", "2", "3"], axis=1, inplace=True)
+
+    airports_df["distance"] = airports_df["lat long"].apply(
+        lambda airport_location: distance(
+            a={
+                "latitude": point.y,
+                "longitude": point.x
+            },
+            b={
+                "latitude": float(airport_location.split(" ")[0]),
+                "longitude": float(airport_location.split(" ")[1])
+            }
+        )
+    )
+
+    return airports_df[
+        airports_df["distance"] == airports_df["distance"].min()
+        ].to_dict("records")[0]

@@ -42,12 +42,6 @@ class Statistics:
             result_dict = json_file_to_dict("{}/{}".format(
                 self._validation_campaign_directory, result_filename)
             )
-
-            if result_dict["gt_info"] == {}:
-                print("No ground-truth info to compare in {}".format(
-                    result_filename))
-                continue
-
             validation_results_df = pd.concat(
                 [pd.DataFrame([[
                     result_dict["target"],
@@ -56,46 +50,41 @@ class Statistics:
                     len(result_dict["hunt_results"]["countries"]),
                     len(result_dict["hunt_results"]["cities"]),
                     len(result_dict["hunt_results"]["airports_located"]),
-                    self.calculate_hunter_result_outcome(
-                        "country", result_dict),
-                    self.calculate_hunter_result_outcome(
-                        "city", result_dict)
+                    self.calculate_hunter_result_outcome_country(result_dict),
+                    self.calculate_hunter_result_outcome_city(result_dict)
                 ]], columns=validation_results_df.columns
                 ), validation_results_df],
                 ignore_index=True
             )
 
-        validation_results_df.to_csv(self._output_filename + ".csv",
-                                     sep=",")
+        validation_results_df.to_csv(self._output_filename + ".csv", sep=",")
 
     # Auxiliary functions
-    def calculate_hunter_result_outcome(self, decisive_param: str,
-                                        results: dict) -> str:
-        if decisive_param == "city":
-            if len(results["hunt_results"]["cities"]) == 1:
-                city_result = results["hunt_results"]["cities"][0]
-                city_gt = results["gt_info"]["city"]
-                if city_gt == city_result:
-                    return "TP"
-                else:
-                    return "FP"
+    def calculate_hunter_result_outcome_country(self, results: dict) -> str:
+        num_result_countries = len(results["hunt_results"])
+        if num_result_countries == 1:
+            if results["gt_info"]["country_code"] == \
+                    results["hunt_results"]["countries"][0]:
+                return "Positive"
             else:
-                return "MR"
-        elif decisive_param == "country":
-            if len(results["hunt_results"]["countries"]) == 1:
-                city_result = results["hunt_results"]["countries"][0]
-                city_gt = results["gt_info"]["country_code"]
-                if city_gt == city_result:
-                    return "TP"
-                else:
-                    return "FP"
-            else:
-                return "MR"
+                return "Negative"
+        elif num_result_countries == 0:
+            return "Indeterminate"
         else:
-            print("Decisive parameter not valid")
+            return "Indeterminate"
 
-    def add_row_to_dataframe(self, df: pd.DataFrame, value_list: list):
-        return
+    def calculate_hunter_result_outcome_city(self, results: dict):
+        num_result_countries = len(results["hunt_results"])
+        if num_result_countries == 1:
+            if results["gt_info"]["city"] == \
+                    results["hunt_results"]["cities"][0]:
+                return "Positive"
+            else:
+                return "Negative"
+        elif num_result_countries == 0:
+            return "Indeterminate"
+        else:
+            return "Indeterminate"
 
 
 Statistics("hunter",
