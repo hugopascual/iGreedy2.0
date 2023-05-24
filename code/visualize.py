@@ -144,17 +144,17 @@ def plot_hunter_result(filepath: str) -> None:
     ))
 
     ###
-    #for disc in discs_to_intersect:
-    #    disc_ext_coords_x, disc_ext_coords_y = disc.exterior.coords.xy
-    #
-    #    fig.add_trace(go.Scattergeo(
-    #        lat=disc_ext_coords_y.tolist(),
-    #        lon=disc_ext_coords_x.tolist(),
-    #        mode="markers+lines",
-    #        marker={"color": "red"},
-    #        name="ping_discs"
-    #    ))
-    ###
+    for disc in discs_to_intersect:
+        disc_ext_coords_x, disc_ext_coords_y = disc.exterior.coords.xy
+
+        fig.add_trace(go.Scattergeo(
+            lat=disc_ext_coords_y.tolist(),
+            lon=disc_ext_coords_x.tolist(),
+            mode="markers+lines",
+            marker={"color": "red"},
+            name="ping_discs"
+        ))
+    ##
 
     intersection = shapely.intersection_all(discs_to_intersect)
     intersection_ext_coords_x, \
