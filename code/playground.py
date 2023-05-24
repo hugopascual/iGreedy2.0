@@ -49,7 +49,11 @@ for result_filename in results_filenames:
     gt_iata_code = result_dict["gt_code"]
     print(gt_iata_code, result_filename)
     mask = airports_df["#IATA"].values == gt_iata_code
-    gt_airport = airports_df[mask].to_dict("records")[0]
+    try:
+        gt_airport = airports_df[mask].to_dict("records")[0]
+    except IndexError:
+        gt_airport = {}
+        print("No cf-ray")
 
     result_dict["gt_info"] = result_dict.pop("gt_code")
     result_dict["gt_info"] = gt_airport
