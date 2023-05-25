@@ -82,6 +82,8 @@ class Hunter:
     def hunt(self):
         if self._target is None or self._target == "":
             return
+        if self._check_cf_ray:
+            self.obtain_cf_ray()
         self.make_traceroute_measurement()
         self.build_measurement_filepath()
         # Geolocate last valid hop in traceroute measurement
@@ -105,9 +107,6 @@ class Hunter:
             self.check_airports_inside_intersection()
         else:
             print("Some pings do not intersect. Bad scenario")
-
-        if self._check_cf_ray:
-            self.obtain_cf_ray()
 
         self.save_measurements()
 

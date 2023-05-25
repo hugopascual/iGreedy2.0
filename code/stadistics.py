@@ -12,7 +12,8 @@ from utils.constants import (
 from utils.common_functions import (
     get_list_files_in_path,
     json_file_to_dict,
-    get_nearest_airport_to_point
+    get_nearest_airport_to_point,
+    dict_to_json_file
 )
 
 
@@ -41,12 +42,17 @@ class Statistics:
             "target", "filename", "from_host", "num_countries", "num_cities",
             "num_airports", "country_outcome", "city_outcome"
         ])
+
+        results_not_valid = []
+
         for result_filename in results_filenames:
             result_dict = json_file_to_dict("{}/{}".format(
                 self._validation_campaign_directory, result_filename)
             )
 
-            print(result_filename)
+            if result_dict["gt_info"] == {}:
+                results_not_valid.append(result_filename)
+                continue
 
             validation_results_df = pd.concat(
                 [pd.DataFrame([[
@@ -64,6 +70,7 @@ class Statistics:
             )
 
         validation_results_df.to_csv(self._output_filename + ".csv", sep=",")
+        dict_to_json_file(results_not_valid, "results_not_valid.json")
 
     # Auxiliary functions
     def calculate_hunter_result_outcome_country(self, results: dict) -> str:
@@ -78,6 +85,7 @@ class Statistics:
             try:
                 centroid = from_geojson(results["hunt_results"]["centroid"])
             except Exception as e:
+                print("Exception:")
                 print(e)
                 return "Indeterminate"
             nearest_airport = get_nearest_airport_to_point(centroid)

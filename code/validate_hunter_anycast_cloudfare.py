@@ -19,14 +19,13 @@ class AnycastValidationCloudfare:
         ]
 
     def validate_anycast_from_vpn(self):
-        today = "20230522"
+        today = "20230525"
         for vpn_server in self._vpn_servers_names:
             additional_info = self.connect_to_vpn_server(vpn_server)
             for target in self._targets_list:
                 output_filename = \
                     "datasets/hunter_measurements/campaigns/" \
-                    "{}_validation_anycast_cloudfare/{}_{}_{}.json".format(
-                        today,
+                    "validation_anycast_cloudfare_{}/{}_{}.json".format(
                         today,
                         target,
                         vpn_server)
