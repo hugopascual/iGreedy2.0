@@ -24,7 +24,8 @@ from utils.common_functions import (
     dict_to_json_file,
     check_discs_intersect,
     distance,
-    get_distance_from_rtt
+    get_distance_from_rtt,
+    calculate_hunter_pings_intersection_area
 )
 
 
@@ -65,7 +66,9 @@ class Hunter:
             "hunt_results": {
                 "cities": [],
                 "countries": [],
-                "airports_located": []
+                "airports_located": [],
+                "intersection": {},
+                "centroid": {}
             },
             "traceroute": [],
             "last_hop": {},
@@ -91,6 +94,13 @@ class Hunter:
         if self.check_ping_discs_intersection():
             print("All pings generated discs intersect")
             self._results_measurements["discs_intersect"] = True
+            intersection_info = calculate_hunter_pings_intersection_area(
+                self._results_measurements["ping_discs"]
+            )
+            self._results_measurements["hunt_results"]["intersection"] = \
+                intersection_info["intersection"]
+            self._results_measurements["hunt_results"]["centroid"] = \
+                intersection_info["centroid"]
             # Location of airports inside intersection
             self.check_airports_inside_intersection()
         else:
@@ -401,11 +411,12 @@ class Hunter:
         print("Countries detected: ")
         [print(country) for country in countries_results]
 
-        self._results_measurements["hunt_results"] = {
-            "cities": cities_results,
-            "countries": countries_results,
-            "airports_located": airports_located
-        }
+        self._results_measurements["hunt_results"]["cities"] = \
+            cities_results
+        self._results_measurements["hunt_results"]["countries"] = \
+            countries_results
+        self._results_measurements["hunt_results"]["airports_located"] = \
+            airports_located
 
     def save_measurements(self):
         dict_to_json_file(self._results_measurements,
@@ -500,3 +511,5 @@ class Hunter:
 
         except Exception as e:
             print("NO CF-RAY IN HEADERS")
+
+

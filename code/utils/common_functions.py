@@ -9,6 +9,8 @@ import math
 import os
 import pandas as pd
 from shapely import Point, Polygon, box
+from shapely import intersection_all, centroid
+from shapely import to_geojson
 from shapely.ops import unary_union
 from rtree import index
 # internal modules imports
@@ -137,17 +139,19 @@ def check_discs_intersect(disc1: dict, disc2: dict) -> bool:
 
 def get_light_factor_from_distance(dist: float) -> float:
     return 0.0061699 * (dist**0.480214) + 0.0497791
-    #return 0.152616 * math.log(0.251783 * dist + 130.598) - 0.693072
+    # return 0.152616 * math.log(0.251783 * dist + 130.598) - 0.693072
+
 
 def get_time_from_distance(dist: float) -> float:
     return dist/(get_light_factor_from_distance(dist)*SPEED_OF_LIGHT)
+
 
 def get_distance_from_rtt(rtt: float) -> float:
     # We do not have the direct function, so we approximate it with the inverse
     # Set approximation values
     if rtt < 0:
         return rtt
-    distance_gap = 10
+    distance_gap = 5
     max_distance_calculated = 5000 + distance_gap
     distances = list(range(0, max_distance_calculated, distance_gap))
     trip_time_ms = rtt/2
@@ -159,7 +163,12 @@ def get_distance_from_rtt(rtt: float) -> float:
     # Get nearest value from calculated
     nearest_value = min(time_results,
                         key=lambda x: abs(x - trip_time_ms))
-    return time_results[nearest_value]
+
+    distance_result = time_results[nearest_value]
+    if distance_result == 0:
+        return distance_gap
+    else:
+        return distance_result
 
 
 def alpha2_code_to_alpha3(alpha2: str) -> str:
@@ -226,6 +235,7 @@ def convert_km_radius_to_degrees(km_radius: float) -> float:
     degree = km_radius * (360/(2*EARTH_RADIUS_KM*math.pi))
     return degree
 
+
 def get_nearest_airport_to_point(point: Point):
     airports_df = pd.read_csv("datasets/airports.csv", sep="\t")
     airports_df.drop(["pop",
@@ -248,3 +258,24 @@ def get_nearest_airport_to_point(point: Point):
     return airports_df[
         airports_df["distance"] == airports_df["distance"].min()
         ].to_dict("records")[0]
+
+
+def calculate_hunter_pings_intersection_area(ping_discs: list) -> dict:
+    discs_to_intersect = []
+    for ping_disc in ping_discs:
+        if ping_disc["radius"] == -1:
+            continue
+
+        disc = Point(
+            ping_disc["longitude"],
+            ping_disc["latitude"]
+        ).buffer(convert_km_radius_to_degrees(ping_disc["radius"]))
+        discs_to_intersect.append(disc)
+
+    intersection = intersection_all(discs_to_intersect)
+    intersection_centroid = centroid(intersection)
+
+    return {
+        "intersection": to_geojson(intersection),
+        "centroid": to_geojson(intersection_centroid)
+    }

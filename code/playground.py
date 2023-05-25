@@ -30,10 +30,36 @@ from utils.common_functions import (
     dict_to_json_file,
     convert_km_radius_to_degrees,
     get_list_files_in_path,
-    get_nearest_airport_to_point
+    get_nearest_airport_to_point,
+    calculate_hunter_pings_intersection_area
 )
 
 
-print(get_nearest_airport_to_point(Point(-3.8, 40.7)))
+campaign_path = "{}{}".format(
+    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,
+    "20230522_validation_anycast_cloudfare")
+results_filenames = get_list_files_in_path(campaign_path)
+
+for result_filename in results_filenames:
+    result_dict = json_file_to_dict("{}/{}".format(
+        campaign_path, result_filename)
+    )
+
+    for ping_disc in result_dict["ping_discs"]:
+        if ping_disc["radius"] == 0:
+            ping_disc["radius"] = 10
+
+    intersection_info = calculate_hunter_pings_intersection_area(
+        result_dict["ping_discs"]
+    )
+
+    result_dict["hunt_result"]["intersection"] = \
+        intersection_info["intersection"]
+    result_dict["hunt_result"]["centroid"] = \
+        intersection_info["centroid"]
+
+    dict_to_json_file(result_dict, "{}/{}".format(
+        campaign_path, result_filename))
+
 
 
