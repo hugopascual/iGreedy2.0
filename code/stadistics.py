@@ -124,8 +124,8 @@ class Statistics:
 Statistics("hunter",
            "{}{}".format(
                HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,
-               "20230522_validation_anycast_cloudfare"),
-           "statistics_validation_anycast_cloudfare"
+               "validation_anycast_cloudfare_20230525"),
+           "statistics_validation_anycast_cloudfare_20230525"
            )
 
 

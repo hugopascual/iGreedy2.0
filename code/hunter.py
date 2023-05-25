@@ -82,12 +82,12 @@ class Hunter:
     def hunt(self):
         if self._target is None or self._target == "":
             return
+        self.make_traceroute_measurement()
         if self._check_cf_ray:
             self.obtain_cf_ray()
-        self.make_traceroute_measurement()
         self.build_measurement_filepath()
         # Geolocate last valid hop in traceroute measurement
-        last_hop= self.geolocate_last_hop()
+        last_hop = self.geolocate_last_hop()
         print("Last Hop location: ", last_hop)
         self._results_measurements["last_hop"] = last_hop
         # Pings from near last hop geo
@@ -503,7 +503,7 @@ class Hunter:
             airports_df.drop(["pop",
                               "heuristic",
                               "1", "2", "3"], axis=1, inplace=True)
-            mask = airports_df["#IATA"].values == "MAD"
+            mask = airports_df["#IATA"].values == cf_ray_iata_code
             airport_cf_ray = airports_df[mask].to_dict("records")[0]
 
             self._results_measurements["gt_info"] = airport_cf_ray

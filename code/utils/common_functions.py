@@ -272,10 +272,16 @@ def calculate_hunter_pings_intersection_area(ping_discs: list) -> dict:
         ).buffer(convert_km_radius_to_degrees(ping_disc["radius"]))
         discs_to_intersect.append(disc)
 
-    intersection = intersection_all(discs_to_intersect)
-    intersection_centroid = centroid(intersection)
+    try:
+        intersection = to_geojson(intersection_all(discs_to_intersect))
+    except:
+        intersection = "{}"
+    try:
+        intersection_centroid = to_geojson(centroid(intersection))
+    except:
+        intersection_centroid = "{}"
 
     return {
-        "intersection": to_geojson(intersection),
-        "centroid": to_geojson(intersection_centroid)
+        "intersection": intersection,
+        "centroid": intersection_centroid
     }
