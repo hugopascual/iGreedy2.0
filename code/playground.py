@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import json
 import math
 import subprocess
 import re
@@ -45,24 +46,16 @@ for result_filename in results_filenames:
         campaign_path, result_filename)
     )
 
-    for ping_disc in result_dict["ping_discs"]:
-        if ping_disc["radius"] == 0:
-            ping_disc["radius"] = 10
+    ping_discs = result_dict["ping_discs"]
+    intersection_info = calculate_hunter_pings_intersection_area(ping_discs)
 
-    try:
-        intersection_info = calculate_hunter_pings_intersection_area(
-            result_dict["ping_discs"]
-        )
-
-        result_dict["hunt_results"]["intersection"] = \
-            intersection_info["intersection"]
-        result_dict["hunt_results"]["centroid"] = \
-            intersection_info["centroid"]
-    except Exception as e:
-        print(e)
+    result_dict["hunt_results"]["intersection"] = intersection_info["intersection"]
+    result_dict["hunt_results"]["centroid"] = intersection_info["centroid"]
 
     dict_to_json_file(result_dict, "{}/{}".format(
         campaign_path, result_filename))
+
+
 
 
 
