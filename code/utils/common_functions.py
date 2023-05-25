@@ -236,7 +236,7 @@ def convert_km_radius_to_degrees(km_radius: float) -> float:
     return degree
 
 
-def get_nearest_airport_to_point(point: Point):
+def get_nearest_airport_to_point(point: Point) -> dict:
     airports_df = pd.read_csv("datasets/airports.csv", sep="\t")
     airports_df.drop(["pop",
                       "heuristic",

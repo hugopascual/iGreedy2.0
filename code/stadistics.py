@@ -3,13 +3,16 @@
 
 # external modules imports
 import pandas as pd
+from shapely import Point
+from shapely import from_geojson
 # internal modules imports
 from utils.constants import (
     HUNTER_MEASUREMENTS_CAMPAIGNS_PATH
 )
 from utils.common_functions import (
     get_list_files_in_path,
-    json_file_to_dict
+    json_file_to_dict,
+    get_nearest_airport_to_point
 )
 
 
@@ -42,6 +45,9 @@ class Statistics:
             result_dict = json_file_to_dict("{}/{}".format(
                 self._validation_campaign_directory, result_filename)
             )
+
+            print(result_filename)
+
             validation_results_df = pd.concat(
                 [pd.DataFrame([[
                     result_dict["target"],
@@ -52,7 +58,7 @@ class Statistics:
                     len(result_dict["hunt_results"]["airports_located"]),
                     self.calculate_hunter_result_outcome_country(result_dict),
                     self.calculate_hunter_result_outcome_city(result_dict)
-                ]], columns=validation_results_df.columns
+                ]], columns=validation_results_df.columns,
                 ), validation_results_df],
                 ignore_index=True
             )
@@ -61,7 +67,7 @@ class Statistics:
 
     # Auxiliary functions
     def calculate_hunter_result_outcome_country(self, results: dict) -> str:
-        num_result_countries = len(results["hunt_results"])
+        num_result_countries = len(results["hunt_results"]["countries"])
         if num_result_countries == 1:
             if results["gt_info"]["country_code"] == \
                     results["hunt_results"]["countries"][0]:
@@ -69,20 +75,40 @@ class Statistics:
             else:
                 return "Negative"
         elif num_result_countries == 0:
-            return "Indeterminate"
+            try:
+                centroid = from_geojson(results["hunt_results"]["centroid"])
+            except Exception as e:
+                print(e)
+                return "Indeterminate"
+            nearest_airport = get_nearest_airport_to_point(centroid)
+            if results["gt_info"]["country_code"] == \
+                    nearest_airport["country_code"]:
+                return "Positive"
+            else:
+                return "Negative"
         else:
             return "Indeterminate"
 
     def calculate_hunter_result_outcome_city(self, results: dict):
-        num_result_countries = len(results["hunt_results"])
-        if num_result_countries == 1:
+        num_result_cities = len(results["hunt_results"]["cities"])
+        if num_result_cities == 1:
             if results["gt_info"]["city"] == \
                     results["hunt_results"]["cities"][0]:
                 return "Positive"
             else:
                 return "Negative"
-        elif num_result_countries == 0:
-            return "Indeterminate"
+        elif num_result_cities == 0:
+            try:
+                centroid = from_geojson(results["hunt_results"]["centroid"])
+            except Exception as e:
+                print(e)
+                return "Indeterminate"
+            nearest_airport = get_nearest_airport_to_point(centroid)
+            if results["gt_info"]["city"] == \
+                    nearest_airport["city"]:
+                return "Positive"
+            else:
+                return "Negative"
         else:
             return "Indeterminate"
 
