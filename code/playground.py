@@ -49,14 +49,17 @@ for result_filename in results_filenames:
         if ping_disc["radius"] == 0:
             ping_disc["radius"] = 10
 
-    intersection_info = calculate_hunter_pings_intersection_area(
-        result_dict["ping_discs"]
-    )
+    try:
+        intersection_info = calculate_hunter_pings_intersection_area(
+            result_dict["ping_discs"]
+        )
 
-    result_dict["hunt_result"]["intersection"] = \
-        intersection_info["intersection"]
-    result_dict["hunt_result"]["centroid"] = \
-        intersection_info["centroid"]
+        result_dict["hunt_results"]["intersection"] = \
+            intersection_info["intersection"]
+        result_dict["hunt_results"]["centroid"] = \
+            intersection_info["centroid"]
+    except Exception as e:
+        print(e)
 
     dict_to_json_file(result_dict, "{}/{}".format(
         campaign_path, result_filename))
