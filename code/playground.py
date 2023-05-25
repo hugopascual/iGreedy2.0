@@ -47,6 +47,7 @@ for result_filename in results_filenames:
     )
 
     ping_discs = result_dict["ping_discs"]
+    print(result_filename)
     intersection_info = calculate_hunter_pings_intersection_area(ping_discs)
 
     result_dict["hunt_results"]["intersection"] = intersection_info["intersection"]
