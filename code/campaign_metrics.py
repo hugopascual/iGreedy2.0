@@ -262,5 +262,5 @@ ip_directions = [
     "199.7.83.42",
     "202.12.27.33",
     "104.16.123.96"]
-plot_target_statistics_comparison(target="104.16.123.96", parameter="threshold")
+plot_target_statistics_comparison(target="104.16.123.96", parameter="alpha")
 #do_campaign()
