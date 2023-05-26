@@ -82,18 +82,16 @@ class Statistics:
             else:
                 return "Negative"
         elif num_result_countries == 0:
-            try:
-                centroid = from_geojson(results["hunt_results"]["centroid"])
-            except Exception as e:
-                print("Exception:")
-                print(e)
-                return "Indeterminate"
-            nearest_airport = get_nearest_airport_to_point(centroid)
-            if results["gt_info"]["country_code"] == \
-                    nearest_airport["country_code"]:
-                return "Positive"
+            centroid = from_geojson(results["hunt_results"]["centroid"])
+            if centroid:
+                nearest_airport = get_nearest_airport_to_point(centroid)
+                if results["gt_info"]["country_code"] == \
+                        nearest_airport["country_code"]:
+                    return "Positive"
+                else:
+                    return "Negative"
             else:
-                return "Negative"
+                return "Indeterminate"
         else:
             return "Indeterminate"
 
@@ -106,17 +104,16 @@ class Statistics:
             else:
                 return "Negative"
         elif num_result_cities == 0:
-            try:
-                centroid = from_geojson(results["hunt_results"]["centroid"])
-            except Exception as e:
-                print(e)
-                return "Indeterminate"
-            nearest_airport = get_nearest_airport_to_point(centroid)
-            if results["gt_info"]["city"] == \
-                    nearest_airport["city"]:
-                return "Positive"
+            centroid = from_geojson(results["hunt_results"]["centroid"])
+            if centroid:
+                nearest_airport = get_nearest_airport_to_point(centroid)
+                if results["gt_info"]["city"] == \
+                        nearest_airport["city"]:
+                    return "Positive"
+                else:
+                    return "Negative"
             else:
-                return "Negative"
+                return "Indeterminate"
         else:
             return "Indeterminate"
 
