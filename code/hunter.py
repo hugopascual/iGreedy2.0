@@ -72,6 +72,7 @@ class Hunter:
             },
             "traceroute": [],
             "last_hop": {},
+            "hops_directions_list": [],
             "discs_intersect": False,
             "ping_discs": [],
             "pings": []
@@ -299,6 +300,8 @@ class Hunter:
                         hop_directions.append(hop_result["from"])
                 hop_directions = list(dict.fromkeys(hop_directions))
                 directions_list.append(hop_directions)
+
+        self._results_measurements["hops_directions_list"] = directions_list
         return directions_list
 
     def obtain_pings_near_last_hop(self, last_hop_geo: dict):

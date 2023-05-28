@@ -96,6 +96,12 @@ class Statistics:
             return "Indeterminate"
 
     def calculate_hunter_result_outcome_city(self, results: dict):
+        try:
+            if len(results["hops_directions_list"][-1]) != 1:
+                return "Indeterminate"
+        except:
+            print("Target directions list exception")
+
         num_result_cities = len(results["hunt_results"]["cities"])
         if num_result_cities == 1:
             if results["gt_info"]["city"] == \
