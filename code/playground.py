@@ -35,33 +35,3 @@ from utils.common_functions import (
     calculate_hunter_pings_intersection_area
 )
 
-
-#campaign_path = "{}{}".format(
-#    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,
-#    "validation_anycast_cloudfare_20230525")
-#results_filenames = get_list_files_in_path(campaign_path)
-#
-#for result_filename in results_filenames:
-#    result_dict = json_file_to_dict("{}/{}".format(
-#        campaign_path, result_filename)
-#    )
-#
-#    ping_discs = result_dict["ping_discs"]
-#    print(result_filename)
-#    intersection_info = calculate_hunter_pings_intersection_area(ping_discs)
-#
-#    result_dict["hunt_results"]["intersection"] = intersection_info["intersection"]
-#    result_dict["hunt_results"]["centroid"] = intersection_info["centroid"]
-#
-#    dict_to_json_file(result_dict, "{}/{}".format(
-#        campaign_path, result_filename))
-
-filepath = "../datasets/hunter_measurements/campaigns/validation_anycast_cloudfare_20230525/104.16.123.96_AT.json"
-result_dict = json_file_to_dict(filepath)
-centroid = shapely.from_geojson(result_dict["hunt_results"]["centroid"])
-if centroid:
-    print(True)
-else:
-    print(False)
-
-

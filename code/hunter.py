@@ -241,15 +241,14 @@ class Hunter:
         last_hop_direction = ""
         last_hop_geo = {}
         while not validated:
-            last_hop_direction = directions_list[last_hop_index]
+            last_hop_directions = directions_list[last_hop_index]
             # Check if there is results
+            if not self.hop_from_directions_are_equal(last_hop_directions):
+                last_hop_index += -1
+                continue
+
+            last_hop_direction = last_hop_directions[0]
             if "*" == last_hop_direction:
-                last_hop_index += -1
-                continue
-            elif self.is_IP_anycast(last_hop_direction):
-                last_hop_index += -1
-                continue
-            elif not self.hop_from_directions_are_equal():
                 last_hop_index += -1
                 continue
             elif last_hop_direction == self._target:
@@ -262,7 +261,9 @@ class Hunter:
                     ip=last_hop_direction)
             except:
                 continue
+
             validated = True
+
         last_hop = {
             "ip": last_hop_direction,
             "index": (len(directions_list) + last_hop_index),
@@ -274,21 +275,30 @@ class Hunter:
         directions_list = []
         if self._traceroute_from_host:
             for result in self._results_measurements["traceroute"]:
-                try:
-                    directions_list.append(
-                        result.split('(', 1)[1].split(')')[0]
-                    )
-                except:
-                    directions_list.append("*")
+                hop_directions = []
+                for split in result.split(" "):
+                    if split == "":
+                        continue
+                    elif split == "*":
+                        hop_directions.append(split)
+                    elif split[0] == "(" and split[-1] == ")":
+                        hop_directions.append(split[1:-1])
+                    else:
+                        continue
+                hop_directions = list(dict.fromkeys(hop_directions))
+                directions_list.append(hop_directions)
         else:
             traceroute_results = \
                 self._results_measurements["traceroute"][0]["result"]
-            for result in traceroute_results:
-                hop = result["result"][0]
-                if "x" in hop.keys():
-                    directions_list.append(hop["x"])
-                else:
-                    directions_list.append(hop["from"])
+            for hop in traceroute_results:
+                hop_directions = []
+                for hop_result in hop["result"]:
+                    if "x" in hop_result.keys():
+                        hop_directions.append("*")
+                    else:
+                        hop_directions.append(hop_result["from"])
+                hop_directions = list(dict.fromkeys(hop_directions))
+                directions_list.append(hop_directions)
         return directions_list
 
     def obtain_pings_near_last_hop(self, last_hop_geo: dict):
@@ -466,9 +476,11 @@ class Hunter:
         # TODO validate if ip is anycast or not
         return False
 
-    def hop_from_directions_are_equal(self) -> bool:
-        # TODO validate if every time is the same ip direction
-        return True
+    def hop_from_directions_are_equal(self, hop_directions_list: list) -> bool:
+        if len(hop_directions_list) != 1:
+            return False
+        else:
+            return True
 
     def geolocate_ip_commercial_database(self, ip: str) -> dict:
         (latitude, longitude) = geocoder.ip(ip).latlng
