@@ -1,0 +1,75 @@
+{
+    "origin": {
+        "latitude": 48.8534,
+        "longitude": 2.3488
+    },
+    "target": "104.16.123.96",
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "CDG",
+        "size": "large_airport",
+        "name": "Charles de Gaulle International Airport",
+        "lat long": "49.0127983093 2.5499999523",
+        "country_code": "FR",
+        "city": "Paris"
+    },
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  28.450 ms  28.436 ms  28.428 ms",
+        " 2  unn-185.246.211-220.datapacket.com (185.246.211.220)  28.471 ms  28.762 ms unn-185.246.211-221.datapacket.com (185.246.211.221)  28.765 ms",
+        " 3  vl223.par-itx5-core-1.cdn77.com (185.156.45.108)  28.760 ms vl222.par-itx5-core-2.cdn77.com (185.156.45.106)  37.137 ms vl223.par-itx5-core-1.cdn77.com (185.156.45.108)  37.145 ms",
+        " 4  * * *",
+        " 5  et4-0-2.parigi72.par.seabone.net (195.22.210.55)  37.841 ms  42.373 ms 149.11.0.126 (149.11.0.126)  46.963 ms",
+        " 6  213.144.173.161 (213.144.173.161)  47.093 ms 172.71.116.2 (172.71.116.2)  38.701 ms 172.71.132.2 (172.71.132.2)  38.936 ms",
+        " 7  104.16.123.96 (104.16.123.96)  38.604 ms  36.924 ms 141.101.67.54 (141.101.67.54)  39.033 ms"
+    ],
+    "last_hop": {
+        "ip": "",
+        "index": -1,
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "185.246.211.220",
+            "185.246.211.221"
+        ],
+        [
+            "185.156.45.108",
+            "185.156.45.106"
+        ],
+        [
+            "*"
+        ],
+        [
+            "195.22.210.55",
+            "149.11.0.126"
+        ],
+        [
+            "213.144.173.161",
+            "172.71.116.2",
+            "172.71.132.2"
+        ],
+        [
+            "104.16.123.96",
+            "141.101.67.54"
+        ]
+    ],
+    "discs_intersect": false,
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.246.211.198",
+        "server_name": "FR#65",
+        "country": "France",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

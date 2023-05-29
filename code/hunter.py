@@ -67,8 +67,8 @@ class Hunter:
                 "cities": [],
                 "countries": [],
                 "airports_located": [],
-                "intersection": {},
-                "centroid": {}
+                "intersection": None,
+                "centroid": None
             },
             "traceroute": [],
             "last_hop": {},

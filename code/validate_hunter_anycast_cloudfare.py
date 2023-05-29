@@ -10,16 +10,17 @@ from hunter import Hunter
 class AnycastValidationCloudfare:
 
     def __init__(self):
+        # A total of 74 files (37*2)
         self._targets_list = ["192.5.5.241", "104.16.123.96"]
         self._vpn_servers_names = [
-            "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
-            "GE", "DE", "GR", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MT",
-            "MD", "NL", "NO", "PL", "PT", "RO", "RU", "RS", "SK", "SI", "ES",
-            "SE", "CH", "TR", "UA", "UK"
+            "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "GE",
+            "DE", "GR", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MT", "MD",
+            "NL", "NO", "PL", "PT", "RO", "RU", "RS", "SK", "SI", "ES", "SE",
+            "CH", "TR", "UA", "UK"
         ]
 
     def validate_anycast_from_vpn(self):
-        today = "20230525"
+        today = "20230529"
         for vpn_server in self._vpn_servers_names:
             additional_info = self.connect_to_vpn_server(vpn_server)
             for target in self._targets_list:
