@@ -155,7 +155,7 @@ class Statistics:
             return "Indeterminate", "Too many cities"
 
 
-Statistics("hunter", "validation_anycast_udp_cloudfare_20230529_1")
+Statistics("hunter", "validation_anycast_udp_cloudfare_20230529_2")
 
 
 

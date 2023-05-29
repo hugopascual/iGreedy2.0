@@ -26,7 +26,7 @@ class AnycastValidationCloudfare:
             for target in self._targets_list:
                 output_filename = \
                     "datasets/hunter_measurements/campaigns/" \
-                    "validation_anycast_udp_cloudfare_{}_1/{}_{}.json".format(
+                    "validation_anycast_udp_cloudfare_{}_2/{}_{}.json".format(
                         today,
                         target,
                         vpn_server)

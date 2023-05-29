@@ -129,8 +129,12 @@ class Hunter:
             self.ripe_traceroute_measurement()
 
     def host_traceroute_measurement(self):
-        result_traceroute = subprocess.run(["traceroute", self._target],
-                                           stdout=subprocess.PIPE)
+        result_traceroute = subprocess.run([
+            #"sudo",
+            "traceroute",
+            #"--tcp",
+            #"--icmp",
+            self._target], stdout=subprocess.PIPE)
         hops_list = ((str(result_traceroute.stdout)).split("\\n")[1:])[:-1]
         self._results_measurements["traceroute"] = hops_list
 
