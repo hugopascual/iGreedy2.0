@@ -1,0 +1,46 @@
+{
+    "origin": {
+        "latitude": 0,
+        "longitude": 0
+    },
+    "target": "192.5.5.241",
+    "traceroute_from_host": true,
+    "gt_info": {},
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": {},
+        "centroid": {}
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  45.022 ms  45.022 ms  45.015 ms",
+        " 2  unn-87-249-133-124.datapacket.com (87.249.133.124)  45.027 ms  45.022 ms unn-87-249-133-125.datapacket.com (87.249.133.125)  45.016 ms",
+        " 3  vl201.vie-itx1-core-1.cdn77.com (185.156.45.132)  45.291 ms vl203.vie-itx1-core-1.cdn77.com (185.156.45.134)  45.292 ms vl201.vie-itx1-core-1.cdn77.com (185.156.45.132)  45.287 ms",
+        " 4  f.root-servers.net (192.5.5.241)  53.378 ms  99.463 ms  97.518 ms"
+    ],
+    "last_hop": {
+        "ip": "",
+        "index": -1,
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "87.249.133.124",
+            "87.249.133.125"
+        ],
+        [
+            "185.156.45.132",
+            "185.156.45.134"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "discs_intersect": false,
+    "ping_discs": [],
+    "pings": []
+}

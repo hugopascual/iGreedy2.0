@@ -83,16 +83,23 @@ class Hunter:
     def hunt(self):
         if self._target is None or self._target == "":
             return
-        self.make_traceroute_measurement()
+
         if self._check_cf_ray:
             self.obtain_cf_ray()
+        self.make_traceroute_measurement()
         self.build_measurement_filepath()
+
         # Geolocate last valid hop in traceroute measurement
         last_hop = self.geolocate_last_hop()
         print("Last Hop location: ", last_hop)
         self._results_measurements["last_hop"] = last_hop
+        if last_hop["geolocation"] == {}:
+            self.save_measurements()
+            return
+
         # Pings from near last hop geo
         self.obtain_pings_near_last_hop(last_hop["geolocation"])
+
         # Intersection of discs from pings
         if self.check_ping_discs_intersection():
             print("All pings generated discs intersect")
@@ -242,6 +249,11 @@ class Hunter:
         last_hop_direction = ""
         last_hop_geo = {}
         while not validated:
+            if (len(directions_list) + last_hop_index) < 0:
+                print("No last_hop valid direction")
+                last_hop_direction = ""
+                break
+
             last_hop_directions = directions_list[last_hop_index]
             # Check if there is results
             if not self.hop_from_directions_are_equal(last_hop_directions):
@@ -260,7 +272,10 @@ class Hunter:
                 # TODO geolocate last_hop_direction better
                 last_hop_geo = self.geolocate_ip_commercial_database(
                     ip=last_hop_direction)
-            except:
+            except Exception as e:
+                print("Exception")
+                print(e)
+                last_hop_index += -1
                 continue
 
             validated = True
