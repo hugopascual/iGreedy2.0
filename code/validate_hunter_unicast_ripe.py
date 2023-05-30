@@ -5,10 +5,12 @@
 import pandas as pd
 import requests
 import random
+import json
 # internal modules imports
 from hunter import Hunter
 from utils.constants import (
-    RIPE_ATLAS_PROBES_BASE_URL
+    RIPE_ATLAS_PROBES_BASE_URL,
+    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH
 )
 
 
@@ -20,12 +22,13 @@ class UnicastValidation:
 
     def validate_with_ripe_probes(self):
         airports_filtered = self.get_airports_filtered()
+        today = "20230521"
         for index, airport in airports_filtered.iterrows():
             target_location = self.airport_location(airport)
             output_filename = \
-                "datasets/hunter_measurements/campaigns/" \
-                "validation_unicast_ripe_{}/{}_{}_{}.json".format(
-                    "20230521",
+                HUNTER_MEASUREMENTS_CAMPAIGNS_PATH + \
+                "validation_unicast_udp_ripe_{}_1_no_check_multi_ip_last_hop/{}_{}_{}.json".format(
+                    today,
                     airport["#IATA"],
                     airport["city"],
                     airport["country_code"]
@@ -40,6 +43,8 @@ class UnicastValidation:
             self._probe_target_ip = probe_target["address_v4"]
 
             hunter = Hunter(target=self._probe_target_ip,
+                            check_cf_ray=False,
+                            gt_info= airport.to_dict(),
                             output_filename=output_filename)
             hunter.hunt()
 
@@ -57,7 +62,7 @@ class UnicastValidation:
             keep='first',
             inplace=True)
 
-        #large_airports = large_airports.sample(n=100)
+        large_airports = large_airports.sample(n=2)
 
         return large_airports
 

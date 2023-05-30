@@ -33,6 +33,7 @@ class Hunter:
     def __init__(self, target: str, origin: (float, float) = (),
                  output_filename: str = "hunter_measurement.json",
                  check_cf_ray: bool = True,
+                 gt_info: dict = {},
                  additional_info: dict = None):
         self._target = target
         # origin format = (latitude, longitude)
@@ -62,7 +63,7 @@ class Hunter:
             },
             "target": self._target,
             "traceroute_from_host": self._traceroute_from_host,
-            "gt_info": {},
+            "gt_info": gt_info,
             "hunt_results": {
                 "cities": [],
                 "countries": [],
