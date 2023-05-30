@@ -259,10 +259,10 @@ class Hunter:
                 break
 
             last_hop_directions = directions_list[last_hop_index]
-            # Check if there is results
-            if not self.hop_from_directions_are_equal(last_hop_directions):
-                last_hop_index += -1
-                continue
+
+            #if not self.hop_from_directions_are_equal(last_hop_directions):
+            #    last_hop_index += -1
+            #    continue
 
             last_hop_direction = last_hop_directions[0]
             if "*" == last_hop_direction:
