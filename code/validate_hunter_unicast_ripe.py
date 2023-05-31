@@ -27,7 +27,7 @@ class UnicastValidation:
             target_location = self.airport_location(airport)
             output_filename = \
                 HUNTER_MEASUREMENTS_CAMPAIGNS_PATH + \
-                "validation_unicast_udp_ripe_{}_0_no_check_multi_ip_last_hop/{}_{}_{}.json".format(
+                "validation_unicast_udp_ripe_{}_1/{}_{}_{}.json".format(
                     today,
                     airport["#IATA"],
                     airport["city"],
