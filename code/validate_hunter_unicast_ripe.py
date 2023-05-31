@@ -22,12 +22,12 @@ class UnicastValidation:
 
     def validate_with_ripe_probes(self):
         airports_filtered = self.get_airports_filtered()
-        today = "20230521"
+        today = "20230531"
         for index, airport in airports_filtered.iterrows():
             target_location = self.airport_location(airport)
             output_filename = \
                 HUNTER_MEASUREMENTS_CAMPAIGNS_PATH + \
-                "validation_unicast_udp_ripe_{}_1_no_check_multi_ip_last_hop/{}_{}_{}.json".format(
+                "validation_unicast_udp_ripe_{}_0_no_check_multi_ip_last_hop/{}_{}_{}.json".format(
                     today,
                     airport["#IATA"],
                     airport["city"],
@@ -62,7 +62,7 @@ class UnicastValidation:
             keep='first',
             inplace=True)
 
-        large_airports = large_airports.sample(n=2)
+        #large_airports = large_airports.sample(n=2)
 
         return large_airports
 
