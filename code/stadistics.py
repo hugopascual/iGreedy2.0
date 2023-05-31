@@ -79,14 +79,14 @@ class Statistics:
             )
 
         validation_results_df.to_csv(
-            HUNTER_MEASUREMENTS_CAMPAIGNS_PATH +
-            self._validation_campaign_directory + "_statistics.csv",
+            HUNTER_MEASUREMENTS_CAMPAIGNS_PATH + "statistics_" +
+            self._validation_campaign_directory + ".csv",
             sep=",")
 
         dict_to_json_file(
             results_not_valid,
-            HUNTER_MEASUREMENTS_CAMPAIGNS_PATH +
-            self._validation_campaign_directory + "_results_not_valid.json")
+            HUNTER_MEASUREMENTS_CAMPAIGNS_PATH + "results_not_valid_" +
+            self._validation_campaign_directory + ".json")
 
     # Auxiliary functions
     def calculate_hunter_result_outcome_country(self, results: dict) -> \
@@ -155,7 +155,7 @@ class Statistics:
             return "Indeterminate", "Too many cities"
 
 
-Statistics("hunter", "validation_anycast_udp_cloudfare_20230529_2")
+Statistics("hunter", "validation_anycast_udp_cloudfare_20230530_3_no_check_multi_ip_last_hop")
 
 
 
