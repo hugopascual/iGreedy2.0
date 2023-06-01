@@ -21,15 +21,24 @@ from utils.common_functions import (
 class Statistics:
 
     def __init__(self,
-                 validation_campaign_directory: str,
-                 output_filename: str):
+                 validation_campaign_directory: str = None,
+                 output_filename: str = None):
         self._validation_campaign_directory = validation_campaign_directory
         self._output_filename = output_filename
 
     def igreedy_build_statistics_validation_campaign(self):
+        if (not self._validation_campaign_directory) or (
+                not self._output_filename):
+            print("No campaign name or output filename provided")
+            return
         return
 
     def hunter_build_statistics_validation_campaign(self):
+        if (not self._validation_campaign_directory) or (
+                not self._output_filename):
+            print("No campaign name or output filename provided")
+            return
+
         results_filenames = get_list_files_in_path(
             HUNTER_MEASUREMENTS_CAMPAIGNS_PATH +
             self._validation_campaign_directory)
@@ -87,13 +96,13 @@ class Statistics:
     # Auxiliary functions
     def calculate_hunter_result_outcome_country(self, results: dict) -> \
             (str, str):
-        #try:
-        #    if len(results["hops_directions_list"][-1]) != 1:
-        #        return "Indeterminate", "Multiples IP on target hop"
-        #    elif results["hops_directions_list"][-1] == "*":
-        #        return "Indeterminate", "Target hop do not respond"
-        #except:
-        #    print("Target directions list exception")
+        try:
+            if len(results["hops_directions_list"][-1]) != 1:
+                return "Indeterminate", "Multiples IP on target hop"
+            elif results["hops_directions_list"][-1] == "*":
+                return "Indeterminate", "Target hop do not respond"
+        except:
+            print("Target directions list exception")
 
         num_result_countries = len(results["hunt_results"]["countries"])
         if num_result_countries == 1:
@@ -121,13 +130,13 @@ class Statistics:
 
     def calculate_hunter_result_outcome_city(self, results: dict) -> \
             (str, str):
-        #try:
-        #    if len(results["hops_directions_list"][-1]) != 1:
-        #        return "Indeterminate", "Multiples IP on target hop"
-        #    elif results["hops_directions_list"][-1] == "*":
-        #        return "Indeterminate", "Target hop do not respond"
-        #except:
-        #    print("Target directions list exception")
+        try:
+            if len(results["hops_directions_list"][-1]) != 1:
+                return "Indeterminate", "Multiples IP on target hop"
+            elif results["hops_directions_list"][-1] == "*":
+                return "Indeterminate", "Target hop do not respond"
+        except:
+            print("Target directions list exception")
 
         num_result_cities = len(results["hunt_results"]["cities"])
         if num_result_cities == 1:
@@ -211,9 +220,16 @@ class Statistics:
                               "aggregation_results.csv", sep=",")
 
 
-statistics = Statistics("validation_unicast_udp_ripe_20230531_1",
-                        "validation_unicast_udp_ripe_20230531_1_no_check_multi_ip_target")
-#statistics.hunter_build_statistics_validation_campaign()
+hunter_campaigns = [
+    "validation_anycast_udp_cloudfare_20230525_0_no_check_multi_ip_last_hop",
+    "validation_anycast_udp_cloudfare_20230529_1",
+    "validation_anycast_udp_cloudfare_20230529_2",
+    "validation_anycast_udp_cloudfare_20230530_3_no_check_multi_ip_last_hop",
+    "validation_unicast_udp_ripe_20230531_0_no_check_multi_ip_last_hop",
+    "validation_unicast_udp_ripe_20230531_1"
+]
+
+statistics = Statistics()
 statistics.aggregate_hunter_statistics()
 
 
