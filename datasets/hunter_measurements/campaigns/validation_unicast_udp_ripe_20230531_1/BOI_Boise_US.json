@@ -1,0 +1,91 @@
+{
+    "origin": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+    },
+    "target": "96.19.243.226",
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "BOI",
+        "size": "large_airport",
+        "name": "Boise Air Terminal/Gowen field",
+        "lat long": "43.56439972 -116.2229996",
+        "country_code": "US",
+        "city": "Boise"
+    },
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (192.168.1.1)  0.654 ms  0.553 ms  0.870 ms",
+        " 2  * * *",
+        " 3  81.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.81)  6.090 ms 77.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.77)  5.885 ms  5.863 ms",
+        " 4  * * *",
+        " 5  * 69.red-80-58-96.staticip.rima-tde.net (80.58.96.69)  8.007 ms  7.987 ms",
+        " 6  46.red-80-58-96.staticip.rima-tde.net (80.58.96.46)  6.745 ms  44.647 ms *",
+        " 7  ae1-400-grtmadte1.net.telefonicaglobalsolutions.com (216.184.113.186)  8.585 ms  8.567 ms ae12-400-grtmadte1.net.telefonicaglobalsolutions.com (216.184.113.52)  9.036 ms",
+        " 8  ae-5.edge1.Madrid2.Level3.net (4.68.39.33)  6.572 ms 176.52.248.247 (176.52.248.247)  8.749 ms  8.733 ms",
+        " 9  * ae-5.edge1.Madrid2.Level3.net (4.68.39.33)  4.019 ms *",
+        "10  NORDSTROM.edge1.Seattle1.Level3.net (4.35.245.194)  192.735 ms 4.69.219.210 (4.69.219.210)  198.197 ms NORDSTROM.edge1.Seattle1.Level3.net (4.35.245.194)  192.649 ms",
+        "11  * NORDSTROM.edge1.Seattle1.Level3.net (4.35.245.194)  190.565 ms *",
+        "12  96-19-96-19-243-226.cpe.sparklight.net (96.19.243.226)  209.821 ms  214.617 ms  214.595 ms"
+    ],
+    "last_hop": {
+        "ip": "",
+        "index": -1,
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "192.168.1.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "81.46.67.81",
+            "81.46.67.77"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*",
+            "80.58.96.69"
+        ],
+        [
+            "80.58.96.46",
+            "*"
+        ],
+        [
+            "216.184.113.186",
+            "216.184.113.52"
+        ],
+        [
+            "4.68.39.33",
+            "176.52.248.247"
+        ],
+        [
+            "*",
+            "4.68.39.33"
+        ],
+        [
+            "4.35.245.194",
+            "4.69.219.210"
+        ],
+        [
+            "*",
+            "4.35.245.194"
+        ],
+        [
+            "96.19.243.226"
+        ]
+    ],
+    "discs_intersect": false,
+    "ping_discs": [],
+    "pings": []
+}

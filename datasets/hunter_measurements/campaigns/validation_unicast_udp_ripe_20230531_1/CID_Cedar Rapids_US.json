@@ -1,0 +1,263 @@
+{
+    "origin": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+    },
+    "target": "162.244.43.81",
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "CID",
+        "size": "large_airport",
+        "name": "The Eastern Iowa Airport",
+        "lat long": "41.8847007751 -91.7108001709",
+        "country_code": "US",
+        "city": "Cedar Rapids"
+    },
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (192.168.1.1)  0.950 ms  0.898 ms  0.875 ms",
+        " 2  * * *",
+        " 3  77.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.77)  5.916 ms 81.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.81)  6.026 ms  6.006 ms",
+        " 4  * * 74.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.74)  6.444 ms",
+        " 5  69.red-80-58-96.staticip.rima-tde.net (80.58.96.69)  5.906 ms  6.947 ms *",
+        " 6  213.140.51.56 (213.140.51.56)  7.116 ms  3.906 ms ae-0-400-grtmadde3.net.telefonicaglobalsolutions.com (213.140.51.58)  3.856 ms",
+        " 7  5.53.6.76 (5.53.6.76)  4.339 ms  5.469 ms 176.52.248.172 (176.52.248.172)  5.447 ms",
+        " 8  * * *",
+        " 9  prs-bb1-link.ip.twelve99.net (62.115.123.218)  29.778 ms 94.142.107.207 (94.142.107.207)  5.867 ms prs-bb1-link.ip.twelve99.net (62.115.123.218)  27.584 ms",
+        "10  * ldn-bb1-link.ip.twelve99.net (62.115.135.24)  39.570 ms *",
+        "11  nyk-bb2-link.ip.twelve99.net (62.115.113.20)  106.103 ms  105.782 ms ldn-bb1-link.ip.twelve99.net (62.115.135.24)  39.022 ms",
+        "12  chi-b23-link.ip.twelve99.net (80.91.246.162)  117.693 ms chi-b23-link.ip.twelve99.net (62.115.137.59)  123.802 ms chi-b23-link.ip.twelve99.net (80.91.246.162)  117.799 ms",
+        "13  chi-b23-link.ip.twelve99.net (80.91.246.162)  118.692 ms omha-b3-link.ip.twelve99.net (62.115.143.183)  135.597 ms  133.465 ms",
+        "14  aureon-ic-337963.ip.twelve99-cust.net (62.115.46.231)  129.890 ms omha-b3-link.ip.twelve99.net (62.115.143.183)  130.463 ms  134.131 ms",
+        "15  aureon-ic-337963.ip.twelve99-cust.net (62.115.46.231)  135.043 ms ins-oc3-lo0.omah.netins.net (167.142.66.76)  130.393 ms omha-b3-link.ip.twelve99.net (62.115.143.183)  135.783 ms",
+        "16  ins-oc3-lo0.omah.netins.net (167.142.66.76)  135.061 ms ins-kc4-lo0.kmrr.netins.net (167.142.66.75)  131.610 ms ins-oc3-lo0.omah.netins.net (167.142.66.76)  135.714 ms",
+        "17  ins-kb4-lo0.kmrr.netins.net (167.142.66.23)  128.012 ms  132.826 ms  129.017 ms",
+        "18  southslope.kmrr.netins.net (167.142.51.34)  160.306 ms  156.700 ms  160.262 ms",
+        "19  stativ-162-244-40-1.southslope.net (162.244.40.1)  134.156 ms  139.178 ms  134.856 ms",
+        "20  stativ-162-244-40-1.southslope.net (162.244.40.1)  139.920 ms *  139.859 ms",
+        "21  * * *",
+        "22  * * *",
+        "23  * * *",
+        "24  * * *",
+        "25  * * *",
+        "26  * * *",
+        "27  * * *",
+        "28  * * *",
+        "29  * * *",
+        "30  * * *"
+    ],
+    "last_hop": {
+        "ip": "162.244.40.1",
+        "index": 18,
+        "geolocation": {
+            "latitude": 41.7492,
+            "longitude": -91.5979
+        }
+    },
+    "hops_directions_list": [
+        [
+            "192.168.1.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "81.46.67.77",
+            "81.46.67.81"
+        ],
+        [
+            "*",
+            "81.46.67.74"
+        ],
+        [
+            "80.58.96.69",
+            "*"
+        ],
+        [
+            "213.140.51.56",
+            "213.140.51.58"
+        ],
+        [
+            "5.53.6.76",
+            "176.52.248.172"
+        ],
+        [
+            "*"
+        ],
+        [
+            "62.115.123.218",
+            "94.142.107.207"
+        ],
+        [
+            "*",
+            "62.115.135.24"
+        ],
+        [
+            "62.115.113.20",
+            "62.115.135.24"
+        ],
+        [
+            "80.91.246.162",
+            "62.115.137.59"
+        ],
+        [
+            "80.91.246.162",
+            "62.115.143.183"
+        ],
+        [
+            "62.115.46.231",
+            "62.115.143.183"
+        ],
+        [
+            "62.115.46.231",
+            "167.142.66.76",
+            "62.115.143.183"
+        ],
+        [
+            "167.142.66.76",
+            "167.142.66.75"
+        ],
+        [
+            "167.142.66.23"
+        ],
+        [
+            "167.142.51.34"
+        ],
+        [
+            "162.244.40.1"
+        ],
+        [
+            "162.244.40.1",
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ]
+    ],
+    "discs_intersect": false,
+    "ping_discs": [
+        {
+            "probe_id": 1002581,
+            "latitude": 41.6375,
+            "longitude": -93.5185,
+            "rtt_min": -1,
+            "radius": -1
+        },
+        {
+            "probe_id": 1004418,
+            "latitude": 41.6015,
+            "longitude": -93.6125,
+            "rtt_min": -1,
+            "radius": -1
+        }
+    ],
+    "pings": [
+        {
+            "fw": 5080,
+            "mver": "2.6.2",
+            "lts": 44,
+            "dst_name": "162.244.43.81",
+            "af": 4,
+            "dst_addr": "162.244.43.81",
+            "src_addr": "10.201.1.162",
+            "proto": "ICMP",
+            "size": 64,
+            "result": [
+                {
+                    "x": "*"
+                },
+                {
+                    "x": "*"
+                },
+                {
+                    "x": "*"
+                }
+            ],
+            "dup": 0,
+            "rcvd": 0,
+            "sent": 3,
+            "min": -1,
+            "max": -1,
+            "avg": -1,
+            "msm_id": 54676256,
+            "prb_id": 1002581,
+            "timestamp": 1685606787,
+            "msm_name": "Ping",
+            "from": "173.31.24.115",
+            "type": "ping",
+            "group_id": 54676256,
+            "step": null,
+            "stored_timestamp": 1685606788
+        },
+        {
+            "fw": 5040,
+            "mver": "2.4.1",
+            "lts": 19,
+            "dst_name": "162.244.43.81",
+            "af": 4,
+            "dst_addr": "162.244.43.81",
+            "src_addr": "10.24.0.4",
+            "proto": "ICMP",
+            "size": 64,
+            "result": [
+                {
+                    "x": "*"
+                },
+                {
+                    "x": "*"
+                },
+                {
+                    "x": "*"
+                }
+            ],
+            "dup": 0,
+            "rcvd": 0,
+            "sent": 3,
+            "min": -1,
+            "max": -1,
+            "avg": -1,
+            "msm_id": 54676256,
+            "prb_id": 1004418,
+            "timestamp": 1685606788,
+            "msm_name": "Ping",
+            "from": "20.9.8.5",
+            "type": "ping",
+            "group_id": 54676256,
+            "step": null,
+            "stored_timestamp": 1685606789
+        }
+    ]
+}

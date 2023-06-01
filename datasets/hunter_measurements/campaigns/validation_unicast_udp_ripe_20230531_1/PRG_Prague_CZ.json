@@ -1,0 +1,103 @@
+{
+    "origin": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+    },
+    "target": "185.75.119.22",
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "PRG",
+        "size": "large_airport",
+        "name": "Ruzyn\u011b International Airport",
+        "lat long": "50.1007995605 14.2600002289",
+        "country_code": "CZ",
+        "city": "Prague"
+    },
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (192.168.1.1)  0.560 ms  0.519 ms  0.825 ms",
+        " 2  * * *",
+        " 3  69.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.69)  5.945 ms 77.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.77)  5.928 ms 81.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.81)  6.238 ms",
+        " 4  82.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.82)  6.103 ms  6.087 ms *",
+        " 5  * 69.red-80-58-96.staticip.rima-tde.net (80.58.96.69)  6.987 ms  12.800 ms",
+        " 6  ae-0-400-grtmadde3.net.telefonicaglobalsolutions.com (213.140.51.58)  6.121 ms 213.140.51.56 (213.140.51.56)  4.275 ms ae-0-400-grtmadde3.net.telefonicaglobalsolutions.com (213.140.51.58)  4.229 ms",
+        " 7  5.53.6.76 (5.53.6.76)  4.425 ms 176.52.248.172 (176.52.248.172)  5.724 ms  5.707 ms",
+        " 8  * * *",
+        " 9  prs-bb2-link.ip.twelve99.net (62.115.123.220)  23.275 ms 94.142.107.37 (94.142.107.37)  12.821 ms prs-bb2-link.ip.twelve99.net (62.115.123.220)  23.976 ms",
+        "10  ffm-bb2-link.ip.twelve99.net (62.115.122.139)  37.068 ms et-8-3-0.cr3-prg1.ip4.gtt.net (89.149.186.241)  62.570 ms ffm-bb2-link.ip.twelve99.net (62.115.122.139)  38.281 ms",
+        "11  dial-telecom-gw.ip4.tinet.net (213.200.74.94)  60.498 ms prag-b4-link.ip.twelve99.net (62.115.124.29)  45.163 ms dial-telecom-gw.ip4.tinet.net (213.200.74.94)  53.201 ms",
+        "12  prag-b5-link.ip.twelve99.net (62.115.127.83)  44.580 ms 82.113.32.227 (82.113.32.227)  37.697 ms prag-b5-link.ip.twelve99.net (62.115.127.83)  44.744 ms",
+        "13  sw-brevnov2.pe3ny.net (94.142.232.19)  38.805 ms dial-telecom-ic-379457.ip.twelve99-cust.net (62.115.33.243)  43.179 ms sw-brevnov2.pe3ny.net (94.142.232.19)  38.069 ms",
+        "14  * 185.75.119.22.pe3ny.net (185.75.119.22)  44.148 ms *"
+    ],
+    "last_hop": {
+        "ip": "",
+        "index": -1,
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "192.168.1.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "81.46.67.69",
+            "81.46.67.77",
+            "81.46.67.81"
+        ],
+        [
+            "81.46.67.82",
+            "*"
+        ],
+        [
+            "*",
+            "80.58.96.69"
+        ],
+        [
+            "213.140.51.58",
+            "213.140.51.56"
+        ],
+        [
+            "5.53.6.76",
+            "176.52.248.172"
+        ],
+        [
+            "*"
+        ],
+        [
+            "62.115.123.220",
+            "94.142.107.37"
+        ],
+        [
+            "62.115.122.139",
+            "89.149.186.241"
+        ],
+        [
+            "213.200.74.94",
+            "62.115.124.29"
+        ],
+        [
+            "62.115.127.83",
+            "82.113.32.227"
+        ],
+        [
+            "94.142.232.19",
+            "62.115.33.243"
+        ],
+        [
+            "*",
+            "185.75.119.22"
+        ]
+    ],
+    "discs_intersect": false,
+    "ping_discs": [],
+    "pings": []
+}

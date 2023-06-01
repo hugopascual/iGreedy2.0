@@ -1,0 +1,89 @@
+{
+    "origin": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+    },
+    "target": "176.236.91.66",
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "ADA",
+        "size": "large_airport",
+        "name": "Adana Airport",
+        "lat long": "36.9822006226 35.2803993225",
+        "country_code": "TR",
+        "city": "Adana"
+    },
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (192.168.1.1)  0.808 ms  0.743 ms  0.689 ms",
+        " 2  * * *",
+        " 3  73.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.73)  6.273 ms 77.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.77)  6.254 ms 73.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.73)  6.240 ms",
+        " 4  * * 82.red-81-46-67.customer.static.ccgg.telefonica.net (81.46.67.82)  22.460 ms",
+        " 5  69.red-80-58-96.staticip.rima-tde.net (80.58.96.69)  31.513 ms * *",
+        " 6  ae-0-400-grtmadde3.net.telefonicaglobalsolutions.com (213.140.51.58)  6.301 ms  3.844 ms 213.140.51.56 (213.140.51.56)  5.379 ms",
+        " 7  94.142.97.54 (94.142.97.54)  5.163 ms 176.52.248.172 (176.52.248.172)  7.062 ms  7.043 ms",
+        " 8  80.156.163.225 (80.156.163.225)  7.377 ms ae10.cr0-mad5.ip4.gtt.net (154.14.157.229)  5.808 ms  3.137 ms",
+        " 9  141.136.107.194 (141.136.107.194)  70.182 ms ist-sa5-i.IST.TR.NET.DTAG.DE (217.239.45.137)  81.586 ms  81.540 ms",
+        "10  ist-sa5-i.IST.TR.NET.DTAG.DE (217.239.45.145)  80.881 ms 134.222.105.153 (134.222.105.153)  70.332 ms ist-sa5-i.IST.TR.NET.DTAG.DE (217.239.45.141)  80.677 ms",
+        "11  217.243.178.205 (217.243.178.205)  79.736 ms  79.456 ms 176.236.91.66 (176.236.91.66)  79.293 ms"
+    ],
+    "last_hop": {
+        "ip": "",
+        "index": -1,
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "192.168.1.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "81.46.67.73",
+            "81.46.67.77"
+        ],
+        [
+            "*",
+            "81.46.67.82"
+        ],
+        [
+            "80.58.96.69",
+            "*"
+        ],
+        [
+            "213.140.51.58",
+            "213.140.51.56"
+        ],
+        [
+            "94.142.97.54",
+            "176.52.248.172"
+        ],
+        [
+            "80.156.163.225",
+            "154.14.157.229"
+        ],
+        [
+            "141.136.107.194",
+            "217.239.45.137"
+        ],
+        [
+            "217.239.45.145",
+            "134.222.105.153",
+            "217.239.45.141"
+        ],
+        [
+            "217.243.178.205",
+            "176.236.91.66"
+        ]
+    ],
+    "discs_intersect": false,
+    "ping_discs": [],
+    "pings": []
+}
