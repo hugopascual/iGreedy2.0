@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# python3 code/validate_hunter_unicast_ripe.py | tee -a "validation_unicast_ripe_logs.txt"
+
 # external modules imports
 import pandas as pd
 import requests
