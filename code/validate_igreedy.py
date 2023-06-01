@@ -8,5 +8,8 @@
 class iGreedyValidation:
 
     def __init__(self):
-        return
+        self._target_list = []
+        self._probefile_list = []
 
+    def generate_measurements(self):
+        return
