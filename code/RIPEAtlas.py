@@ -89,8 +89,10 @@ class Measurement():
                 # Start the measurement and get measurement id
                 results = requests.post(self.url, json=data).json()
                 # TODO remove only for test
-                cm.dict_to_json_file(dict=data,
-                                     file_path="last_measurement_data.json")
+                #data["petition_result"] = results
+                #print(key)
+                #cm.dict_to_json_file(dict=data,
+                #                     file_path="last_measurement_data.json")
                 self.id = results["measurements"][0]
 
             except requests.HTTPError as e:

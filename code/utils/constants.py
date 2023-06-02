@@ -43,7 +43,6 @@ RESULTS_CAMPAIGNS_PATH = RESULTS_PATH + "campaigns/"
 # Probes
 PROBES_SETS_PATH = __DATASETS_PATH + "probes_sets/"
 DEFAULT_PROBES_PATH = PROBES_SETS_PATH + "WW_10.json"
-PROBES_SECTIONS_PATH = __DATASETS_PATH + "probes_section/"
 
 # Metrics comparison
 METRICS_CSV_PATH = __DATASETS_PATH + "ploted_metrics_csv/"
@@ -68,19 +67,19 @@ ROOT_SERVERS_NAMES = [
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 ]
 ROOT_SERVERS = {
-    "A": "198.41.0.4",
-    "B": "199.9.14.201",
-    "C": "192.33.4.12",
-    "D": "199.7.91.13",
-    "E": "192.203.230.10",
-    "F": "192.5.5.241",
-    "G": "192.112.36.4",
-    "H": "198.97.190.53",
-    "I": "192.36.148.17",
-    "J": "192.58.128.30",
-    "K": "193.0.14.129",
-    "L": "199.7.83.42",
-    "M": "202.12.27.33"
+    "198.41.0.4": "root_servers_A.json",
+    "199.9.14.201": "root_servers_B.json",
+    "192.33.4.12": "root_servers_C.json",
+    "199.7.91.13": "root_servers_D.json",
+    "192.203.230.10": "root_servers_E.json",
+    "192.5.5.241": "root_servers_F.json",
+    "192.112.36.4": "root_servers_G.json",
+    "198.97.190.53": "root_servers_H.json",
+    "192.36.148.17": "root_servers_I.json",
+    "192.58.128.30": "root_servers_J.json",
+    "193.0.14.129": "root_servers_K.json",
+    "199.7.83.42": "root_servers_L.json",
+    "202.12.27.33": "root_servers_M.json"
 }
 CLOUDFARE_IPS = ["104.16.123.96"]
 EARTH_RADIUS_KM = 6371

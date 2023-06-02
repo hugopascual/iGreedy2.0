@@ -291,6 +291,8 @@ class Measurement(object):
                     except KeyError as exception:
                         print("Key Exception Error")
                         print(exception.__str__())
+                        print("Info probes")
+                        print(info_probes)
                     data_to_save["measurement_results"].append(measure)
 
         self._measurement_filename = "{}_{}_{}.json".format(

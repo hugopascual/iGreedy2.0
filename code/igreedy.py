@@ -162,7 +162,8 @@ def analyze():
         numberOfInstance += resultEnumeration[0]
         if numberOfInstance <= 1:
             print("No anycast instance detected")
-            sys.exit()
+            return
+
         for radius, discList in resultEnumeration[1].getOrderedDisc().items():
             for disc in discList:
                 # if the disc was not geolocated before, geolocate it!
@@ -252,6 +253,7 @@ def output():
     data["alpha"] = alpha
     data["threshold"] = threshold
     data["noise"] = noise
+    data["ping_radius_function"] = "constant_1.52"
     data["num_anycast_instances"] = numberOfInstance
     data["anycast_instances"] = []
     for instance in discsSolution:

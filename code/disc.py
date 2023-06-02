@@ -25,8 +25,8 @@ class Disc(object):
         """
         # in km:ping*98,615940132
         self._radius = ((ping/2)*0.001) * (REDUCTION_FACTOR*SPEED_OF_LIGHT)
-        self._hostname  = hostname
-        #self._instance  = instance
+        self._hostname = hostname
+        #self._instance = instance
         #self._city=city
         #self._valid=valid
         #self._oldradius=oldradius
