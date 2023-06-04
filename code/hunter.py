@@ -253,41 +253,39 @@ class Hunter:
         last_hop_index = -2
         last_hop_direction = ""
         last_hop_geo = {}
-        while not validated:
-            if (len(directions_list) + last_hop_index) < 0:
-                print("No last_hop valid direction")
-                last_hop_direction = ""
-                break
-
-            last_hop_directions = directions_list[last_hop_index]
-
-            if not self.hop_from_directions_are_equal(last_hop_directions):
-                last_hop_index += -1
-                continue
-
-            last_hop_direction = last_hop_directions[0]
-            if "*" == last_hop_direction:
-                last_hop_index += -1
-                continue
-            elif last_hop_direction == self._target:
-                last_hop_index += -1
-                continue
-
-            try:
-                # TODO geolocate last_hop_direction better
-                last_hop_geo = self.geolocate_ip_commercial_database(
-                    ip=last_hop_direction)
-            except Exception as e:
-                print("Exception")
-                print(e)
-                last_hop_index += -1
-                continue
-
-            validated = True
 
         last_hop = {
             "ip": last_hop_direction,
-            "index": (len(directions_list) + last_hop_index),
+            "geolocation": last_hop_geo
+        }
+
+        if (len(directions_list) + last_hop_index) < 0:
+            print("Last_hop index out of range")
+            return last_hop
+
+        last_hop_directions = directions_list[last_hop_index]
+        if not self.hop_from_directions_are_equal(last_hop_directions):
+            print("Last_hop have more than one IP")
+            return last_hop
+
+        last_hop_direction = last_hop_directions[0]
+        if "*" == last_hop_direction:
+            print("Last_hop does not respond")
+            last_hop_direction = ""
+        elif last_hop_direction == self._target:
+            print("Last_hop direction is same than target")
+            last_hop_direction = ""
+
+        try:
+            # TODO geolocate last_hop_direction better
+            last_hop_geo = self.geolocate_ip_commercial_database(
+                ip=last_hop_direction)
+        except Exception as e:
+            print("Exception in last_hop geolocation")
+            print(e)
+
+        last_hop = {
+            "ip": last_hop_direction,
             "geolocation": last_hop_geo
         }
         return last_hop
