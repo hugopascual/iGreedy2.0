@@ -540,8 +540,16 @@ class Hunter:
         return json_file_to_dict(KEY_FILEPATH)["key"]
 
     def is_IP_anycast(self, ip: str) -> bool:
-        # TODO validate if ip is anycast or not
-        return False
+        command = subprocess.run([
+            "./igreedy.sh",
+            "-m", ip,
+            "-p", "datasets/probes_sets/WW_1000.json",
+            "-r", "true"
+        ])
+        if command.returncode == 0:
+            return True
+        else:
+            return False
 
     def hop_from_directions_are_equal(self, hop_directions_list: list) -> bool:
         if len(hop_directions_list) != 1:

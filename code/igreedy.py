@@ -214,7 +214,7 @@ def analyze():
                 break
 
 
-def output():
+def output() -> bool:
     """Routine to output results to a JSON (for GoogleMaps) and a CSV (for 
     further processing)
     """
@@ -282,6 +282,10 @@ def output():
         data["anycast_instances"].append(markCircle)
 
     dict_to_json_file(data, results_filename)
+    if len(data["anycast_instances"]) == 0:
+        return False
+    else:
+        return True
 
 
 def print_help_text() -> None:
@@ -319,7 +323,7 @@ iGreedy Options:
     --alpha         -a  alpha   
                                 Alpha (tune population vs distance score, 
                                 see INFOCOM'15). (default 1)
-    --threshold     -t  threshold   
+    --threshold     -t  threshold
                                 Discard disks having latency larger than 
                                 threshold to bound the error. If negative is 
                                 counted as infinity. (default -1)
@@ -550,7 +554,7 @@ def main(argv):
         probes_file = measurement_data["probes_filepath"]
         ip = measurement_data["target"]
         analyze()
-        output()
+        is_target_anycast = output()
         if gt_file:
             gt_validation_filepath = compare_cities_gt(
                 results_filepath=results_filename,
@@ -568,6 +572,11 @@ def main(argv):
                 visualization_filepath = input_file
         plot_file(visualization_filepath)
 
+    if analyze_measurement:
+        if is_target_anycast:
+            sys.exit(0)
+        else:
+            sys.exit(-1)
 
 if __name__ == "__main__":
     main(sys.argv[1:])

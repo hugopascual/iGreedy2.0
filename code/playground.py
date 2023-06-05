@@ -34,4 +34,3 @@ from utils.common_functions import (
     get_nearest_airport_to_point,
     calculate_hunter_pings_intersection_area
 )
-
