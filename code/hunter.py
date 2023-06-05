@@ -33,8 +33,9 @@ class Hunter:
     def __init__(self, target: str, origin: (float, float) = (),
                  output_filename: str = "hunter_measurement.json",
                  check_cf_ray: bool = True,
-                 gt_info: dict = {},
-                 additional_info: dict = None):
+                 gt_info: dict = None,
+                 additional_info: dict = None,
+                 validate_last_hop: bool = True):
         self._target = target
         # origin format = (latitude, longitude)
         if origin != ():
@@ -48,6 +49,7 @@ class Hunter:
             self._origin = (latitude, longitude)
             self._traceroute_from_host = True
 
+        self._validate_last_hop = validate_last_hop
         self._radius = 20
         self._url = RIPE_ATLAS_MEASUREMENTS_BASE_URL + "/?key={}".format(
             self.get_ripe_key()
@@ -56,14 +58,20 @@ class Hunter:
         self._measurement_result_filepath = output_filename
         self._ping_discs = []
         self._check_cf_ray = check_cf_ray
+        self._gt_info = gt_info
+        self._additional_info = additional_info
+        self._results_measurements = {}
+
+    def reset_results_measurements(self):
         self._results_measurements = {
+            "target": self._target,
             "origin": {
                 "latitude": self._origin[0],
                 "longitude": self._origin[1]
             },
-            "target": self._target,
             "traceroute_from_host": self._traceroute_from_host,
-            "gt_info": gt_info,
+            "gt_info": self._gt_info,
+            "discs_intersect": False,
             "hunt_results": {
                 "cities": [],
                 "countries": [],
@@ -72,14 +80,36 @@ class Hunter:
                 "centroid": None
             },
             "traceroute": [],
+            "last_hop_validation": self._validate_last_hop,
             "last_hop": {},
             "hops_directions_list": [],
-            "discs_intersect": False,
             "ping_discs": [],
-            "pings": []
+            "pings": [],
+            "additional_info": self._additional_info
         }
-        if additional_info:
-            self._results_measurements["additional_info"] = additional_info
+
+    def set_origin(self, origin: (float, float)):
+        self._origin = origin
+        self._traceroute_from_host = False
+        self.reset_results_measurements()
+
+    def set_output_filename(self, filename: str):
+        self._measurement_result_filepath = filename
+
+    def set_check_cf_ray(self, check_cf_ray: bool):
+        self._check_cf_ray = check_cf_ray
+
+    def set_gt_info(self, gt_info):
+        self._gt_info = gt_info
+        self.reset_results_measurements()
+
+    def set_additional_info(self, additional_info):
+        self._additional_info = additional_info
+        self.reset_results_measurements()
+
+    def set_validate_last_hop(self, validate_last_hop):
+        self._validate_last_hop = validate_last_hop
+        self.reset_results_measurements()
 
     def hunt(self):
         if self._target is None or self._target == "":
@@ -244,7 +274,14 @@ class Hunter:
         directions_list = self.build_hops_directions_list()
         print("Traceroute directions: ")
         [print(direction) for direction in directions_list]
-        last_hop = self.select_last_hop_valid(directions_list)
+        if self._validate_last_hop:
+            last_hop = self.select_last_hop_valid(directions_list)
+        else:
+            last_hop = {
+                "ip": directions_list[-2][0],
+                "geolocation": self.geolocate_ip_commercial_database(
+                    ip=directions_list[-2][0])
+            }
         print("Last Hop IP direction valid: ", last_hop["ip"])
         return last_hop
 

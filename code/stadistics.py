@@ -22,9 +22,11 @@ class Statistics:
 
     def __init__(self,
                  validation_campaign_directory: str = None,
-                 output_filename: str = None):
+                 output_filename: str = None,
+                 validate_target: bool = True):
         self._validation_campaign_directory = validation_campaign_directory
-        self._output_filename = output_filename
+        self._output_filename = output_filename,
+        self._validate_target = validate_target
 
     def igreedy_build_statistics_validation_campaign(self):
         if (not self._validation_campaign_directory) or (
@@ -91,18 +93,20 @@ class Statistics:
         dict_to_json_file(
             results_not_valid,
             HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
-            "results_not_valid_" + self._output_filename + ".json")
+            "results_not_valid/results_not_valid_" +
+            self._output_filename + ".json")
 
     # Auxiliary functions
     def calculate_hunter_result_outcome_country(self, results: dict) -> \
             (str, str):
-        try:
-            if len(results["hops_directions_list"][-1]) != 1:
-                return "Indeterminate", "Multiples IP on target hop"
-            elif results["hops_directions_list"][-1] == "*":
-                return "Indeterminate", "Target hop do not respond"
-        except:
-            print("Target directions list exception")
+        if self._validate_target:
+            try:
+                if len(results["hops_directions_list"][-1]) != 1:
+                    return "Indeterminate", "Multiples IP on target hop"
+                elif results["hops_directions_list"][-1] == "*":
+                    return "Indeterminate", "Target hop do not respond"
+            except:
+                print("Target directions list exception")
 
         num_result_countries = len(results["hunt_results"]["countries"])
         if num_result_countries == 1:
@@ -130,13 +134,14 @@ class Statistics:
 
     def calculate_hunter_result_outcome_city(self, results: dict) -> \
             (str, str):
-        try:
-            if len(results["hops_directions_list"][-1]) != 1:
-                return "Indeterminate", "Multiples IP on target hop"
-            elif results["hops_directions_list"][-1] == "*":
-                return "Indeterminate", "Target hop do not respond"
-        except:
-            print("Target directions list exception")
+        if self._validate_target:
+            try:
+                if len(results["hops_directions_list"][-1]) != 1:
+                    return "Indeterminate", "Multiples IP on target hop"
+                elif results["hops_directions_list"][-1] == "*":
+                    return "Indeterminate", "Target hop do not respond"
+            except:
+                print("Target directions list exception")
 
         num_result_cities = len(results["hunt_results"]["cities"])
         if num_result_cities == 1:
@@ -162,24 +167,18 @@ class Statistics:
         else:
             return "Indeterminate", "Too many cities"
 
-    def aggregate_hunter_statistics(self):
+    def aggregate_hunter_statistics_country(self):
         statistics_files = [filename for filename in
                             get_list_files_in_path(
                                 HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH)
                             if "statistics" in filename]
         aggregation_df = pd.DataFrame(columns=[
             "filename",
-            "country_positive_percent", "country_negative_percent",
-            "country_indeterminate_percent",
-            "country_positives", "country_negatives", "country_indeterminates",
-            "city_positive_percent", "city_negative_percent",
-            "city_indeterminate_percent",
-            "city_positives", "city_negatives", "city_indeterminates"
+            "country_positives", "country_negatives", "country_indeterminates"
         ])
         for statistic_file in statistics_files:
             statistic_df = pd.read_csv(
                 HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH + statistic_file)
-            total = len(statistic_df.index)
 
             country_positives = len(
                 statistic_df[statistic_df['country_outcome'] == "Positive"])
@@ -189,28 +188,12 @@ class Statistics:
                 statistic_df[statistic_df['country_outcome'] ==
                              "Indeterminate"])
 
-            city_positives = len(
-                statistic_df[statistic_df['city_outcome'] == "Positive"])
-            city_negatives = len(
-                statistic_df[statistic_df['city_outcome'] == "Negative"])
-            city_indeterminates = len(
-                statistic_df[statistic_df['city_outcome'] == "Indeterminate"])
-
             aggregation_df = pd.concat(
                 [pd.DataFrame([[
                     statistic_file,
-                    100 * (country_positives / total),
-                    100 * (country_negatives / total),
-                    100 * (country_indeterminates / total),
                     country_positives,
                     country_negatives,
-                    country_indeterminates,
-                    100 * (city_positives / total),
-                    100 * (city_negatives / total),
-                    100 * (city_indeterminates / total),
-                    city_positives,
-                    city_negatives,
-                    city_indeterminates,
+                    country_indeterminates
                 ]], columns=aggregation_df.columns,
                 ), aggregation_df],
                 ignore_index=True
@@ -229,7 +212,31 @@ hunter_campaigns = [
     "validation_unicast_udp_ripe_20230531_1"
 ]
 
-statistics = Statistics()
-statistics.aggregate_hunter_statistics()
+for hunter_campaign in hunter_campaigns:
+    for validate_target in [True, False]:
+        campaign_name = "_".join(map(str, hunter_campaign.split("_")[:6]))
+        additional_to_name = "_".join(map(str, hunter_campaign.split("_")[6:]))
+        if validate_target:
+            if not additional_to_name:
+                validation_name = "ip_target_validation"
+            else:
+                validation_name = "ip_all_validation"
+        else:
+            if not additional_to_name:
+                validation_name = "no_ip_validation"
+            else:
+                validation_name = additional_to_name
+
+        output_filename = campaign_name + validation_name
+        hunter_campaign_statistics = Statistics(
+            validation_campaign_directory=hunter_campaign,
+            output_filename=output_filename,
+            validate_target=validate_target
+        )
+        hunter_campaign_statistics.\
+            hunter_build_statistics_validation_campaign()
+
+#statistics = Statistics()
+#statistics.aggregate_hunter_statistics_country()
 
 

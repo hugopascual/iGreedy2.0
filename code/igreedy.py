@@ -46,7 +46,9 @@ GTnum = 0
 input_file = None
 ip = None
 hunter_target = None
-start_point = None
+hunter_origin = None
+check_cf_ray = True
+validate_last_hop = True
 probes_file = DEFAULT_PROBES_PATH
 output_path = RESULTS_PATH
 output_file = "output"
@@ -287,6 +289,7 @@ def print_help_text() -> None:
     print(ASCIIART + """
 Usage:  igreedy.py -i measurement_filepath [OPTIONS]
         igreedy.py -m IP_direction [-p probes_filepath] [-c boolean] [OPTIONS]
+        igreedy.py -w 
 
 Commands:
 Either long or short options are allowed
@@ -296,6 +299,9 @@ Either long or short options are allowed
     --measurement   -m  IP_direction
                                 Real time measurements from Ripe Atlas using 
                                 the ripe probes in datasets/ripeProbes.
+    --hunter        -w  IP_direction
+                                Use HUNTER to geolocate the server where your 
+                                petition goes.
 
 Parameters:
     --probes        -p  probes_filepath    
@@ -308,7 +314,7 @@ Parameters:
                                 realized. If not present iGreedy do not analyze 
                                 the measurement results. (default False)
 
-Options:
+iGreedy Options:
     --alpha         -a  alpha   
                                 Alpha (tune population vs distance score, 
                                 see INFOCOM'15). (default 1)
@@ -330,7 +336,21 @@ Options:
                                 and groundtruth validations. Just put the name 
                                 of the campaign not the path. The campaign 
                                 directory must be created.
-    --visualize     -v          Visualize the results. 
+    --visualize     -v          Visualize the results.
+    
+Hunter Options:
+    --origin        -s  "(latitude,longitude)"
+                                Latitude and longitude from where Hunter will
+                                start the tracking.
+    --check_cf_ray  -y boolean
+                                Use it when you want to check if cf-ray used in
+                                cloudfare CDN exists (default True)
+    --val_last_hop  -l boolean 
+                                Use it when you want to validate that all 
+                                directions in last_hop are equal (default 
+                                True)
+    
+    
     """.format(DEFAULT_PROBES_PATH))
     sys.exit(0)
 
@@ -347,7 +367,7 @@ def main(argv):
     # Variables needed to make the measurement and analysis
     global input_file, probes_file, gt_file, output_path, output_file
     global campaign_name
-    global ip, hunter_target, start_point
+    global ip, hunter_target, hunter_origin, check_cf_ray, validate_last_hop
     global threshold, alpha, visualize, noise
     global load_time, run_time
 
@@ -358,10 +378,11 @@ def main(argv):
     # These sections parse the options selected and their values
     try:
         options, args = getopt.getopt(argv,
-                                      "i:m:p:r:w:s:a:t:n:o:c:g:v",
+                                      "i:m:p:r:w:s:y:l:a:t:n:o:c:g:v",
                                       ["input",
                                        "measurement", "probes", "results",
-                                       "hunter", "start",
+                                       "hunter", "origin", "check_cf_ray",
+                                       "val_last_hop"
                                        "alpha", "threshold", "noise",
                                        "output", "campaign", "groundtruth",
                                        "visualize"])
@@ -409,8 +430,26 @@ def main(argv):
         elif option in ("-w", "--hunter"):
             hunter_target = arg
 
-        elif option in ("-s", "--start_point"):
-            start_point = ast.literal_eval(arg)
+        elif option in ("-s", "--origin"):
+            hunter_origin = ast.literal_eval(arg)
+
+        elif option in ("-y", "--check_cf_ray"):
+            if arg.lower() == "true":
+                check_cf_ray = True
+            elif arg.lower() == "false":
+                check_cf_ray = False
+            else:
+                print("Argument not valid. Try with True or False")
+                sys.exit(2)
+
+        elif option in ("-l", "--val_last_hop"):
+            if arg.lower() == "true":
+                validate_last_hop = True
+            elif arg.lower() == "false":
+                validate_last_hop = False
+            else:
+                print("Argument not valid. Try with True or False")
+                sys.exit(2)
 
         # Inputs for the analysis part
         elif option in ("-a", "--alpha"):
@@ -477,19 +516,17 @@ def main(argv):
 
     # Hunter option
     if hunter_target:
-        if start_point:
-            if output_file == (output_path + "output"):
-                hunter = Hunter(target=hunter_target,
-                                origin=start_point,
-                                output_filename=output_file)
-            else:
-                hunter = Hunter(target=hunter_target, origin=start_point)
-        else:
-            if output_file == (output_path + "output"):
-                hunter = Hunter(target=hunter_target,
-                                output_filename=output_file)
-            else:
-                hunter = Hunter(target=hunter_target)
+        hunter = Hunter(target=hunter_target)
+
+        if hunter_origin:
+            hunter.set_origin(hunter_origin)
+        if output_file == (output_path + "output"):
+            hunter.set_output_filename(output_file)
+        if not check_cf_ray:
+            hunter.set_check_cf_ray(check_cf_ray)
+        if not validate_last_hop:
+            hunter.set_validate_last_hop(validate_last_hop)
+
         hunter.hunt()
 
     # Analyze the data and print the time of process
