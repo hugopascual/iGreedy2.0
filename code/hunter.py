@@ -35,7 +35,8 @@ class Hunter:
                  check_cf_ray: bool = True,
                  gt_info: dict = None,
                  additional_info: dict = None,
-                 validate_last_hop: bool = True):
+                 validate_last_hop: bool = True,
+                 validate_target_anycast: bool = False):
         self._target = target
         # origin format = (latitude, longitude)
         if origin != ():
@@ -60,6 +61,7 @@ class Hunter:
         self._check_cf_ray = check_cf_ray
         self._gt_info = gt_info
         self._additional_info = additional_info
+        self._validate_target_anycast = validate_target_anycast
         self._results_measurements = {}
 
     def reset_results_measurements(self):
@@ -99,21 +101,28 @@ class Hunter:
     def set_check_cf_ray(self, check_cf_ray: bool):
         self._check_cf_ray = check_cf_ray
 
-    def set_gt_info(self, gt_info):
+    def set_gt_info(self, gt_info: dict):
         self._gt_info = gt_info
         self.reset_results_measurements()
 
-    def set_additional_info(self, additional_info):
+    def set_additional_info(self, additional_info: dict):
         self._additional_info = additional_info
         self.reset_results_measurements()
 
-    def set_validate_last_hop(self, validate_last_hop):
+    def set_validate_last_hop(self, validate_last_hop: bool):
         self._validate_last_hop = validate_last_hop
         self.reset_results_measurements()
+
+    def set_validate_target_anycast(self, validate_target_anycast: bool):
+        self._validate_target_anycast = validate_target_anycast
 
     def hunt(self):
         if self._target is None or self._target == "":
             return
+
+        if self._validate_target_anycast:
+            if not self.is_IP_anycast(self._target):
+                return
 
         if self._check_cf_ray:
             self.obtain_cf_ray()

@@ -49,6 +49,7 @@ hunter_target = None
 hunter_origin = None
 check_cf_ray = True
 validate_last_hop = True
+validate_hunter_target = False
 probes_file = DEFAULT_PROBES_PATH
 output_path = RESULTS_PATH
 output_file = "output"
@@ -342,14 +343,16 @@ Hunter Options:
     --origin        -s  "(latitude,longitude)"
                                 Latitude and longitude from where Hunter will
                                 start the tracking.
-    --check_cf_ray  -y boolean
+    --check_cf_ray  -y  boolean
                                 Use it when you want to check if cf-ray used in
                                 cloudfare CDN exists (default True)
-    --val_last_hop  -l boolean 
+    --val_last_hop  -l  boolean 
                                 Use it when you want to validate that all 
                                 directions in last_hop are equal (default 
                                 True)
-    
+    --val_target    -k  boolean 
+                                Use it when you want to check if the target is 
+                                anycast before start hunting. (default False)
     
     """.format(DEFAULT_PROBES_PATH))
     sys.exit(0)
@@ -368,6 +371,7 @@ def main(argv):
     global input_file, probes_file, gt_file, output_path, output_file
     global campaign_name
     global ip, hunter_target, hunter_origin, check_cf_ray, validate_last_hop
+    global validate_hunter_target
     global threshold, alpha, visualize, noise
     global load_time, run_time
 
@@ -378,11 +382,11 @@ def main(argv):
     # These sections parse the options selected and their values
     try:
         options, args = getopt.getopt(argv,
-                                      "i:m:p:r:w:s:y:l:a:t:n:o:c:g:v",
+                                      "i:m:p:r:w:s:y:l:k:a:t:n:o:c:g:v",
                                       ["input",
                                        "measurement", "probes", "results",
                                        "hunter", "origin", "check_cf_ray",
-                                       "val_last_hop"
+                                       "val_last_hop", "val_target",
                                        "alpha", "threshold", "noise",
                                        "output", "campaign", "groundtruth",
                                        "visualize"])
@@ -447,6 +451,15 @@ def main(argv):
                 validate_last_hop = True
             elif arg.lower() == "false":
                 validate_last_hop = False
+            else:
+                print("Argument not valid. Try with True or False")
+                sys.exit(2)
+
+        elif option in ("-k", "--val_target"):
+            if arg.lower() == "true":
+                validate_hunter_target = True
+            elif arg.lower() == "false":
+                validate_hunter_target = False
             else:
                 print("Argument not valid. Try with True or False")
                 sys.exit(2)
@@ -522,10 +535,10 @@ def main(argv):
             hunter.set_origin(hunter_origin)
         if output_file == (output_path + "output"):
             hunter.set_output_filename(output_file)
-        if not check_cf_ray:
-            hunter.set_check_cf_ray(check_cf_ray)
-        if not validate_last_hop:
-            hunter.set_validate_last_hop(validate_last_hop)
+
+        hunter.set_check_cf_ray(check_cf_ray)
+        hunter.set_validate_last_hop(validate_last_hop)
+        hunter.set_validate_target_anycast(validate_hunter_target)
 
         hunter.hunt()
 
