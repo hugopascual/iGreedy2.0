@@ -59,6 +59,7 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
         "noise": results_dict["noise"],
         "results_filepath": results_filepath,
         "gt_filepath": gt_filepath,
+        "ping_radius_function": results_dict["ping_radius_function"],
         "statistics": calculate_performance_statistics_cities(
             instances_validated),
         "instances": instances_validated.to_dict('records')

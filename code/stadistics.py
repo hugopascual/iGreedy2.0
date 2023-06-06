@@ -8,7 +8,9 @@ from shapely import from_geojson
 # internal modules imports
 from utils.constants import (
     HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,
-    HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH
+    HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH,
+    GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH,
+    GT_VALIDATIONS_STATISTICS
 )
 from utils.common_functions import (
     get_list_files_in_path,
@@ -33,7 +35,45 @@ class Statistics:
                 not self._output_filename):
             print("No campaign name or output filename provided")
             return
-        return
+
+        results_filenames = get_list_files_in_path(
+            GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH +
+            self._validation_campaign_directory)
+
+        validation_results_df = pd.DataFrame(columns=[
+            "filename", "target", "probes_file",
+            "alpha", "threshold",
+            "Accuracy", "Precision", "Recall", "F1",
+            "distance_function"
+        ])
+
+        for result_filename in results_filenames:
+            result_dict = json_file_to_dict("{}/{}".format(
+                GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH +
+                self._validation_campaign_directory, result_filename)
+            )
+
+            validation_results_df = pd.concat(
+                [pd.DataFrame([[
+                    result_filename,
+                    result_dict["target"],
+                    result_dict["probes_filepath"].split("/")[-1],
+                    result_dict["alpha"],
+                    result_dict["threshold"],
+                    result_dict["statistics"]["accuracy"],
+                    result_dict["statistics"]["precision"],
+                    result_dict["statistics"]["recall"],
+                    result_dict["statistics"]["f1"],
+                    result_dict["ping_radius_function"]
+                ]], columns=validation_results_df.columns,
+                ), validation_results_df],
+                ignore_index=True
+            )
+
+        validation_results_df.to_csv(
+            GT_VALIDATIONS_STATISTICS + "statistics_" +
+            self._output_filename + ".csv",
+            sep=",")
 
     def hunter_build_statistics_validation_campaign(self):
         if (not self._validation_campaign_directory) or (
@@ -203,40 +243,47 @@ class Statistics:
                               "aggregation_results.csv", sep=",")
 
 
-hunter_campaigns = [
-    "validation_anycast_udp_cloudfare_20230525_0_no_check_multi_ip_last_hop",
-    "validation_anycast_udp_cloudfare_20230529_1",
-    "validation_anycast_udp_cloudfare_20230529_2",
-    "validation_anycast_udp_cloudfare_20230530_3_no_check_multi_ip_last_hop",
-    "validation_unicast_udp_ripe_20230531_0_no_check_multi_ip_last_hop",
-    "validation_unicast_udp_ripe_20230531_1"
-]
+def get_statistics_hunter():
+    hunter_campaigns = [
 
-for hunter_campaign in hunter_campaigns:
-    for validate_target in [True, False]:
-        campaign_name = "_".join(map(str, hunter_campaign.split("_")[:6]))
-        additional_to_name = "_".join(map(str, hunter_campaign.split("_")[6:]))
-        if validate_target:
-            if not additional_to_name:
-                validation_name = "ip_target_validation"
+    ]
+
+    for hunter_campaign in hunter_campaigns:
+        for validate_target in [True, False]:
+            campaign_name = "_".join(
+                map(str, hunter_campaign.split("_")[:6]))
+            additional_to_name = "_".join(
+                map(str, hunter_campaign.split("_")[6:]))
+            if validate_target:
+                if not additional_to_name:
+                    validation_name = "ip_target_validation"
+                else:
+                    validation_name = "ip_all_validation"
             else:
-                validation_name = "ip_all_validation"
-        else:
-            if not additional_to_name:
-                validation_name = "no_ip_validation"
-            else:
-                validation_name = additional_to_name
+                if not additional_to_name:
+                    validation_name = "no_ip_validation"
+                else:
+                    validation_name = additional_to_name
 
-        output_filename = campaign_name + validation_name
-        hunter_campaign_statistics = Statistics(
-            validation_campaign_directory=hunter_campaign,
-            output_filename=output_filename,
-            validate_target=validate_target
-        )
-        hunter_campaign_statistics.\
-            hunter_build_statistics_validation_campaign()
+            output_filename = campaign_name + validation_name
+            hunter_campaign_statistics = Statistics(
+                validation_campaign_directory=hunter_campaign,
+                output_filename=output_filename,
+                validate_target=validate_target
+            )
+            hunter_campaign_statistics.\
+                hunter_build_statistics_validation_campaign()
 
-#statistics = Statistics()
-#statistics.aggregate_hunter_statistics_country()
+    statistics = Statistics()
+    statistics.aggregate_hunter_statistics_country()
+
+
+def get_statistics_igreedy():
+    campaign_name = "North-Central_validation_20230410" + "constant_1.52"
+    igreedy_statistics = Statistics(
+        validation_campaign_directory=campaign_name,
+        output_filename=campaign_name
+    )
+    igreedy_statistics.igreedy_build_statistics_validation_campaign()
 
 
