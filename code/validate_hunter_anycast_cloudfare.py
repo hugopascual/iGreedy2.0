@@ -13,7 +13,7 @@ from utils.constants import (
 class AnycastValidationCloudfare:
 
     def __init__(self, today: str,
-                 campaign_name: str, additional_to_name: str = None,
+                 campaign_name: str, additional_to_name: str = "",
                  check_cf_ray: bool = True,
                  validate_last_hop: bool = True):
         # A total of 74 files (37*2)
@@ -73,21 +73,19 @@ class AnycastValidationCloudfare:
             }
 
 
-i = -1
-for n in range(1):
-    i += 1
-    validator_last_hop = AnycastValidationCloudfare(
-        check_cf_ray=True,
-        validate_last_hop=True,
-        today="20230606",
-        campaign_name="validation_anycast_udp_cloudfare_{}".format(i),
-        additional_to_name="ip_last_hop_validation")
-    validator_last_hop.validate_anycast_from_vpn()
+#i = 0
+#validator_last_hop = AnycastValidationCloudfare(
+#    check_cf_ray=True,
+#    validate_last_hop=True,
+#    today="20230606",
+#    campaign_name="validation_anycast_udp_cloudfare_{}".format(i),
+#    additional_to_name="ip_last_hop_validation")
+#validator_last_hop.validate_anycast_from_vpn()
 
-    i += 1
-    validator_no_last_hop = AnycastValidationCloudfare(
-        check_cf_ray=True,
-        validate_last_hop=False,
-        today="20230606",
-        campaign_name="validation_anycast_udp_cloudfare_{}".format(i))
-    validator_no_last_hop.validate_anycast_from_vpn()
+i = 1
+validator_no_last_hop = AnycastValidationCloudfare(
+    check_cf_ray=True,
+    validate_last_hop=False,
+    today="20230607",
+    campaign_name="validation_anycast_udp_cloudfare_{}".format(i))
+validator_no_last_hop.validate_anycast_from_vpn()

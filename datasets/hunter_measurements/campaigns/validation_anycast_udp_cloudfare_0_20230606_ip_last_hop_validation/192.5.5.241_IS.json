@@ -1,0 +1,65 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 64.1355,
+        "longitude": -21.8954
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "LHR",
+        "size": "large_airport",
+        "name": "London Heathrow Airport",
+        "lat long": "51.4706001282 -0.4619410038",
+        "country_code": "GB",
+        "city": "London"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  74.764 ms  74.767 ms  74.764 ms",
+        " 2  185.159.158.253 (185.159.158.253)  78.418 ms  78.433 ms  78.432 ms",
+        " 3  linx-lon1.as13335.net (195.66.225.179)  168.581 ms  168.592 ms *",
+        " 4  141.101.71.2 (141.101.71.2)  135.046 ms 172.70.94.2 (172.70.94.2)  114.985 ms *",
+        " 5  f.root-servers.net (192.5.5.241)  166.576 ms  166.601 ms *"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "185.159.158.253"
+        ],
+        [
+            "195.66.225.179",
+            "*"
+        ],
+        [
+            "141.101.71.2",
+            "172.70.94.2",
+            "*"
+        ],
+        [
+            "192.5.5.241",
+            "*"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.159.158.100",
+        "server_name": "IS#1",
+        "country": "Iceland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 55.6689,
+        "longitude": 12.5588
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  45.162 ms  45.142 ms  45.135 ms",
+        " 2  193.29.107.97 (193.29.107.97)  45.380 ms  45.605 ms  45.606 ms",
+        " 3  193.27.15.246 (193.27.15.246)  57.807 ms  57.808 ms 193.27.15.232 (193.27.15.232)  62.143 ms",
+        " 4  146.70.0.110 (146.70.0.110)  45.548 ms 146.70.0.108 (146.70.0.108)  45.764 ms 146.70.0.110 (146.70.0.110)  45.765 ms",
+        " 5  193.239.117.14 (193.239.117.14)  71.357 ms  71.370 ms  71.342 ms",
+        " 6  162.158.92.4 (162.158.92.4)  57.141 ms 162.158.84.55 (162.158.84.55)  56.563 ms 162.158.92.4 (162.158.92.4)  56.544 ms",
+        " 7  104.16.123.96 (104.16.123.96)  56.535 ms  57.920 ms  57.917 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "193.29.107.97"
+        ],
+        [
+            "193.27.15.246",
+            "193.27.15.232"
+        ],
+        [
+            "146.70.0.110",
+            "146.70.0.108"
+        ],
+        [
+            "193.239.117.14"
+        ],
+        [
+            "162.158.92.4",
+            "162.158.84.55"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "193.29.107.169",
+        "server_name": "DK#31",
+        "country": "Denmark",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

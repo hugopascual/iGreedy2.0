@@ -63,6 +63,7 @@ class Hunter:
         self._additional_info = additional_info
         self._validate_target_anycast = validate_target_anycast
         self._results_measurements = {}
+        self.reset_results_measurements()
 
     def reset_results_measurements(self):
         self._results_measurements = {

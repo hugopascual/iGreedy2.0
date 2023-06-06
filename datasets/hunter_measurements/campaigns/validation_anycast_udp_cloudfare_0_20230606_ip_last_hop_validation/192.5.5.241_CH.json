@@ -1,0 +1,82 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 47.3667,
+        "longitude": 8.55
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "GVA",
+        "size": "large_airport",
+        "name": "Geneva Cointrin International Airport",
+        "lat long": "46.2380981445 6.1089501381",
+        "country_code": "CH",
+        "city": "Geneva"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  47.622 ms  47.611 ms  47.607 ms",
+        " 2  185.159.157.2 (185.159.157.2)  48.433 ms  48.440 ms 185.159.157.3 (185.159.157.3)  73.998 ms",
+        " 3  * * *",
+        " 4  e0-49.switch1.zrh2.he.net (184.104.206.113)  73.912 ms * zch-b3-link.ip.twelve99.net (213.248.92.86)  73.839 ms",
+        " 5  ffm-bb1-link.ip.twelve99.net (62.115.126.198)  83.382 ms  83.422 ms 100ge0-35.core2.zrh3.he.net (72.52.92.130)  74.730 ms",
+        " 6  ffm-b11-link.ip.twelve99.net (62.115.124.117)  83.371 ms  57.807 ms 100ge0-35.core2.gva1.he.net (184.104.193.134)  52.342 ms",
+        " 7  cixp-cloudflare.cern.ch (192.65.185.228)  52.448 ms * cloudflare-ic-328337.ip.twelve99-cust.net (62.115.144.199)  56.261 ms",
+        " 8  162.158.92.2 (162.158.92.2)  55.856 ms f.root-servers.net (192.5.5.241)  52.271 ms 162.158.108.2 (162.158.108.2)  56.155 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "185.159.157.2",
+            "185.159.157.3"
+        ],
+        [
+            "*"
+        ],
+        [
+            "184.104.206.113",
+            "*",
+            "213.248.92.86"
+        ],
+        [
+            "62.115.126.198",
+            "72.52.92.130"
+        ],
+        [
+            "62.115.124.117",
+            "184.104.193.134"
+        ],
+        [
+            "192.65.185.228",
+            "*",
+            "62.115.144.199"
+        ],
+        [
+            "162.158.92.2",
+            "192.5.5.241",
+            "162.158.108.2"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.159.157.26",
+        "server_name": "CH#15",
+        "country": "Switzerland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

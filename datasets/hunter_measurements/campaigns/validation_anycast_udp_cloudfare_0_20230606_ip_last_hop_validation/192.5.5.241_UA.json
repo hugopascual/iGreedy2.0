@@ -1,0 +1,70 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 50.4547,
+        "longitude": 30.5238
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "KBP",
+        "size": "large_airport",
+        "name": "Boryspil International Airport",
+        "lat long": "50.3450012207 30.8946990967",
+        "country_code": "UA",
+        "city": "Kiev"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  66.817 ms  66.813 ms  66.812 ms",
+        " 2  unn-156-146-50-12.cdn77.com (156.146.50.12)  66.818 ms  66.819 ms  66.818 ms",
+        " 3  vl202.kyi-nwt-core-1.cdn77.com (138.199.0.130)  67.341 ms  67.345 ms  67.695 ms",
+        " 4  * * *",
+        " 5  be2132.rcr72.kbp01.atlas.cogentco.com (154.54.72.98)  68.131 ms  68.129 ms  68.127 ms",
+        " 6  149.6.191.138 (149.6.191.138)  68.052 ms  68.484 ms *",
+        " 7  f.root-servers.net (192.5.5.241)  66.736 ms  66.742 ms  66.728 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "156.146.50.12"
+        ],
+        [
+            "138.199.0.130"
+        ],
+        [
+            "*"
+        ],
+        [
+            "154.54.72.98"
+        ],
+        [
+            "149.6.191.138",
+            "*"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "156.146.50.2",
+        "server_name": "UA#10",
+        "country": "Ukraine",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
