@@ -64,7 +64,7 @@ class iGreedyValidation:
         for measurement_name in measurement_files:
             measurement_path = MEASUREMENTS_CAMPAIGNS_PATH + \
                                self._measurement_campaign_name + \
-                               measurement_name
+                               "/" + measurement_name
             measurement_data = json_file_to_dict(measurement_path)
 
             if measurement_data["target"] in ROOT_SERVERS.keys():
@@ -81,12 +81,14 @@ class iGreedyValidation:
 
             for alpha in self._alpha_list:
                 for threshold in self._threshold_list:
+                    print("Analyzing {} with alpha -> {} and threshold -> {}"
+                          .format(measurement_name, alpha, threshold))
                     result_and_gt_generation = subprocess.run(
                         [
                             "./igreedy.sh",
                             "-i", measurement_path,
-                            "-a", alpha,
-                            "-t", threshold,
+                            "-a", str(alpha),
+                            "-t", str(threshold),
                             "-g", gt_filepath,
                             "-c", campaign_name
                         ],
@@ -98,4 +100,4 @@ igreedy_validation = iGreedyValidation(
     measurement_campaign_name="North-Central_validation_20230410"
 )
 #igreedy_validation.generate_measurements()
-#igreedy_validation.generate_results_and_gt_validations()
+igreedy_validation.generate_results_and_gt_validations()

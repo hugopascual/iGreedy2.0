@@ -22,6 +22,40 @@ from utils.common_functions import (
 
 def compare_cities_gt(results_filepath: str, gt_filepath: str,
                       campaign_name: str) -> str:
+    results_dict = json_file_to_dict(results_filepath)
+    if len(results_dict["anycast_instances"]) == 0:
+        comparison_result = {
+            "target": results_dict["target"],
+            "probes_filepath": results_dict["probes_filepath"],
+            "alpha": results_dict["alpha"],
+            "threshold": results_dict["threshold"],
+            "noise": results_dict["noise"],
+            "results_filepath": results_filepath,
+            "gt_filepath": gt_filepath,
+            "ping_radius_function": results_dict["ping_radius_function"],
+            "statistics": {
+                "TP": 0, "FP": 0, "TN": 0, "FN": 0,
+                "accuracy": 0, "precision": 0, "recall": 0, "f1": 0,
+                "OT": 0, "OF": 0
+            },
+            "instances": []
+        }
+
+        results_filename = results_filepath.split("/")[-1][:-5]
+        gt_filename = gt_filepath.split("/")[-1][:-5]
+        if campaign_name is not None:
+            gt_validation_filepath = \
+                GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH + campaign_name + \
+                "/{}_{}.json".format(results_filename, gt_filename)
+        else:
+            gt_validation_filepath = \
+                GROUND_TRUTH_VALIDATIONS_PATH + \
+                "{}_{}.json".format(results_filename, gt_filename)
+
+        dict_to_json_file(dict=comparison_result,
+                          file_path=gt_validation_filepath)
+        return gt_validation_filepath
+
     results_df = get_results_instances_locations(results_filepath)
     gt_df = get_gt_instances_locations(gt_filepath)
 
@@ -40,8 +74,7 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
     instances_validated = pd.concat([results_df, gt_df])
     instances_validated.sort_values(by=["country_code", "city"], inplace=True)
 
-    results_dict = json_file_to_dict(results_filepath)
-    if "probes_section" in results_dict["probes_filepath"]:
+    if "section" in results_dict["probes_filepath"]:
         area = ast.literal_eval(
             json_file_to_dict(results_dict["probes_filepath"])["area"])
         instances_validated = filter_replicas_by_area(
