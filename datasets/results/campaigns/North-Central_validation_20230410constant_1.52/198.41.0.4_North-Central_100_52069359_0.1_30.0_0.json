@@ -1,0 +1,57 @@
+{
+    "target": "198.41.0.4",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/198.41.0.4_North-Central_100_52069359.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_100.json",
+    "alpha": 0.1,
+    "threshold": 30.0,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 3,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "RHE",
+                "latitude": 49.3100013733,
+                "longitude": 4.0500001907,
+                "city": "Reims/Champagne",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "1001863",
+                "latitude": 48.9085,
+                "longitude": 2.3905,
+                "radius": 134.93806458490198
+            }
+        },
+        {
+            "marker": {
+                "id": "DEX",
+                "latitude": 50.121212,
+                "longitude": 8.6365638,
+                "city": "Frankfurt-am-Main",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "19834",
+                "latitude": 48.7795,
+                "longitude": 9.1785,
+                "radius": 168.22715718353814
+            }
+        },
+        {
+            "marker": {
+                "id": "NIX",
+                "latitude": 60.193901062,
+                "longitude": 11.100399971,
+                "city": "Oslo",
+                "country_code": "NO"
+            },
+            "circle": {
+                "id": "60517",
+                "latitude": 58.5905,
+                "longitude": 16.1875,
+                "radius": 367.79455875683226
+            }
+        }
+    ]
+}

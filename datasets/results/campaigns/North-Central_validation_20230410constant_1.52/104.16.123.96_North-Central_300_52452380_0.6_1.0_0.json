@@ -1,0 +1,87 @@
+{
+    "target": "104.16.123.96",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/104.16.123.96_North-Central_300_52452380.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_300.json",
+    "alpha": 0.6,
+    "threshold": 1.0,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 5,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "ECN",
+                "latitude": 35.1547012329,
+                "longitude": 33.4961013794,
+                "city": "Nicosia",
+                "country_code": "CY"
+            },
+            "circle": {
+                "id": "18864",
+                "latitude": 35.1495,
+                "longitude": 33.3505,
+                "radius": 62.829398849110525
+            }
+        },
+        {
+            "marker": {
+                "id": "RTM",
+                "latitude": 51.9569015503,
+                "longitude": 4.4372200966,
+                "city": "Rotterdam",
+                "country_code": "NL"
+            },
+            "circle": {
+                "id": "1004258",
+                "latitude": 52.3815,
+                "longitude": 4.8995,
+                "radius": 72.8589358083125
+            }
+        },
+        {
+            "marker": {
+                "id": "MHG",
+                "latitude": 49.4730567932,
+                "longitude": 8.514166832,
+                "city": "Mannheim",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "1002660",
+                "latitude": 50.1075,
+                "longitude": 8.6805,
+                "radius": 72.9263891113625
+            }
+        },
+        {
+            "marker": {
+                "id": "PRG",
+                "latitude": 50.1007995605,
+                "longitude": 14.2600002289,
+                "city": "Prague",
+                "country_code": "CZ"
+            },
+            "circle": {
+                "id": "30144",
+                "latitude": 50.0795,
+                "longitude": 14.5295,
+                "radius": 90.11130145463157
+            }
+        },
+        {
+            "marker": {
+                "id": "XFW",
+                "latitude": 53.5352783203,
+                "longitude": 9.8355560303,
+                "city": "Hamburg",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "50025",
+                "latitude": 53.5495,
+                "longitude": 10.0485,
+                "radius": 96.27381155345394
+            }
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "target": "192.33.4.12",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.33.4.12_North-Central_500_52069932.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.9,
+    "threshold": 10.0,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 4,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "ORY",
+                "latitude": 48.7252998352,
+                "longitude": 2.3594400883,
+                "city": "Paris",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "6363",
+                "latitude": 48.9285,
+                "longitude": 2.3505,
+                "radius": 51.60789102153816
+            }
+        },
+        {
+            "marker": {
+                "id": "WIE",
+                "latitude": 48.1102981567,
+                "longitude": 16.5697002411,
+                "city": "Vienna",
+                "country_code": "AT"
+            },
+            "circle": {
+                "id": "24449",
+                "latitude": 48.1615,
+                "longitude": 17.1495,
+                "radius": 73.68306921999209
+            }
+        },
+        {
+            "marker": {
+                "id": "FRA",
+                "latitude": 50.0264015198,
+                "longitude": 8.543129921,
+                "city": "Frankfurt-am-Main",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "7097",
+                "latitude": 50.1405,
+                "longitude": 8.7415,
+                "radius": 88.52644468077698
+            }
+        },
+        {
+            "marker": {
+                "id": "ECV",
+                "latitude": 40.3707008362,
+                "longitude": -3.7851400375,
+                "city": "Madrid",
+                "country_code": "ES"
+            },
+            "circle": {
+                "id": "22338",
+                "latitude": 40.4815,
+                "longitude": -3.6315,
+                "radius": 274.0803239294934
+            }
+        }
+    ]
+}

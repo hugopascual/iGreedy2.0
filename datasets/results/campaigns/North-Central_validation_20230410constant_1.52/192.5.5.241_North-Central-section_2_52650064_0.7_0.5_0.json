@@ -1,0 +1,42 @@
+{
+    "target": "192.5.5.241",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.5.5.241_North-Central-section_2_52650064.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_2.json",
+    "alpha": 0.7,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "RIX",
+                "latitude": 56.9235992432,
+                "longitude": 23.9710998535,
+                "city": "Riga",
+                "country_code": "LV"
+            },
+            "circle": {
+                "id": "17816",
+                "latitude": 56.9505,
+                "longitude": 24.1075,
+                "radius": 36.78976124142697
+            }
+        },
+        {
+            "marker": {
+                "id": "FCO",
+                "latitude": 41.8045005798,
+                "longitude": 12.2508001328,
+                "city": "Rome",
+                "country_code": "IT"
+            },
+            "circle": {
+                "id": "23218",
+                "latitude": 41.9015,
+                "longitude": 12.5075,
+                "radius": 46.04555753435658
+            }
+        }
+    ]
+}

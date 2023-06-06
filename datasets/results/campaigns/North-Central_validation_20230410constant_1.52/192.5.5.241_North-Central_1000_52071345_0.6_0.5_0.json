@@ -1,0 +1,42 @@
+{
+    "target": "192.5.5.241",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.5.5.241_North-Central_1000_52071345.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_1000.json",
+    "alpha": 0.6,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "ORY",
+                "latitude": 48.7252998352,
+                "longitude": 2.3594400883,
+                "city": "Paris",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "6921",
+                "latitude": 48.9275,
+                "longitude": 2.3485,
+                "radius": 29.6063789303625
+            }
+        },
+        {
+            "marker": {
+                "id": "SDV",
+                "latitude": 32.1147003174,
+                "longitude": 34.7821998596,
+                "city": "Tel Aviv",
+                "country_code": "IL"
+            },
+            "circle": {
+                "id": "27091",
+                "latitude": 32.0775,
+                "longitude": 34.8915,
+                "radius": 32.693353704301316
+            }
+        }
+    ]
+}

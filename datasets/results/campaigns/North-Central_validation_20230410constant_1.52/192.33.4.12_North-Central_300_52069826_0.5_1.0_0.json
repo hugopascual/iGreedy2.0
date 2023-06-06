@@ -1,0 +1,42 @@
+{
+    "target": "192.33.4.12",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.33.4.12_North-Central_300_52069826.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_300.json",
+    "alpha": 0.5,
+    "threshold": 1.0,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "QMZ",
+                "latitude": 49.9674987793,
+                "longitude": 8.1472215652,
+                "city": "Mainz",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "1004810",
+                "latitude": 50.0975,
+                "longitude": 8.6275,
+                "radius": 60.12840686484672
+            }
+        },
+        {
+            "marker": {
+                "id": "PAR",
+                "latitude": 49.0127983093,
+                "longitude": 2.5499999523,
+                "city": "Paris",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "6593",
+                "latitude": 48.8585,
+                "longitude": 2.3815,
+                "radius": 98.53744184323422
+            }
+        }
+    ]
+}

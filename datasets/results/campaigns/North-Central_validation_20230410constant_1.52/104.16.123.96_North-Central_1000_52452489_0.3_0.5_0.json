@@ -1,0 +1,57 @@
+{
+    "target": "104.16.123.96",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/104.16.123.96_North-Central_1000_52452489.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_1000.json",
+    "alpha": 0.3,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 3,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "ORY",
+                "latitude": 48.7252998352,
+                "longitude": 2.3594400883,
+                "city": "Paris",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "6363",
+                "latitude": 48.9285,
+                "longitude": 2.3505,
+                "radius": 30.854265036787503
+            }
+        },
+        {
+            "marker": {
+                "id": "OTP",
+                "latitude": 44.5722007751,
+                "longitude": 26.1021995544,
+                "city": "Bucharest",
+                "country_code": "RO"
+            },
+            "circle": {
+                "id": "13315",
+                "latitude": 44.4595,
+                "longitude": 26.1275,
+                "radius": 35.56978344605921
+            }
+        },
+        {
+            "marker": {
+                "id": "TLL",
+                "latitude": 59.4132995605,
+                "longitude": 24.8327999115,
+                "city": "Tallinn",
+                "country_code": "EE"
+            },
+            "circle": {
+                "id": "6815",
+                "latitude": 59.4595,
+                "longitude": 24.6875,
+                "radius": 45.605927673249994
+            }
+        }
+    ]
+}

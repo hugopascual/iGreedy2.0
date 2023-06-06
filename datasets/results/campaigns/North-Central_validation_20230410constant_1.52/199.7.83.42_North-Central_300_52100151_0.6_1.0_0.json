@@ -1,0 +1,42 @@
+{
+    "target": "199.7.83.42",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/199.7.83.42_North-Central_300_52100151.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_300.json",
+    "alpha": 0.6,
+    "threshold": 1.0,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "TOJ",
+                "latitude": 40.4967002869,
+                "longitude": -3.4458699226,
+                "city": "Madrid",
+                "country_code": "ES"
+            },
+            "circle": {
+                "id": "1005357",
+                "latitude": 40.4905,
+                "longitude": -3.6905,
+                "radius": 55.96079861894605
+            }
+        },
+        {
+            "marker": {
+                "id": "PRG",
+                "latitude": 50.1007995605,
+                "longitude": 14.2600002289,
+                "city": "Prague",
+                "country_code": "CZ"
+            },
+            "circle": {
+                "id": "1004988",
+                "latitude": 50.0915,
+                "longitude": 14.4115,
+                "radius": 67.53051933112303
+            }
+        }
+    ]
+}

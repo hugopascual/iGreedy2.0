@@ -1,0 +1,57 @@
+{
+    "target": "192.5.5.241",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.5.5.241_North-Central_500_52071302.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.0,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 3,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "OTP",
+                "latitude": 44.5722007751,
+                "longitude": 26.1021995544,
+                "city": "Bucharest",
+                "country_code": "RO"
+            },
+            "circle": {
+                "id": "1004058",
+                "latitude": 44.4115,
+                "longitude": 26.0395,
+                "radius": 27.0862485803
+            }
+        },
+        {
+            "marker": {
+                "id": "TLV",
+                "latitude": 32.0113983154,
+                "longitude": 34.8866996765,
+                "city": "Tel Aviv",
+                "country_code": "IL"
+            },
+            "circle": {
+                "id": "1004045",
+                "latitude": 32.0695,
+                "longitude": 34.7695,
+                "radius": 42.77841143779737
+            }
+        },
+        {
+            "marker": {
+                "id": "BCN",
+                "latitude": 41.2971000671,
+                "longitude": 2.0784599781,
+                "city": "Barcelona",
+                "country_code": "ES"
+            },
+            "circle": {
+                "id": "11749",
+                "latitude": 41.3915,
+                "longitude": 2.1095,
+                "radius": 44.20597578714211
+            }
+        }
+    ]
+}

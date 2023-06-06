@@ -1,0 +1,87 @@
+{
+    "target": "192.203.230.10",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.203.230.10_North-Central_1000_52070426.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_1000.json",
+    "alpha": 0.1,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 5,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "OTP",
+                "latitude": 44.5722007751,
+                "longitude": 26.1021995544,
+                "city": "Bucharest",
+                "country_code": "RO"
+            },
+            "circle": {
+                "id": "13315",
+                "latitude": 44.4595,
+                "longitude": 26.1275,
+                "radius": 37.24181671099013
+            }
+        },
+        {
+            "marker": {
+                "id": "LGW",
+                "latitude": 51.1481018066,
+                "longitude": -0.1902779937,
+                "city": "London",
+                "country_code": "GB"
+            },
+            "circle": {
+                "id": "7081",
+                "latitude": 51.5075,
+                "longitude": 0.0015,
+                "radius": 42.8288041832046
+            }
+        },
+        {
+            "marker": {
+                "id": "VNO",
+                "latitude": 54.6341018677,
+                "longitude": 25.2858009338,
+                "city": "Vilnius",
+                "country_code": "LT"
+            },
+            "circle": {
+                "id": "19789",
+                "latitude": 54.7215,
+                "longitude": 25.2915,
+                "radius": 44.430918746582236
+            }
+        },
+        {
+            "marker": {
+                "id": "CSF",
+                "latitude": 49.2535018921,
+                "longitude": 2.5191400051,
+                "city": "Creil",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "22872",
+                "latitude": 48.8585,
+                "longitude": 2.3805,
+                "radius": 45.33483245382829
+            }
+        },
+        {
+            "marker": {
+                "id": "LPL",
+                "latitude": 53.3335990906,
+                "longitude": -2.8497200012,
+                "city": "Liverpool",
+                "country_code": "GB"
+            },
+            "circle": {
+                "id": "23365",
+                "latitude": 53.4595,
+                "longitude": -2.2395,
+                "radius": 47.82409601462961
+            }
+        }
+    ]
+}

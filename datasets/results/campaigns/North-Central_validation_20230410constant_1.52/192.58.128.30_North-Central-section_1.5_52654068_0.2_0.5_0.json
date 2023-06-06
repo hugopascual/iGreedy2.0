@@ -1,0 +1,57 @@
+{
+    "target": "192.58.128.30",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.58.128.30_North-Central-section_1.5_52654068.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.5.json",
+    "alpha": 0.2,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 3,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "ATH",
+                "latitude": 37.9364013672,
+                "longitude": 23.9444999695,
+                "city": "Athens",
+                "country_code": "GR"
+            },
+            "circle": {
+                "id": "6841",
+                "latitude": 37.9675,
+                "longitude": 23.7495,
+                "radius": 21.081918449448683
+            }
+        },
+        {
+            "marker": {
+                "id": "PRG",
+                "latitude": 50.1007995605,
+                "longitude": 14.2600002289,
+                "city": "Prague",
+                "country_code": "CZ"
+            },
+            "circle": {
+                "id": "6856",
+                "latitude": 50.0805,
+                "longitude": 14.4495,
+                "radius": 38.53467168611513
+            }
+        },
+        {
+            "marker": {
+                "id": "KLU",
+                "latitude": 46.6425018311,
+                "longitude": 14.3376998901,
+                "city": "Klagenfurt am W\u00f6rthersee",
+                "country_code": "AT"
+            },
+            "circle": {
+                "id": "15476",
+                "latitude": 46.6205,
+                "longitude": 14.3205,
+                "radius": 44.826861746210525
+            }
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "target": "199.7.91.13",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/199.7.91.13_North-Central-section_2_52646325.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_2.json",
+    "alpha": 0.5,
+    "threshold": 1.0,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 3,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "RIX",
+                "latitude": 56.9235992432,
+                "longitude": 23.9710998535,
+                "city": "Riga",
+                "country_code": "LV"
+            },
+            "circle": {
+                "id": "1005505",
+                "latitude": 56.9495,
+                "longitude": 24.0975,
+                "radius": 50.47104646370131
+            }
+        },
+        {
+            "marker": {
+                "id": "NIX",
+                "latitude": 60.193901062,
+                "longitude": 11.100399971,
+                "city": "Oslo",
+                "country_code": "NO"
+            },
+            "circle": {
+                "id": "6269",
+                "latitude": 59.9415,
+                "longitude": 10.8305,
+                "radius": 56.62793545393619
+            }
+        },
+        {
+            "marker": {
+                "id": "ARN",
+                "latitude": 59.6519012451,
+                "longitude": 17.9186000824,
+                "city": "Stockholm",
+                "country_code": "SE"
+            },
+            "circle": {
+                "id": "28970",
+                "latitude": 59.3375,
+                "longitude": 18.1005,
+                "radius": 57.437276474596054
+            }
+        }
+    ]
+}

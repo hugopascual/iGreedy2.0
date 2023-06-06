@@ -1,0 +1,57 @@
+{
+    "target": "198.41.0.4",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/198.41.0.4_North-Central_1000_52069452.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_1000.json",
+    "alpha": 0.6,
+    "threshold": 1.0,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 3,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "LTN",
+                "latitude": 51.8746986389,
+                "longitude": -0.3683330119,
+                "city": "London",
+                "country_code": "GB"
+            },
+            "circle": {
+                "id": "13526",
+                "latitude": 51.5305,
+                "longitude": -0.6415,
+                "radius": 45.360373982322365
+            }
+        },
+        {
+            "marker": {
+                "id": "QMZ",
+                "latitude": 49.9674987793,
+                "longitude": 8.1472215652,
+                "city": "Mainz",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "32663",
+                "latitude": 50.1185,
+                "longitude": 8.7405,
+                "radius": 69.13914254654934
+            }
+        },
+        {
+            "marker": {
+                "id": "PAR",
+                "latitude": 49.0127983093,
+                "longitude": 2.5499999523,
+                "city": "Paris",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "1005546",
+                "latitude": 48.8305,
+                "longitude": 2.4095,
+                "radius": 71.60039918035328
+            }
+        }
+    ]
+}

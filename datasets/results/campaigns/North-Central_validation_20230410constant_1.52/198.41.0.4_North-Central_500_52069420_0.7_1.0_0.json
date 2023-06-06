@@ -1,0 +1,42 @@
+{
+    "target": "198.41.0.4",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/198.41.0.4_North-Central_500_52069420.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.7,
+    "threshold": 1.0,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "FRA",
+                "latitude": 50.0264015198,
+                "longitude": 8.543129921,
+                "city": "Frankfurt-am-Main",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "27908",
+                "latitude": 50.1415,
+                "longitude": 8.7375,
+                "radius": 68.44597110336447
+            }
+        },
+        {
+            "marker": {
+                "id": "RTM",
+                "latitude": 51.9569015503,
+                "longitude": 4.4372200966,
+                "city": "Rotterdam",
+                "country_code": "NL"
+            },
+            "circle": {
+                "id": "1002178",
+                "latitude": 52.3715,
+                "longitude": 4.9005,
+                "radius": 97.38215610459277
+            }
+        }
+    ]
+}

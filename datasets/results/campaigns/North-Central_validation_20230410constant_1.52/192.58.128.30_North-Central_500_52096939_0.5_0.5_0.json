@@ -1,0 +1,42 @@
+{
+    "target": "192.58.128.30",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.58.128.30_North-Central_500_52096939.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.5,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "LIS",
+                "latitude": 38.7812995911,
+                "longitude": -9.1359195709,
+                "city": "Lisbon",
+                "country_code": "PT"
+            },
+            "circle": {
+                "id": "1004057",
+                "latitude": 38.7305,
+                "longitude": -9.1405,
+                "radius": 36.68404495360592
+            }
+        },
+        {
+            "marker": {
+                "id": "VNO",
+                "latitude": 54.6341018677,
+                "longitude": 25.2858009338,
+                "city": "Vilnius",
+                "country_code": "LT"
+            },
+            "circle": {
+                "id": "1002006",
+                "latitude": 54.6405,
+                "longitude": 25.3075,
+                "radius": 38.77904198576118
+            }
+        }
+    ]
+}

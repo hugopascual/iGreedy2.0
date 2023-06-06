@@ -1,0 +1,42 @@
+{
+    "target": "192.36.148.17",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.36.148.17_North-Central-section_1_52653005.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.json",
+    "alpha": 0.8,
+    "threshold": 1.0,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "WIE",
+                "latitude": 48.1102981567,
+                "longitude": 16.5697002411,
+                "city": "Vienna",
+                "country_code": "AT"
+            },
+            "circle": {
+                "id": "6042",
+                "latitude": 48.2085,
+                "longitude": 16.3695,
+                "radius": 43.78774558504408
+            }
+        },
+        {
+            "marker": {
+                "id": "MXP",
+                "latitude": 45.6305999756,
+                "longitude": 8.7281103134,
+                "city": "Milan",
+                "country_code": "IT"
+            },
+            "circle": {
+                "id": "33227",
+                "latitude": 45.4405,
+                "longitude": 9.2185,
+                "radius": 64.10578496223356
+            }
+        }
+    ]
+}

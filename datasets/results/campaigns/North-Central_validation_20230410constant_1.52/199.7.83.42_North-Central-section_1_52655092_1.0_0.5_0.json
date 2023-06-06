@@ -1,0 +1,42 @@
+{
+    "target": "199.7.83.42",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/199.7.83.42_North-Central-section_1_52655092.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.json",
+    "alpha": 1.0,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "constant_1.52",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "HER",
+                "latitude": 35.3396987915,
+                "longitude": 25.1802997589,
+                "city": "Heraklion",
+                "country_code": "GR"
+            },
+            "circle": {
+                "id": "6297",
+                "latitude": 35.3105,
+                "longitude": 25.0715,
+                "radius": 36.22735453485658
+            }
+        },
+        {
+            "marker": {
+                "id": "ECV",
+                "latitude": 40.3707008362,
+                "longitude": -3.7851400375,
+                "city": "Madrid",
+                "country_code": "ES"
+            },
+            "circle": {
+                "id": "6604",
+                "latitude": 40.4895,
+                "longitude": -3.6925,
+                "radius": 46.573547277821056
+            }
+        }
+    ]
+}
