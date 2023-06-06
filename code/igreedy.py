@@ -16,7 +16,8 @@ from utils.constants import (
     DEFAULT_PROBES_PATH,
     RESULTS_PATH,
     RESULTS_CAMPAIGNS_PATH,
-    ASCIIART
+    ASCIIART,
+    DISTANCE_FUNCTION_USED
 )
 from utils.common_functions import (
     json_file_to_dict,
@@ -256,7 +257,7 @@ def output() -> bool:
     data["alpha"] = alpha
     data["threshold"] = threshold
     data["noise"] = noise
-    data["ping_radius_function"] = "constant_1.52"
+    data["ping_radius_function"] = DISTANCE_FUNCTION_USED
     data["num_anycast_instances"] = numberOfInstance
     data["anycast_instances"] = []
     for instance in discsSolution:

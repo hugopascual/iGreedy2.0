@@ -10,7 +10,8 @@ from utils.constants import (
     PROBES_SETS_PATH,
     MEASUREMENTS_CAMPAIGNS_PATH,
     ROOT_SERVERS_PATH,
-    CLOUDFARE_PATH
+    CLOUDFARE_PATH,
+    DISTANCE_FUNCTION_USED
 )
 from utils.common_functions import (
     get_list_files_in_path,
@@ -77,7 +78,8 @@ class iGreedyValidation:
                     measurement_data["target"]))
                 continue
 
-            campaign_name = self._measurement_campaign_name + "constant_1.52"
+            campaign_name = self._measurement_campaign_name + \
+                            "_" + DISTANCE_FUNCTION_USED
 
             for alpha in self._alpha_list:
                 for threshold in self._threshold_list:
