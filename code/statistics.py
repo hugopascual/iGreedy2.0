@@ -297,4 +297,6 @@ def get_statistics_igreedy():
     )
     igreedy_statistics.igreedy_build_statistics_validation_campaign()
 
-get_statistics_igreedy()
+
+get_statistics_hunter()
+#get_statistics_igreedy()

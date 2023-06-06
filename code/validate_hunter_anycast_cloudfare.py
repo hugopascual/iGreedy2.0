@@ -79,7 +79,7 @@ for n in range(1):
     validator_last_hop = AnycastValidationCloudfare(
         check_cf_ray=True,
         validate_last_hop=True,
-        today="20230605",
+        today="20230606",
         campaign_name="validation_anycast_udp_cloudfare_{}".format(i),
         additional_to_name="ip_last_hop_validation")
     validator_last_hop.validate_anycast_from_vpn()
@@ -88,6 +88,6 @@ for n in range(1):
     validator_no_last_hop = AnycastValidationCloudfare(
         check_cf_ray=True,
         validate_last_hop=False,
-        today="20230605",
+        today="20230606",
         campaign_name="validation_anycast_udp_cloudfare_{}".format(i))
     validator_no_last_hop.validate_anycast_from_vpn()
