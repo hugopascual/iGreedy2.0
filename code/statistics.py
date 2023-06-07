@@ -109,14 +109,14 @@ class Statistics:
                 self._validation_campaign_directory, result_filename)
             )
 
-            if result_dict["gt_info"] == {}:
+            if not result_dict["gt_info"]:
                 results_not_valid.append(result_filename)
                 continue
 
-            outcome_country = self.calculate_hunter_result_outcome_country(
-                result_dict)
-            outcome_city = self.calculate_hunter_result_outcome_city(
-                result_dict)
+            outcome_country = self.calculate_hunter_result_outcome(
+                result_dict, "country")
+            outcome_city = self.calculate_hunter_result_outcome(
+                result_dict, "city")
 
             validation_results_df = pd.concat(
                 [pd.DataFrame([[
@@ -138,13 +138,61 @@ class Statistics:
         validation_results_df.to_csv(
             HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH + "statistics_" +
             self._output_filename + ".csv",
-            sep=",")
+            sep=",",
+            index=False
+        )
 
         dict_to_json_file(
             results_not_valid,
             HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
             "results_not_valid/results_not_valid_" +
             self._output_filename + ".json")
+
+    def calculate_hunter_result_outcome(self, results: dict, param: str) -> \
+            (str, str):
+        if param == "city":
+            result_param = "cities"
+            gt_param = "city"
+        elif param == "country":
+            result_param = "countries"
+            gt_param = "country_code"
+        else:
+            print("Outcome param not valid")
+            return "Indeterminate", "Not calculated"
+
+        if self._validate_target:
+            try:
+                if len(results["hops_directions_list"][-1]) != 1:
+                    return "Indeterminate", "Multiples IP on target hop"
+                elif results["hops_directions_list"][-1] == "*":
+                    return "Indeterminate", "Target hop do not respond"
+            except:
+                print("Target directions list exception")
+
+        num_result_countries = len(results["hunt_results"]["countries"])
+        if num_result_countries == 1:
+            if results["gt_info"][gt_param] == \
+                    results["hunt_results"][result_param][0]:
+                return "Positive", "Same result airport"
+            else:
+                return "Negative", "Different result airport"
+        elif num_result_countries == 0:
+            centroid = from_geojson(results["hunt_results"]["centroid"])
+            if not results["last_hop"]["ip"]:
+                return "Indeterminate", "Last hop not valid"
+            elif not results["discs_intersect"]:
+                return "Indeterminate", "Ping discs no intersection"
+            elif not centroid:
+                return "Indeterminate", "Centroid not found"
+            else:
+                nearest_airport = get_nearest_airport_to_point(centroid)
+                if results["gt_info"][gt_param] == \
+                        nearest_airport[gt_param]:
+                    return "Positive", "Same result in nearest airport"
+                else:
+                    return "Negative", "Different result in nearest airport"
+        else:
+            return "Indeterminate", "Too many results"
 
     # Auxiliary functions
     def calculate_hunter_result_outcome_country(self, results: dict) -> \
@@ -162,25 +210,26 @@ class Statistics:
         if num_result_countries == 1:
             if results["gt_info"]["country_code"] == \
                     results["hunt_results"]["countries"][0]:
-                return "Positive", "Same country airport"
+                return "Positive", "Same result airport"
             else:
-                return "Negative", "Different country airport"
+                return "Negative", "Different result airport"
         elif num_result_countries == 0:
             centroid = from_geojson(results["hunt_results"]["centroid"])
-            if centroid:
+            if not results["last_hop"]["ip"]:
+                return "Indeterminate", "Last hop not valid"
+            elif not results["discs_intersect"]:
+                return "Indeterminate", "Ping discs no intersection"
+            elif not centroid:
+                return "Indeterminate", "Centroid not found"
+            else:
                 nearest_airport = get_nearest_airport_to_point(centroid)
                 if results["gt_info"]["country_code"] == \
                         nearest_airport["country_code"]:
-                    return "Positive", "Same country in nearest airport"
+                    return "Positive", "Same result in nearest airport"
                 else:
-                    return "Negative", "Different country in nearest airport"
-            else:
-                if results["discs_intersect"]:
-                    return "Indeterminate", "Ping discs no intersection"
-                else:
-                    return "Indeterminate", "Shapely dont intersect"
+                    return "Negative", "Different result in nearest airport"
         else:
-            return "Indeterminate", "Too many countries"
+            return "Indeterminate", "Too many results"
 
     def calculate_hunter_result_outcome_city(self, results: dict) -> \
             (str, str):
@@ -197,25 +246,26 @@ class Statistics:
         if num_result_cities == 1:
             if results["gt_info"]["city"] == \
                     results["hunt_results"]["cities"][0]:
-                return "Positive", "Same city airport"
+                return "Positive", "Same result airport"
             else:
-                return "Negative", "Different city airport"
+                return "Negative", "Different result airport"
         elif num_result_cities == 0:
             centroid = from_geojson(results["hunt_results"]["centroid"])
-            if centroid:
+            if not results["last_hop"]["ip"]:
+                return "Indeterminate", "Last hop not valid"
+            elif not results["discs_intersect"]:
+                return "Indeterminate", "Ping discs no intersection"
+            elif not centroid:
+                return "Indeterminate", "Centroid not found"
+            else:
                 nearest_airport = get_nearest_airport_to_point(centroid)
                 if results["gt_info"]["city"] == \
                         nearest_airport["city"]:
-                    return "Positive", "Same city in nearest airport"
+                    return "Positive", "Same result in nearest airport"
                 else:
-                    return "Negative", "Different country in nearest airport"
-            else:
-                if results["discs_intersect"]:
-                    return "Indeterminate", "Ping discs no intersection"
-                else:
-                    return "Indeterminate", "Shapely dont intersect"
+                    return "Negative", "Different result in nearest airport"
         else:
-            return "Indeterminate", "Too many cities"
+            return "Indeterminate", "Too many results"
 
     def aggregate_hunter_statistics_country(self):
         statistics_files = [filename for filename in
@@ -249,13 +299,17 @@ class Statistics:
                 ignore_index=True
             )
 
-        aggregation_df.to_csv(HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
-                              "aggregation_results.csv", sep=",")
+        aggregation_df.to_csv(
+            HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
+            "aggregation_results.csv",
+            sep=",",
+            index=False
+        )
 
 
 def get_statistics_hunter():
     hunter_campaigns = [
-
+        "validation_anycast_udp_cloudfare_0_20230606_ip_last_hop_validation",
     ]
 
     for hunter_campaign in hunter_campaigns:
@@ -275,7 +329,7 @@ def get_statistics_hunter():
                 else:
                     validation_name = additional_to_name
 
-            output_filename = campaign_name + validation_name
+            output_filename = campaign_name + "_" + validation_name
             hunter_campaign_statistics = Statistics(
                 validation_campaign_directory=hunter_campaign,
                 output_filename=output_filename,
