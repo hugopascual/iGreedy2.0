@@ -217,17 +217,26 @@ def compare_countries_gt(results_filepath: str, gt_filepath: str) -> None:
     instances_outside_false_detected = (all_countries - area_of_interest).\
         intersection(results_countries) - gt_countries
 
-    precision = tp/(tp+fp)
-    recall = tp/(tp+fn)
+    try:
+        accuracy = (tp+tn)/(tp+fp+tn+fn)
+        precision = tp/(tp+fp)
+        recall = tp/(tp+fn)
+        f1 = 2 * ((precision * recall) / (precision + recall))
+    except ZeroDivisionError:
+        accuracy = 0
+        precision = 0
+        recall = 0
+        f1 = 0
+
     statistics = {
         "TP": tp,
         "FP": fp,
         "TN": tn,
         "FN": fn,
-        "accuracy": (tp+tn)/(tp+fp+tn+fn),
+        "accuracy": accuracy,
         "precision": precision,
         "recall": recall,
-        "f1": 2 * ((precision * recall) / (precision + recall))
+        "f1": f1
     }
 
     results_dict = json_file_to_dict(results_filepath)
@@ -282,17 +291,23 @@ def calculate_performance_statistics_cities(validation: pd.DataFrame) -> dict:
         of = int(validation["type"].value_counts()["OF"])
     except: of = 0
 
-    precision = tp/(tp+fp)
-    recall = tp/(tp+fn)
     try:
+        accuracy = (tp+tn)/(tp+fp+fn)
+        precision = tp / (tp + fp)
+        recall = tp / (tp + fn)
         f1 = 2*((precision*recall)/(precision+recall))
-    except: f1 = 0
+    except ZeroDivisionError:
+        accuracy = 0
+        precision = 0
+        recall = 0
+        f1 = 0
+
     statistics = {
         "TP": tp,
         "FP": fp,
         "TN": tn,
         "FN": fn,
-        "accuracy": (tp+tn)/(tp+fp+fn),
+        "accuracy": accuracy,
         "precision": precision,
         "recall": recall,
         "f1": f1,

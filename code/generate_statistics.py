@@ -103,7 +103,7 @@ class Statistics:
         results_not_valid = []
 
         for result_filename in results_filenames:
-            #print(result_filename)
+            print(result_filename)
             result_dict = json_file_to_dict("{}/{}".format(
                 HUNTER_MEASUREMENTS_CAMPAIGNS_PATH +
                 self._validation_campaign_directory, result_filename)
@@ -160,6 +160,10 @@ class Statistics:
             print("Outcome param not valid")
             return "Indeterminate", "Not calculated"
 
+        print("Param: {} Result_param: {} GT_param: {}".format(
+            param, result_param, gt_param
+        ))
+
         if self._validate_target:
             try:
                 if len(results["hops_directions_list"][-1]) != 1:
@@ -188,79 +192,6 @@ class Statistics:
                 nearest_airport = get_nearest_airport_to_point(centroid)
                 if results["gt_info"][gt_param] == \
                         nearest_airport[gt_param]:
-                    return "Positive", "Same result in nearest airport"
-                else:
-                    return "Negative", "Different result in nearest airport"
-        else:
-            return "Indeterminate", "Too many results"
-
-    # Auxiliary functions
-    def calculate_hunter_result_outcome_country(self, results: dict) -> \
-            (str, str):
-        if self._validate_target:
-            try:
-                if len(results["hops_directions_list"][-1]) != 1:
-                    return "Indeterminate", "Multiples IP on target hop"
-                elif results["hops_directions_list"][-1] == "*":
-                    return "Indeterminate", "Target hop do not respond"
-            except:
-                print("Target directions list exception")
-
-        num_result_countries = len(results["hunt_results"]["countries"])
-        if num_result_countries == 1:
-            if results["gt_info"]["country_code"] == \
-                    results["hunt_results"]["countries"][0]:
-                return "Positive", "Same result airport"
-            else:
-                return "Negative", "Different result airport"
-        elif num_result_countries == 0:
-            centroid = from_geojson(results["hunt_results"]["centroid"])
-            if not results["last_hop"]["ip"]:
-                return "Indeterminate", "Last hop not valid"
-            elif not results["discs_intersect"]:
-                return "Indeterminate", "Ping discs no intersection"
-            elif not centroid:
-                return "Indeterminate", "Centroid not found"
-            else:
-                nearest_airport = get_nearest_airport_to_point(centroid)
-                if results["gt_info"]["country_code"] == \
-                        nearest_airport["country_code"]:
-                    return "Positive", "Same result in nearest airport"
-                else:
-                    return "Negative", "Different result in nearest airport"
-        else:
-            return "Indeterminate", "Too many results"
-
-    def calculate_hunter_result_outcome_city(self, results: dict) -> \
-            (str, str):
-        if self._validate_target:
-            try:
-                if len(results["hops_directions_list"][-1]) != 1:
-                    return "Indeterminate", "Multiples IP on target hop"
-                elif results["hops_directions_list"][-1] == "*":
-                    return "Indeterminate", "Target hop do not respond"
-            except:
-                print("Target directions list exception")
-
-        num_result_cities = len(results["hunt_results"]["cities"])
-        if num_result_cities == 1:
-            if results["gt_info"]["city"] == \
-                    results["hunt_results"]["cities"][0]:
-                return "Positive", "Same result airport"
-            else:
-                return "Negative", "Different result airport"
-        elif num_result_cities == 0:
-            centroid = from_geojson(results["hunt_results"]["centroid"])
-            if not results["last_hop"]["ip"]:
-                return "Indeterminate", "Last hop not valid"
-            elif not results["discs_intersect"]:
-                return "Indeterminate", "Ping discs no intersection"
-            elif not centroid:
-                return "Indeterminate", "Centroid not found"
-            else:
-                nearest_airport = get_nearest_airport_to_point(centroid)
-                if results["gt_info"]["city"] == \
-                        nearest_airport["city"]:
                     return "Positive", "Same result in nearest airport"
                 else:
                     return "Negative", "Different result in nearest airport"
@@ -352,5 +283,5 @@ def get_statistics_igreedy():
     igreedy_statistics.igreedy_build_statistics_validation_campaign()
 
 
-get_statistics_hunter()
-#get_statistics_igreedy()
+#get_statistics_hunter()
+get_statistics_igreedy()

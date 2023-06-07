@@ -14,6 +14,9 @@ from utils.constants import (
     FACTOR_3000,
     FACTOR_5000
 )
+from utils.common_functions import (
+    get_distance_from_rtt
+)
 # Light speed reduction factor applied
 REDUCTION_FACTOR = FIBER_RI
 
@@ -24,7 +27,8 @@ class Disc(object):
         ping (float): (in ms)
         """
         # in km:ping*98,615940132
-        self._radius = ((ping/2)*0.001) * (REDUCTION_FACTOR*SPEED_OF_LIGHT)
+        #self._radius = ((ping/2)*0.001) * (REDUCTION_FACTOR*SPEED_OF_LIGHT)
+        self._radius = get_distance_from_rtt(ping)
         self._hostname = hostname
         #self._instance = instance
         #self._city=city
