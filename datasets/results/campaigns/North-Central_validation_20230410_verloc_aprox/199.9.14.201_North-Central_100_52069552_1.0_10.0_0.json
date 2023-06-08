@@ -1,0 +1,72 @@
+{
+    "target": "199.9.14.201",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/199.9.14.201_North-Central_100_52069552.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_100.json",
+    "alpha": 1.0,
+    "threshold": 10.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 4,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "RTM",
+                "latitude": 51.9569015503,
+                "longitude": 4.4372200966,
+                "city": "Rotterdam",
+                "country_code": "NL"
+            },
+            "circle": {
+                "id": "54521",
+                "latitude": 52.0075,
+                "longitude": 4.3585,
+                "radius": 35
+            }
+        },
+        {
+            "marker": {
+                "id": "BQH",
+                "latitude": 51.3307991028,
+                "longitude": 0.0324999988,
+                "city": "London",
+                "country_code": "GB"
+            },
+            "circle": {
+                "id": "54438",
+                "latitude": 51.5115,
+                "longitude": -0.1315,
+                "radius": 105
+            }
+        },
+        {
+            "marker": {
+                "id": "DEX",
+                "latitude": 50.121212,
+                "longitude": 8.6365638,
+                "city": "Frankfurt-am-Main",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "1002824",
+                "latitude": 50.1195,
+                "longitude": 8.6785,
+                "radius": 115
+            }
+        },
+        {
+            "marker": {
+                "id": "PAR",
+                "latitude": 49.0127983093,
+                "longitude": 2.5499999523,
+                "city": "Paris",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "31879",
+                "latitude": 48.8615,
+                "longitude": 2.3905,
+                "radius": 155
+            }
+        }
+    ]
+}

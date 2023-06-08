@@ -1,0 +1,157 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.json",
+    "alpha": 0.6,
+    "threshold": 10.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/198.97.190.53_North-Central-section_1_52651836_0.6_10.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 2,
+        "FP": 17,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.10526315789473684,
+        "precision": 0.10526315789473684,
+        "recall": 1.0,
+        "f1": 0.1904761904761905,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "CH",
+            "city": "Zurich",
+            "latitude": 47.4646987915,
+            "longitude": 8.5491695404,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Berlin",
+            "latitude": 52.3800010681,
+            "longitude": 13.5225000381,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Cologne",
+            "latitude": 50.8658981323,
+            "longitude": 7.1427397728,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt-am-Main",
+            "latitude": 50.121212,
+            "longitude": 8.6365638,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hamburg",
+            "latitude": 53.6304016113,
+            "longitude": 9.9882297516,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Mainz",
+            "latitude": 49.9674987793,
+            "longitude": 8.1472215652,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Munich",
+            "latitude": 48.3538017273,
+            "longitude": 11.7861003876,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Nuremberg",
+            "latitude": 49.4986991882,
+            "longitude": 11.0669002533,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Saarbr\u00fccken",
+            "latitude": 49.2145996094,
+            "longitude": 7.1095099449,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Stuttgart",
+            "latitude": 48.6898994446,
+            "longitude": 9.2219600677,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.7252998352,
+            "longitude": 2.3594400883,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Bristol",
+            "latitude": 51.5194015503,
+            "longitude": -2.5908300877,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Leeds",
+            "latitude": 53.8658981323,
+            "longitude": -1.6605700254,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5052986145,
+            "longitude": 0.0552779995,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.1481018066,
+            "longitude": -0.1902779937,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.8849983215,
+            "longitude": 0.2349999994,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Southampton",
+            "latitude": 50.9502983093,
+            "longitude": -1.3567999601,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Bari",
+            "latitude": 41.1389007568,
+            "longitude": 16.7605991364,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.3086013794,
+            "longitude": 4.7638897896,
+            "type": "FP"
+        }
+    ]
+}

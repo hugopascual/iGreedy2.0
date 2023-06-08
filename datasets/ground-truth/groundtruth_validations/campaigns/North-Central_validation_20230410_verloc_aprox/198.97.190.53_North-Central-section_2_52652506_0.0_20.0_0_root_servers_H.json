@@ -1,0 +1,143 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_2.json",
+    "alpha": 0.0,
+    "threshold": 20.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/198.97.190.53_North-Central-section_2_52652506_0.0_20.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 1,
+        "FP": 15,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0.058823529411764705,
+        "precision": 0.0625,
+        "recall": 0.5,
+        "f1": 0.1111111111111111,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "CH",
+            "city": "Bern",
+            "latitude": 46.914100647,
+            "longitude": 7.4971499443,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Baden-Baden",
+            "latitude": 48.7793998718,
+            "longitude": 8.0804996491,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Dresden",
+            "latitude": 51.1328010559,
+            "longitude": 13.76720047,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt",
+            "latitude": 50.11944,
+            "longitude": 8.735556,
+            "type": "FN"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hamburg",
+            "latitude": 53.5352783203,
+            "longitude": 9.8355560303,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hof",
+            "latitude": 50.2886123657,
+            "longitude": 11.8563890457,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Tours/Val de Loire (Loire Valley)",
+            "latitude": 47.4322013855,
+            "longitude": 0.7276059985,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Brighton",
+            "latitude": 50.8356018066,
+            "longitude": -0.2972219884,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Doncaster",
+            "latitude": 53.4805378105,
+            "longitude": -1.0106563568,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Enniskillen",
+            "latitude": 54.3988990784,
+            "longitude": -7.6516699791,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Manchester",
+            "latitude": 53.3536987305,
+            "longitude": -2.2749500275,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Thetford",
+            "latitude": 52.3426017761,
+            "longitude": 0.7729390264,
+            "type": "FP"
+        },
+        {
+            "country_code": "IE",
+            "city": "Waterford",
+            "latitude": 52.1871986389,
+            "longitude": -7.0869598389,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Milan",
+            "latitude": 45.6305999756,
+            "longitude": 8.7281103134,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Arnhem",
+            "latitude": 52.0606002808,
+            "longitude": 5.8730602264,
+            "type": "FP"
+        },
+        {
+            "country_code": "SE",
+            "city": "Sk\u00f6vde",
+            "latitude": 58.456401825,
+            "longitude": 13.972700119,
+            "type": "FP"
+        },
+        {
+            "country_code": "SI",
+            "city": "Ljubljana",
+            "latitude": 46.2237014771,
+            "longitude": 14.4575996399,
+            "type": "FP"
+        }
+    ]
+}

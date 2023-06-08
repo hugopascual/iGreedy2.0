@@ -1,0 +1,66 @@
+{
+    "target": "192.33.4.12",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.json",
+    "alpha": 0.0,
+    "threshold": 5.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/192.33.4.12_North-Central-section_1_52641149_0.0_5.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_C.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 4,
+        "FP": 2,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.6666666666666666,
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "f1": 0.8,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "AT",
+            "city": "Vienna",
+            "latitude": 48.1102981567,
+            "longitude": 16.5697002411,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Stuttgart",
+            "latitude": 48.6898994446,
+            "longitude": 9.2219600677,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.4936,
+            "longitude": -3.56676,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Auxerre/Branches",
+            "latitude": 47.8502006531,
+            "longitude": 3.49710989,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Pontoise",
+            "latitude": 49.0965995789,
+            "longitude": 2.0408298969,
+            "type": "TP"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 50.1385,
+            "longitude": 8.7375,
+            "type": "TP"
+        }
+    ]
+}

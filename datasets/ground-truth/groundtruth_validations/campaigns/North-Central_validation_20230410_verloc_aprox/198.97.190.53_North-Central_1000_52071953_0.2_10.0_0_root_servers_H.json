@@ -1,0 +1,234 @@
+{
+    "target": "198.97.190.53",
+    "probes_filepath": "datasets/probes_sets/North-Central_1000.json",
+    "alpha": 0.2,
+    "threshold": 10.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/198.97.190.53_North-Central_1000_52071953_0.2_10.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_H.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 2,
+        "FP": 26,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.07142857142857142,
+        "precision": 0.07142857142857142,
+        "recall": 1.0,
+        "f1": 0.13333333333333333,
+        "OT": 0,
+        "OF": 2
+    },
+    "instances": [
+        {
+            "country_code": "AT",
+            "city": "Salzburg",
+            "latitude": 47.7933006287,
+            "longitude": 13.0043001175,
+            "type": "FP"
+        },
+        {
+            "country_code": "BE",
+            "city": "Ostend",
+            "latitude": 51.1988983154,
+            "longitude": 2.8622200489,
+            "type": "FP"
+        },
+        {
+            "country_code": "CH",
+            "city": "Zurich",
+            "latitude": 47.4646987915,
+            "longitude": 8.5491695404,
+            "type": "FP"
+        },
+        {
+            "country_code": "CZ",
+            "city": "Prague",
+            "latitude": 50.1007995605,
+            "longitude": 14.2600002289,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Bayreuth",
+            "latitude": 49.9850006104,
+            "longitude": 11.6400003433,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt-am-Main",
+            "latitude": 50.121212,
+            "longitude": 8.6365638,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Friedrichshafen",
+            "latitude": 47.6712989807,
+            "longitude": 9.5114898682,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hamburg",
+            "latitude": 53.6304016113,
+            "longitude": 9.9882297516,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hannover",
+            "latitude": 52.461101532,
+            "longitude": 9.6850795746,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Leipzig",
+            "latitude": 51.4323997498,
+            "longitude": 12.2416000366,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Mannheim",
+            "latitude": 49.4730567932,
+            "longitude": 8.514166832,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "M\u00f6nchengladbach",
+            "latitude": 51.2302780151,
+            "longitude": 6.5044441223,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Nuremberg",
+            "latitude": 49.4986991882,
+            "longitude": 11.0669002533,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Stuttgart",
+            "latitude": 48.6898994446,
+            "longitude": 9.2219600677,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Calais/Dunkerque",
+            "latitude": 50.9621009827,
+            "longitude": 1.9547599554,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Colmar/Houssen",
+            "latitude": 48.1099014282,
+            "longitude": 7.3590102196,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Pontoise",
+            "latitude": 49.0965995789,
+            "longitude": 2.0408298969,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Birmingham",
+            "latitude": 52.4538993835,
+            "longitude": -1.7480299473,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Bristol",
+            "latitude": 51.3827018738,
+            "longitude": -2.7190899849,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Farnborough",
+            "latitude": 51.2757987976,
+            "longitude": -0.7763329744,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Leeds",
+            "latitude": 53.8658981323,
+            "longitude": -1.6605700254,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.5286416,
+            "longitude": -0.1015987,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.3307991028,
+            "longitude": 0.0324999988,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.8849983215,
+            "longitude": 0.2349999994,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Yeovil",
+            "latitude": 51.0093994141,
+            "longitude": -2.6388199329,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Foggia",
+            "latitude": 41.4328994751,
+            "longitude": 15.5349998474,
+            "type": "FP"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 51.5415,
+            "longitude": -0.6715,
+            "type": "OF"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 55.3775,
+            "longitude": -3.4425,
+            "type": "OF"
+        },
+        {
+            "country_code": "NL",
+            "city": "Breda",
+            "latitude": 51.567401886,
+            "longitude": 4.9318299294,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Leeuwarden",
+            "latitude": 53.2285995483,
+            "longitude": 5.7605600357,
+            "type": "FP"
+        }
+    ]
+}

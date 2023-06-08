@@ -1,0 +1,129 @@
+{
+    "target": "202.12.27.33",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.5.json",
+    "alpha": 0.0,
+    "threshold": -1.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/202.12.27.33_North-Central-section_1.5_52655806_0.0_-1.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_M.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 1,
+        "FP": 13,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.07142857142857142,
+        "precision": 0.07142857142857142,
+        "recall": 1.0,
+        "f1": 0.13333333333333333,
+        "OT": 0,
+        "OF": 1
+    },
+    "instances": [
+        {
+            "country_code": "CH",
+            "city": "Bern",
+            "latitude": 46.914100647,
+            "longitude": 7.4971499443,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Bremen",
+            "latitude": 53.0475006104,
+            "longitude": 8.7866697311,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Heringsdorf",
+            "latitude": 53.8787002563,
+            "longitude": 14.152299881,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Weeze",
+            "latitude": 51.6024017334,
+            "longitude": 6.1421699524,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Beauvais/Till\u00e9",
+            "latitude": 49.4543991089,
+            "longitude": 2.1127800941,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Bordeaux/M\u00e9rignac",
+            "latitude": 44.8283004761,
+            "longitude": -0.7155560255,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Cahors/Lalbenque",
+            "latitude": 44.351398468,
+            "longitude": 1.4752800465,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Calais/Dunkerque",
+            "latitude": 50.9621009827,
+            "longitude": 1.9547599554,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Charleville-M\u00e9zi\u00e8res",
+            "latitude": 49.7839012146,
+            "longitude": 4.6470799446,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Nantes",
+            "latitude": 47.1531982422,
+            "longitude": -1.610730052,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Nice",
+            "latitude": 43.6584014893,
+            "longitude": 7.2158699036,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Kidlington",
+            "latitude": 51.8368988037,
+            "longitude": -1.3200000525,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Newcastle",
+            "latitude": 55.0374984741,
+            "longitude": -1.6916699409,
+            "type": "FP"
+        },
+        {
+            "country_code": "KZ",
+            "city": "Atyrau",
+            "latitude": 47.1218986511,
+            "longitude": 51.8213996887,
+            "type": "OF"
+        },
+        {
+            "country_code": "MA",
+            "city": "Agadir",
+            "latitude": 30.3250007629,
+            "longitude": -9.413069725,
+            "type": "FP"
+        }
+    ]
+}

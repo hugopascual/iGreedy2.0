@@ -1,0 +1,143 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_sets/North-Central_300.json",
+    "alpha": 0.0,
+    "threshold": 20.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/199.9.14.201_North-Central_300_52069565_0.0_20.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 0,
+        "FP": 16,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0,
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "OT": 1,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BE",
+            "city": "Antwerp",
+            "latitude": 51.1893997192,
+            "longitude": 4.4602799416,
+            "type": "FP"
+        },
+        {
+            "country_code": "CZ",
+            "city": "Prague",
+            "latitude": 50.1007995605,
+            "longitude": 14.2600002289,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Fritzlar",
+            "latitude": 51.1146,
+            "longitude": 9.286,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hahn",
+            "latitude": 49.9486999512,
+            "longitude": 7.2638897896,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "M\u00fcnster",
+            "latitude": 52.134601593,
+            "longitude": 7.6848301888,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Weeze",
+            "latitude": 51.6024017334,
+            "longitude": 6.1421699524,
+            "type": "FP"
+        },
+        {
+            "country_code": "DK",
+            "city": "Esbjerg",
+            "latitude": 55.5259017944,
+            "longitude": 8.5534000397,
+            "type": "FP"
+        },
+        {
+            "country_code": "FI",
+            "city": "Kauhava",
+            "latitude": 63.1271018982,
+            "longitude": 23.051399231,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Le Havre/Octeville",
+            "latitude": 49.5339012146,
+            "longitude": 0.0880559981,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Metz/Frescaty",
+            "latitude": 49.0717010498,
+            "longitude": 6.1316699982,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Orange/Caritat",
+            "latitude": 44.140499115,
+            "longitude": 4.8667201996,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Birmingham",
+            "latitude": 52.4538993835,
+            "longitude": -1.7480299473,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Cambridge",
+            "latitude": 52.2050018311,
+            "longitude": 0.174999997,
+            "type": "FP"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 52.3885,
+            "longitude": 4.6595,
+            "type": "OT"
+        },
+        {
+            "country_code": "NL",
+            "city": "Lelystad",
+            "latitude": 52.4603004456,
+            "longitude": 5.5272197723,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Rotterdam",
+            "latitude": 51.9569015503,
+            "longitude": 4.4372200966,
+            "type": "FP"
+        },
+        {
+            "country_code": "RO",
+            "city": "Satu Mare",
+            "latitude": 47.7033004761,
+            "longitude": 22.8857002258,
+            "type": "FP"
+        }
+    ]
+}

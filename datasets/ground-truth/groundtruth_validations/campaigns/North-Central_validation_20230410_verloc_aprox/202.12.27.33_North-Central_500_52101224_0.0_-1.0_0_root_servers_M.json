@@ -1,0 +1,157 @@
+{
+    "target": "202.12.27.33",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 0.0,
+    "threshold": -1.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/202.12.27.33_North-Central_500_52101224_0.0_-1.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_M.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 1,
+        "FP": 17,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.05555555555555555,
+        "precision": 0.05555555555555555,
+        "recall": 1.0,
+        "f1": 0.10526315789473684,
+        "OT": 0,
+        "OF": 1
+    },
+    "instances": [
+        {
+            "country_code": "CH",
+            "city": "Zurich",
+            "latitude": 47.4646987915,
+            "longitude": 8.5491695404,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hahn",
+            "latitude": 49.9486999512,
+            "longitude": 7.2638897896,
+            "type": "FP"
+        },
+        {
+            "country_code": "DK",
+            "city": "Odense",
+            "latitude": 55.4766998291,
+            "longitude": 10.3309001923,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Annecy/Meythet",
+            "latitude": 45.9291992188,
+            "longitude": 6.098760128,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Auxerre/Branches",
+            "latitude": 47.8502006531,
+            "longitude": 3.49710989,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Blois/Le Breuil",
+            "latitude": 47.6785011292,
+            "longitude": 1.2088400126,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Cognac/Ch\u00e2teaubernard",
+            "latitude": 45.6582984924,
+            "longitude": -0.3174999952,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Le Castellet",
+            "latitude": 43.2524986267,
+            "longitude": 5.7851901054,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.7252998352,
+            "longitude": 2.3594400883,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Strasbourg",
+            "latitude": 48.5382995605,
+            "longitude": 7.6282300949,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Valenciennes/Denain",
+            "latitude": 50.3258018494,
+            "longitude": 3.4612600803,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Benson",
+            "latitude": 51.6164016724,
+            "longitude": -1.0958299637,
+            "type": "FP"
+        },
+        {
+            "country_code": "GI",
+            "city": "Gibraltar",
+            "latitude": 36.1511993408,
+            "longitude": -5.3496599197,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Palermo",
+            "latitude": 38.1759986877,
+            "longitude": 13.0909996033,
+            "type": "FP"
+        },
+        {
+            "country_code": "MK",
+            "city": "Ohrid",
+            "latitude": 41.1800003052,
+            "longitude": 20.7423000336,
+            "type": "FP"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 48.8995,
+            "longitude": 2.2995,
+            "type": "OF"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.3086013794,
+            "longitude": 4.7638897896,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Groningen",
+            "latitude": 53.1197013855,
+            "longitude": 6.5794401169,
+            "type": "FP"
+        },
+        {
+            "country_code": "NO",
+            "city": "Bod\u00f8",
+            "latitude": 67.269203186,
+            "longitude": 14.3653001785,
+            "type": "FP"
+        }
+    ]
+}

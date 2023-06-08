@@ -1,0 +1,42 @@
+{
+    "target": "198.41.0.4",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/198.41.0.4_North-Central-section_2_52639249.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_2.json",
+    "alpha": 0.5,
+    "threshold": 5.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "ORB",
+                "latitude": 59.2237014771,
+                "longitude": 15.0380001068,
+                "city": "\u00d6rebro",
+                "country_code": "SE"
+            },
+            "circle": {
+                "id": "32268",
+                "latitude": 59.2715,
+                "longitude": 15.2105,
+                "radius": 40
+            }
+        },
+        {
+            "marker": {
+                "id": "LEY",
+                "latitude": 52.4603004456,
+                "longitude": 5.5272197723,
+                "city": "Lelystad",
+                "country_code": "NL"
+            },
+            "circle": {
+                "id": "1261",
+                "latitude": 51.9875,
+                "longitude": 5.9005,
+                "radius": 60
+            }
+        }
+    ]
+}

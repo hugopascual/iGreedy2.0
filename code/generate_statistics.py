@@ -49,6 +49,7 @@ class Statistics:
         ])
 
         for result_filename in results_filenames:
+            print(result_filename)
             result_dict = json_file_to_dict("{}/{}".format(
                 GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH +
                 self._validation_campaign_directory, result_filename)
@@ -284,5 +285,5 @@ def get_statistics_igreedy():
     igreedy_statistics.igreedy_build_statistics_validation_campaign()
 
 
-get_statistics_hunter()
-#get_statistics_igreedy()
+#get_statistics_hunter()
+get_statistics_igreedy()

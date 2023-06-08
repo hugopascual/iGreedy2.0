@@ -1,0 +1,241 @@
+{
+    "target": "198.41.0.4",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.5.json",
+    "alpha": 0.0,
+    "threshold": 20.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/198.41.0.4_North-Central-section_1.5_52638904_0.0_20.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_A.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 1,
+        "FP": 25,
+        "TN": 0,
+        "FN": 5,
+        "accuracy": 0.03225806451612903,
+        "precision": 0.038461538461538464,
+        "recall": 0.16666666666666666,
+        "f1": 0.0625,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "DE",
+            "city": "Dortmund",
+            "latitude": 51.5182991028,
+            "longitude": 7.6122398377,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt",
+            "latitude": 50.1109221,
+            "longitude": 8.6821267,
+            "type": "FN"
+        },
+        {
+            "country_code": "DK",
+            "city": "Odense",
+            "latitude": 55.4766998291,
+            "longitude": 10.3309001923,
+            "type": "FP"
+        },
+        {
+            "country_code": "DK",
+            "city": "Vojens",
+            "latitude": 55.2256011963,
+            "longitude": 9.2639303207,
+            "type": "FP"
+        },
+        {
+            "country_code": "EE",
+            "city": "Tartu",
+            "latitude": 58.3074989319,
+            "longitude": 26.6903991699,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Le\u00f3n",
+            "latitude": 42.5890007019,
+            "longitude": -5.6555600166,
+            "type": "FP"
+        },
+        {
+            "country_code": "FI",
+            "city": "Helsinki",
+            "latitude": 60.317199707,
+            "longitude": 24.963300705,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Amiens/Glisy",
+            "latitude": 49.8730010986,
+            "longitude": 2.3870699406,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Dijon/Longvic",
+            "latitude": 47.268901825,
+            "longitude": 5.0900001526,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Marseille",
+            "latitude": 43.2961743,
+            "longitude": 5.3699525,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Montb\u00e9liard/Courcelles",
+            "latitude": 47.4869995117,
+            "longitude": 6.7905402184,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.856614,
+            "longitude": 2.3522219,
+            "type": "FN"
+        },
+        {
+            "country_code": "GB",
+            "city": "Birmingham",
+            "latitude": 52.4538993835,
+            "longitude": -1.7480299473,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Coningsby",
+            "latitude": 53.0929985046,
+            "longitude": -0.1660140008,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.8746986389,
+            "longitude": -0.3683330119,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Swansea",
+            "latitude": 51.6053009033,
+            "longitude": -4.0678300858,
+            "type": "FP"
+        },
+        {
+            "country_code": "IM",
+            "city": "Castletown",
+            "latitude": 54.0833015442,
+            "longitude": -4.6238899231,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Bologna",
+            "latitude": 44.5354003906,
+            "longitude": 11.2887001038,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Brindisi",
+            "latitude": 40.6576004028,
+            "longitude": 17.9470005035,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Milan",
+            "latitude": 45.445098877,
+            "longitude": 9.2767400742,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Trieste",
+            "latitude": 45.8274993896,
+            "longitude": 13.4722003937,
+            "type": "FP"
+        },
+        {
+            "country_code": "LT",
+            "city": "Palanga",
+            "latitude": 55.9732017517,
+            "longitude": 21.0939006805,
+            "type": "FP"
+        },
+        {
+            "country_code": "MT",
+            "city": "Luqa",
+            "latitude": 35.857498,
+            "longitude": 14.4775,
+            "type": "FP"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 60.1475,
+            "longitude": 19.9475,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.3702157,
+            "longitude": 4.8951679,
+            "type": "FN"
+        },
+        {
+            "country_code": "NL",
+            "city": "Leeuwarden",
+            "latitude": 53.2285995483,
+            "longitude": 5.7605600357,
+            "type": "FP"
+        },
+        {
+            "country_code": "SE",
+            "city": "Stockholm",
+            "latitude": 59.3293235,
+            "longitude": 18.0685808,
+            "type": "FN"
+        },
+        {
+            "country_code": "SE",
+            "city": "Trollh\u00e4ttan",
+            "latitude": 58.3180999756,
+            "longitude": 12.345000267,
+            "type": "FP"
+        },
+        {
+            "country_code": "SE",
+            "city": "Visby",
+            "latitude": 57.6627998352,
+            "longitude": 18.346200943,
+            "type": "FP"
+        },
+        {
+            "country_code": "SE",
+            "city": "\u00d6rebro",
+            "latitude": 59.2237014771,
+            "longitude": 15.0380001068,
+            "type": "FP"
+        },
+        {
+            "country_code": "SK",
+            "city": "Ko\u0161ice",
+            "latitude": 48.6631011963,
+            "longitude": 21.2411003113,
+            "type": "FP"
+        }
+    ]
+}

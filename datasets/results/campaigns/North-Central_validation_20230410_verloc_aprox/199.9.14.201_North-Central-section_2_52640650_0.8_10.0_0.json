@@ -1,0 +1,42 @@
+{
+    "target": "199.9.14.201",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/199.9.14.201_North-Central-section_2_52640650.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_2.json",
+    "alpha": 0.8,
+    "threshold": 10.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "AMS-IX",
+                "latitude": 52.3747158,
+                "longitude": 4.8986167,
+                "city": "Amsterdam",
+                "country_code": "NL"
+            },
+            "circle": {
+                "id": "24010",
+                "latitude": 52.3775,
+                "longitude": 6.2875,
+                "radius": 100
+            }
+        },
+        {
+            "marker": {
+                "id": "BNX",
+                "latitude": 50.4592018127,
+                "longitude": 4.4538202286,
+                "city": "Brussels",
+                "country_code": "BE"
+            },
+            "circle": {
+                "id": "788",
+                "latitude": 49.5015,
+                "longitude": 6.3715,
+                "radius": 175
+            }
+        }
+    ]
+}

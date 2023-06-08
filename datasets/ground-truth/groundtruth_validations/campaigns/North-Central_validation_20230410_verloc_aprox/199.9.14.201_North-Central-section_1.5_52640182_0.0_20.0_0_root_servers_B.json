@@ -1,0 +1,115 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.5.json",
+    "alpha": 0.0,
+    "threshold": 20.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/199.9.14.201_North-Central-section_1.5_52640182_0.0_20.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 1,
+        "FP": 12,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.07692307692307693,
+        "precision": 0.07692307692307693,
+        "recall": 1.0,
+        "f1": 0.14285714285714288,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "BE",
+            "city": "Antwerp",
+            "latitude": 51.1893997192,
+            "longitude": 4.4602799416,
+            "type": "FP"
+        },
+        {
+            "country_code": "CH",
+            "city": "Sion",
+            "latitude": 46.2196006775,
+            "longitude": 7.3267598152,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Berlin",
+            "latitude": 52.3800010681,
+            "longitude": 13.5225000381,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Bremen",
+            "latitude": 53.0475006104,
+            "longitude": 8.7866697311,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Dortmund",
+            "latitude": 51.5182991028,
+            "longitude": 7.6122398377,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Mannheim",
+            "latitude": 49.4730567932,
+            "longitude": 8.514166832,
+            "type": "FP"
+        },
+        {
+            "country_code": "FI",
+            "city": "Mikkeli",
+            "latitude": 61.6865997314,
+            "longitude": 27.2017993927,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Amiens/Glisy",
+            "latitude": 49.8730010986,
+            "longitude": 2.3870699406,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Deauville",
+            "latitude": 49.3652992249,
+            "longitude": 0.1543059945,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Saint-Yan",
+            "latitude": 46.4124984741,
+            "longitude": 4.0132598877,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Barrow-in-Furness",
+            "latitude": 54.1311988831,
+            "longitude": -3.2636699677,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Lelystad",
+            "latitude": 52.4603004456,
+            "longitude": 5.5272197723,
+            "type": "TP"
+        },
+        {
+            "country_code": "SE",
+            "city": "Stockholm",
+            "latitude": 59.3544006348,
+            "longitude": 17.9416999817,
+            "type": "FP"
+        }
+    ]
+}

@@ -1,0 +1,122 @@
+{
+    "target": "199.9.14.201",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_2.json",
+    "alpha": 0.0,
+    "threshold": 30.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/199.9.14.201_North-Central-section_2_52640650_0.0_30.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_B.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 0,
+        "FP": 13,
+        "TN": 0,
+        "FN": 1,
+        "accuracy": 0,
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "AT",
+            "city": "Klagenfurt am W\u00f6rthersee",
+            "latitude": 46.6425018311,
+            "longitude": 14.3376998901,
+            "type": "FP"
+        },
+        {
+            "country_code": "BE",
+            "city": "Brussels",
+            "latitude": 50.4592018127,
+            "longitude": 4.4538202286,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hamburg",
+            "latitude": 53.6304016113,
+            "longitude": 9.9882297516,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "M\u00fcnster",
+            "latitude": 52.134601593,
+            "longitude": 7.6848301888,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Rostock",
+            "latitude": 53.9182014465,
+            "longitude": 12.2783002853,
+            "type": "FP"
+        },
+        {
+            "country_code": "EE",
+            "city": "Tartu",
+            "latitude": 58.3074989319,
+            "longitude": 26.6903991699,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Calais/Dunkerque",
+            "latitude": 50.9621009827,
+            "longitude": 1.9547599554,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Nevers/Fourchambault",
+            "latitude": 47.0026016235,
+            "longitude": 3.1133298874,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Troyes/Barberey",
+            "latitude": 48.322101593,
+            "longitude": 4.016699791,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Waddington",
+            "latitude": 53.1661987305,
+            "longitude": -0.5238109827,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Piacenza",
+            "latitude": 44.9131011963,
+            "longitude": 9.7233295441,
+            "type": "FP"
+        },
+        {
+            "country_code": "LV",
+            "city": "Riga",
+            "latitude": 56.9235992432,
+            "longitude": 23.9710998535,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.366,
+            "longitude": 4.894,
+            "type": "FN"
+        },
+        {
+            "country_code": "NO",
+            "city": "Bod\u00f8",
+            "latitude": 67.269203186,
+            "longitude": 14.3653001785,
+            "type": "FP"
+        }
+    ]
+}

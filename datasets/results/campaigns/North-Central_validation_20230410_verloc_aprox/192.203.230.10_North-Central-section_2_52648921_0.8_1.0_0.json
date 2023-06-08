@@ -1,0 +1,57 @@
+{
+    "target": "192.203.230.10",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.203.230.10_North-Central-section_2_52648921.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_2.json",
+    "alpha": 0.8,
+    "threshold": 1.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 6,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 53.3295,
+                "longitude": -6.3695,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "6965",
+                "latitude": 53.3295,
+                "longitude": -6.3695,
+                "radius": 5
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 59.3495,
+                "longitude": 18.0685,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "30735",
+                "latitude": 59.3495,
+                "longitude": 18.0685,
+                "radius": 5
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 45.7975,
+                "longitude": 15.9395,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "11440",
+                "latitude": 45.7975,
+                "longitude": 15.9395,
+                "radius": 10
+            }
+        }
+    ]
+}

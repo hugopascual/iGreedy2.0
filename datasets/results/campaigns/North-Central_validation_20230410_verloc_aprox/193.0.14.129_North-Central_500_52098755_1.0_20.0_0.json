@@ -1,0 +1,882 @@
+{
+    "target": "193.0.14.129",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/193.0.14.129_North-Central_500_52098755.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_500.json",
+    "alpha": 1.0,
+    "threshold": 20.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 58,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "AMS-IX",
+                "latitude": 52.3747158,
+                "longitude": 4.8986167,
+                "city": "Amsterdam",
+                "country_code": "NL"
+            },
+            "circle": {
+                "id": "1002081",
+                "latitude": 52.3675,
+                "longitude": 4.9015,
+                "radius": 5
+            }
+        },
+        {
+            "marker": {
+                "id": "TXL",
+                "latitude": 52.5597000122,
+                "longitude": 13.2876996994,
+                "city": "Berlin",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "52523",
+                "latitude": 52.5385,
+                "longitude": 13.2385,
+                "radius": 5
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 40.9475,
+                "longitude": 17.2785,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "6621",
+                "latitude": 40.9475,
+                "longitude": 17.2785,
+                "radius": 5
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 59.8905,
+                "longitude": 30.3285,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "28037",
+                "latitude": 59.8905,
+                "longitude": 30.3285,
+                "radius": 10
+            }
+        },
+        {
+            "marker": {
+                "id": "DEX",
+                "latitude": 50.121212,
+                "longitude": 8.6365638,
+                "city": "Frankfurt-am-Main",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "1004810",
+                "latitude": 50.0975,
+                "longitude": 8.6275,
+                "radius": 10
+            }
+        },
+        {
+            "marker": {
+                "id": "LIN",
+                "latitude": 45.445098877,
+                "longitude": 9.2767400742,
+                "city": "Milan",
+                "country_code": "IT"
+            },
+            "circle": {
+                "id": "14292",
+                "latitude": 45.4685,
+                "longitude": 9.1915,
+                "radius": 10
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 48.1875,
+                "longitude": 16.3515,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "24480",
+                "latitude": 48.1875,
+                "longitude": 16.3515,
+                "radius": 10
+            }
+        },
+        {
+            "marker": {
+                "id": "BIX",
+                "latitude": 47.4812134,
+                "longitude": 19.1303031,
+                "city": "Budapest",
+                "country_code": "HU"
+            },
+            "circle": {
+                "id": "53435",
+                "latitude": 47.4995,
+                "longitude": 19.0385,
+                "radius": 15
+            }
+        },
+        {
+            "marker": {
+                "id": "RIX",
+                "latitude": 56.9235992432,
+                "longitude": 23.9710998535,
+                "city": "Riga",
+                "country_code": "LV"
+            },
+            "circle": {
+                "id": "52806",
+                "latitude": 56.9805,
+                "longitude": 24.1675,
+                "radius": 15
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 51.5415,
+                "longitude": -0.6715,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "1005028",
+                "latitude": 51.5415,
+                "longitude": -0.6715,
+                "radius": 15
+            }
+        },
+        {
+            "marker": {
+                "id": "MAD",
+                "latitude": 40.4936,
+                "longitude": -3.56676,
+                "city": "Madrid",
+                "country_code": "ES"
+            },
+            "circle": {
+                "id": "32868",
+                "latitude": 40.5015,
+                "longitude": -3.6595,
+                "radius": 15
+            }
+        },
+        {
+            "marker": {
+                "id": "SOF",
+                "latitude": 42.6966934204,
+                "longitude": 23.4114360809,
+                "city": "Sofia",
+                "country_code": "BG"
+            },
+            "circle": {
+                "id": "27804",
+                "latitude": 42.6595,
+                "longitude": 23.3875,
+                "radius": 15
+            }
+        },
+        {
+            "marker": {
+                "id": "LUX",
+                "latitude": 49.6265983582,
+                "longitude": 6.211520195,
+                "city": "Luxembourg",
+                "country_code": "LU"
+            },
+            "circle": {
+                "id": "7033",
+                "latitude": 49.5785,
+                "longitude": 6.2285,
+                "radius": 15
+            }
+        },
+        {
+            "marker": {
+                "id": "BEG",
+                "latitude": 44.8184013367,
+                "longitude": 20.3090991974,
+                "city": "Belgrade",
+                "country_code": "RS"
+            },
+            "circle": {
+                "id": "18817",
+                "latitude": 44.8105,
+                "longitude": 20.4075,
+                "radius": 15
+            }
+        },
+        {
+            "marker": {
+                "id": "PRG",
+                "latitude": 50.1007995605,
+                "longitude": 14.2600002289,
+                "city": "Prague",
+                "country_code": "CZ"
+            },
+            "circle": {
+                "id": "3621",
+                "latitude": 50.0475,
+                "longitude": 14.3485,
+                "radius": 20
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 47.5695,
+                "longitude": 9.1015,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "34694",
+                "latitude": 47.5695,
+                "longitude": 9.1015,
+                "radius": 25
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 47.1975,
+                "longitude": 7.5285,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "35530",
+                "latitude": 47.1975,
+                "longitude": 7.5285,
+                "radius": 30
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 47.7775,
+                "longitude": 19.9195,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "53050",
+                "latitude": 47.7775,
+                "longitude": 19.9195,
+                "radius": 30
+            }
+        },
+        {
+            "marker": {
+                "id": "ATH",
+                "latitude": 37.9364013672,
+                "longitude": 23.9444999695,
+                "city": "Athens",
+                "country_code": "GR"
+            },
+            "circle": {
+                "id": "18087",
+                "latitude": 37.9805,
+                "longitude": 23.7315,
+                "radius": 40
+            }
+        },
+        {
+            "marker": {
+                "id": "BBU",
+                "latitude": 44.503200531,
+                "longitude": 26.1021003723,
+                "city": "Bucharest",
+                "country_code": "RO"
+            },
+            "circle": {
+                "id": "61841",
+                "latitude": 44.4475,
+                "longitude": 26.2295,
+                "radius": 25
+            }
+        },
+        {
+            "marker": {
+                "id": "LEY",
+                "latitude": 52.4603004456,
+                "longitude": 5.5272197723,
+                "city": "Lelystad",
+                "country_code": "NL"
+            },
+            "circle": {
+                "id": "7025",
+                "latitude": 52.5395,
+                "longitude": 5.7085,
+                "radius": 30
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 45.2105,
+                "longitude": 5.6885,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "7136",
+                "latitude": 45.2105,
+                "longitude": 5.6885,
+                "radius": 30
+            }
+        },
+        {
+            "marker": {
+                "id": "WAW",
+                "latitude": 52.1656990051,
+                "longitude": 20.9671001434,
+                "city": "Warsaw",
+                "country_code": "PL"
+            },
+            "circle": {
+                "id": "53791",
+                "latitude": 52.0975,
+                "longitude": 20.8015,
+                "radius": 45
+            }
+        },
+        {
+            "marker": {
+                "id": "KUT",
+                "latitude": 42.176700592,
+                "longitude": 42.4826011658,
+                "city": "Kutaisi",
+                "country_code": "GE"
+            },
+            "circle": {
+                "id": "33775",
+                "latitude": 42.1095,
+                "longitude": 42.9205,
+                "radius": 50
+            }
+        },
+        {
+            "marker": {
+                "id": "BCN",
+                "latitude": 41.2971000671,
+                "longitude": 2.0784599781,
+                "city": "Barcelona",
+                "country_code": "ES"
+            },
+            "circle": {
+                "id": "1000650",
+                "latitude": 41.3775,
+                "longitude": 2.0495,
+                "radius": 50
+            }
+        },
+        {
+            "marker": {
+                "id": "FMO",
+                "latitude": 52.134601593,
+                "longitude": 7.6848301888,
+                "city": "M\u00fcnster",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "34498",
+                "latitude": 52.2215,
+                "longitude": 6.8915,
+                "radius": 55
+            }
+        },
+        {
+            "marker": {
+                "id": "EIN",
+                "latitude": 51.4500999451,
+                "longitude": 5.3745298386,
+                "city": "Eindhoven",
+                "country_code": "NL"
+            },
+            "circle": {
+                "id": "1002322",
+                "latitude": 51.7985,
+                "longitude": 5.2585,
+                "radius": 55
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 41.1375,
+                "longitude": 22.5095,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "62740",
+                "latitude": 41.1375,
+                "longitude": 22.5095,
+                "radius": 60
+            }
+        },
+        {
+            "marker": {
+                "id": "URE",
+                "latitude": 58.2299003601,
+                "longitude": 22.5095005035,
+                "city": "Kuressaare",
+                "country_code": "EE"
+            },
+            "circle": {
+                "id": "34572",
+                "latitude": 58.2485,
+                "longitude": 22.5005,
+                "radius": 65
+            }
+        },
+        {
+            "marker": {
+                "id": "CGN",
+                "latitude": 50.8658981323,
+                "longitude": 7.1427397728,
+                "city": "Cologne",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "50725",
+                "latitude": 50.3795,
+                "longitude": 6.5385,
+                "radius": 75
+            }
+        },
+        {
+            "marker": {
+                "id": "RMI",
+                "latitude": 44.0203018188,
+                "longitude": 12.611700058,
+                "city": "Rimini",
+                "country_code": "IT"
+            },
+            "circle": {
+                "id": "27895",
+                "latitude": 43.9095,
+                "longitude": 12.6515,
+                "radius": 75
+            }
+        },
+        {
+            "marker": {
+                "id": "CERN",
+                "latitude": 46.204705,
+                "longitude": 6.1431301,
+                "city": "Geneva",
+                "country_code": "CH"
+            },
+            "circle": {
+                "id": "60094",
+                "latitude": 46.1695,
+                "longitude": 6.1115,
+                "radius": 75
+            }
+        },
+        {
+            "marker": {
+                "id": "INN",
+                "latitude": 47.2602005005,
+                "longitude": 11.3439998627,
+                "city": "Innsbruck",
+                "country_code": "AT"
+            },
+            "circle": {
+                "id": "23222",
+                "latitude": 47.3585,
+                "longitude": 11.7185,
+                "radius": 85
+            }
+        },
+        {
+            "marker": {
+                "id": "PAR",
+                "latitude": 49.0127983093,
+                "longitude": 2.5499999523,
+                "city": "Paris",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "62148",
+                "latitude": 48.8615,
+                "longitude": 2.3395,
+                "radius": 85
+            }
+        },
+        {
+            "marker": {
+                "id": "LEJ",
+                "latitude": 51.4323997498,
+                "longitude": 12.2416000366,
+                "city": "Leipzig",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "33983",
+                "latitude": 50.8885,
+                "longitude": 12.7915,
+                "radius": 85
+            }
+        },
+        {
+            "marker": {
+                "id": "VAA",
+                "latitude": 63.0507011414,
+                "longitude": 21.7621994019,
+                "city": "Vaasa",
+                "country_code": "FI"
+            },
+            "circle": {
+                "id": "28285",
+                "latitude": 63.1595,
+                "longitude": 21.8415,
+                "radius": 95
+            }
+        },
+        {
+            "marker": {
+                "id": "PDV",
+                "latitude": 42.0677986145,
+                "longitude": 24.8507995605,
+                "city": "Plovdiv",
+                "country_code": "BG"
+            },
+            "circle": {
+                "id": "1005024",
+                "latitude": 41.9295,
+                "longitude": 25.5485,
+                "radius": 105
+            }
+        },
+        {
+            "marker": {
+                "id": "WRO",
+                "latitude": 51.1026992798,
+                "longitude": 16.885799408,
+                "city": "Wroc\u0142aw",
+                "country_code": "PL"
+            },
+            "circle": {
+                "id": "54659",
+                "latitude": 51.8515,
+                "longitude": 16.5695,
+                "radius": 115
+            }
+        },
+        {
+            "marker": {
+                "id": "BNX",
+                "latitude": 50.4592018127,
+                "longitude": 4.4538202286,
+                "city": "Brussels",
+                "country_code": "BE"
+            },
+            "circle": {
+                "id": "52709",
+                "latitude": 51.0315,
+                "longitude": 3.6775,
+                "radius": 115
+            }
+        },
+        {
+            "marker": {
+                "id": "FICIX",
+                "latitude": 60.1733244,
+                "longitude": 24.9410248,
+                "city": "Helsinki",
+                "country_code": "FI"
+            },
+            "circle": {
+                "id": "53745",
+                "latitude": 59.2995,
+                "longitude": 24.4195,
+                "radius": 115
+            }
+        },
+        {
+            "marker": {
+                "id": "HER",
+                "latitude": 35.3396987915,
+                "longitude": 25.1802997589,
+                "city": "Heraklion",
+                "country_code": "GR"
+            },
+            "circle": {
+                "id": "6297",
+                "latitude": 35.3105,
+                "longitude": 25.0715,
+                "radius": 120
+            }
+        },
+        {
+            "marker": {
+                "id": "NTE",
+                "latitude": 47.1531982422,
+                "longitude": -1.610730052,
+                "city": "Nantes",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "24397",
+                "latitude": 47.1905,
+                "longitude": -1.5685,
+                "radius": 125
+            }
+        },
+        {
+            "marker": {
+                "id": "LJU",
+                "latitude": 46.2237014771,
+                "longitude": 14.4575996399,
+                "city": "Ljubljana",
+                "country_code": "SI"
+            },
+            "circle": {
+                "id": "53208",
+                "latitude": 46.6115,
+                "longitude": 13.8475,
+                "radius": 130
+            }
+        },
+        {
+            "marker": {
+                "id": "ZAZ",
+                "latitude": 41.6661987305,
+                "longitude": -1.0415500402,
+                "city": "Zaragoza",
+                "country_code": "ES"
+            },
+            "circle": {
+                "id": "61719",
+                "latitude": 41.6415,
+                "longitude": -0.9325,
+                "radius": 135
+            }
+        },
+        {
+            "marker": {
+                "id": "KRK",
+                "latitude": 50.0777015686,
+                "longitude": 19.7847995758,
+                "city": "Krak\u00f3w",
+                "country_code": "PL"
+            },
+            "circle": {
+                "id": "11422",
+                "latitude": 50.0785,
+                "longitude": 19.9685,
+                "radius": 135
+            }
+        },
+        {
+            "marker": {
+                "id": "VAR",
+                "latitude": 43.2321014404,
+                "longitude": 27.8250999451,
+                "city": "Varna",
+                "country_code": "BG"
+            },
+            "circle": {
+                "id": "2758",
+                "latitude": 42.5015,
+                "longitude": 27.4695,
+                "radius": 165
+            }
+        },
+        {
+            "marker": {
+                "id": "MUC",
+                "latitude": 48.3538017273,
+                "longitude": 11.7861003876,
+                "city": "Munich",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "1005292",
+                "latitude": 49.4485,
+                "longitude": 11.0815,
+                "radius": 175
+            }
+        },
+        {
+            "marker": {
+                "id": "CKL",
+                "latitude": 55.8782997131,
+                "longitude": 38.0616989136,
+                "city": "Moscow",
+                "country_code": "RU"
+            },
+            "circle": {
+                "id": "26656",
+                "latitude": 55.7005,
+                "longitude": 37.3895,
+                "radius": 190
+            }
+        },
+        {
+            "marker": {
+                "id": "ARN",
+                "latitude": 59.6519012451,
+                "longitude": 17.9186000824,
+                "city": "Stockholm",
+                "country_code": "SE"
+            },
+            "circle": {
+                "id": "1004763",
+                "latitude": 59.2985,
+                "longitude": 18.0805,
+                "radius": 190
+            }
+        },
+        {
+            "marker": {
+                "id": "VLC",
+                "latitude": 39.4892997742,
+                "longitude": -0.4816249907,
+                "city": "Valencia",
+                "country_code": "ES"
+            },
+            "circle": {
+                "id": "60589",
+                "latitude": 38.1215,
+                "longitude": -1.2885,
+                "radius": 205
+            }
+        },
+        {
+            "marker": {
+                "id": "DUB",
+                "latitude": 53.4212989807,
+                "longitude": -6.270070076,
+                "city": "Dublin",
+                "country_code": "IE"
+            },
+            "circle": {
+                "id": "30995",
+                "latitude": 53.3295,
+                "longitude": -6.2585,
+                "radius": 210
+            }
+        },
+        {
+            "marker": {
+                "id": "CPH",
+                "latitude": 55.6179008484,
+                "longitude": 12.6560001373,
+                "city": "Copenhagen",
+                "country_code": "DK"
+            },
+            "circle": {
+                "id": "29441",
+                "latitude": 55.6975,
+                "longitude": 12.5195,
+                "radius": 240
+            }
+        },
+        {
+            "marker": {
+                "id": "HAM",
+                "latitude": 53.6304016113,
+                "longitude": 9.9882297516,
+                "city": "Hamburg",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "1002970",
+                "latitude": 53.7775,
+                "longitude": 9.5905,
+                "radius": 200
+            }
+        },
+        {
+            "marker": {
+                "id": "LIS",
+                "latitude": 38.7812995911,
+                "longitude": -9.1359195709,
+                "city": "Lisbon",
+                "country_code": "PT"
+            },
+            "circle": {
+                "id": "1000043",
+                "latitude": 39.7485,
+                "longitude": -8.8105,
+                "radius": 305
+            }
+        },
+        {
+            "marker": {
+                "id": "ODS",
+                "latitude": 46.4267997742,
+                "longitude": 30.6765003204,
+                "city": "Odessa",
+                "country_code": "UA"
+            },
+            "circle": {
+                "id": "25464",
+                "latitude": 46.9695,
+                "longitude": 28.8505,
+                "radius": 310
+            }
+        },
+        {
+            "marker": {
+                "id": "RBA",
+                "latitude": 34.0514984131,
+                "longitude": -6.7515201569,
+                "city": "Rabat",
+                "country_code": "MA"
+            },
+            "circle": {
+                "id": "27388",
+                "latitude": 36.5015,
+                "longitude": -4.7185,
+                "radius": 385
+            }
+        },
+        {
+            "marker": {
+                "id": "GLA",
+                "latitude": 55.8718986511,
+                "longitude": -4.4330601692,
+                "city": "Glasgow",
+                "country_code": "GB"
+            },
+            "circle": {
+                "id": "55525",
+                "latitude": 57.7295,
+                "longitude": -4.2915,
+                "radius": 435
+            }
+        },
+        {
+            "marker": {
+                "id": "DME",
+                "latitude": 55.4087982178,
+                "longitude": 37.9062995911,
+                "city": "Moscow",
+                "country_code": "RU"
+            },
+            "circle": {
+                "id": "18422",
+                "latitude": 51.6785,
+                "longitude": 39.2085,
+                "radius": 460
+            }
+        }
+    ]
+}

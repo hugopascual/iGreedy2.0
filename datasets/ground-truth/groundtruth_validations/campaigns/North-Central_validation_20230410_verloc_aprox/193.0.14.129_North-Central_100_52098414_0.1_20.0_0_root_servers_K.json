@@ -1,0 +1,395 @@
+{
+    "target": "193.0.14.129",
+    "probes_filepath": "datasets/probes_sets/North-Central_100.json",
+    "alpha": 0.1,
+    "threshold": 20.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/193.0.14.129_North-Central_100_52098414_0.1_20.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_K.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 8,
+        "FP": 13,
+        "TN": 0,
+        "FN": 28,
+        "accuracy": 0.16326530612244897,
+        "precision": 0.38095238095238093,
+        "recall": 0.2222222222222222,
+        "f1": 0.2807017543859649,
+        "OT": 3,
+        "OF": 1
+    },
+    "instances": [
+        {
+            "country_code": "AT",
+            "city": "Feldkirch",
+            "latitude": 47.2375671,
+            "longitude": 9.5981724,
+            "type": "FN"
+        },
+        {
+            "country_code": "AT",
+            "city": "Salzburg",
+            "latitude": 47.811195,
+            "longitude": 13.033229,
+            "type": "FN"
+        },
+        {
+            "country_code": "AT",
+            "city": "Vienna",
+            "latitude": 48.1102981567,
+            "longitude": 16.5697002411,
+            "type": "TP"
+        },
+        {
+            "country_code": "BA",
+            "city": "Sarajevo",
+            "latitude": 43.8519774,
+            "longitude": 18.3866868,
+            "type": "FN"
+        },
+        {
+            "country_code": "BG",
+            "city": "Sofia",
+            "latitude": 42.6966934204,
+            "longitude": 23.4114360809,
+            "type": "TP"
+        },
+        {
+            "country_code": "CH",
+            "city": "Geneva",
+            "latitude": 46.2017559,
+            "longitude": 6.1466014,
+            "type": "FN"
+        },
+        {
+            "country_code": "CH",
+            "city": "Zurich",
+            "latitude": 47.4646987915,
+            "longitude": 8.5491695404,
+            "type": "TP"
+        },
+        {
+            "country_code": "CZ",
+            "city": "Prague",
+            "latitude": 50.0596288,
+            "longitude": 14.446459273258009,
+            "type": "FN"
+        },
+        {
+            "country_code": "DE",
+            "city": "Baden-Baden",
+            "latitude": 48.7793998718,
+            "longitude": 8.0804996491,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt-am-Main",
+            "latitude": 50.0264015198,
+            "longitude": 8.543129921,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Hamburg",
+            "latitude": 53.550341,
+            "longitude": 10.000654,
+            "type": "FN"
+        },
+        {
+            "country_code": "DE",
+            "city": "Magdeburg",
+            "latitude": 52.0736122131,
+            "longitude": 11.6263885498,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Munich",
+            "latitude": 48.3538017273,
+            "longitude": 11.7861003876,
+            "type": "FP"
+        },
+        {
+            "country_code": "EE",
+            "city": "Tallinn",
+            "latitude": 59.4372155,
+            "longitude": 24.7453688,
+            "type": "FN"
+        },
+        {
+            "country_code": "ES",
+            "city": "Burgos",
+            "latitude": 42.3576011658,
+            "longitude": -3.620759964,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Girona",
+            "latitude": 41.9010009766,
+            "longitude": 2.7605500221,
+            "type": "TP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Lleida",
+            "latitude": 41.728185,
+            "longitude": 0.535023,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.4167047,
+            "longitude": -3.7035825,
+            "type": "FN"
+        },
+        {
+            "country_code": "FI",
+            "city": "Helsinki",
+            "latitude": 60.1674881,
+            "longitude": 24.9427473,
+            "type": "FN"
+        },
+        {
+            "country_code": "FO",
+            "city": "Torshavn",
+            "latitude": 62.012,
+            "longitude": -6.768,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Le Mans/Arnage",
+            "latitude": 47.948600769,
+            "longitude": 0.2016669959,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Lyon",
+            "latitude": 45.7578137,
+            "longitude": 4.8320114,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.8566969,
+            "longitude": 2.3514616,
+            "type": "FN"
+        },
+        {
+            "country_code": "FR",
+            "city": "Valenciennes/Denain",
+            "latitude": 50.3258018494,
+            "longitude": 3.4612600803,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "London",
+            "latitude": 51.8849983215,
+            "longitude": 0.2349999994,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Nottingham",
+            "latitude": 52.9199981689,
+            "longitude": -1.0791699886,
+            "type": "FP"
+        },
+        {
+            "country_code": "GR",
+            "city": "Athens",
+            "latitude": 37.9839412,
+            "longitude": 23.7283052,
+            "type": "FN"
+        },
+        {
+            "country_code": "HU",
+            "city": "Budapest",
+            "latitude": 47.4812134,
+            "longitude": 19.1303031,
+            "type": "TP"
+        },
+        {
+            "country_code": "IE",
+            "city": "Cork",
+            "latitude": 51.897077,
+            "longitude": -8.4654674,
+            "type": "FN"
+        },
+        {
+            "country_code": "IS",
+            "city": "Reykjavik",
+            "latitude": 64.145981,
+            "longitude": -21.9422367,
+            "type": "FN"
+        },
+        {
+            "country_code": "IT",
+            "city": "Milan",
+            "latitude": 45.4668,
+            "longitude": 9.1905,
+            "type": "FN"
+        },
+        {
+            "country_code": "IT",
+            "city": "Palermo",
+            "latitude": 38.1112268,
+            "longitude": 13.3524434,
+            "type": "FN"
+        },
+        {
+            "country_code": "IT",
+            "city": "Prato",
+            "latitude": 43.880598,
+            "longitude": 11.0969262,
+            "type": "FN"
+        },
+        {
+            "country_code": "IT",
+            "city": "Rome",
+            "latitude": 41.799444,
+            "longitude": 12.597222,
+            "type": "FP"
+        },
+        {
+            "country_code": "LT",
+            "city": "Vilnius",
+            "latitude": 54.6870458,
+            "longitude": 25.2829111,
+            "type": "FN"
+        },
+        {
+            "country_code": "LU",
+            "city": "Kirchberg",
+            "latitude": 49.6278334,
+            "longitude": 6.1596669,
+            "type": "FN"
+        },
+        {
+            "country_code": "LV",
+            "city": "Riga",
+            "latitude": 56.9493977,
+            "longitude": 24.1051846,
+            "type": "FN"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 52.4505,
+            "longitude": 13.4175,
+            "type": "OT"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 51.8975,
+            "longitude": 0.7785,
+            "type": "OT"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 59.5775,
+            "longitude": 30.1195,
+            "type": "OT"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 46.9215,
+            "longitude": 19.6815,
+            "type": "OF"
+        },
+        {
+            "country_code": "NL",
+            "city": "Amsterdam",
+            "latitude": 52.3747158,
+            "longitude": 4.8986167,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Breda",
+            "latitude": 51.567401886,
+            "longitude": 4.9318299294,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Lelystad",
+            "latitude": 52.4603004456,
+            "longitude": 5.5272197723,
+            "type": "TP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Uden",
+            "latitude": 51.6563987732,
+            "longitude": 5.7086100578,
+            "type": "FP"
+        },
+        {
+            "country_code": "PL",
+            "city": "Gdynia",
+            "latitude": 54.50383255,
+            "longitude": 18.462806155884614,
+            "type": "FN"
+        },
+        {
+            "country_code": "PL",
+            "city": "Poznan",
+            "latitude": 52.4006632,
+            "longitude": 16.91973259178088,
+            "type": "FN"
+        },
+        {
+            "country_code": "PL",
+            "city": "Warsaw",
+            "latitude": 52.2337172,
+            "longitude": 21.071432235636493,
+            "type": "FN"
+        },
+        {
+            "country_code": "RO",
+            "city": "Bucharest",
+            "latitude": 44.4361414,
+            "longitude": 26.1027202,
+            "type": "FN"
+        },
+        {
+            "country_code": "RS",
+            "city": "Belgrade",
+            "latitude": 44.8178131,
+            "longitude": 20.4568974,
+            "type": "FN"
+        },
+        {
+            "country_code": "RU",
+            "city": "Moscow",
+            "latitude": 55.7504461,
+            "longitude": 37.6174943,
+            "type": "FN"
+        },
+        {
+            "country_code": "RU",
+            "city": "Novosibirsk",
+            "latitude": 55.0282171,
+            "longitude": 82.9234509,
+            "type": "FN"
+        },
+        {
+            "country_code": "RU",
+            "city": "Tver",
+            "latitude": 56.8246994019,
+            "longitude": 35.7577018738,
+            "type": "FP"
+        }
+    ]
+}

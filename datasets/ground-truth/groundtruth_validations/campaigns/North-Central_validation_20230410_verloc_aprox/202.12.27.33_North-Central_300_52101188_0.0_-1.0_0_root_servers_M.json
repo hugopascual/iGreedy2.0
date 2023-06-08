@@ -1,0 +1,150 @@
+{
+    "target": "202.12.27.33",
+    "probes_filepath": "datasets/probes_sets/North-Central_300.json",
+    "alpha": 0.0,
+    "threshold": -1.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/202.12.27.33_North-Central_300_52101188_0.0_-1.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_M.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 1,
+        "FP": 15,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.0625,
+        "precision": 0.0625,
+        "recall": 1.0,
+        "f1": 0.11764705882352941,
+        "OT": 0,
+        "OF": 2
+    },
+    "instances": [
+        {
+            "country_code": "CH",
+            "city": "Zurich",
+            "latitude": 47.4646987915,
+            "longitude": 8.5491695404,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Bremen",
+            "latitude": 53.0475006104,
+            "longitude": 8.7866697311,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Ramstein",
+            "latitude": 49.4369010925,
+            "longitude": 7.600279808,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Stuttgart",
+            "latitude": 48.6898994446,
+            "longitude": 9.2219600677,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Biarritz/Anglet/Bayonne",
+            "latitude": 43.4683990479,
+            "longitude": -1.5233199596,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Brest/Guipavas",
+            "latitude": 48.4478988647,
+            "longitude": -4.4185400009,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Charleville-M\u00e9zi\u00e8res",
+            "latitude": 49.7839012146,
+            "longitude": 4.6470799446,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Le Touquet-Paris-Plage",
+            "latitude": 50.5173988342,
+            "longitude": 1.6205899715,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Mont-de-Marsan",
+            "latitude": 43.9117012024,
+            "longitude": -0.5074999928,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.7252998352,
+            "longitude": 2.3594400883,
+            "type": "TP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Rodez/Marcillac",
+            "latitude": 44.4079017639,
+            "longitude": 2.4826700687,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Valenciennes/Denain",
+            "latitude": 50.3258018494,
+            "longitude": 3.4612600803,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Vichy/Charmeil",
+            "latitude": 46.1697006226,
+            "longitude": 3.4037399292,
+            "type": "FP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Odiham",
+            "latitude": 51.2341003418,
+            "longitude": -0.9428250194,
+            "type": "FP"
+        },
+        {
+            "country_code": "IT",
+            "city": "Verona",
+            "latitude": 45.3956985474,
+            "longitude": 10.8885002136,
+            "type": "FP"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 48.8615,
+            "longitude": 2.3805,
+            "type": "OF"
+        },
+        {
+            "country_code": "NO",
+            "city": "B\u00e5tsfjord",
+            "latitude": 70.6005020142,
+            "longitude": 29.691400528,
+            "type": "FP"
+        },
+        {
+            "country_code": "TR",
+            "city": "Erzurum",
+            "latitude": 39.9565010071,
+            "longitude": 41.1702003479,
+            "type": "OF"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "target": "192.5.5.241",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.5.5.241_North-Central-section_1.5_52649771.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.5.json",
+    "alpha": 0.8,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 2,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 47.0295,
+                "longitude": 28.8405,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "11874",
+                "latitude": 47.0295,
+                "longitude": 28.8405,
+                "radius": 5
+            }
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "target": "199.9.14.201",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/199.9.14.201_North-Central-section_1_52639768.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.json",
+    "alpha": 0.3,
+    "threshold": 5.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 3,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "LEY",
+                "latitude": 52.4603004456,
+                "longitude": 5.5272197723,
+                "city": "Lelystad",
+                "country_code": "NL"
+            },
+            "circle": {
+                "id": "6863",
+                "latitude": 52.5385,
+                "longitude": 5.7005,
+                "radius": 25
+            }
+        },
+        {
+            "marker": {
+                "id": "BNX",
+                "latitude": 50.4592018127,
+                "longitude": 4.4538202286,
+                "city": "Brussels",
+                "country_code": "BE"
+            },
+            "circle": {
+                "id": "6737",
+                "latitude": 50.8805,
+                "longitude": 4.4985,
+                "radius": 50
+            }
+        },
+        {
+            "marker": {
+                "id": "FMO",
+                "latitude": 52.134601593,
+                "longitude": 7.6848301888,
+                "city": "M\u00fcnster",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "24066",
+                "latitude": 52.2205,
+                "longitude": 6.8905,
+                "radius": 55
+            }
+        }
+    ]
+}

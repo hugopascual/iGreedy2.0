@@ -1,0 +1,129 @@
+{
+    "target": "192.33.4.12",
+    "probes_filepath": "datasets/probes_sets/North-Central_100.json",
+    "alpha": 0.0,
+    "threshold": 10.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/192.33.4.12_North-Central_100_52069786_0.0_10.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_C.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 2,
+        "FP": 11,
+        "TN": 0,
+        "FN": 2,
+        "accuracy": 0.13333333333333333,
+        "precision": 0.15384615384615385,
+        "recall": 0.5,
+        "f1": 0.23529411764705882,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "AT",
+            "city": "Linz",
+            "latitude": 48.2332000732,
+            "longitude": 14.1875,
+            "type": "FP"
+        },
+        {
+            "country_code": "CH",
+            "city": "Bern",
+            "latitude": 46.914100647,
+            "longitude": 7.4971499443,
+            "type": "FP"
+        },
+        {
+            "country_code": "CZ",
+            "city": "Karlovy Vary",
+            "latitude": 50.202999115,
+            "longitude": 12.9149999619,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Frankfurt-am-Main",
+            "latitude": 50.121212,
+            "longitude": 8.6365638,
+            "type": "TP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Mannheim",
+            "latitude": 49.4730567932,
+            "longitude": 8.514166832,
+            "type": "FP"
+        },
+        {
+            "country_code": "DE",
+            "city": "Weeze",
+            "latitude": 51.6024017334,
+            "longitude": 6.1421699524,
+            "type": "FP"
+        },
+        {
+            "country_code": "ES",
+            "city": "Madrid",
+            "latitude": 40.4167754,
+            "longitude": -3.7037902,
+            "type": "FN"
+        },
+        {
+            "country_code": "ES",
+            "city": "Zaragoza",
+            "latitude": 41.6661987305,
+            "longitude": -1.0415500402,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Dole/Tavaux",
+            "latitude": 47.0390014648,
+            "longitude": 5.4272499084,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Le Touquet-Paris-Plage",
+            "latitude": 50.5173988342,
+            "longitude": 1.6205899715,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Nancy/Essey",
+            "latitude": 48.6921005249,
+            "longitude": 6.2304601669,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Pontoise",
+            "latitude": 49.0965995789,
+            "longitude": 2.0408298969,
+            "type": "TP"
+        },
+        {
+            "country_code": "GB",
+            "city": "Fairford",
+            "latitude": 51.6822013855,
+            "longitude": -1.7900300026,
+            "type": "FP"
+        },
+        {
+            "country_code": "NL",
+            "city": "Maastricht",
+            "latitude": 50.9117012024,
+            "longitude": 5.7701401711,
+            "type": "FP"
+        },
+        {
+            "country_code": "SK",
+            "city": "Bratislava",
+            "latitude": 48.1458923,
+            "longitude": 17.1071373,
+            "type": "FN"
+        }
+    ]
+}

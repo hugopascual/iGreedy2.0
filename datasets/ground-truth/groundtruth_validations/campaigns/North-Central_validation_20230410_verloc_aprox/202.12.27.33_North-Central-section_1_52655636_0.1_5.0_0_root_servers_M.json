@@ -1,0 +1,52 @@
+{
+    "target": "202.12.27.33",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.json",
+    "alpha": 0.1,
+    "threshold": 5.0,
+    "noise": 0,
+    "results_filepath": "datasets/results/campaigns/North-Central_validation_20230410_verloc_aprox/202.12.27.33_North-Central-section_1_52655636_0.1_5.0_0.json",
+    "gt_filepath": "datasets/ground-truth/root_servers/root_servers_M.json",
+    "ping_radius_function": "verloc_aprox",
+    "statistics": {
+        "TP": 1,
+        "FP": 3,
+        "TN": 0,
+        "FN": 0,
+        "accuracy": 0.25,
+        "precision": 0.25,
+        "recall": 1.0,
+        "f1": 0.4,
+        "OT": 0,
+        "OF": 0
+    },
+    "instances": [
+        {
+            "country_code": "FR",
+            "city": "Auxerre/Branches",
+            "latitude": 47.8502006531,
+            "longitude": 3.49710989,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Orl\u00e9ans/Bricy",
+            "latitude": 47.9878005981,
+            "longitude": 1.7605600357,
+            "type": "FP"
+        },
+        {
+            "country_code": "FR",
+            "city": "Paris",
+            "latitude": 48.7252998352,
+            "longitude": 2.3594400883,
+            "type": "TP"
+        },
+        {
+            "country_code": "N/A",
+            "city": "N/A",
+            "latitude": 47.9775,
+            "longitude": 2.7675,
+            "type": "FP"
+        }
+    ]
+}

@@ -14,7 +14,7 @@ from shapely import to_geojson
 from shapely.ops import unary_union
 from rtree import index
 # internal modules imports
-from constants import (
+from utils.constants import (
     ROOT_SERVERS_NAMES,
     ROOT_SERVERS_URL,
     ROOT_SERVERS_PATH,
@@ -175,7 +175,7 @@ def get_distance_from_rtt(rtt: float) -> float:
     trip_time_ms = rtt/2
     # Get nearest value from calculated
     nearest_value = min(time_results,
-                        key=lambda x: abs(x - trip_time_ms))
+                        key=lambda x: abs(float(x) - trip_time_ms))
 
     distance_result = time_results[nearest_value]
     if distance_result == 0:

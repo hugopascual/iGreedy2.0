@@ -1,0 +1,57 @@
+{
+    "target": "192.36.148.17",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.36.148.17_North-Central-section_1.5_52653398.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_1.5.json",
+    "alpha": 1.0,
+    "threshold": 1.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 5,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "VNO",
+                "latitude": 54.6341018677,
+                "longitude": 25.2858009338,
+                "city": "Vilnius",
+                "country_code": "LT"
+            },
+            "circle": {
+                "id": "1002189",
+                "latitude": 54.6415,
+                "longitude": 25.3015,
+                "radius": 10
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 49.5015,
+                "longitude": 5.9495,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "6249",
+                "latitude": 49.5015,
+                "longitude": 5.9495,
+                "radius": 10
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 59.9115,
+                "longitude": 10.7495,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "29548",
+                "latitude": 59.9115,
+                "longitude": 10.7495,
+                "radius": 10
+            }
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+{
+    "target": "192.33.4.12",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.33.4.12_North-Central_300_52069826.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_300.json",
+    "alpha": 0.6,
+    "threshold": 5.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 6,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "DEX",
+                "latitude": 50.121212,
+                "longitude": 8.6365638,
+                "city": "Frankfurt-am-Main",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "1004810",
+                "latitude": 50.0975,
+                "longitude": 8.6275,
+                "radius": 5
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 48.8585,
+                "longitude": 2.3815,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "6593",
+                "latitude": 48.8585,
+                "longitude": 2.3815,
+                "radius": 10
+            }
+        },
+        {
+            "marker": {
+                "id": "WIE",
+                "latitude": 48.1102981567,
+                "longitude": 16.5697002411,
+                "city": "Vienna",
+                "country_code": "AT"
+            },
+            "circle": {
+                "id": "50818",
+                "latitude": 48.2715,
+                "longitude": 16.4075,
+                "radius": 40
+            }
+        },
+        {
+            "marker": {
+                "id": "BUD",
+                "latitude": 47.4369010925,
+                "longitude": 19.2555999756,
+                "city": "Budapest",
+                "country_code": "HU"
+            },
+            "circle": {
+                "id": "14899",
+                "latitude": 47.5215,
+                "longitude": 19.0615,
+                "radius": 45
+            }
+        },
+        {
+            "marker": {
+                "id": "AUF",
+                "latitude": 47.8502006531,
+                "longitude": 3.49710989,
+                "city": "Auxerre/Branches",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "62575",
+                "latitude": 48.0195,
+                "longitude": 3.1705,
+                "radius": 60
+            }
+        },
+        {
+            "marker": {
+                "id": "STR",
+                "latitude": 48.6898994446,
+                "longitude": 9.2219600677,
+                "city": "Stuttgart",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "22152",
+                "latitude": 48.7785,
+                "longitude": 9.1795,
+                "radius": 65
+            }
+        }
+    ]
+}

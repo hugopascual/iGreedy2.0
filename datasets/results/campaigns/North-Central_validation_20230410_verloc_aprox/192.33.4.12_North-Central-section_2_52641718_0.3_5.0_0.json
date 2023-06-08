@@ -1,0 +1,87 @@
+{
+    "target": "192.33.4.12",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.33.4.12_North-Central-section_2_52641718.json",
+    "probes_filepath": "datasets/probes_sets/North-Central-section_2.json",
+    "alpha": 0.3,
+    "threshold": 5.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 5,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "TOJ",
+                "latitude": 40.4967002869,
+                "longitude": -3.4458699226,
+                "city": "Madrid",
+                "country_code": "ES"
+            },
+            "circle": {
+                "id": "6668",
+                "latitude": 40.5815,
+                "longitude": -3.5795,
+                "radius": 15
+            }
+        },
+        {
+            "marker": {
+                "id": "LUX",
+                "latitude": 49.6265983582,
+                "longitude": 6.211520195,
+                "city": "Luxembourg",
+                "country_code": "LU"
+            },
+            "circle": {
+                "id": "788",
+                "latitude": 49.5015,
+                "longitude": 6.3715,
+                "radius": 20
+            }
+        },
+        {
+            "marker": {
+                "id": "WIE",
+                "latitude": 48.1102981567,
+                "longitude": 16.5697002411,
+                "city": "Vienna",
+                "country_code": "AT"
+            },
+            "circle": {
+                "id": "11240",
+                "latitude": 48.2075,
+                "longitude": 16.3595,
+                "radius": 35
+            }
+        },
+        {
+            "marker": {
+                "id": "EVX",
+                "latitude": 49.0287017822,
+                "longitude": 1.2198599577,
+                "city": "\u00c9vreux/Fauville",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "11491",
+                "latitude": 49.3875,
+                "longitude": 1.0815,
+                "radius": 45
+            }
+        },
+        {
+            "marker": {
+                "id": "CSF",
+                "latitude": 49.2535018921,
+                "longitude": 2.5191400051,
+                "city": "Creil",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "2783",
+                "latitude": 48.7785,
+                "longitude": 2.2715,
+                "radius": 60
+            }
+        }
+    ]
+}

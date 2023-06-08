@@ -1,0 +1,57 @@
+{
+    "target": "192.33.4.12",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/192.33.4.12_North-Central_100_52069786.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_100.json",
+    "alpha": 0.3,
+    "threshold": 5.0,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 3,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "DEX",
+                "latitude": 50.121212,
+                "longitude": 8.6365638,
+                "city": "Frankfurt-am-Main",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "1004809",
+                "latitude": 50.1015,
+                "longitude": 8.6275,
+                "radius": 5
+            }
+        },
+        {
+            "marker": {
+                "id": "POX",
+                "latitude": 49.0965995789,
+                "longitude": 2.0408298969,
+                "city": "Pontoise",
+                "country_code": "FR"
+            },
+            "circle": {
+                "id": "12392",
+                "latitude": 48.8485,
+                "longitude": 2.6415,
+                "radius": 60
+            }
+        },
+        {
+            "marker": {
+                "id": "MHG",
+                "latitude": 49.4730567932,
+                "longitude": 8.514166832,
+                "city": "Mannheim",
+                "country_code": "DE"
+            },
+            "circle": {
+                "id": "50126",
+                "latitude": 49.0105,
+                "longitude": 8.3985,
+                "radius": 70
+            }
+        }
+    ]
+}

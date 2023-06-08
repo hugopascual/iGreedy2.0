@@ -1,0 +1,42 @@
+{
+    "target": "104.16.123.96",
+    "measurement_filepath": "datasets/measurements/campaigns/North-Central_validation_20230410/104.16.123.96_North-Central_1000_52452489.json",
+    "probes_filepath": "datasets/probes_sets/North-Central_1000.json",
+    "alpha": 0.1,
+    "threshold": 0.5,
+    "noise": 0,
+    "ping_radius_function": "verloc_aprox",
+    "num_anycast_instances": 3,
+    "anycast_instances": [
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 48.9285,
+                "longitude": 2.3505,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "6363",
+                "latitude": 48.9285,
+                "longitude": 2.3505,
+                "radius": 5
+            }
+        },
+        {
+            "marker": {
+                "id": "NoCity",
+                "latitude": 59.4595,
+                "longitude": 24.6875,
+                "city": "N/A",
+                "country_code": "N/A"
+            },
+            "circle": {
+                "id": "6815",
+                "latitude": 59.4595,
+                "longitude": 24.6875,
+                "radius": 5
+            }
+        }
+    ]
+}
