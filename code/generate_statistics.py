@@ -241,6 +241,7 @@ class Statistics:
 def get_statistics_hunter():
     hunter_campaigns = [
         "validation_anycast_udp_cloudfare_0_20230606_ip_last_hop_validation",
+        "validation_anycast_udp_cloudfare_1_20230607"
     ]
 
     for hunter_campaign in hunter_campaigns:
@@ -283,5 +284,5 @@ def get_statistics_igreedy():
     igreedy_statistics.igreedy_build_statistics_validation_campaign()
 
 
-#get_statistics_hunter()
-get_statistics_igreedy()
+get_statistics_hunter()
+#get_statistics_igreedy()

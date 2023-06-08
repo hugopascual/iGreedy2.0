@@ -14,13 +14,15 @@ from shapely import to_geojson
 from shapely.ops import unary_union
 from rtree import index
 # internal modules imports
-from utils.constants import (
+from constants import (
     ROOT_SERVERS_NAMES,
     ROOT_SERVERS_URL,
     ROOT_SERVERS_PATH,
     EARTH_RADIUS_KM,
     ALL_COUNTRIES_FILE_PATH,
-    SPEED_OF_LIGHT
+    SPEED_OF_LIGHT,
+    VERLOC_APROX_PATH,
+    VERLOC_GAP
 )
 
 
@@ -146,27 +148,38 @@ def get_time_from_distance(dist: float) -> float:
     return dist/(get_light_factor_from_distance(dist)*SPEED_OF_LIGHT)
 
 
-def get_distance_from_rtt(rtt: float) -> float:
-    # We do not have the direct function, so we approximate it with the inverse
-    # Set approximation values
-    if rtt < 0:
-        return rtt
-    distance_gap = 5
-    max_distance_calculated = 5000 + distance_gap
-    distances = list(range(0, max_distance_calculated, distance_gap))
-    trip_time_ms = rtt/2
+def generate_approximation_numeric_values():
+    max_distance_calculated = 5000 + VERLOC_GAP
+    distances = list(range(0, max_distance_calculated, VERLOC_GAP))
     time_results = {}
     # Calculate values
     for dist in distances:
         time_travel = get_time_from_distance(dist) * 1000
         time_results[time_travel] = dist
+
+    dict_to_json_file(time_results, VERLOC_APROX_PATH)
+
+
+def get_distance_from_rtt(rtt: float) -> float:
+    # We do not have the direct function, so we approximate it with the inverse
+    # Set approximation values
+    if rtt < 0:
+        return rtt
+
+    try:
+        time_results = json_file_to_dict(VERLOC_APROX_PATH)
+    except:
+        generate_approximation_numeric_values()
+        time_results = json_file_to_dict(VERLOC_APROX_PATH)
+
+    trip_time_ms = rtt/2
     # Get nearest value from calculated
     nearest_value = min(time_results,
                         key=lambda x: abs(x - trip_time_ms))
 
     distance_result = time_results[nearest_value]
     if distance_result == 0:
-        return distance_gap
+        return VERLOC_GAP
     else:
         return distance_result
 

@@ -21,7 +21,9 @@ from utils.constants import (
     FIBER_RI,
     SPEED_OF_LIGHT,
     EARTH_RADIUS_KM,
-    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH
+    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,
+    VERLOC_GAP,
+    VERLOC_APROX_PATH
 )
 from utils.common_functions import (
     get_distance_from_rtt,
@@ -34,3 +36,14 @@ from utils.common_functions import (
     get_nearest_airport_to_point,
     calculate_hunter_pings_intersection_area
 )
+
+def generate_approximation_numeric_values():
+    max_distance_calculated = 5000 + VERLOC_GAP
+    distances = list(range(0, max_distance_calculated, VERLOC_GAP))
+    time_results = {}
+    # Calculate values
+    for dist in distances:
+        time_travel = get_time_from_distance(dist) * 1000
+        time_results[time_travel] = dist
+
+    dict_to_json_file(time_results, VERLOC_APROX_PATH)

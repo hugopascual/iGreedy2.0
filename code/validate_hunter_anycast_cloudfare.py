@@ -19,13 +19,18 @@ class AnycastValidationCloudfare:
         # A total of 74 files (37*2)
         self._targets_list = ["192.5.5.241", "104.16.123.96"]
         self._vpn_servers_names = [
-            "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "GE",
-            "DE", "GR", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MT", "MD",
+            #"AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "GE",
+            #"DE", "GR", "HU", "IS", "IE", "IT", "LV", "LT",
+            "LU", "MT", "MD",
             "NL", "NO", "PL", "PT", "RO", "RU", "RS", "SK", "SI", "ES", "SE",
             "CH", "TR", "UA", "UK"
         ]
-        self._campaign = "{}_{}_{}".format(
-            campaign_name, today, additional_to_name)
+        if additional_to_name:
+            self._campaign = "{}_{}".format(
+                campaign_name, today)
+        else:
+            self._campaign = "{}_{}_{}".format(
+                campaign_name, today, additional_to_name)
         self._today = today
 
         self.check_cf_ray = check_cf_ray

@@ -54,6 +54,8 @@ KEY_FILEPATH = __DATASETS_PATH + "key.json"
 COUNTRY_BORDERS_GEOJSON_FILEPATH = \
     __DATASETS_PATH + \
     "UIA_Latitude_Longitude_Graticules_and_World_Countries_Boundaries.geojson"
+VERLOC_APROX_PATH = __DATASETS_PATH + "verloc_aprox.json"
+VERLOC_GAP = 5
 
 ###############################################################################
 
