@@ -287,6 +287,7 @@ class Hunter:
         if self._validate_last_hop:
             last_hop = self.select_last_hop_valid(directions_list)
         else:
+            #direction
             last_hop = {
                 "ip": directions_list[-2][0],
                 "geolocation": self.geolocate_ip_commercial_database(
