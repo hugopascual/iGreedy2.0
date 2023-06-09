@@ -67,6 +67,7 @@ def get_measurement_results():
     dict_to_json_file(response, "http_petition.json")
 
 
+url = RIPE_ATLAS_MEASUREMENTS_BASE_URL + "/?key={}".format(get_ripe_key())
 traceroute_data = {
     "definitions": [
         {
@@ -74,19 +75,19 @@ traceroute_data = {
             "description": "HTTP test to 104.16.123.96",
             "type": "http",
             "is_oneoff": True,
+            "header_bytes": 2048,
             "af": 4,
         }
     ],
     "probes": [
         {
-            "requested": 1,
+            "requested": 5,
             "type": "country",
             "value": "NL"
         }
     ]
 }
-measurement_id = 55155484
-url = RIPE_ATLAS_MEASUREMENTS_BASE_URL + "/?key={}".format(get_ripe_key())
-
 #make_ripe_measurement(data=traceroute_data)
-#get_measurement_results()
+
+measurement_id = 55212992
+get_measurement_results()
