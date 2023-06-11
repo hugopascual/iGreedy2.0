@@ -289,13 +289,18 @@ class Hunter:
             last_hop = self.select_last_hop_valid(directions_list)
         else:
             last_hop_ip = directions_list[-2][0]
-            if last_hop_ip == "*":
-                last_hop_ip = ""
-            last_hop = {
-                "ip": last_hop_ip,
-                "geolocation": self.geolocate_with_ipinfo(
-                    ip=last_hop_ip)
-            }
+            if last_hop_ip != "*":
+                try:
+                    location = self.geolocate_with_ipinfo(ip=last_hop_ip)
+                    last_hop = {
+                        "ip": last_hop_ip,
+                        "geolocation": location
+                    }
+                except:
+                    last_hop = {"ip": last_hop_ip, "geolocation": {}}
+
+            else:
+                last_hop = {"ip": "", "geolocation": {}}
         print("Last Hop IP direction valid: ", last_hop["ip"])
         return last_hop
 

@@ -8,6 +8,7 @@ import geocoder
 import pandas as pd
 import requests
 import ipinfo
+import datetime
 from subprocess import run
 
 import shapely
@@ -93,14 +94,11 @@ traceroute_data = {
 #measurement_id = 55212992
 #get_measurement_results()
 
+name1 = "validation_anycast_host_udp_cloudfare_ip_last_hop_validation_20230606_21∶51∶18"
+name2 = "validation_anycast_host_udp_cloudfare_20230607_17∶34∶09"
 
-def geolocate_with_ipinfo(ip: str) -> dict:
-    access_token = json_file_to_dict(KEY_FILEPATH)["key2"]
-    handler = ipinfo.getHandler(access_token)
-    details = handler.getDetails(ip)
-    return {
-        "latitude": details.latitude,
-        "longitude": details.longitude
-    }
+campaign = name1.split("_")[:5]
+time = name1.split("_")[-2:]
 
-print(json.dumps(geolocate_with_ipinfo("192.5.5.241")))
+
+print(time)

@@ -1,0 +1,78 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 55.9333,
+        "longitude": 23.3167
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "WAW",
+        "size": "large_airport",
+        "name": "Warsaw Chopin Airport",
+        "lat long": "52.1656990051 20.9671001434",
+        "country_code": "PL",
+        "city": "Warsaw"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  55.952 ms  56.064 ms  56.466 ms",
+        " 2  gw.bacloud.info (85.206.160.1)  56.964 ms  57.100 ms  57.693 ms",
+        " 3  * 3-240-206-85.bacloud.info (85.206.240.3)  57.728 ms  57.725 ms",
+        " 4  1-240-206-85.bacloud.info (85.206.240.1)  57.682 ms 2-240-206-85.bacloud.info (85.206.240.2)  57.653 ms 1-240-206-85.bacloud.info (85.206.240.1)  57.669 ms",
+        " 5  et002.rt.omt.sqq.lt.retn.net (87.245.242.233)  58.359 ms  58.357 ms  58.347 ms",
+        " 6  ae6-11.rt.lim.waw.pl.retn.net (87.245.232.69)  90.022 ms  71.695 ms  67.379 ms",
+        " 7  162.158.100.252 (162.158.100.252)  68.149 ms  68.249 ms  68.239 ms",
+        " 8  f.root-servers.net (192.5.5.241)  67.226 ms  67.230 ms  67.234 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "162.158.100.252",
+        "geolocation": {
+            "latitude": "52.2359",
+            "longitude": "21.0105"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "85.206.160.1"
+        ],
+        [
+            "*",
+            "85.206.240.3"
+        ],
+        [
+            "85.206.240.1",
+            "85.206.240.2"
+        ],
+        [
+            "87.245.242.233"
+        ],
+        [
+            "87.245.232.69"
+        ],
+        [
+            "162.158.100.252"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "85.206.163.147",
+        "server_name": "LT#3",
+        "country": "Lithuania",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

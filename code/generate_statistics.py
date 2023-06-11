@@ -101,7 +101,7 @@ class Statistics:
             "city_outcome", "city_outcome_reason"
         ])
 
-        results_not_valid = []
+        results_not_gt = []
 
         for result_filename in results_filenames:
             print(result_filename)
@@ -111,7 +111,7 @@ class Statistics:
             )
 
             if not result_dict["gt_info"]:
-                results_not_valid.append(result_filename)
+                results_not_gt.append(result_filename)
                 continue
 
             outcome_country = self.calculate_hunter_result_outcome(
@@ -144,9 +144,9 @@ class Statistics:
         )
 
         dict_to_json_file(
-            results_not_valid,
+            results_not_gt,
             HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
-            "results_not_valid/results_not_valid_" +
+            "results_not_valid/results_not_gt_" +
             self._output_filename + ".json")
 
     def calculate_hunter_result_outcome(self, results: dict, param: str) -> \
@@ -185,6 +185,8 @@ class Statistics:
             centroid = from_geojson(results["hunt_results"]["centroid"])
             if not results["last_hop"]["ip"]:
                 return "Indeterminate", "Last hop not valid"
+            elif not results["last_hop"]["geolocation"]:
+                return "Indeterminate", "Last hop not geolocated"
             elif not results["discs_intersect"]:
                 return "Indeterminate", "Ping discs no intersection"
             elif not centroid:
@@ -241,16 +243,19 @@ class Statistics:
 
 def get_statistics_hunter():
     hunter_campaigns = [
-        "validation_anycast_udp_cloudfare_0_20230606_ip_last_hop_validation",
-        "validation_anycast_udp_cloudfare_1_20230607"
+        "validation_anycast_host_udp_cloudfare_ip_last_hop_validation_20230606_21∶51∶18",
+        "validation_anycast_host_udp_cloudfare_20230607_17∶34∶09"
     ]
 
     for hunter_campaign in hunter_campaigns:
         for validate_target in [True, False]:
+            additional_to_name = False
+            if hunter_campaign.split("_")[5] == "ip":
+                additional_to_name = True
             campaign_name = "_".join(
-                map(str, hunter_campaign.split("_")[:6]))
-            additional_to_name = "_".join(
-                map(str, hunter_campaign.split("_")[6:]))
+                map(str, hunter_campaign.split("_")[:5]))
+            time = "_".join(
+                map(str, hunter_campaign.split("_")[-2:]))
             if validate_target:
                 if not additional_to_name:
                     validation_name = "ip_target_validation"
@@ -260,9 +265,11 @@ def get_statistics_hunter():
                 if not additional_to_name:
                     validation_name = "no_ip_validation"
                 else:
-                    validation_name = additional_to_name
+                    validation_name = "ip_last_hop_validation"
 
-            output_filename = campaign_name + "_" + validation_name
+            output_filename = "{}_{}_{}".format(campaign_name,
+                                                validation_name,
+                                                time)
             hunter_campaign_statistics = Statistics(
                 validation_campaign_directory=hunter_campaign,
                 output_filename=output_filename,
@@ -285,5 +292,5 @@ def get_statistics_igreedy():
     igreedy_statistics.igreedy_build_statistics_validation_campaign()
 
 
-#get_statistics_hunter()
-get_statistics_igreedy()
+get_statistics_hunter()
+#get_statistics_igreedy()

@@ -3,38 +3,40 @@
 
 # external modules imports
 import subprocess
+import datetime
 # internal modules imports
 from hunter import Hunter
 from utils.constants import (
-    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH
+    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,
 )
 
 
 class AnycastValidationCloudfare:
 
-    def __init__(self, today: str,
-                 campaign_name: str, additional_to_name: str = "",
+    def __init__(self,
+                 campaign_name: str,
                  check_cf_ray: bool = True,
-                 validate_last_hop: bool = True):
-        # A total of 74 files (37*2)
+                 validate_last_hop: bool = True,
+                 origin: (float, float) = ()):
+        self._today = datetime.datetime.utcnow().strftime('%Y%m%d_%H:%M:%S')
+        # A total of 56 files (28*2)
         self._targets_list = ["192.5.5.241", "104.16.123.96"]
         self._vpn_servers_names = [
-            #"AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "GE",
-            #"DE", "GR", "HU", "IS", "IE", "IT", "LV", "LT",
-            "LU", "MT", "MD",
-            "NL", "NO", "PL", "PT", "RO", "RU", "RS", "SK", "SI", "ES", "SE",
-            "CH", "TR", "UA", "UK"
+            "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI",
+            "FR", "GR", "HR", "HU", "IE", "IS", "IT", "LT", "LU", "LV",
+            "MT", "NL", "NO", "PL", "PT", "RO", "SI", "SK"
         ]
-        if additional_to_name:
-            self._campaign = "{}_{}".format(
-                campaign_name, today)
+        self._vpn_servers_names = ["HR", "LT"]
+
+        self._origin = origin
+        self._check_cf_ray = check_cf_ray
+        self._validate_last_hop = validate_last_hop
+
+        if not self._validate_last_hop:
+            self._campaign = "{}_{}".format(campaign_name, self._today)
         else:
             self._campaign = "{}_{}_{}".format(
-                campaign_name, today, additional_to_name)
-        self._today = today
-
-        self.check_cf_ray = check_cf_ray
-        self.validate_last_hop = validate_last_hop
+                campaign_name, "ip_last_hop_validation", self._today)
 
     def validate_anycast_from_vpn(self):
         for vpn_server in self._vpn_servers_names:
@@ -45,8 +47,9 @@ class AnycastValidationCloudfare:
                     self._campaign, target, vpn_server)
                 hunter = Hunter(
                     target=target,
-                    check_cf_ray=self.check_cf_ray,
-                    validate_last_hop=self.validate_last_hop,
+                    origin=self._origin,
+                    check_cf_ray=self._check_cf_ray,
+                    validate_last_hop=self._validate_last_hop,
                     output_filename=output_filename,
                     additional_info=additional_info
                 )
@@ -76,21 +79,3 @@ class AnycastValidationCloudfare:
             return {
                 "params": status_params
             }
-
-
-#i = 0
-#validator_last_hop = AnycastValidationCloudfare(
-#    check_cf_ray=True,
-#    validate_last_hop=True,
-#    today="20230606",
-#    campaign_name="validation_anycast_udp_cloudfare_{}".format(i),
-#    additional_to_name="ip_last_hop_validation")
-#validator_last_hop.validate_anycast_from_vpn()
-
-i = 1
-validator_no_last_hop = AnycastValidationCloudfare(
-    check_cf_ray=True,
-    validate_last_hop=False,
-    today="20230607",
-    campaign_name="validation_anycast_udp_cloudfare_{}".format(i))
-validator_no_last_hop.validate_anycast_from_vpn()

@@ -1,0 +1,68 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 45.8144,
+        "longitude": 15.978
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "ZAG",
+        "size": "large_airport",
+        "name": "Zagreb Airport",
+        "lat long": "45.7429008484 16.0687999725",
+        "country_code": "HR",
+        "city": "Zagreb"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  58.818 ms  59.414 ms  59.896 ms",
+        " 2  178.218.167.194 (178.218.167.194)  93.698 ms  93.715 ms  93.716 ms",
+        " 3  213.186.16.184 (213.186.16.184)  94.045 ms  94.505 ms  94.180 ms",
+        " 4  185.151.132.65 (185.151.132.65)  95.320 ms  95.355 ms  95.350 ms",
+        " 5  cloudflare.cix.hr (185.1.87.115)  94.361 ms  95.275 ms  95.317 ms",
+        " 6  f.root-servers.net (192.5.5.241)  93.842 ms  58.621 ms  58.864 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "185.1.87.115",
+        "geolocation": {
+            "latitude": "45.7934",
+            "longitude": "15.9464"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "178.218.167.194"
+        ],
+        [
+            "213.186.16.184"
+        ],
+        [
+            "185.151.132.65"
+        ],
+        [
+            "185.1.87.115"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "178.218.167.213",
+        "server_name": "HR#3",
+        "country": "Croatia",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
