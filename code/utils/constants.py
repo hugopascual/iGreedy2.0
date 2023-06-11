@@ -50,7 +50,7 @@ METRICS_CSV_PATH = __DATASETS_PATH + "ploted_metrics_csv/"
 
 # Alone files
 AIRPORTS_INFO_FILEPATH = __DATASETS_PATH + "airports.csv"
-KEY_FILEPATH = __DATASETS_PATH + "key.json"
+KEY_FILEPATH = __DATASETS_PATH + "keys.json"
 COUNTRY_BORDERS_GEOJSON_FILEPATH = \
     __DATASETS_PATH + \
     "UIA_Latitude_Longitude_Graticules_and_World_Countries_Boundaries.geojson"

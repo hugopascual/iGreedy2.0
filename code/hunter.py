@@ -12,6 +12,7 @@ import geocoder
 import random
 import time
 import subprocess
+import ipinfo
 # internal modules imports
 from utils.constants import (
     RIPE_ATLAS_MEASUREMENTS_BASE_URL,
@@ -292,7 +293,7 @@ class Hunter:
                 last_hop_ip = ""
             last_hop = {
                 "ip": last_hop_ip,
-                "geolocation": self.geolocate_ip_commercial_database(
+                "geolocation": self.geolocate_with_ipinfo(
                     ip=last_hop_ip)
             }
         print("Last Hop IP direction valid: ", last_hop["ip"])
@@ -328,7 +329,7 @@ class Hunter:
 
         try:
             # TODO geolocate last_hop_direction better
-            last_hop_geo = self.geolocate_ip_commercial_database(
+            last_hop_geo = self.geolocate_with_ipinfo(
                 ip=last_hop_direction)
         except Exception as e:
             print("Exception in last_hop geolocation")
@@ -561,11 +562,20 @@ class Hunter:
         else:
             return True
 
-    def geolocate_ip_commercial_database(self, ip: str) -> dict:
+    def geolocate_with_geocoder(self, ip: str) -> dict:
         (latitude, longitude) = geocoder.ip(ip).latlng
         return {
             "latitude": latitude,
             "longitude": longitude
+        }
+
+    def geolocate_with_ipinfo(self, ip: str) -> dict:
+        access_token = json_file_to_dict(KEY_FILEPATH)["key2"]
+        handler = ipinfo.getHandler(access_token)
+        details = handler.getDetails(ip)
+        return {
+            "latitude": details.latitude,
+            "longitude": details.longitude
         }
 
     def get_probe_coordinates(self, probe_id: int) -> dict:

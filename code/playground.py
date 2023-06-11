@@ -7,6 +7,7 @@ import re
 import geocoder
 import pandas as pd
 import requests
+import ipinfo
 from subprocess import run
 
 import shapely
@@ -89,5 +90,17 @@ traceroute_data = {
 }
 #make_ripe_measurement(data=traceroute_data)
 
-measurement_id = 55212992
-get_measurement_results()
+#measurement_id = 55212992
+#get_measurement_results()
+
+
+def geolocate_with_ipinfo(ip: str) -> dict:
+    access_token = json_file_to_dict(KEY_FILEPATH)["key2"]
+    handler = ipinfo.getHandler(access_token)
+    details = handler.getDetails(ip)
+    return {
+        "latitude": details.latitude,
+        "longitude": details.longitude
+    }
+
+print(json.dumps(geolocate_with_ipinfo("192.5.5.241")))
