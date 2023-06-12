@@ -4,6 +4,7 @@
 # external modules imports
 import pandas as pd
 import ast
+from shapely import Polygon
 # internal modules imports
 from utils.constants import (
     GROUND_TRUTH_VALIDATIONS_PATH,
@@ -23,6 +24,9 @@ from utils.common_functions import (
 def compare_cities_gt(results_filepath: str, gt_filepath: str,
                       campaign_name: str) -> str:
     results_dict = json_file_to_dict(results_filepath)
+    gt_instances_in_region_number = len(
+        gt_instances_in_region(gt_filepath).index)
+
     if len(results_dict["anycast_instances"]) == 0:
         comparison_result = {
             "target": results_dict["target"],
@@ -33,7 +37,7 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
             "results_filepath": results_filepath,
             "gt_filepath": gt_filepath,
             "ping_radius_function": results_dict["ping_radius_function"],
-            "gt_instances_in_region": 0,
+            "gt_instances_in_region": gt_instances_in_region_number,
             "statistics": {
                 "TP": 0, "FP": 0, "TN": 0, "FN": 0,
                 "accuracy": 0, "precision": 0, "recall": 0, "f1": 0,
@@ -59,8 +63,6 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
 
     results_df = get_results_instances_locations(results_filepath)
     gt_df = get_gt_instances_locations(gt_filepath)
-
-    gt_instances_in_region = len(gt_df.index)
 
     # Check for every city TP or FP
     results_df["type"] = results_df.apply(
@@ -96,7 +98,7 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
         "results_filepath": results_filepath,
         "gt_filepath": gt_filepath,
         "ping_radius_function": results_dict["ping_radius_function"],
-        "gt_instances_in_region": gt_instances_in_region,
+        "gt_instances_in_region": gt_instances_in_region_number,
         "statistics": calculate_performance_statistics_cities(
             instances_validated),
         "instances": instances_validated.to_dict('records')
@@ -146,7 +148,7 @@ def filter_replicas_by_area(replicas_validated: pd.DataFrame,
 
 def filter_replicas_by_country_codes(replicas_validated: pd.DataFrame,
                                      codes_set: set) -> pd.DataFrame:
-    def test_type_adn_inside(validation: str,
+    def test_type_and_inside(validation: str,
                              country_code: str) -> str:
         if country_code not in codes_set:
             if validation == "TP":
@@ -160,7 +162,7 @@ def filter_replicas_by_country_codes(replicas_validated: pd.DataFrame,
 
     replicas_validated["type"] = replicas_validated.apply(
         lambda x:
-        test_type_adn_inside(validation=x.type,
+        test_type_and_inside(validation=x.type,
                              country_code=x.country_code),
         axis=1)
     replicas_validated = replicas_validated[
@@ -397,6 +399,27 @@ def get_countries_set_from_results(filepath: str) -> set:
     for instance in results_raw_data["anycast_intances"]:
         result_set.add(instance["marker"]["country_code"])
     return result_set
+
+
+def gt_instances_in_region(gt_filepath: str) -> pd.DataFrame:
+    gt_instances_df = get_gt_instances_locations(gt_filepath)
+    if "North-Central" in AREA_OF_INTEREST_FILEPATH:
+        area = {
+                "longitude_min": -30,
+                "latitude_min": 30,
+                "longitude_max": 45,
+                "latitude_max": 90
+        }
+    else:
+        raise Exception("Sorry, area not recognized")
+
+    gt_instances_df = gt_instances_df[
+        (gt_instances_df.latitude >= area["latitude_min"]) &
+        (gt_instances_df.latitude <= area["latitude_max"]) &
+        (gt_instances_df.longitude >= area["longitude_min"]) &
+        (gt_instances_df.longitude <= area["longitude_max"])]
+
+    return gt_instances_df
 
 
 def print_city_gt_definitions():

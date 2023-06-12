@@ -27,7 +27,8 @@ from utils.constants import (
     VERLOC_GAP,
     VERLOC_APROX_PATH,
     RIPE_ATLAS_MEASUREMENTS_BASE_URL,
-    KEY_FILEPATH
+    KEY_FILEPATH,
+    AREA_OF_INTEREST_FILEPATH
 )
 from utils.common_functions import (
     get_distance_from_rtt,
@@ -38,8 +39,10 @@ from utils.common_functions import (
     convert_km_radius_to_degrees,
     get_list_files_in_path,
     get_nearest_airport_to_point,
-    calculate_hunter_pings_intersection_area
+    calculate_hunter_pings_intersection_area,
+    get_polygon_from_section
 )
+from groundtruth import get_gt_instances_locations
 
 
 def get_ripe_key() -> str:
@@ -94,11 +97,3 @@ traceroute_data = {
 #measurement_id = 55212992
 #get_measurement_results()
 
-name1 = "validation_anycast_host_udp_cloudfare_ip_last_hop_validation_20230606_21∶51∶18"
-name2 = "validation_anycast_host_udp_cloudfare_20230607_17∶34∶09"
-
-campaign = name1.split("_")[:5]
-time = name1.split("_")[-2:]
-
-
-print(time)

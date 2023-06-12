@@ -55,7 +55,7 @@ class iGreedyStatistics:
             )
 
             probe_set_name_division = result_dict["probes_filepath"].split(
-                "/")[-1].split["_"]
+                "/")[-1].split("_")
 
             region = probe_set_name_division[0]
 
@@ -64,7 +64,7 @@ class iGreedyStatistics:
             else:
                 probe_selection = "area"
             probe_set_number = float(".".join(
-                map(str, probe_set_name_division[1].split("")[:-1])))
+                map(str, probe_set_name_division[1].split(".")[:-1])))
 
             validation_results_df = pd.concat(
                 [pd.DataFrame([[
