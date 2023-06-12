@@ -12,7 +12,8 @@ from utils.constants import (
     FACTOR_1000,
     FACTOR_2000,
     FACTOR_3000,
-    FACTOR_5000
+    FACTOR_5000,
+    DISTANCE_FUNCTION_USED
 )
 from utils.common_functions import (
     get_distance_from_rtt
@@ -27,8 +28,13 @@ class Disc(object):
         ping (float): (in ms)
         """
         # in km:ping*98,615940132
-        #self._radius = ((ping/2)*0.001) * (REDUCTION_FACTOR*SPEED_OF_LIGHT)
-        self._radius = get_distance_from_rtt(ping)
+        if DISTANCE_FUNCTION_USED == "constant_1.52":
+            self._radius = ((ping / 2) * 0.001) * (
+                        REDUCTION_FACTOR * SPEED_OF_LIGHT)
+        elif DISTANCE_FUNCTION_USED == "verloc_aprox":
+            self._radius = get_distance_from_rtt(ping)
+        else:
+            self._radius = ((ping/2)*0.001) * (REDUCTION_FACTOR*SPEED_OF_LIGHT)
         self._hostname = hostname
         #self._instance = instance
         #self._city=city
