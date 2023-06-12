@@ -21,7 +21,7 @@ from utils.common_functions import (
 )
 
 
-class Statistics:
+class HunterStatistics:
 
     def __init__(self,
                  validation_campaign_directory: str = None,
@@ -30,61 +30,6 @@ class Statistics:
         self._validation_campaign_directory = validation_campaign_directory
         self._output_filename = output_filename
         self._validate_target = validate_target
-
-    def igreedy_build_statistics_validation_campaign(self):
-        if not self._validation_campaign_directory or \
-                not self._output_filename:
-            print("No campaign name or output filename provided")
-            return
-
-        results_filenames = get_list_files_in_path(
-            GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH +
-            self._validation_campaign_directory)
-
-        validation_results_df = pd.DataFrame(columns=[
-            "target", "probes_file",
-            "threshold", "alpha",
-            "Accuracy", "Precision", "Recall", "F1",
-            "distance_function", "filename"
-        ])
-
-        for result_filename in results_filenames:
-            print(result_filename)
-            result_dict = json_file_to_dict("{}/{}".format(
-                GROUND_TRUTH_VALIDATIONS_CAMPAIGNS_PATH +
-                self._validation_campaign_directory, result_filename)
-            )
-
-            validation_results_df = pd.concat(
-                [pd.DataFrame([[
-                    result_dict["target"],
-                    result_dict["probes_filepath"].split("/")[-1],
-                    result_dict["threshold"],
-                    result_dict["alpha"],
-                    result_dict["statistics"]["accuracy"],
-                    result_dict["statistics"]["precision"],
-                    result_dict["statistics"]["recall"],
-                    result_dict["statistics"]["f1"],
-                    result_dict["ping_radius_function"],
-                    result_filename,
-                ]], columns=validation_results_df.columns,
-                ), validation_results_df],
-                ignore_index=True
-            )
-
-        validation_results_df.sort_values(
-            by=["target", "probes_file", "threshold", "alpha"],
-            inplace=True
-        )
-
-        csv_name = "{}{}{}{}".format(
-            GT_VALIDATIONS_STATISTICS,
-            "statistics_",
-            self._output_filename,
-            ".csv"
-        )
-
-        validation_results_df.to_csv(csv_name, sep=",", index=False)
 
     def hunter_build_statistics_validation_campaign(self):
         if (not self._validation_campaign_directory) or (
@@ -207,7 +152,7 @@ class Statistics:
                                 HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH)
                             if "statistics" in filename]
         aggregation_df = pd.DataFrame(columns=[
-            "filename",
+            "filename", "validation",
             "country_positives", "country_negatives", "country_indeterminates"
         ])
         for statistic_file in statistics_files:
@@ -222,9 +167,21 @@ class Statistics:
                 statistic_df[statistic_df['country_outcome'] ==
                              "Indeterminate"])
 
+            if "ip_target_validation" in statistic_file:
+                validation_name = "ip_target_validation"
+            elif "ip_all_validation" in statistic_file:
+                validation_name = "ip_all_validation"
+            elif "no_ip_validation" in statistic_file:
+                validation_name = "no_ip_validation"
+            elif "ip_last_hop_validation" in statistic_file:
+                validation_name = "ip_last_hop_validation"
+            else:
+                validation_name = ""
+
             aggregation_df = pd.concat(
                 [pd.DataFrame([[
                     statistic_file,
+                    validation_name,
                     country_positives,
                     country_negatives,
                     country_indeterminates
@@ -270,7 +227,7 @@ def get_statistics_hunter():
             output_filename = "{}_{}_{}".format(campaign_name,
                                                 validation_name,
                                                 time)
-            hunter_campaign_statistics = Statistics(
+            hunter_campaign_statistics = HunterStatistics(
                 validation_campaign_directory=hunter_campaign,
                 output_filename=output_filename,
                 validate_target=validate_target
@@ -278,18 +235,9 @@ def get_statistics_hunter():
             hunter_campaign_statistics.\
                 hunter_build_statistics_validation_campaign()
 
-    statistics = Statistics()
+    statistics = HunterStatistics()
     statistics.aggregate_hunter_statistics_country()
 
-
-def get_statistics_igreedy():
-    campaign_name = "{}_{}".format(
-        "North-Central_validation_20230410", DISTANCE_FUNCTION_USED)
-    igreedy_statistics = Statistics(
-        validation_campaign_directory=campaign_name,
-        output_filename=campaign_name
-    )
-    igreedy_statistics.igreedy_build_statistics_validation_campaign()
 
 
 get_statistics_hunter()
