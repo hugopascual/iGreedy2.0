@@ -33,6 +33,7 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
             "results_filepath": results_filepath,
             "gt_filepath": gt_filepath,
             "ping_radius_function": results_dict["ping_radius_function"],
+            "gt_instances_in_region": 0,
             "statistics": {
                 "TP": 0, "FP": 0, "TN": 0, "FN": 0,
                 "accuracy": 0, "precision": 0, "recall": 0, "f1": 0,
@@ -58,6 +59,8 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
 
     results_df = get_results_instances_locations(results_filepath)
     gt_df = get_gt_instances_locations(gt_filepath)
+
+    gt_instances_in_region = len(gt_df.index)
 
     # Check for every city TP or FP
     results_df["type"] = results_df.apply(
@@ -93,6 +96,7 @@ def compare_cities_gt(results_filepath: str, gt_filepath: str,
         "results_filepath": results_filepath,
         "gt_filepath": gt_filepath,
         "ping_radius_function": results_dict["ping_radius_function"],
+        "gt_instances_in_region": gt_instances_in_region,
         "statistics": calculate_performance_statistics_cities(
             instances_validated),
         "instances": instances_validated.to_dict('records')

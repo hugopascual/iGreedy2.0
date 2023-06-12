@@ -44,7 +44,7 @@ class iGreedyStatistics:
             "probe_selection", "probe_set_number",
             "threshold", "alpha",
             "Accuracy", "Precision", "Recall", "F1",
-            "distance_function", "filename"
+            "distance_function", "gt_instances_in_region", "filename"
         ])
 
         for result_filename in results_filenames:
@@ -79,6 +79,7 @@ class iGreedyStatistics:
                     result_dict["statistics"]["recall"],
                     result_dict["statistics"]["f1"],
                     result_dict["ping_radius_function"],
+                    result_dict["gt_instances_in_region"],
                     result_filename,
                 ]], columns=validation_results_df.columns,
                 ), validation_results_df],
@@ -98,6 +99,7 @@ class iGreedyStatistics:
         )
 
         validation_results_df.to_csv(csv_name, sep=",", index=False)
+
 
 def get_statistics_igreedy():
     campaign_name = "{}_{}".format(
