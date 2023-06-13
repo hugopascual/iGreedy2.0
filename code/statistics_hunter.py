@@ -82,7 +82,9 @@ class HunterStatistics:
                 ignore_index=True
             )
 
-        validation_results_df.sort_values(by=[], inplace=True)
+        validation_results_df.sort_values(
+            by=["country_outcome", "country_outcome_reason", "filename"],
+            inplace=True)
         validation_results_df.to_csv(
             HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH + "statistics_" +
             self._output_filename + ".csv",
