@@ -1,0 +1,78 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 52.4981,
+        "longitude": 13.2905
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  33.397 ms  33.406 ms  33.404 ms",
+        " 2  vlan330.as10.fra4.de.m247.com (89.36.76.129)  39.432 ms  39.464 ms  39.465 ms",
+        " 3  146.70.0.150 (146.70.0.150)  33.990 ms 146.70.0.148 (146.70.0.148)  34.013 ms 146.70.0.150 (146.70.0.150)  33.979 ms",
+        " 4  * 37.120.220.92 (37.120.220.92)  46.873 ms *",
+        " 5  irb-0.agg1v.mil1.it.m247.com (212.103.51.87)  46.854 ms 212.103.51.63 (212.103.51.63)  46.780 ms irb-0.agg1v.mil1.it.m247.com (212.103.51.87)  46.835 ms",
+        " 6  212.103.51.63 (212.103.51.63)  46.834 ms * *",
+        " 7  * 162.158.92.2 (162.158.92.2)  34.810 ms *",
+        " 8  f.root-servers.net (192.5.5.241)  33.879 ms  33.912 ms  33.877 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "89.36.76.129"
+        ],
+        [
+            "146.70.0.150",
+            "146.70.0.148"
+        ],
+        [
+            "*",
+            "37.120.220.92"
+        ],
+        [
+            "212.103.51.87",
+            "212.103.51.63"
+        ],
+        [
+            "212.103.51.63",
+            "*"
+        ],
+        [
+            "*",
+            "162.158.92.2"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "89.36.76.134",
+        "server_name": "DE#93",
+        "country": "Germany",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

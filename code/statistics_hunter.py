@@ -17,7 +17,8 @@ from utils.common_functions import (
     get_list_files_in_path,
     json_file_to_dict,
     get_nearest_airport_to_point,
-    dict_to_json_file
+    dict_to_json_file,
+    get_list_folders_in_path
 )
 
 
@@ -41,9 +42,9 @@ class HunterStatistics:
             HUNTER_MEASUREMENTS_CAMPAIGNS_PATH +
             self._validation_campaign_directory)
         validation_results_df = pd.DataFrame(columns=[
-            "target", "filename", "from_host", "num_countries", "num_cities",
+            "filename",  "num_countries", "num_cities",
             "num_airports", "country_outcome", "country_outcome_reason",
-            "city_outcome", "city_outcome_reason"
+            "city_outcome", "city_outcome_reason", "from_host", "target"
         ])
 
         results_not_gt = []
@@ -66,21 +67,22 @@ class HunterStatistics:
 
             validation_results_df = pd.concat(
                 [pd.DataFrame([[
-                    result_dict["target"],
                     result_filename,
-                    result_dict["traceroute_from_host"],
                     len(result_dict["hunt_results"]["countries"]),
                     len(result_dict["hunt_results"]["cities"]),
                     len(result_dict["hunt_results"]["airports_located"]),
                     outcome_country[0],
                     outcome_country[1],
                     outcome_city[0],
-                    outcome_city[1]
+                    outcome_city[1],
+                    result_dict["target"],
+                    result_dict["traceroute_from_host"],
                 ]], columns=validation_results_df.columns,
                 ), validation_results_df],
                 ignore_index=True
             )
 
+        validation_results_df.sort_values(by=[], inplace=True)
         validation_results_df.to_csv(
             HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH + "statistics_" +
             self._output_filename + ".csv",
@@ -152,8 +154,9 @@ class HunterStatistics:
                                 HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH)
                             if "statistics" in filename]
         aggregation_df = pd.DataFrame(columns=[
-            "filename", "validation",
-            "country_positives", "country_negatives", "country_indeterminates"
+            "validation",
+            "country_positives", "country_negatives", "country_indeterminates",
+            "filename"
         ])
         for statistic_file in statistics_files:
             statistic_df = pd.read_csv(
@@ -180,16 +183,19 @@ class HunterStatistics:
 
             aggregation_df = pd.concat(
                 [pd.DataFrame([[
-                    statistic_file,
                     validation_name,
                     country_positives,
                     country_negatives,
-                    country_indeterminates
+                    country_indeterminates,
+                    statistic_file
                 ]], columns=aggregation_df.columns,
                 ), aggregation_df],
                 ignore_index=True
             )
 
+        aggregation_df.sort_values(by=[
+            "validation", "country_positives"],
+            inplace=True)
         aggregation_df.to_csv(
             HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
             "aggregation_results.csv",
@@ -199,10 +205,11 @@ class HunterStatistics:
 
 
 def get_statistics_hunter():
-    hunter_campaigns = [
-        "validation_anycast_host_udp_cloudfare_ip_last_hop_validation_20230606_21∶51∶18",
-        "validation_anycast_host_udp_cloudfare_20230607_17∶34∶09"
-    ]
+    hunter_campaigns_folders = get_list_folders_in_path(
+        HUNTER_MEASUREMENTS_CAMPAIGNS_PATH)
+
+    hunter_campaigns = [folder for folder in hunter_campaigns_folders
+                        if not ("statistics" in folder)]
 
     for hunter_campaign in hunter_campaigns:
         for validate_target in [True, False]:

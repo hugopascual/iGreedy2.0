@@ -1,0 +1,78 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 48.192,
+        "longitude": 16.3671
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  48.217 ms  48.540 ms  48.542 ms",
+        " 2  unn-87-249-133-125.datapacket.com (87.249.133.125)  48.821 ms  48.825 ms unn-87-249-133-124.datapacket.com (87.249.133.124)  49.029 ms",
+        " 3  vl201.vie-itx1-core-1.cdn77.com (185.156.45.132)  49.031 ms vl203.vie-itx1-core-1.cdn77.com (185.156.45.134)  49.669 ms  49.676 ms",
+        " 4  ae14-415.vie10.core-backbone.com (5.56.18.141)  49.671 ms  49.887 ms  49.648 ms",
+        " 5  ae25-2026.fra30.core-backbone.com (5.56.19.13)  61.822 ms  61.843 ms  61.840 ms",
+        " 6  * 162.158.84.62 (162.158.84.62)  60.114 ms  65.782 ms",
+        " 7  172.70.248.3 (172.70.248.3)  75.223 ms 172.71.248.5 (172.71.248.5)  66.774 ms 172.70.244.5 (172.70.244.5)  68.801 ms",
+        " 8  104.16.123.96 (104.16.123.96)  60.412 ms  60.370 ms  60.388 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "87.249.133.125",
+            "87.249.133.124"
+        ],
+        [
+            "185.156.45.132",
+            "185.156.45.134"
+        ],
+        [
+            "5.56.18.141"
+        ],
+        [
+            "5.56.19.13"
+        ],
+        [
+            "*",
+            "162.158.84.62"
+        ],
+        [
+            "172.70.248.3",
+            "172.71.248.5",
+            "172.70.244.5"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "87.249.133.99",
+        "server_name": "AT#26",
+        "country": "Austria",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

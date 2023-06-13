@@ -197,6 +197,12 @@ def get_list_files_in_path(path: str) -> list:
     return files_in_path
 
 
+def get_list_folders_in_path(path: str) -> list:
+    dirs_in_path = \
+        [f for f in os.listdir(path) if os.path.isdir(os.path.join(path, f))]
+    return dirs_in_path
+
+
 def get_section_borders_of_polygon(polygon: Polygon) -> dict:
     bounds = polygon.bounds
     return {

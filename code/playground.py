@@ -40,7 +40,8 @@ from utils.common_functions import (
     get_list_files_in_path,
     get_nearest_airport_to_point,
     calculate_hunter_pings_intersection_area,
-    get_polygon_from_section
+    get_polygon_from_section,
+    get_list_folders_in_path
 )
 from groundtruth import get_gt_instances_locations
 
@@ -96,4 +97,9 @@ traceroute_data = {
 
 #measurement_id = 55212992
 #get_measurement_results()
+
+folders = get_list_folders_in_path("datasets/hunter_measurements/campaigns")
+
+folders = [folder for folder in folders if not ("statistics" in folder)]
+print(folders)
 

@@ -26,7 +26,6 @@ class AnycastValidationCloudfare:
             "FR", "GR", "HR", "HU", "IE", "IS", "IT", "LT", "LU", "LV",
             "MT", "NL", "NO", "PL", "PT", "RO", "SI", "SK"
         ]
-        self._vpn_servers_names = ["HR", "LT"]
 
         self._origin = origin
         self._check_cf_ray = check_cf_ray
@@ -41,6 +40,11 @@ class AnycastValidationCloudfare:
     def validate_anycast_from_vpn(self):
         for vpn_server in self._vpn_servers_names:
             additional_info = self.connect_to_vpn_server(vpn_server)
+
+            print("Server searched {}, VPN connected {}".format(
+                vpn_server, additional_info["server_name"]
+            ))
+
             for target in self._targets_list:
                 output_filename = "{}{}/{}_{}.json".format(
                     HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,

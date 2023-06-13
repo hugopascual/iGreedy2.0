@@ -1,0 +1,69 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 59.8457,
+        "longitude": 10.7823
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  60.516 ms  60.515 ms  60.519 ms",
+        " 2  * * *",
+        " 3  irb-0.agg1.thg1.nl.m247.com (77.243.185.36)  63.775 ms  63.779 ms  61.031 ms",
+        " 4  xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  70.505 ms  111.727 ms  111.744 ms",
+        " 5  cloudflare.equinix-fr4.nl-ix.net (193.239.118.138)  119.558 ms netnod-ix-ge-a-sth-1500.cloudflare.com (194.68.123.246)  108.543 ms netnod-ix-ge-b-sth-1500.cloudflare.com (194.68.128.246)  107.736 ms",
+        " 6  104.16.123.96 (104.16.123.96)  107.671 ms 172.71.244.3 (172.71.244.3)  79.337 ms 162.158.84.53 (162.158.84.53)  79.314 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "77.243.185.36"
+        ],
+        [
+            "217.138.223.172"
+        ],
+        [
+            "193.239.118.138",
+            "194.68.123.246",
+            "194.68.128.246"
+        ],
+        [
+            "104.16.123.96",
+            "172.71.244.3",
+            "162.158.84.53"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.170.6",
+        "server_name": "NO#36",
+        "country": "Norway",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
