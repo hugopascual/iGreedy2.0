@@ -28,7 +28,8 @@ from utils.constants import (
     VERLOC_APROX_PATH,
     RIPE_ATLAS_MEASUREMENTS_BASE_URL,
     KEY_FILEPATH,
-    AREA_OF_INTEREST_FILEPATH
+    AREA_OF_INTEREST_FILEPATH,
+    GT_VALIDATIONS_STATISTICS
 )
 from utils.common_functions import (
     get_distance_from_rtt,
@@ -98,8 +99,8 @@ traceroute_data = {
 #measurement_id = 55212992
 #get_measurement_results()
 
-folders = get_list_folders_in_path("datasets/hunter_measurements/campaigns")
 
-folders = [folder for folder in folders if not ("statistics" in folder)]
-print(folders)
-
+igreedy_statistics_df = pd.read_csv(
+    GT_VALIDATIONS_STATISTICS +
+    "statistics_North-Central_validation_20230410.csv")
+print(igreedy_statistics_df)
