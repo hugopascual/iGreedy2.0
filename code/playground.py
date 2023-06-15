@@ -29,7 +29,9 @@ from utils.constants import (
     RIPE_ATLAS_MEASUREMENTS_BASE_URL,
     KEY_FILEPATH,
     AREA_OF_INTEREST_FILEPATH,
-    GT_VALIDATIONS_STATISTICS
+    GT_VALIDATIONS_STATISTICS,
+    CLOUDFARE_IPS,
+    ROOT_SERVERS
 )
 from utils.common_functions import (
     get_distance_from_rtt,
@@ -103,4 +105,26 @@ traceroute_data = {
 igreedy_statistics_df = pd.read_csv(
     GT_VALIDATIONS_STATISTICS +
     "statistics_North-Central_validation_20230410.csv")
-print(igreedy_statistics_df)
+
+# dataframe con los optimos de cada escenario
+optimal_params_df = pd.DataFrame()
+target_list = CLOUDFARE_IPS + list(ROOT_SERVERS.keys())
+
+for target in target_list:
+    target_df = igreedy_statistics_df[
+        igreedy_statistics_df["target"] == target]
+    target_df = target_df[target_df["Precision"] == target_df["Precision"].max()]
+    target_df = target_df[target_df["Recall"] == target_df["Recall"].max()]
+    target_df = target_df[target_df["F1"] == target_df["F1"].max()]
+    target_df = target_df[target_df["Accuracy"] == target_df["Accuracy"].max()]
+    target_optimal = target_df
+    target_optimal.sort_values(by=["threshold", "alpha"], inplace=True)
+
+    optimal_params_df = pd.concat(
+        [target_optimal, optimal_params_df], ignore_index=True)
+
+optimal_params_df.sort_values(by=["target", "threshold", "alpha"])
+optimal_params_df.to_csv(
+    GT_VALIDATIONS_STATISTICS + "optimal_params_by_target.csv",
+    sep=","
+)
