@@ -1,0 +1,71 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 55.6689,
+        "longitude": 12.5588
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  55.919 ms  56.016 ms  56.036 ms",
+        " 2  193.29.107.97 (193.29.107.97)  56.375 ms  56.394 ms  56.400 ms",
+        " 3  * * *",
+        " 4  146.70.0.108 (146.70.0.108)  60.454 ms  60.506 ms 146.70.0.110 (146.70.0.110)  56.003 ms",
+        " 5  193.239.117.14 (193.239.117.14)  67.998 ms  67.527 ms  68.026 ms",
+        " 6  162.158.84.55 (162.158.84.55)  67.118 ms  74.461 ms 172.70.240.5 (172.70.240.5)  71.574 ms",
+        " 7  f.root-servers.net (192.5.5.241)  70.071 ms  70.105 ms  70.060 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "193.29.107.97"
+        ],
+        [
+            "*"
+        ],
+        [
+            "146.70.0.108",
+            "146.70.0.110"
+        ],
+        [
+            "193.239.117.14"
+        ],
+        [
+            "162.158.84.55",
+            "172.70.240.5"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "193.29.107.104",
+        "server_name": "DK#42",
+        "country": "Denmark",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

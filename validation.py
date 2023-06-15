@@ -11,5 +11,11 @@ while True:
             "code/make_validation.py"
         ], stdout=subprocess.PIPE
     )
+
+    connection_result = subprocess.run(
+        ["protonvpn-cli", "disconnect"],
+        stdout=subprocess.PIPE
+    )
+
     print("Sleeping")
     sleep(39600)
