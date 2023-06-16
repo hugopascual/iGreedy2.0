@@ -42,9 +42,11 @@ class HunterStatistics:
             HUNTER_MEASUREMENTS_CAMPAIGNS_PATH +
             self._validation_campaign_directory)
         validation_results_df = pd.DataFrame(columns=[
-            "filename",  "num_countries", "num_cities",
-            "num_airports", "country_outcome", "country_outcome_reason",
-            "city_outcome", "city_outcome_reason", "from_host", "target"
+            "filename",
+            "num_countries", "num_cities", "num_airports",
+            "country_outcome", "country_outcome_reason",
+            "city_outcome", "city_outcome_reason",
+            "from_host", "target", "origin_country"
         ])
 
         results_not_gt = []
@@ -65,6 +67,8 @@ class HunterStatistics:
             outcome_city = self.calculate_hunter_result_outcome(
                 result_dict, "city")
 
+            origin_country = result_filename.split("_")[-1].split(".")[0]
+
             validation_results_df = pd.concat(
                 [pd.DataFrame([[
                     result_filename,
@@ -75,8 +79,9 @@ class HunterStatistics:
                     outcome_country[1],
                     outcome_city[0],
                     outcome_city[1],
-                    result_dict["target"],
                     result_dict["traceroute_from_host"],
+                    result_dict["target"],
+                    origin_country
                 ]], columns=validation_results_df.columns,
                 ), validation_results_df],
                 ignore_index=True
