@@ -1,0 +1,71 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 38.7167,
+        "longitude": -9.1333
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MAD",
+        "size": "large_airport",
+        "name": "Madrid Barajas International Airport",
+        "lat long": "40.4936 -3.56676",
+        "country_code": "ES",
+        "city": "Madrid"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  20.611 ms  21.055 ms  21.074 ms",
+        " 2  91.205.230.65 (91.205.230.65)  21.246 ms  21.277 ms  21.507 ms",
+        " 3  185.166.144.242 (185.166.144.242)  21.263 ms  21.255 ms  21.422 ms",
+        " 4  er1.mad2.edgoo.net (193.163.151.208)  27.939 ms  28.006 ms  27.996 ms",
+        " 5  de-cix-madrid.as13335.net (185.1.192.12)  28.702 ms cloudflare.baja.espanix.net (193.149.1.56)  80.390 ms  80.430 ms",
+        " 6  172.70.56.5 (172.70.56.5)  49.080 ms  36.160 ms 172.70.56.3 (172.70.56.3)  28.677 ms",
+        " 7  104.16.123.96 (104.16.123.96)  27.879 ms  28.098 ms  28.100 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "91.205.230.65"
+        ],
+        [
+            "185.166.144.242"
+        ],
+        [
+            "193.163.151.208"
+        ],
+        [
+            "185.1.192.12",
+            "193.149.1.56"
+        ],
+        [
+            "172.70.56.5",
+            "172.70.56.3"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "195.158.248.232",
+        "server_name": "PT#10",
+        "country": "Portugal",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

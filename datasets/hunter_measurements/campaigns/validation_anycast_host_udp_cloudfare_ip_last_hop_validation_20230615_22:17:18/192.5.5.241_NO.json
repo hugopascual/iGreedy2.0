@@ -1,0 +1,74 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 59.8457,
+        "longitude": 10.7823
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "ARN",
+        "size": "large_airport",
+        "name": "Stockholm-Arlanda Airport",
+        "lat long": "59.6519012451 17.9186000824",
+        "country_code": "SE",
+        "city": "Stockholm"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  47.686 ms  48.035 ms  48.140 ms",
+        " 2  * * *",
+        " 3  irb-0.agg1.thg1.nl.m247.com (77.243.185.36)  48.141 ms  48.249 ms  48.256 ms",
+        " 4  37.120.220.158 (37.120.220.158)  54.733 ms xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  93.628 ms xe-0-1-1-0.bb1.stk1.se.m247.com (176.10.83.1)  88.642 ms",
+        " 5  193.239.117.14 (193.239.117.14)  101.114 ms netnod-ix-ge-b-sth-1500.cloudflare.com (194.68.128.246)  89.308 ms 193.239.117.14 (193.239.117.14)  101.528 ms",
+        " 6  172.71.244.5 (172.71.244.5)  101.165 ms 172.70.244.5 (172.70.244.5)  66.762 ms 162.158.92.4 (162.158.92.4)  66.600 ms",
+        " 7  f.root-servers.net (192.5.5.241)  54.531 ms  66.633 ms  66.952 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "77.243.185.36"
+        ],
+        [
+            "37.120.220.158",
+            "217.138.223.172",
+            "176.10.83.1"
+        ],
+        [
+            "193.239.117.14",
+            "194.68.128.246"
+        ],
+        [
+            "172.71.244.5",
+            "172.70.244.5",
+            "162.158.92.4"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.170.24",
+        "server_name": "NO#26",
+        "country": "Norway",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
