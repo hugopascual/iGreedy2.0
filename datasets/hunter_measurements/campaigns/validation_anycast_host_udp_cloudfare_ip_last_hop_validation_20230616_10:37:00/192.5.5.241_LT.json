@@ -1,0 +1,76 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 55.9333,
+        "longitude": 23.3167
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "WAW",
+        "size": "large_airport",
+        "name": "Warsaw Chopin Airport",
+        "lat long": "52.1656990051 20.9671001434",
+        "country_code": "PL",
+        "city": "Warsaw"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  52.844 ms  52.879 ms  52.884 ms",
+        " 2  gw.bacloud.info (85.206.160.1)  62.422 ms  62.872 ms  63.759 ms",
+        " 3  3-240-206-85.bacloud.info (85.206.240.3)  62.816 ms *  62.813 ms",
+        " 4  2-240-206-85.bacloud.info (85.206.240.2)  62.238 ms 1-240-206-85.bacloud.info (85.206.240.1)  62.736 ms 2-240-206-85.bacloud.info (85.206.240.2)  62.353 ms",
+        " 5  et002.rt.omt.sqq.lt.retn.net (87.245.242.233)  62.272 ms  62.281 ms  62.303 ms",
+        " 6  ae6-11.rt.lim.waw.pl.retn.net (87.245.232.69)  71.815 ms  69.934 ms  69.942 ms",
+        " 7  162.158.100.252 (162.158.100.252)  72.665 ms * *",
+        " 8  f.root-servers.net (192.5.5.241)  63.055 ms  63.059 ms  63.076 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "85.206.160.1"
+        ],
+        [
+            "85.206.240.3",
+            "*"
+        ],
+        [
+            "85.206.240.2",
+            "85.206.240.1"
+        ],
+        [
+            "87.245.242.233"
+        ],
+        [
+            "87.245.232.69"
+        ],
+        [
+            "162.158.100.252",
+            "*"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "85.206.163.149",
+        "server_name": "LT#5",
+        "country": "Lithuania",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

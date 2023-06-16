@@ -1,0 +1,73 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 59.8457,
+        "longitude": 10.7823
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "ARN",
+        "size": "large_airport",
+        "name": "Stockholm-Arlanda Airport",
+        "lat long": "59.6519012451 17.9186000824",
+        "country_code": "SE",
+        "city": "Stockholm"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  47.972 ms  47.941 ms  48.226 ms",
+        " 2  * * *",
+        " 3  irb-0.agg1.thg1.nl.m247.com (77.243.185.36)  48.297 ms  49.140 ms  48.283 ms",
+        " 4  37.120.220.158 (37.120.220.158)  54.995 ms xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  56.223 ms  56.224 ms",
+        " 5  193.239.117.14 (193.239.117.14)  67.238 ms netnod-ix-ge-a-sth-1500.cloudflare.com (194.68.123.246)  56.206 ms  56.190 ms",
+        " 6  162.158.92.4 (162.158.92.4)  67.646 ms 162.158.84.55 (162.158.84.55)  67.655 ms 162.158.108.4 (162.158.108.4)  66.774 ms",
+        " 7  f.root-servers.net (192.5.5.241)  54.973 ms  54.984 ms  66.604 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "77.243.185.36"
+        ],
+        [
+            "37.120.220.158",
+            "217.138.223.172"
+        ],
+        [
+            "193.239.117.14",
+            "194.68.123.246"
+        ],
+        [
+            "162.158.92.4",
+            "162.158.84.55",
+            "162.158.108.4"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.170.20",
+        "server_name": "NO#22",
+        "country": "Norway",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

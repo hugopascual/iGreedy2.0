@@ -1,0 +1,73 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 55.6689,
+        "longitude": 12.5588
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  55.684 ms  55.867 ms  55.889 ms",
+        " 2  193.29.107.97 (193.29.107.97)  56.135 ms  56.161 ms  56.383 ms",
+        " 3  * 193.27.15.232 (193.27.15.232)  70.322 ms *",
+        " 4  146.70.0.110 (146.70.0.110)  69.180 ms  68.227 ms 146.70.0.108 (146.70.0.108)  69.210 ms",
+        " 5  193.239.117.14 (193.239.117.14)  80.192 ms  79.660 ms  80.237 ms",
+        " 6  172.71.248.5 (172.71.248.5)  79.674 ms 172.70.244.5 (172.70.244.5)  67.188 ms 172.70.240.5 (172.70.240.5)  67.445 ms",
+        " 7  f.root-servers.net (192.5.5.241)  66.727 ms  66.637 ms  67.267 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "193.29.107.97"
+        ],
+        [
+            "*",
+            "193.27.15.232"
+        ],
+        [
+            "146.70.0.110",
+            "146.70.0.108"
+        ],
+        [
+            "193.239.117.14"
+        ],
+        [
+            "172.71.248.5",
+            "172.70.244.5",
+            "172.70.240.5"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "193.29.107.170",
+        "server_name": "DK#32",
+        "country": "Denmark",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
