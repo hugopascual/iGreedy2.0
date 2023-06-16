@@ -158,11 +158,18 @@ class HunterStatistics:
         aggregation_df = pd.DataFrame(columns=[
             "validation",
             "country_positives", "country_negatives", "country_indeterminates",
-            "filename"
+            "moment_of_campaign", "filename"
         ])
         for statistic_file in statistics_files:
             statistic_df = pd.read_csv(
                 HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH + statistic_file)
+
+            campaign_moment_split_list = statistic_file.split("_")[-2:]
+            campaign_hour = campaign_moment_split_list[1].split(".")[0]
+            campaign_date = "{}_{}".format(
+                campaign_moment_split_list[0],
+                campaign_hour
+            )
 
             country_positives = len(
                 statistic_df[statistic_df['country_outcome'] == "Positive"])
@@ -189,6 +196,7 @@ class HunterStatistics:
                     country_positives,
                     country_negatives,
                     country_indeterminates,
+                    campaign_date,
                     statistic_file
                 ]], columns=aggregation_df.columns,
                 ), aggregation_df],
@@ -196,7 +204,7 @@ class HunterStatistics:
             )
 
         aggregation_df.sort_values(by=[
-            "validation", "country_positives"],
+            "moment_of_campaign", "validation"],
             inplace=True)
         aggregation_df.to_csv(
             HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
@@ -244,10 +252,8 @@ def get_statistics_hunter():
             hunter_campaign_statistics.\
                 hunter_build_statistics_validation_campaign()
 
-    statistics = HunterStatistics()
-    statistics.aggregate_hunter_statistics_country()
-
-
 
 get_statistics_hunter()
-#get_statistics_igreedy()
+statistics = HunterStatistics()
+statistics.aggregate_hunter_statistics_country()
+
