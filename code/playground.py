@@ -100,3 +100,32 @@ traceroute_data = {
 
 #measurement_id = 55212992
 #get_measurement_results()
+
+df = pd.read_csv(GT_VALIDATIONS_STATISTICS +
+                 "statistics_North-Central_validation_20230410.csv",
+                 sep=",")
+
+df_optimal = df[
+    (df["probe_selection"] == "area") &
+    (df["probe_set_number"] == 500) &
+    (df["distance_function"] == "verloc_aprox") &
+    (df["threshold"] == 1) &
+    (df["alpha"] == 1)
+]
+
+df_optimal = df_optimal[["target", "Accuracy", "Precision", "Recall", "F1", "gt_instances_in_region"]]
+df_optimal.to_csv(GT_VALIDATIONS_STATISTICS + "optimal_params_results.csv",
+          sep=",",
+          index=False)
+
+df_second_optimal = df[
+    (df["probe_selection"] == "area") &
+    (df["probe_set_number"] == 1000) &
+    (df["distance_function"] == "constant_1.52") &
+    (df["threshold"] == 1) &
+    (df["alpha"] == 1)
+]
+df_second_optimal = df_second_optimal[["target", "Accuracy", "Precision", "Recall", "F1", "gt_instances_in_region"]]
+df_second_optimal.to_csv(GT_VALIDATIONS_STATISTICS + "optimal_second_params_results.csv",
+          sep=",",
+          index=False)

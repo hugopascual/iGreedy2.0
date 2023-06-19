@@ -40,8 +40,7 @@ def first_try():
     )
 
 
-def try_with_params_combinations():
-    result_to_max = "Precision"
+def try_with_params_combinations(result_to_max: str):
 
     igreedy_statistics_df = pd.read_csv(
         GT_VALIDATIONS_STATISTICS +
@@ -94,8 +93,8 @@ def try_with_params_combinations():
 
                     result_for_params = get_list_of_result_for_params(
                         params=params,
-                        target_list=target_list,
-                        df=igreedy_statistics_df
+                        df=igreedy_statistics_df,
+                        result_to_max=result_to_max
                     )
 
                     error_list = [maximum - result for maximum, result in
@@ -116,14 +115,13 @@ def try_with_params_combinations():
     combinations_error_df.sort_values(
         by=["sum_error", "avg_error"], inplace=True, ignore_index=True)
     combinations_error_df.to_csv(
-        GT_VALIDATIONS_STATISTICS + "matrix.csv",
+        GT_VALIDATIONS_STATISTICS + "matrix_{}.csv".format(result_to_max),
         sep=",", index=False
     )
 
 
 def get_list_of_result_for_params(
-        params: list, target_list: list, df: pd.DataFrame) -> list:
-    result_to_max = "Precision"
+        params: list, df: pd.DataFrame, result_to_max: str) -> list:
 
     target_combination_df = df.loc[
         (df["probe_selection"] == params[0]) &
@@ -137,6 +135,6 @@ def get_list_of_result_for_params(
     return result_for_combination
 
 
-try_with_params_combinations()
+try_with_params_combinations(result_to_max="Precision")
 
 
