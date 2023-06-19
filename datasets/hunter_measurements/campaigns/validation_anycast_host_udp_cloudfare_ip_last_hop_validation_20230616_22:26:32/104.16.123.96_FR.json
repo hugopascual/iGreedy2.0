@@ -1,0 +1,74 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 48.9356,
+        "longitude": 2.3539
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "CDG",
+        "size": "large_airport",
+        "name": "Charles de Gaulle International Airport",
+        "lat long": "49.0127983093 2.5499999523",
+        "country_code": "FR",
+        "city": "Paris"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  41.717 ms  41.716 ms  42.244 ms",
+        " 2  146.70.194.1 (146.70.194.1)  54.530 ms  54.542 ms  54.541 ms",
+        " 3  * * *",
+        " 4  xe-2-0-3-0.bb2.par1.fr.m247.com (193.9.115.250)  42.488 ms  42.714 ms 217.138.223.192 (217.138.223.192)  42.230 ms",
+        " 5  equinix-paris.cloudflare.com (195.42.144.143)  43.008 ms 89.44.212.140 (89.44.212.140)  83.489 ms  83.529 ms",
+        " 6  172.71.120.4 (172.71.120.4)  87.081 ms equinix-paris.cloudflare.com (195.42.144.143)  42.989 ms  43.108 ms",
+        " 7  172.71.116.4 (172.71.116.4)  43.517 ms 104.16.123.96 (104.16.123.96)  42.727 ms 172.71.124.4 (172.71.124.4)  43.462 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "146.70.194.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "193.9.115.250",
+            "217.138.223.192"
+        ],
+        [
+            "195.42.144.143",
+            "89.44.212.140"
+        ],
+        [
+            "172.71.120.4",
+            "195.42.144.143"
+        ],
+        [
+            "172.71.116.4",
+            "104.16.123.96",
+            "172.71.124.4"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.194.45",
+        "server_name": "FR#119",
+        "country": "France",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

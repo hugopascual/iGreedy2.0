@@ -1,0 +1,68 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 59.8457,
+        "longitude": 10.7823
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  48.750 ms  48.755 ms  48.755 ms",
+        " 2  * * *",
+        " 3  irb-0.agg1.thg1.nl.m247.com (77.243.185.36)  49.353 ms  49.364 ms  49.365 ms",
+        " 4  xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  57.155 ms  57.262 ms  57.275 ms",
+        " 5  netnod-ix-ge-b-sth-1500.cloudflare.com (194.68.128.246)  69.533 ms  56.956 ms 193.239.117.14 (193.239.117.14)  68.818 ms",
+        " 6  162.158.108.4 (162.158.108.4)  76.425 ms 172.71.248.5 (172.71.248.5)  68.413 ms 104.16.123.96 (104.16.123.96)  55.407 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "77.243.185.36"
+        ],
+        [
+            "217.138.223.172"
+        ],
+        [
+            "194.68.128.246",
+            "193.239.117.14"
+        ],
+        [
+            "162.158.108.4",
+            "172.71.248.5",
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.170.27",
+        "server_name": "NO#29",
+        "country": "Norway",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
