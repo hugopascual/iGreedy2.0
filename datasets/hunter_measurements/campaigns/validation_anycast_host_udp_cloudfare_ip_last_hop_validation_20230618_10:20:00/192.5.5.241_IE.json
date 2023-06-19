@@ -1,0 +1,87 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 53.354,
+        "longitude": -6.2545
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "CDG",
+        "size": "large_airport",
+        "name": "Charles de Gaulle International Airport",
+        "lat long": "49.0127983093 2.5499999523",
+        "country_code": "FR",
+        "city": "Paris"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  34.002 ms  34.360 ms  34.392 ms",
+        " 2  146.70.48.1 (146.70.48.1)  52.401 ms  52.426 ms  52.433 ms",
+        " 3  146.70.1.14 (146.70.1.14)  70.755 ms  50.402 ms  50.428 ms",
+        " 4  146.70.1.16 (146.70.1.16)  34.969 ms 146.70.1.18 (146.70.1.18)  34.760 ms 146.70.1.16 (146.70.1.16)  34.960 ms",
+        " 5  146.70.1.24 (146.70.1.24)  34.753 ms 146.70.1.28 (146.70.1.28)  34.668 ms 146.70.1.24 (146.70.1.24)  34.895 ms",
+        " 6  ae57-602.bar1.dublin3.level3.net (212.73.251.81)  35.378 ms 2-1-c25-4-602.ear1.dublin6.level3.net (213.242.121.117)  34.598 ms ae57-602.bar1.dublin3.level3.net (212.73.251.81)  44.745 ms",
+        " 7  ae2.3211.edge7.paris1.level3.net (4.69.133.238)  51.608 ms  51.563 ms ae1.3111.edge7.paris1.level3.net (4.69.133.234)  50.889 ms",
+        " 8  cloudflare.edge7.paris1.level3.net (213.19.215.106)  51.952 ms 212.73.205.22 (212.73.205.22)  52.537 ms cloudflare.edge7.paris1.level3.net (213.19.215.106)  52.277 ms",
+        " 9  172.71.124.4 (172.71.124.4)  52.210 ms 172.71.116.4 (172.71.116.4)  57.476 ms 172.71.124.4 (172.71.124.4)  52.190 ms",
+        "10  f.root-servers.net (192.5.5.241)  52.291 ms  52.704 ms  51.240 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "146.70.48.1"
+        ],
+        [
+            "146.70.1.14"
+        ],
+        [
+            "146.70.1.16",
+            "146.70.1.18"
+        ],
+        [
+            "146.70.1.24",
+            "146.70.1.28"
+        ],
+        [
+            "212.73.251.81",
+            "213.242.121.117"
+        ],
+        [
+            "4.69.133.238",
+            "4.69.133.234"
+        ],
+        [
+            "213.19.215.106",
+            "212.73.205.22"
+        ],
+        [
+            "172.71.124.4",
+            "172.71.116.4"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.48.12",
+        "server_name": "IE#22",
+        "country": "Ireland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

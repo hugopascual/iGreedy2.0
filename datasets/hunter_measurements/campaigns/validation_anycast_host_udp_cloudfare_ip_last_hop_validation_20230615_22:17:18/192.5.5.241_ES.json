@@ -1,0 +1,80 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "LHR",
+        "size": "large_airport",
+        "name": "London Heathrow Airport",
+        "lat long": "51.4706001282 -0.4619410038",
+        "country_code": "GB",
+        "city": "London"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  1.821 ms  1.801 ms  1.793 ms",
+        " 2  unn-195-181-167-220.datapacket.com (195.181.167.220)  1.945 ms unn-195-181-167-221.datapacket.com (195.181.167.221)  1.957 ms unn-195-181-167-220.datapacket.com (195.181.167.220)  1.951 ms",
+        " 3  vl204.mad-itx-core-2.cdn77.com (185.229.188.86)  1.944 ms vl201.mad-itx-core-1.cdn77.com (185.229.188.80)  1.963 ms vl204.mad-itx-core-2.cdn77.com (185.229.188.86)  1.922 ms",
+        " 4  vl250.mad-itx-core-2.cdn77.com (185.229.188.77)  1.916 ms ae0-401.mad10.core-backbone.com (5.56.19.193)  1.943 ms  1.950 ms",
+        " 5  ae0-401.mad10.core-backbone.com (5.56.19.193)  1.922 ms  1.926 ms  1.918 ms",
+        " 6  141.101.71.10 (141.101.71.10)  26.007 ms  26.256 ms  25.941 ms",
+        " 7  172.70.160.4 (172.70.160.4)  26.229 ms 172.70.87.4 (172.70.87.4)  26.201 ms 141.101.71.10 (141.101.71.10)  25.871 ms",
+        " 8  172.71.176.4 (172.71.176.4)  25.510 ms f.root-servers.net (192.5.5.241)  25.775 ms 172.71.240.4 (172.71.240.4)  28.193 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "195.181.167.220",
+            "195.181.167.221"
+        ],
+        [
+            "185.229.188.86",
+            "185.229.188.80"
+        ],
+        [
+            "185.229.188.77",
+            "5.56.19.193"
+        ],
+        [
+            "5.56.19.193"
+        ],
+        [
+            "141.101.71.10"
+        ],
+        [
+            "172.70.160.4",
+            "172.70.87.4",
+            "141.101.71.10"
+        ],
+        [
+            "172.71.176.4",
+            "192.5.5.241",
+            "172.71.240.4"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "195.181.167.195",
+        "server_name": "ES#10",
+        "country": "Spain",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

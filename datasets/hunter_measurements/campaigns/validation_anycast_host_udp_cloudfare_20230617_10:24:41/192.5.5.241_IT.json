@@ -1,0 +1,90 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 45.4643,
+        "longitude": 9.1895
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MXP",
+        "size": "large_airport",
+        "name": "Malpensa International Airport",
+        "lat long": "45.6305999756 8.7281103134",
+        "country_code": "IT",
+        "city": "Milan"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  22.921 ms  23.525 ms  23.543 ms",
+        " 2  146.70.182.1 (146.70.182.1)  39.569 ms  39.587 ms  39.586 ms",
+        " 3  irb-0.agg1v.mil1.it.m247.com (146.70.1.44)  36.379 ms  36.396 ms  36.402 ms",
+        " 4  146.70.1.186 (146.70.1.186)  23.427 ms  23.533 ms  25.463 ms",
+        " 5  cloudflare.mix-it.net (217.29.66.167)  23.517 ms  23.545 ms  23.546 ms",
+        " 6  172.71.112.4 (172.71.112.4)  24.167 ms  23.638 ms *",
+        " 7  * * *",
+        " 8  * * *",
+        " 9  * * *",
+        "10  * * *",
+        "11  * * *",
+        "12  f.root-servers.net (192.5.5.241)  23.580 ms  23.799 ms  23.623 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "146.70.182.1"
+        ],
+        [
+            "146.70.1.44"
+        ],
+        [
+            "146.70.1.186"
+        ],
+        [
+            "217.29.66.167"
+        ],
+        [
+            "172.71.112.4",
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.182.26",
+        "server_name": "IT#36",
+        "country": "Italy",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 59.9127,
+        "longitude": 10.7461
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "ARN",
+        "size": "large_airport",
+        "name": "Stockholm-Arlanda Airport",
+        "lat long": "59.6519012451 17.9186000824",
+        "country_code": "SE",
+        "city": "Stockholm"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  49.526 ms  49.549 ms  49.564 ms",
+        " 2  * * *",
+        " 3  irb-0.agg1.thg1.nl.m247.com (77.243.185.36)  50.083 ms  50.139 ms  50.115 ms",
+        " 4  xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  58.039 ms 37.120.220.158 (37.120.220.158)  56.557 ms xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  58.095 ms",
+        " 5  netnod-ix-ge-b-sth-1500.cloudflare.com (194.68.128.246)  57.327 ms 193.239.117.14 (193.239.117.14)  69.182 ms netnod-ix-ge-a-sth-1500.cloudflare.com (194.68.123.246)  62.969 ms",
+        " 6  162.158.92.4 (162.158.92.4)  69.102 ms f.root-servers.net (192.5.5.241)  57.066 ms  57.039 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "77.243.185.36"
+        ],
+        [
+            "217.138.223.172",
+            "37.120.220.158"
+        ],
+        [
+            "194.68.128.246",
+            "193.239.117.14",
+            "194.68.123.246"
+        ],
+        [
+            "162.158.92.4",
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "37.120.203.88",
+        "server_name": "NO#10",
+        "country": "Norway",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 48.9356,
+        "longitude": 2.3539
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "CDG",
+        "size": "large_airport",
+        "name": "Charles de Gaulle International Airport",
+        "lat long": "49.0127983093 2.5499999523",
+        "country_code": "FR",
+        "city": "Paris"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  39.272 ms  39.582 ms  39.597 ms",
+        " 2  146.70.194.1 (146.70.194.1)  62.776 ms  62.828 ms  62.835 ms",
+        " 3  * * *",
+        " 4  37.120.220.14 (37.120.220.14)  39.996 ms xe-2-0-3-0.bb2.par1.fr.m247.com (193.9.115.250)  39.949 ms xe-2-0-0-0.core2.buc1.ro.m247.com (77.243.185.134)  39.996 ms",
+        " 5  equinix-paris.cloudflare.com (195.42.144.143)  40.440 ms  40.682 ms 89.44.212.140 (89.44.212.140)  39.945 ms",
+        " 6  equinix-paris.cloudflare.com (195.42.144.143)  40.797 ms 172.71.128.4 (172.71.128.4)  40.752 ms 172.71.132.4 (172.71.132.4)  41.391 ms",
+        " 7  f.root-servers.net (192.5.5.241)  39.854 ms 172.71.124.4 (172.71.124.4)  40.974 ms f.root-servers.net (192.5.5.241)  40.450 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "146.70.194.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "37.120.220.14",
+            "193.9.115.250",
+            "77.243.185.134"
+        ],
+        [
+            "195.42.144.143",
+            "89.44.212.140"
+        ],
+        [
+            "195.42.144.143",
+            "172.71.128.4",
+            "172.71.132.4"
+        ],
+        [
+            "192.5.5.241",
+            "172.71.124.4"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.194.22",
+        "server_name": "FR#100",
+        "country": "France",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

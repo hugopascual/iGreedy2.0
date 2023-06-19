@@ -1,0 +1,75 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 55.9333,
+        "longitude": 23.3167
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "WAW",
+        "size": "large_airport",
+        "name": "Warsaw Chopin Airport",
+        "lat long": "52.1656990051 20.9671001434",
+        "country_code": "PL",
+        "city": "Warsaw"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  66.008 ms  66.007 ms  66.012 ms",
+        " 2  gw.bacloud.info (85.206.160.1)  66.019 ms  66.609 ms  66.636 ms",
+        " 3  3-240-206-85.bacloud.info (85.206.240.3)  66.660 ms  66.697 ms *",
+        " 4  2-240-206-85.bacloud.info (85.206.240.2)  66.693 ms  66.753 ms  66.760 ms",
+        " 5  et002.rt.omt.sqq.lt.retn.net (87.245.242.233)  66.580 ms  66.669 ms  66.676 ms",
+        " 6  ae6-11.rt.lim.waw.pl.retn.net (87.245.232.69)  87.182 ms  63.752 ms  63.761 ms",
+        " 7  * * 162.158.100.252 (162.158.100.252)  66.436 ms",
+        " 8  f.root-servers.net (192.5.5.241)  61.906 ms  61.968 ms  62.111 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "85.206.160.1"
+        ],
+        [
+            "85.206.240.3",
+            "*"
+        ],
+        [
+            "85.206.240.2"
+        ],
+        [
+            "87.245.242.233"
+        ],
+        [
+            "87.245.232.69"
+        ],
+        [
+            "*",
+            "162.158.100.252"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "85.206.163.147",
+        "server_name": "LT#3",
+        "country": "Lithuania",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

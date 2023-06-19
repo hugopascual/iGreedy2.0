@@ -1,0 +1,69 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 59.8457,
+        "longitude": 10.7823
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  52.700 ms  52.709 ms  52.715 ms",
+        " 2  * * *",
+        " 3  irb-0.agg1.thg1.nl.m247.com (77.243.185.36)  52.710 ms  52.682 ms  52.707 ms",
+        " 4  xe-0-1-1-0.bb1.stk1.se.m247.com (176.10.83.1)  57.974 ms xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  59.399 ms  59.684 ms",
+        " 5  193.239.117.14 (193.239.117.14)  71.677 ms netnod-ix-ge-b-sth-1500.cloudflare.com (194.68.128.246)  59.048 ms 193.239.117.14 (193.239.117.14)  72.750 ms",
+        " 6  172.71.244.5 (172.71.244.5)  71.393 ms f.root-servers.net (192.5.5.241)  56.919 ms 162.158.84.55 (162.158.84.55)  74.068 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "77.243.185.36"
+        ],
+        [
+            "176.10.83.1",
+            "217.138.223.172"
+        ],
+        [
+            "193.239.117.14",
+            "194.68.128.246"
+        ],
+        [
+            "172.71.244.5",
+            "192.5.5.241",
+            "162.158.84.55"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.170.8",
+        "server_name": "NO#38",
+        "country": "Norway",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

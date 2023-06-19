@@ -1,0 +1,77 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MAD",
+        "size": "large_airport",
+        "name": "Madrid Barajas International Airport",
+        "lat long": "40.4936 -3.56676",
+        "country_code": "ES",
+        "city": "Madrid"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  1.454 ms  1.970 ms  2.060 ms",
+        " 2  unn-37-19-214-13.datapacket.com (37.19.214.13)  2.060 ms  2.054 ms unn-37-19-214-12.datapacket.com (37.19.214.12)  2.049 ms",
+        " 3  vl202.mad-itx-core-2.cdn77.com (185.229.188.82)  2.042 ms vl204.mad-itx-core-2.cdn77.com (185.229.188.86)  2.037 ms  2.031 ms",
+        " 4  5.255.147.201 (5.255.147.201)  2.488 ms  2.467 ms 81.173.106.178 (81.173.106.178)  2.546 ms",
+        " 5  81.173.106.39 (81.173.106.39)  12.637 ms 176.52.248.251 (176.52.248.251)  2.888 ms  2.956 ms",
+        " 6  172.68.132.2 (172.68.132.2)  3.077 ms 81.173.106.39 (81.173.106.39)  7.698 ms 172.70.56.3 (172.70.56.3)  2.376 ms",
+        " 7  172.70.60.2 (172.70.60.2)  7.445 ms 188.114.108.7 (188.114.108.7)  2.562 ms 104.16.123.96 (104.16.123.96)  2.173 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "37.19.214.13",
+            "37.19.214.12"
+        ],
+        [
+            "185.229.188.82",
+            "185.229.188.86"
+        ],
+        [
+            "5.255.147.201",
+            "81.173.106.178"
+        ],
+        [
+            "81.173.106.39",
+            "176.52.248.251"
+        ],
+        [
+            "172.68.132.2",
+            "81.173.106.39",
+            "172.70.56.3"
+        ],
+        [
+            "172.70.60.2",
+            "188.114.108.7",
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "37.19.214.3",
+        "server_name": "ES#26",
+        "country": "Spain",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

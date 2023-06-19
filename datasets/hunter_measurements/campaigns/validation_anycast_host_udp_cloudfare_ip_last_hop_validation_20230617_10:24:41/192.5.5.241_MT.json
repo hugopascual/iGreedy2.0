@@ -1,0 +1,72 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 35.8997,
+        "longitude": 14.5148
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MRS",
+        "size": "large_airport",
+        "name": "Marseille Provence Airport",
+        "lat long": "43.439271922 5.2214241028",
+        "country_code": "FR",
+        "city": "Marseille"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  38.527 ms  38.546 ms  38.556 ms",
+        " 2  84.252.112.125 (84.252.112.125)  38.945 ms 84.252.112.124 (84.252.112.124)  38.977 ms 84.252.112.125 (84.252.112.125)  38.988 ms",
+        " 3  vl204.mrs-itx2-core-2.cdn77.com (185.229.188.136)  38.996 ms  39.006 ms vl202.mrs-itx2-core-2.cdn77.com (185.229.188.134)  39.015 ms",
+        " 4  * * *",
+        " 5  149.6.154.130 (149.6.154.130)  48.331 ms  48.360 ms  48.370 ms",
+        " 6  172.71.184.2 (172.71.184.2)  40.266 ms 162.158.20.242 (162.158.20.242)  39.085 ms  39.045 ms",
+        " 7  f.root-servers.net (192.5.5.241)  38.918 ms  38.877 ms  38.902 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "84.252.112.125",
+            "84.252.112.124"
+        ],
+        [
+            "185.229.188.136",
+            "185.229.188.134"
+        ],
+        [
+            "*"
+        ],
+        [
+            "149.6.154.130"
+        ],
+        [
+            "172.71.184.2",
+            "162.158.20.242"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "84.252.112.5",
+        "server_name": "MT#5",
+        "country": "Malta",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

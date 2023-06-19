@@ -1,0 +1,75 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 50.1112,
+        "longitude": 8.6831
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  28.717 ms  32.868 ms  32.869 ms",
+        " 2  194.126.177.3 (194.126.177.3)  32.869 ms  32.875 ms 194.126.177.2 (194.126.177.2)  32.862 ms",
+        " 3  * * *",
+        " 4  ce-0-6-0-1.r01.frnkge13.de.bb.gin.ntt.net (128.241.11.221)  32.845 ms et-2-0-29.edge8.frankfurt1.level3.net (62.67.33.37)  32.853 ms  32.851 ms",
+        " 5  ae-3.r21.frnkge13.de.bb.gin.ntt.net (129.250.6.50)  32.840 ms ae1.3122.edge9.frankfurt1.level3.net (4.69.167.114)  36.341 ms *",
+        " 6  ae-0.a02.frnkge07.de.bb.gin.ntt.net (129.250.5.34)  32.820 ms ae-0.a03.frnkge07.de.bb.gin.ntt.net (129.250.7.16)  29.433 ms ae-0.a02.frnkge07.de.bb.gin.ntt.net (129.250.5.34)  29.701 ms",
+        " 7  172.70.248.3 (172.70.248.3)  35.268 ms f.root-servers.net (192.5.5.241)  39.307 ms  39.241 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "194.126.177.3",
+            "194.126.177.2"
+        ],
+        [
+            "*"
+        ],
+        [
+            "128.241.11.221",
+            "62.67.33.37"
+        ],
+        [
+            "129.250.6.50",
+            "4.69.167.114",
+            "*"
+        ],
+        [
+            "129.250.5.34",
+            "129.250.7.16"
+        ],
+        [
+            "172.70.248.3",
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "194.126.177.23",
+        "server_name": "DE#64",
+        "country": "Germany",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

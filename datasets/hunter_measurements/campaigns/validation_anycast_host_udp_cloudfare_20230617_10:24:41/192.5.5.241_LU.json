@@ -1,0 +1,68 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 49.5806,
+        "longitude": 6.1118
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "LUX",
+        "size": "large_airport",
+        "name": "Luxembourg-Findel International Airport",
+        "lat long": "49.6265983582 6.211520195",
+        "country_code": "LU",
+        "city": "Luxembourg"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  39.336 ms  39.690 ms  39.716 ms",
+        " 2  92.223.89.129 (92.223.89.129)  39.920 ms  39.944 ms  39.950 ms",
+        " 3  92.223.112.2 (92.223.112.2)  40.330 ms 92.223.112.3 (92.223.112.3)  40.384 ms  40.393 ms",
+        " 4  * * *",
+        " 5  * as13335.members.lu-cix.lu (188.93.170.100)  49.140 ms *",
+        " 6  f.root-servers.net (192.5.5.241)  40.665 ms  39.879 ms as13335.members.lu-cix.lu (188.93.170.100)  40.025 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "92.223.89.129"
+        ],
+        [
+            "92.223.112.2",
+            "92.223.112.3"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*",
+            "188.93.170.100"
+        ],
+        [
+            "192.5.5.241",
+            "188.93.170.100"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "92.223.89.136",
+        "server_name": "LU#15",
+        "country": "Luxembourg",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

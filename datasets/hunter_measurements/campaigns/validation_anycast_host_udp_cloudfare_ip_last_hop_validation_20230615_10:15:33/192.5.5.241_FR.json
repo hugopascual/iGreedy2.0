@@ -1,0 +1,79 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 48.8655,
+        "longitude": 2.3426
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "LHR",
+        "size": "large_airport",
+        "name": "London Heathrow Airport",
+        "lat long": "51.4706001282 -0.4619410038",
+        "country_code": "GB",
+        "city": "London"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  39.605 ms  39.584 ms  39.575 ms",
+        " 2  unn-185.246.211-221.datapacket.com (185.246.211.221)  39.567 ms unn-185.246.211-220.datapacket.com (185.246.211.220)  39.560 ms unn-185.246.211-221.datapacket.com (185.246.211.221)  39.553 ms",
+        " 3  vl223.par-itx5-core-1.cdn77.com (185.156.45.108)  39.775 ms vl221.par-itx5-core-1.cdn77.com (185.156.45.104)  39.772 ms  39.766 ms",
+        " 4  ae0-402.par10.core-backbone.com (81.95.15.145)  39.984 ms  39.876 ms ae7-0.par10.core-backbone.com (80.255.9.13)  39.971 ms",
+        " 5  ae20-2076.lon10.core-backbone.com (80.255.14.41)  47.705 ms  47.687 ms  47.763 ms",
+        " 6  141.101.71.10 (141.101.71.10)  48.467 ms * *",
+        " 7  172.71.240.4 (172.71.240.4)  25.972 ms 172.70.94.4 (172.70.94.4)  30.037 ms 172.70.87.4 (172.70.87.4)  26.356 ms",
+        " 8  f.root-servers.net (192.5.5.241)  25.757 ms  26.142 ms  26.137 ms"
+    ],
+    "last_hop_validation": true,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "185.246.211.221",
+            "185.246.211.220"
+        ],
+        [
+            "185.156.45.108",
+            "185.156.45.104"
+        ],
+        [
+            "81.95.15.145",
+            "80.255.9.13"
+        ],
+        [
+            "80.255.14.41"
+        ],
+        [
+            "141.101.71.10",
+            "*"
+        ],
+        [
+            "172.71.240.4",
+            "172.70.94.4",
+            "172.70.87.4"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.246.211.198",
+        "server_name": "FR#65",
+        "country": "France",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
