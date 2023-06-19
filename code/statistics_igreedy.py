@@ -103,7 +103,7 @@ class iGreedyStatistics:
 
 def get_statistics_igreedy():
     campaign_name = "{}_{}".format(
-        "North-Central_validation_20230410", DISTANCE_FUNCTION_USED)
+        "WW_validation_20230620", DISTANCE_FUNCTION_USED)
     igreedy_statistics = iGreedyStatistics(
         validation_campaign_directory=campaign_name,
         output_filename=campaign_name

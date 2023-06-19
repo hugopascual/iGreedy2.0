@@ -304,3 +304,10 @@ def calculate_hunter_pings_intersection_area(ping_discs: list) -> dict:
             "intersection": to_geojson(intersection),
             "centroid": to_geojson(intersection_centroid)
         }
+
+
+def get_country_name(country_code: str) -> str:
+    all_countries_list = json_file_to_dict(ALL_COUNTRIES_FILE_PATH)
+    for country in all_countries_list:
+        if country["alpha-2"] == country_code:
+            return country["name"]

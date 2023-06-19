@@ -11,7 +11,8 @@ from utils.constants import (
     MEASUREMENTS_CAMPAIGNS_PATH,
     ROOT_SERVERS_PATH,
     CLOUDFARE_PATH,
-    DISTANCE_FUNCTION_USED
+    DISTANCE_FUNCTION_USED,
+    AREA_OF_INTEREST_FILEPATH
 )
 from utils.common_functions import (
     get_list_files_in_path,
@@ -23,16 +24,13 @@ class iGreedyValidation:
 
     def __init__(self, measurement_campaign_name: str):
         self._probefile_list = [
-            #"North-Central_1000.json",
-            #"North-Central_500.json",
-            #"North-Central_300.json",
-            #"North-Central_100.json",
-            #"North-Central-section_1.5.json",
-            #"North-Central-section_1.json",
-            #"North-Central-section_2.json",
-            "Europe-countries_5.json",
-            "Europe-countries_10.json",
-            "Europe-countries_15.json"
+            "WW_1000.json",
+            "WW_500.json",
+            "WW_300.json",
+            "WW_100.json",
+            "WW-section_1.5.json",
+            "WW-section_1.json",
+            "WW-section_2.json"
         ]
         self._target_list = []
         self._target_list += CLOUDFARE_IPS
@@ -72,7 +70,12 @@ class iGreedyValidation:
                 gt_filepath = ROOT_SERVERS_PATH + \
                               ROOT_SERVERS[measurement_data["target"]]
             elif measurement_data["target"] in CLOUDFARE_IPS:
-                gt_filepath = CLOUDFARE_PATH + "cloudfare_servers_europe.json"
+                if "North-Central" in AREA_OF_INTEREST_FILEPATH:
+                    gt_filepath = CLOUDFARE_PATH + \
+                                  "cloudfare_servers_europe.json"
+                else:
+                    gt_filepath = CLOUDFARE_PATH + \
+                                  ".json"
             else:
                 print("TARGET {} NOT IN GROUNDTRUTH".format(
                     measurement_data["target"]))
@@ -99,7 +102,7 @@ class iGreedyValidation:
 
 
 igreedy_validation = iGreedyValidation(
-    measurement_campaign_name="North-Central_validation_20230410"
+    measurement_campaign_name="WW_validation_20230620"
 )
-#igreedy_validation.generate_measurements()
+igreedy_validation.generate_measurements()
 igreedy_validation.generate_results_and_gt_validations()
