@@ -17,6 +17,6 @@ while True:
         stdout=subprocess.PIPE
     )
 
-    for i in range(1,12):
+    for i in range(1, 12):
         print("Started the {} hour of sleep".format(i))
         sleep(3600)
