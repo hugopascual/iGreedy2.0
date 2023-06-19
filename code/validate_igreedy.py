@@ -75,7 +75,7 @@ class iGreedyValidation:
                                   "cloudfare_servers_europe.json"
                 else:
                     gt_filepath = CLOUDFARE_PATH + \
-                                  ".json"
+                                  "cloudfare_servers_world.json"
             else:
                 print("TARGET {} NOT IN GROUNDTRUTH".format(
                     measurement_data["target"]))
