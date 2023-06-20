@@ -11,13 +11,17 @@ import shapely
 from shapely import Point, Polygon, MultiPolygon
 # internal modules imports
 from utils.constants import (
-    GROUND_TRUTH_VALIDATIONS_PATH
+    GROUND_TRUTH_VALIDATIONS_PATH,
+    DISTANCE_FUNCTION_USED,
+    FIBER_RI,
+    SPEED_OF_LIGHT
 )
 from utils.common_functions import (
     json_file_to_dict,
     dict_to_json_file,
     alpha2_code_to_alpha3,
-    convert_km_radius_to_degrees
+    convert_km_radius_to_degrees,
+    get_distance_from_rtt
 )
 
 
@@ -43,16 +47,50 @@ def plot_file(filepath: str) -> None:
 
 
 def plot_measurement(measurement_path: str) -> None:
-    # TODO add radius of rtt to the plot
     measurement_results_df = pd.DataFrame(
         json_file_to_dict(measurement_path)["measurement_results"])
 
-    plot = px.scatter_geo(measurement_results_df,
-                          lat="latitude",
-                          lon="longitude",
-                          hover_name="hostname",
-                          hover_data=['rtt_ms'])
-    plot.show()
+    if "verloc" in DISTANCE_FUNCTION_USED:
+        distance_function = get_distance_from_rtt
+    else:
+        distance_function = \
+            lambda rtt: ((rtt / 2) * 0.001) * (FIBER_RI * SPEED_OF_LIGHT)
+
+    measurement_results_df["radius"] = measurement_results_df["rtt_ms"].apply(
+        lambda rtt: distance_function(rtt)
+    )
+
+    fig = go.Figure()
+    fig.add_trace(go.Scattergeo(
+        lat=measurement_results_df["latitude"].tolist(),
+        lon=measurement_results_df["longitude"].tolist(),
+        mode="markers",
+        marker={"color": "blue"},
+        name="probes"
+    ))
+
+    # Include discs in plot
+    probe_disc_list = []
+    for index, row in measurement_results_df.iterrows():
+        disc = Point(
+            row["longitude"],
+            row["latitude"]
+        ).buffer(convert_km_radius_to_degrees(row["radius"]))
+        probe_disc_list.append(disc)
+
+    for disc in probe_disc_list:
+        disc_ext_coords_x, disc_ext_coords_y = disc.exterior.coords.xy
+
+        fig.add_trace(go.Scattergeo(
+            lat=disc_ext_coords_y.tolist(),
+            lon=disc_ext_coords_x.tolist(),
+            mode="markers+lines",
+            marker={"color": "red"},
+            name="ping_discs",
+            showlegend=False
+        ))
+
+    fig.show()
 
 
 def plot_result(result_path: str) -> None:
