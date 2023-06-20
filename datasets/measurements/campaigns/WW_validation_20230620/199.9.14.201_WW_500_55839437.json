@@ -1,0 +1,62 @@
+{
+    "target": "199.9.14.201",
+    "measurement_id": 55839437,
+    "request_data": {
+        "definitions": [
+            {
+                "target": "199.9.14.201",
+                "description": "Ping 199.9.14.201",
+                "type": "ping",
+                "is_oneoff": true,
+                "packets": 2,
+                "af": 4
+            }
+        ],
+        "probes": [
+            {
+                "requested": 500,
+                "type": "area",
+                "value": "WW"
+            }
+        ]
+    },
+    "probes_filepath": "datasets/probes_sets/WW_500.json",
+    "measurement_results": [
+        {
+            "hostname": "50235",
+            "latitude": 40.7295,
+            "longitude": -73.3515,
+            "rtt_ms": 18.227792
+        },
+        {
+            "hostname": "50235",
+            "latitude": 40.7295,
+            "longitude": -73.3515,
+            "rtt_ms": 21.553084
+        },
+        {
+            "hostname": "61341",
+            "latitude": 41.1375,
+            "longitude": 22.4995,
+            "rtt_ms": 193.559717
+        },
+        {
+            "hostname": "61341",
+            "latitude": 41.1375,
+            "longitude": 22.4995,
+            "rtt_ms": 195.140849
+        },
+        {
+            "hostname": "61594",
+            "latitude": 62.5795,
+            "longitude": 11.3815,
+            "rtt_ms": 24.665804
+        },
+        {
+            "hostname": "61594",
+            "latitude": 62.5795,
+            "longitude": 11.3815,
+            "rtt_ms": 24.19144
+        }
+    ]
+}

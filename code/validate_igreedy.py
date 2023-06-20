@@ -28,9 +28,9 @@ class iGreedyValidation:
             "WW_500.json",
             "WW_300.json",
             "WW_100.json",
-            "WW-section_1.5.json",
-            "WW-section_1.json",
-            "WW-section_2.json"
+            #"WW-section_1.5.json",
+            #"WW-section_1.json",
+            #"WW-section_2.json"
         ]
         self._target_list = []
         self._target_list += CLOUDFARE_IPS

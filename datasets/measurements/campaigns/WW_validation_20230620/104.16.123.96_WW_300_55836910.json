@@ -1,0 +1,56 @@
+{
+    "target": "104.16.123.96",
+    "measurement_id": 55836910,
+    "request_data": {
+        "definitions": [
+            {
+                "target": "104.16.123.96",
+                "description": "Ping 104.16.123.96",
+                "type": "ping",
+                "is_oneoff": true,
+                "packets": 2,
+                "af": 4
+            }
+        ],
+        "probes": [
+            {
+                "requested": 300,
+                "type": "area",
+                "value": "WW"
+            }
+        ]
+    },
+    "probes_filepath": "datasets/probes_sets/WW_300.json",
+    "measurement_results": [
+        {
+            "hostname": "2083",
+            "latitude": 51.6485,
+            "longitude": -0.0785,
+            "rtt_ms": 7.127041
+        },
+        {
+            "hostname": "2083",
+            "latitude": 51.6485,
+            "longitude": -0.0785,
+            "rtt_ms": 3.015937
+        },
+        {
+            "hostname": "61690",
+            "latitude": 52.5175,
+            "longitude": 13.4515,
+            "rtt_ms": 1.904663
+        },
+        {
+            "hostname": "61690",
+            "latitude": 52.5175,
+            "longitude": 13.4515,
+            "rtt_ms": 2.987646
+        },
+        {
+            "hostname": "1000115"
+        },
+        {
+            "hostname": "1000115"
+        }
+    ]
+}
