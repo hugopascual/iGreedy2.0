@@ -14,7 +14,7 @@ from utils.common_functions import (
 )
 
 
-def plot_grafics_aggregate(aggregation_df: pd.DataFrame):
+def plot_grafics_aggregate(aggregation_df: pd.DataFrame, title: str):
     aggregation_df.sort_values(
         by=["moment_of_campaign", "validation"],
         inplace=True
@@ -66,6 +66,7 @@ def plot_grafics_aggregate(aggregation_df: pd.DataFrame):
             showlegend=False
         ), row=2, col=1)
 
+    figure.update_layout(title_text=title)
     figure.show()
 
 
@@ -73,7 +74,8 @@ def plot_grafic_by_country(country_code: str):
     aggregation_of_country_df = aggregate_one_country_hunter_statistics(
         country_code=country_code
     )
-    plot_grafics_aggregate(aggregation_of_country_df)
+    plot_grafics_aggregate(aggregation_of_country_df,
+                           title="Hunter results for {}".format(country_code))
 
 
 def aggregate_one_country_hunter_statistics(country_code: str) -> pd.DataFrame:
@@ -153,5 +155,6 @@ total_aggregation_df = pd.read_csv(
     sep=","
 )
 
-plot_grafics_aggregate(total_aggregation_df)
+plot_grafics_aggregate(total_aggregation_df,
+                       title="Hunter results aggregated")
 plot_grafic_by_country(country_code="IT")
