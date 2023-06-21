@@ -102,7 +102,7 @@ traceroute_data = {
 }
 #make_ripe_measurement(data=traceroute_data)
 
-#measurement_id = 55212992
+measurement_id = 55212992
 #get_measurement_results()
 
 
@@ -255,4 +255,16 @@ def verloc_grafic_aproximation():
     figure.show()
 
 
-verloc_grafic_aproximation()
+def obtain_cf_ray(target: str):
+    try:
+        headers = requests.get("http://{}".format(target)).headers
+        cf_ray_iata_code = headers["cf-ray"].split("-")[1]
+
+        print(cf_ray_iata_code)
+
+    except Exception as e:
+        print("NO CF-RAY IN HEADERS")
+
+
+obtain_cf_ray("192.5.5.241")
+obtain_cf_ray("104.16.123.96")
