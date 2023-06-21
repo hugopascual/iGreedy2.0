@@ -10,6 +10,8 @@ import requests
 import ipinfo
 import datetime
 from subprocess import run
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 import shapely
 from shapely import (
@@ -18,7 +20,6 @@ from shapely import (
 )
 from shapely.ops import unary_union
 from rtree import index
-import plotly.graph_objects as go
 from utils.constants import (
     FIBER_RI,
     SPEED_OF_LIGHT,
@@ -233,4 +234,25 @@ def get_all_cloudfare_servers():
         dict=cloufare_instances_df.to_dict("records"))
 
 
-get_all_cloudfare_servers()
+def verloc_grafic_aproximation():
+    verloc_aprox = json_file_to_dict("datasets/verloc_aprox.json")
+
+    distances = list(verloc_aprox.values())
+    times = [float(time) for time in list(verloc_aprox.keys())]
+    figure = go.Figure(
+        data=go.Scatter(
+            x=times,
+            y=distances
+        )
+    )
+
+    figure.update_layout(
+        title="Aproximación de VerLoc",
+        xaxis_title="Tiempo de trasnmisión (ms)",
+        yaxis_title="Distancia (km)"
+    )
+
+    figure.show()
+
+
+verloc_grafic_aproximation()
