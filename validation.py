@@ -20,3 +20,6 @@ while True:
     for i in range(1, 6):
         print("Started the {} hour of sleep".format(i))
         sleep(3600)
+
+# Command to resotre protonvpn-cli error
+# nmcli connection show --active
