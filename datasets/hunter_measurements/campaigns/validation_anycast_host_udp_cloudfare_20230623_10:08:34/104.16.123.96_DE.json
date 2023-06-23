@@ -1,0 +1,83 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 52.4873,
+        "longitude": 13.3509
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  31.026 ms  31.118 ms  31.121 ms",
+        " 2  vlan330.as10.fra4.de.m247.com (89.36.76.129)  48.025 ms  48.074 ms  48.080 ms",
+        " 3  146.70.0.150 (146.70.0.150)  31.085 ms  31.081 ms  31.154 ms",
+        " 4  vlan2904.agg1.bru1.be.m247.com (212.103.51.106)  31.160 ms  31.460 ms 37.120.220.92 (37.120.220.92)  31.427 ms",
+        " 5  37.120.128.248 (37.120.128.248)  31.421 ms irb-0.agg1v.mil1.it.m247.com (212.103.51.87)  31.072 ms 212.103.51.63 (212.103.51.63)  31.067 ms",
+        " 6  cloudflare.equinix-fr4.nl-ix.net (193.239.118.138)  53.784 ms 212.103.51.63 (212.103.51.63)  31.058 ms cloudflare.equinix-fr4.nl-ix.net (193.239.118.138)  32.305 ms",
+        " 7  cloudflare.equinix-fr4.nl-ix.net (193.239.118.138)  32.542 ms 172.70.248.3 (172.70.248.3)  36.991 ms 172.71.244.3 (172.71.244.3)  31.791 ms",
+        " 8  172.70.244.3 (172.70.244.3)  31.798 ms 104.16.123.96 (104.16.123.96)  31.507 ms  31.400 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "193.239.118.138",
+        "geolocation": {
+            "latitude": "50.1433",
+            "longitude": "8.5711"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "89.36.76.129"
+        ],
+        [
+            "146.70.0.150"
+        ],
+        [
+            "212.103.51.106",
+            "37.120.220.92"
+        ],
+        [
+            "37.120.128.248",
+            "212.103.51.87",
+            "212.103.51.63"
+        ],
+        [
+            "193.239.118.138",
+            "212.103.51.63"
+        ],
+        [
+            "193.239.118.138",
+            "172.70.248.3",
+            "172.71.244.3"
+        ],
+        [
+            "172.70.244.3",
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "89.36.76.138",
+        "server_name": "DE#97",
+        "country": "Germany",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 50.1444,
+        "longitude": 14.4833
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  38.855 ms  39.455 ms  39.461 ms",
+        " 2  unn-149-102-235-60.datapacket.com (149.102.235.60)  39.462 ms  39.486 ms unn-149-102-235-61.datapacket.com (149.102.235.61)  39.487 ms",
+        " 3  unn-138-199-0-156.cdn77.com (138.199.0.156)  39.498 ms unn-138-199-0-152.cdn77.com (138.199.0.152)  39.482 ms unn-138-199-0-154.cdn77.com (138.199.0.154)  39.484 ms",
+        " 4  f.root-servers.net (192.5.5.241)  39.488 ms  39.682 ms  39.693 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "138.199.0.156",
+        "geolocation": {
+            "latitude": "50.1444",
+            "longitude": "14.4833"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "149.102.235.60",
+            "149.102.235.61"
+        ],
+        [
+            "138.199.0.156",
+            "138.199.0.152",
+            "138.199.0.154"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "149.102.235.44",
+        "server_name": "CZ#31",
+        "country": "Czech Republic",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

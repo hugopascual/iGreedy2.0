@@ -1,0 +1,74 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 54.6892,
+        "longitude": 25.2798
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "WAW",
+        "size": "large_airport",
+        "name": "Warsaw Chopin Airport",
+        "lat long": "52.1656990051 20.9671001434",
+        "country_code": "PL",
+        "city": "Warsaw"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  51.744 ms  51.903 ms  51.912 ms",
+        " 2  localhost (85.206.167.129)  96.390 ms  96.443 ms  96.453 ms",
+        " 3  * * *",
+        " 4  1-240-206-85.bacloud.info (85.206.240.1)  89.130 ms 2-240-206-85.bacloud.info (85.206.240.2)  89.318 ms  89.543 ms",
+        " 5  et002.rt.omt.sqq.lt.retn.net (87.245.242.233)  89.055 ms  89.271 ms  89.312 ms",
+        " 6  ae6-11.rt.lim.waw.pl.retn.net (87.245.232.69)  105.961 ms  74.520 ms  73.831 ms",
+        " 7  * * *",
+        " 8  104.16.123.96 (104.16.123.96)  62.722 ms  62.500 ms  62.412 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "85.206.167.129"
+        ],
+        [
+            "*"
+        ],
+        [
+            "85.206.240.1",
+            "85.206.240.2"
+        ],
+        [
+            "87.245.242.233"
+        ],
+        [
+            "87.245.232.69"
+        ],
+        [
+            "*"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "85.206.170.151",
+        "server_name": "LT#6",
+        "country": "Lithuania",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
