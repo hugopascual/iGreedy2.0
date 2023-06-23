@@ -27,4 +27,4 @@ while True:
     else:
         print("Waiting for the next programmed hour, now is {}".format(hour))
         print("Programmed hours of execution are {}".format(execution_hours))
-        sleep(2)
+        sleep(3600)
