@@ -3,23 +3,28 @@
 
 import subprocess
 from time import sleep
+import datetime
+
+# Command to restore protonvpn-cli error
+# nmcli connection show --active
 
 while True:
-    command = subprocess.run(
-        [
-            "/usr/bin/python3.8",
-            "code/make_validation.py"
-        ], stdout=subprocess.PIPE
-    )
+    hour = datetime.datetime.utcnow().hour
+    execution_hours = [4, 10, 16, 22]
+    if hour in execution_hours:
+        print("Execution")
+        #command = subprocess.run(
+        #    [
+        #        "/usr/bin/python3.8",
+        #        "code/make_validation.py"
+        #    ], stdout=subprocess.PIPE
+        #)
 
-    connection_result = subprocess.run(
-        ["protonvpn-cli", "disconnect"],
-        stdout=subprocess.PIPE
-    )
-
-    for i in range(1, 6):
-        print("Started the {} hour of sleep".format(i))
-        sleep(3600)
-
-# Command to resotre protonvpn-cli error
-# nmcli connection show --active
+        #connection_result = subprocess.run(
+        #    ["protonvpn-cli", "disconnect"],
+        #    stdout=subprocess.PIPE
+        #)
+    else:
+        print("Waiting for the next programmed hour, now is {}".format(hour))
+        print("Programmed hours of execution are {}".format(execution_hours))
+        sleep(2)
