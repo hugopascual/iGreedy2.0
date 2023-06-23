@@ -13,17 +13,17 @@ while True:
     execution_hours = [4, 10, 16, 22]
     if hour in execution_hours:
         print("Execution")
-        #command = subprocess.run(
-        #    [
-        #        "/usr/bin/python3.8",
-        #        "code/make_validation.py"
-        #    ], stdout=subprocess.PIPE
-        #)
+        command = subprocess.run(
+            [
+                "/usr/bin/python3.8",
+                "code/make_validation.py"
+            ], stdout=subprocess.PIPE
+        )
 
-        #connection_result = subprocess.run(
-        #    ["protonvpn-cli", "disconnect"],
-        #    stdout=subprocess.PIPE
-        #)
+        connection_result = subprocess.run(
+            ["protonvpn-cli", "disconnect"],
+            stdout=subprocess.PIPE
+        )
     else:
         print("Waiting for the next programmed hour, now is {}".format(hour))
         print("Programmed hours of execution are {}".format(execution_hours))
