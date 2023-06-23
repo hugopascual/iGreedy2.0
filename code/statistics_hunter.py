@@ -26,15 +26,29 @@ class HunterStatistics:
 
     def __init__(self,
                  validation_campaign_directory: str = None,
-                 output_filename: str = None,
-                 validate_target: bool = True):
+                 validation: str = "no_ip_validation"):
         self._validation_campaign_directory = validation_campaign_directory
-        self._output_filename = output_filename
-        self._validate_target = validate_target
+        self._validation = validation
+        if self._validation_campaign_directory:
+            campaing_directory_split = validation_campaign_directory.split("_")
+            campaing_directory_split.insert(-2, self._validation)
+            self._output_filename = "_".join(
+                map(str, campaing_directory_split)
+            )
+        else:
+            self._output_filename = "no_campaign_name"
+        # Possible values for validation
+        # ip_all_validation, ip_target_validation, ip_last_hop_validation, no_ip_validation
+        self._validate_target = (validation == "ip_target_validation")
+        self._validate_last_hop = (validation == "ip_last_hop_validation")
+        self._validate_none = (validation == "no_ip_validation")
+
+        if validation == "ip_all_validation":
+            self._validate_target = True
+            self._validate_last_hop = True
 
     def hunter_build_statistics_validation_campaign(self):
-        if (not self._validation_campaign_directory) or (
-                not self._output_filename):
+        if not self._validation_campaign_directory:
             print("No campaign name or output filename provided")
             return
 
@@ -52,7 +66,6 @@ class HunterStatistics:
         results_not_gt = []
 
         for result_filename in results_filenames:
-            print(result_filename)
             result_dict = json_file_to_dict("{}/{}".format(
                 HUNTER_MEASUREMENTS_CAMPAIGNS_PATH +
                 self._validation_campaign_directory, result_filename)
@@ -101,7 +114,7 @@ class HunterStatistics:
             results_not_gt,
             HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
             "results_not_valid/results_not_gt_" +
-            self._output_filename + ".json")
+            self._validation_campaign_directory + ".json")
 
     def calculate_hunter_result_outcome(self, results: dict, param: str) -> \
             (str, str):
@@ -115,9 +128,15 @@ class HunterStatistics:
             print("Outcome param not valid")
             return "Indeterminate", "Not calculated"
 
-        print("Param: {} Result_param: {} GT_param: {}".format(
-            param, result_param, gt_param
-        ))
+        if self._validate_last_hop:
+            try:
+                if len(results["hops_directions_list"][-2]) != 1:
+                    return "Indeterminate", "Multiples IP on last_hop"
+                elif results["hops_directions_list"][-1] == "*":
+                    return "Indeterminate", "Last_hop hop do not respond"
+            except:
+                print("Target directions list exception")
+                return "Indeterminate", "Exception in last_hop validation"
 
         if self._validate_target:
             try:
@@ -127,7 +146,9 @@ class HunterStatistics:
                     return "Indeterminate", "Target hop do not respond"
             except:
                 print("Target directions list exception")
+                return "Indeterminate", "Exception in target validation"
 
+        # Num of results validation
         num_result_countries = len(results["hunt_results"]["countries"])
         if num_result_countries == 1:
             if results["gt_info"][gt_param] == \
@@ -219,46 +240,30 @@ class HunterStatistics:
         )
 
 
-def get_statistics_hunter():
-    hunter_campaigns_folders = get_list_folders_in_path(
-        HUNTER_MEASUREMENTS_CAMPAIGNS_PATH)
+hunter_campaigns_folders = get_list_folders_in_path(
+    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH)
 
-    hunter_campaigns = [folder for folder in hunter_campaigns_folders
-                        if not ("statistics" in folder)]
+hunter_campaigns = [folder for folder in hunter_campaigns_folders
+                    if not ("statistics" in folder)]
 
-    for hunter_campaign in hunter_campaigns:
-        for validate_target in [True, False]:
-            additional_to_name = False
-            if hunter_campaign.split("_")[5] == "ip":
-                additional_to_name = True
-            campaign_name = "_".join(
-                map(str, hunter_campaign.split("_")[:5]))
-            time = "_".join(
-                map(str, hunter_campaign.split("_")[-2:]))
-            if validate_target:
-                if not additional_to_name:
-                    validation_name = "ip_target_validation"
-                else:
-                    validation_name = "ip_all_validation"
-            else:
-                if not additional_to_name:
-                    validation_name = "no_ip_validation"
-                else:
-                    validation_name = "ip_last_hop_validation"
+validation_mods = ["ip_all_validation",
+                   "ip_target_validation",
+                   "ip_last_hop_validation",
+                   "no_ip_validation"]
 
-            output_filename = "{}_{}_{}".format(campaign_name,
-                                                validation_name,
-                                                time)
-            hunter_campaign_statistics = HunterStatistics(
-                validation_campaign_directory=hunter_campaign,
-                output_filename=output_filename,
-                validate_target=validate_target
-            )
-            hunter_campaign_statistics.\
-                hunter_build_statistics_validation_campaign()
+for hunter_campaign in hunter_campaigns:
+    for validation in validation_mods:
+        print("##################")
+        print(validation)
+        print(hunter_campaign)
+        print("##################")
+        hunter_campaign_statistics = HunterStatistics(
+            validation_campaign_directory=hunter_campaign,
+            validation=validation
+        )
+        hunter_campaign_statistics.\
+            hunter_build_statistics_validation_campaign()
 
-
-get_statistics_hunter()
 statistics = HunterStatistics()
 statistics.aggregate_hunter_statistics_country()
 

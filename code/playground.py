@@ -10,6 +10,8 @@ import requests
 import ipinfo
 import datetime
 from subprocess import run
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 import shapely
 from shapely import (
@@ -18,7 +20,6 @@ from shapely import (
 )
 from shapely.ops import unary_union
 from rtree import index
-import plotly.graph_objects as go
 from utils.constants import (
     FIBER_RI,
     SPEED_OF_LIGHT,
@@ -101,7 +102,7 @@ traceroute_data = {
 }
 #make_ripe_measurement(data=traceroute_data)
 
-#measurement_id = 55212992
+measurement_id = 55212992
 #get_measurement_results()
 
 
@@ -233,4 +234,45 @@ def get_all_cloudfare_servers():
         dict=cloufare_instances_df.to_dict("records"))
 
 
-get_all_cloudfare_servers()
+def verloc_grafic_aproximation():
+    verloc_aprox = json_file_to_dict("datasets/verloc_aprox.json")
+
+    distances = list(verloc_aprox.values())
+    times = [float(time) for time in list(verloc_aprox.keys())]
+    figure = go.Figure()
+    # Verloc Values
+    figure.add_trace(go.Scatter(
+        x=times,
+        y=distances,
+        name="verloc_model"
+    ))
+    # Constant 1.52 values
+    figure.add_trace(go.Scatter(
+        x=times,
+        y=[time*(SPEED_OF_LIGHT/(1000*FIBER_RI)) for time in times],
+        name="constant_speed"
+    ))
+
+    figure.update_layout(
+        title="Aproximación de VerLoc",
+        xaxis_title="Tiempo de trasnmisión (ms)",
+        yaxis_title="Distancia (km)"
+    )
+
+    figure.show()
+
+
+verloc_grafic_aproximation()
+
+def obtain_cf_ray(target: str):
+    try:
+        headers = requests.get("http://{}".format(target)).headers
+        cf_ray_iata_code = headers["cf-ray"].split("-")[1]
+
+        print(cf_ray_iata_code)
+
+    except Exception as e:
+        print("NO CF-RAY IN HEADERS")
+
+
+
