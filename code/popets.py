@@ -15,10 +15,11 @@ def is_IP_anycast(ip: str) -> bool:
         "-m", ip,
         "-p", "datasets/probes_sets/WW_1000.json",
         "-r", "true",
-        "-a", 1,
-        "-t", 1,
+        "-a", "1",
+        "-t", "1",
         "-c", "PoPETs_IP_anycast_validation"
-    ])
+    ], stdout=subprocess.PIPE)
+
     if command.returncode == 0:
         return True
     else:
@@ -32,7 +33,7 @@ ip_to_check_list = popets_df["ip_dest"].unique()
 
 ip_results_dict = {}
 for ip_to_check in ip_to_check_list:
-    ip_results_dict[ip_to_check] = is_IP_anycast(ip_to_check_list)
+    ip_results_dict[ip_to_check] = is_IP_anycast(ip_to_check)
 
 dict_to_json_file(
     dict=ip_results_dict,
