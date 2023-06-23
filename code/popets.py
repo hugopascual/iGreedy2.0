@@ -36,5 +36,5 @@ for ip_to_check in ip_to_check_list:
 
 dict_to_json_file(
     dict=ip_results_dict,
-    file_path="datasets/PoPETs_anycast_ip_validation"
+    file_path="datasets/PoPETs_anycast_ip_validation.json"
 )
