@@ -8,12 +8,15 @@ import ipinfo
 import socket
 
 from utils.constants import (
-    KEY_FILEPATH
+    KEY_FILEPATH,
+    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH
 )
 from utils.common_functions import (
     dict_to_json_file,
-    json_file_to_dict
+    json_file_to_dict,
+    countries_in_EEE_set
 )
+from hunter import Hunter
 
 
 def is_IP_anycast(ip: str) -> bool:
@@ -106,3 +109,31 @@ def check_popets_ip_list_anycast_ipinfo():
         "datasets/PoPETs_anycast_ip_validation_ipinfo.json"
     )
 
+
+def hunt_popets_anycast():
+    popets_ip_dict = json_file_to_dict(
+        "datasets/" + "PoPETs_anycast_ip_validation_ipinfo.json"
+    )
+
+    anycast_ip_list = [ip for ip in popets_ip_dict.keys()
+                       if popets_ip_dict[ip]]
+
+    countries_origin_set = countries_in_EEE_set()
+    campaign_name = "PoPETs_anycast_ipinfo"
+    for target in anycast_ip_list:
+        for country in countries_origin_set:
+            print(country)
+            output_filename = "{}{}/{}_{}.json".format(
+                HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,
+                campaign_name, target, country)
+            hunter = Hunter(
+                target=target,
+                check_cf_ray=False,
+                output_filename=output_filename,
+                origin="",
+                additional_info={},
+                validate_last_hop=False
+            )
+
+
+hunt_popets_anycast()

@@ -318,7 +318,7 @@ def get_alpha2_country_codes(filename: str) -> set:
     return set([country["alpha-2"] for country in json_file_to_dict(filename)])
 
 
-def countries_set_in_EEE() -> set:
+def countries_in_EEE_set() -> set:
     return get_alpha2_country_codes(EEE_COUNTRIES_FILE_PATH)
 
 

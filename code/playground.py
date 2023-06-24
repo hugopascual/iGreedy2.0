@@ -50,7 +50,7 @@ from utils.common_functions import (
     get_polygon_from_section,
     get_list_folders_in_path,
     get_country_name,
-    countries_set_in_EEE
+    countries_in_EEE_set
 )
 from groundtruth import get_gt_instances_locations
 
@@ -279,7 +279,7 @@ def obtain_cf_ray(target: str):
 statistic_df = pd.read_csv(HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
     "statistics_validation_anycast_host_udp_cloudfare_ip_all_validation_20230606_21∶51∶18.csv",
                            sep=",")
-countries_EEE_set = countries_set_in_EEE()
+countries_EEE_set = countries_in_EEE_set()
 
 statistic_df["country_jump"] = statistic_df.apply(
     lambda row: row["origin_country"] != row["gt_country"],

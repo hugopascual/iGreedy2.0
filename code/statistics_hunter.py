@@ -19,7 +19,7 @@ from utils.common_functions import (
     get_nearest_airport_to_point,
     dict_to_json_file,
     get_list_folders_in_path,
-    countries_set_in_EEE
+    countries_in_EEE_set
 )
 
 
@@ -270,7 +270,7 @@ class HunterStatistics:
             "moment_of_campaign", "filename"
         ])
 
-        countries_EEE_set = countries_set_in_EEE()
+        countries_EEE_set = countries_in_EEE_set()
 
         for statistic_file in statistics_files:
             statistic_df = pd.read_csv(
