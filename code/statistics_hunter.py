@@ -18,7 +18,8 @@ from utils.common_functions import (
     json_file_to_dict,
     get_nearest_airport_to_point,
     dict_to_json_file,
-    get_list_folders_in_path
+    get_list_folders_in_path,
+    countries_set_in_EEE
 )
 
 
@@ -60,7 +61,9 @@ class HunterStatistics:
             "num_countries", "num_cities", "num_airports",
             "country_outcome", "country_outcome_reason",
             "city_outcome", "city_outcome_reason",
-            "from_host", "target", "origin_country"
+            "from_host", "target",
+            "origin_country", "gt_country", "gt_city",
+            "result_country", "result_city"
         ])
 
         results_not_gt = []
@@ -81,6 +84,8 @@ class HunterStatistics:
                 result_dict, "city")
 
             origin_country = result_filename.split("_")[-1].split(".")[0]
+            gt_country = result_dict["gt_info"]["country_code"]
+            gt_city = result_dict["gt_info"]["city"]
 
             validation_results_df = pd.concat(
                 [pd.DataFrame([[
@@ -94,7 +99,11 @@ class HunterStatistics:
                     outcome_city[1],
                     result_dict["traceroute_from_host"],
                     result_dict["target"],
-                    origin_country
+                    origin_country,
+                    gt_country,
+                    gt_city,
+                    outcome_country[2],
+                    outcome_city[2]
                 ]], columns=validation_results_df.columns,
                 ), validation_results_df],
                 ignore_index=True
@@ -117,7 +126,7 @@ class HunterStatistics:
             self._validation_campaign_directory + ".json")
 
     def calculate_hunter_result_outcome(self, results: dict, param: str) -> \
-            (str, str):
+            (str, str, str):
         if param == "city":
             result_param = "cities"
             gt_param = "city"
@@ -131,50 +140,61 @@ class HunterStatistics:
         if self._validate_last_hop:
             try:
                 if len(results["hops_directions_list"][-2]) != 1:
-                    return "Indeterminate", "Multiples IP on last_hop"
+                    return "Indeterminate", "Multiples IP on last_hop", \
+                        "No result"
                 elif results["hops_directions_list"][-1] == "*":
-                    return "Indeterminate", "Last_hop hop do not respond"
+                    return "Indeterminate", "Last_hop hop do not respond", \
+                        "No result"
             except:
                 print("Target directions list exception")
-                return "Indeterminate", "Exception in last_hop validation"
+                return "Indeterminate", "Exception in last_hop validation", \
+                    "No result"
 
         if self._validate_target:
             try:
                 if len(results["hops_directions_list"][-1]) != 1:
-                    return "Indeterminate", "Multiples IP on target hop"
+                    return "Indeterminate", "Multiples IP on target hop", \
+                        "No result"
                 elif results["hops_directions_list"][-1] == "*":
-                    return "Indeterminate", "Target hop do not respond"
+                    return "Indeterminate", "Target hop do not respond", \
+                        "No result"
             except:
                 print("Target directions list exception")
-                return "Indeterminate", "Exception in target validation"
+                return "Indeterminate", "Exception in target validation", \
+                    "No result"
 
         # Num of results validation
         num_result_countries = len(results["hunt_results"]["countries"])
         if num_result_countries == 1:
             if results["gt_info"][gt_param] == \
                     results["hunt_results"][result_param][0]:
-                return "Positive", "Same result airport"
+                return "Positive", "Same result airport", \
+                    results["hunt_results"][result_param][0]
             else:
-                return "Negative", "Different result airport"
+                return "Negative", "Different result airport", \
+                    results["hunt_results"][result_param][0]
         elif num_result_countries == 0:
             centroid = from_geojson(results["hunt_results"]["centroid"])
             if not results["last_hop"]["ip"]:
-                return "Indeterminate", "Last hop not valid"
+                return "Indeterminate", "Last hop not valid", "No result"
             elif not results["last_hop"]["geolocation"]:
-                return "Indeterminate", "Last hop not geolocated"
+                return "Indeterminate", "Last hop not geolocated", "No result"
             elif not results["discs_intersect"]:
-                return "Indeterminate", "Ping discs no intersection"
+                return "Indeterminate", "Ping discs no intersection", \
+                    "No result"
             elif not centroid:
-                return "Indeterminate", "Centroid not found"
+                return "Indeterminate", "Centroid not found", "No Result"
             else:
                 nearest_airport = get_nearest_airport_to_point(centroid)
                 if results["gt_info"][gt_param] == \
                         nearest_airport[gt_param]:
-                    return "Positive", "Same result in nearest airport"
+                    return "Positive", "Same result in nearest airport", \
+                        nearest_airport[gt_param]
                 else:
-                    return "Negative", "Different result in nearest airport"
+                    return "Negative", "Different result in nearest airport", \
+                        nearest_airport[gt_param]
         else:
-            return "Indeterminate", "Too many results"
+            return "Indeterminate", "Too many locations", "No result"
 
     def aggregate_hunter_statistics_country(self):
         statistics_files = [filename for filename in
@@ -239,18 +259,75 @@ class HunterStatistics:
             index=False
         )
 
+    def check_jumps_between_countries(self):
+        statistics_files = [filename for filename in
+                            get_list_files_in_path(
+                                HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH)
+                            if ("statistics" in filename) and
+                            ("ip_all_validation" in filename)]
+        jumps_df = pd.DataFrame(columns=[
+            "total_checks", "number_jumps", "jumps_out_EEE",
+            "moment_of_campaign", "filename"
+        ])
+
+        countries_EEE_set = countries_set_in_EEE()
+
+        for statistic_file in statistics_files:
+            statistic_df = pd.read_csv(
+                HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH + statistic_file)
+
+            statistic_df["country_jump"] = statistic_df.apply(
+                lambda row: not(row["origin_country"] != row["gt_country"]),
+                axis=1
+            )
+            statistic_df["jump_out_EEE"] = statistic_df["gt_country"].apply(
+                lambda destination_country:
+                destination_country not in countries_EEE_set
+            )
+
+            campaign_moment_split_list = statistic_file.split("_")[-2:]
+            campaign_hour = campaign_moment_split_list[1].split(".")[0]
+            campaign_date = "{}_{}".format(
+                campaign_moment_split_list[0],
+                campaign_hour
+            )
+
+            number_jumps = statistic_df["country_jump"].value_counts()[
+                bool(True)
+            ]
+            jumps_out_EEE = statistic_df["jump_out_EEE"].value_counts()[
+                bool(True)
+            ]
+
+            jumps_df = pd.concat([
+               pd.DataFrame([[
+                   len(statistic_df.index),
+                   number_jumps,
+                   jumps_out_EEE,
+                   campaign_date,
+                   statistic_file
+               ]], columns=jumps_df.columns
+               ), jumps_df], ignore_index=True)
+
+        jumps_df.sort_values(by=[
+            "moment_of_campaign"],
+            inplace=True)
+        jumps_df.to_csv(
+            HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
+            "jumps_results.csv",
+            sep=",",
+            index=False
+        )
+
 
 hunter_campaigns_folders = get_list_folders_in_path(
     HUNTER_MEASUREMENTS_CAMPAIGNS_PATH)
-
 hunter_campaigns = [folder for folder in hunter_campaigns_folders
                     if not ("statistics" in folder)]
-
 validation_mods = ["ip_all_validation",
                    "ip_target_validation",
                    "ip_last_hop_validation",
                    "no_ip_validation"]
-
 for hunter_campaign in hunter_campaigns:
     for validation in validation_mods:
         print("##################")
@@ -266,4 +343,4 @@ for hunter_campaign in hunter_campaigns:
 
 statistics = HunterStatistics()
 statistics.aggregate_hunter_statistics_country()
-
+statistics.check_jumps_between_countries()

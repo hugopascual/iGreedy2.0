@@ -20,6 +20,7 @@ from utils.constants import (
     ROOT_SERVERS_PATH,
     EARTH_RADIUS_KM,
     ALL_COUNTRIES_FILE_PATH,
+    EEE_COUNTRIES_FILE_PATH,
     SPEED_OF_LIGHT,
     VERLOC_APROX_PATH,
     VERLOC_GAP
@@ -140,12 +141,12 @@ def check_discs_intersect(disc1: dict, disc2: dict) -> bool:
 
 
 def get_light_factor_from_distance(dist: float) -> float:
-    return 0.0061699 * (dist**0.480214) + 0.0497791
+    return 0.0061699 * (dist ** 0.480214) + 0.0497791
     # return 0.152616 * math.log(0.251783 * dist + 130.598) - 0.693072
 
 
 def get_time_from_distance(dist: float) -> float:
-    return dist/(get_light_factor_from_distance(dist)*SPEED_OF_LIGHT)
+    return dist / (get_light_factor_from_distance(dist) * SPEED_OF_LIGHT)
 
 
 def generate_approximation_numeric_values():
@@ -172,7 +173,7 @@ def get_distance_from_rtt(rtt: float) -> float:
         generate_approximation_numeric_values()
         time_results = json_file_to_dict(VERLOC_APROX_PATH)
 
-    trip_time_ms = rtt/2
+    trip_time_ms = rtt / 2
     # Get nearest value from calculated
     nearest_value = min(time_results,
                         key=lambda x: abs(float(x) - trip_time_ms))
@@ -251,7 +252,7 @@ def is_probe_usable(probe: dict, section: dict):
 
 
 def convert_km_radius_to_degrees(km_radius: float) -> float:
-    degree = km_radius * (360/(2*EARTH_RADIUS_KM*math.pi))
+    degree = km_radius * (360 / (2 * EARTH_RADIUS_KM * math.pi))
     return degree
 
 
@@ -311,3 +312,14 @@ def get_country_name(country_code: str) -> str:
     for country in all_countries_list:
         if country["alpha-2"] == country_code:
             return country["name"]
+
+
+def get_alpha2_country_codes(filename: str) -> set:
+    return set([country["alpha-2"] for country in json_file_to_dict(filename)])
+
+
+def countries_set_in_EEE() -> set:
+    return get_alpha2_country_codes(EEE_COUNTRIES_FILE_PATH)
+
+
+
