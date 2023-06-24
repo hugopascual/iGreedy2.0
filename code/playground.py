@@ -238,19 +238,20 @@ def verloc_grafic_aproximation():
     verloc_aprox = json_file_to_dict("datasets/verloc_aprox.json")
 
     distances = list(verloc_aprox.values())
-    times = [float(time) for time in list(verloc_aprox.keys())]
+    times = [float(time)
+             for time in list(verloc_aprox.keys()) if float(time) < 16]
     figure = go.Figure()
     # Verloc Values
     figure.add_trace(go.Scatter(
         x=times,
         y=distances,
-        name="verloc_model"
+        name="modelo_verloc"
     ))
     # Constant 1.52 values
     figure.add_trace(go.Scatter(
         x=times,
         y=[time*(SPEED_OF_LIGHT/(1000*FIBER_RI)) for time in times],
-        name="constant_speed"
+        name="velocidad_fibra"
     ))
 
     figure.update_layout(
