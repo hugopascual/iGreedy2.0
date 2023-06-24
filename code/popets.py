@@ -5,7 +5,8 @@ import pandas as pd
 import subprocess
 
 from utils.common_functions import (
-    dict_to_json_file
+    dict_to_json_file,
+    json_file_to_dict
 )
 
 
@@ -31,11 +32,18 @@ popets_df = pd.read_csv(popets_filepath, sep=",")
 
 ip_to_check_list = popets_df["ip_dest"].unique()
 
-ip_results_dict = {}
+ip_results_dict = json_file_to_dict(
+    "datasets/PoPETs_anycast_ip_validation.json")
 for ip_to_check in ip_to_check_list:
-    ip_results_dict[ip_to_check] = is_IP_anycast(ip_to_check)
-
-dict_to_json_file(
-    dict=ip_results_dict,
-    file_path="datasets/PoPETs_anycast_ip_validation.json"
-)
+    if isinstance(ip_to_check, str):
+        if ip_to_check not in list(ip_results_dict.keys()):
+            print("Validating IP {}".format(ip_to_check))
+            is_anycast = is_IP_anycast(ip_to_check)
+            ip_results_dict[ip_to_check] = is_anycast
+            print("IP {} result is anycast: {}".format(
+                ip_to_check, is_anycast)
+            )
+            dict_to_json_file(
+                dict=ip_results_dict,
+                file_path="datasets/PoPETs_anycast_ip_validation.json"
+            )
