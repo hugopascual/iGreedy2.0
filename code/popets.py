@@ -117,12 +117,22 @@ def hunt_popets_anycast():
 
     anycast_ip_list = [ip for ip in popets_ip_dict.keys()
                        if popets_ip_dict[ip]]
+    print(len(anycast_ip_list))
 
-    countries_origin_set = countries_in_EEE_set()
+    #countries_origin_set = countries_in_EEE_set()
+    countries_origin_set = [
+        "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI",
+        "FR", "GR", "HR", "HU", "IE", "IS", "IT", "LT", "LU", "LV",
+        "MT", "NL", "NO", "PL", "PT", "RO", "SE", "SI", "SK"
+    ]
     campaign_name = "PoPETs_anycast_ipinfo"
-    for target in anycast_ip_list:
-        for country in countries_origin_set:
-            print(country)
+    for country in countries_origin_set:
+        additional_info = connect_to_vpn_server(country)
+        print("Server searched {}, VPN connected {}".format(
+            country, additional_info["server_name"]
+        ))
+
+        for target in anycast_ip_list:
             output_filename = "{}{}/{}_{}.json".format(
                 HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,
                 campaign_name, target, country)
@@ -130,10 +140,35 @@ def hunt_popets_anycast():
                 target=target,
                 check_cf_ray=False,
                 output_filename=output_filename,
-                origin="",
-                additional_info={},
+                additional_info=additional_info,
                 validate_last_hop=False
             )
+
+
+def connect_to_vpn_server(vpn_server: str) -> dict:
+    connection_result = subprocess.run([
+        "protonvpn-cli", "connect", "--cc",
+        vpn_server,
+        "--protocol", "tcp"], stdout=subprocess.PIPE)
+    connection_status = subprocess.run([
+        "protonvpn-cli", "status"], stdout=subprocess.PIPE)
+    status_params_raw = (str(connection_status.stdout)
+                         .split("\\n")[3:])[:-6]
+    status_params = []
+    for param_raw in status_params_raw:
+        status_params.append((param_raw.split("\\t")[-1])[1:])
+    try:
+        return {
+            "ip": status_params[0],
+            "server_name": status_params[1],
+            "country": status_params[2],
+            "protocol": status_params[3],
+        }
+    except Exception as e:
+        print(e)
+        return {
+            "params": status_params
+        }
 
 
 hunt_popets_anycast()
