@@ -1,0 +1,57 @@
+{
+    "target": "104.18.36.34",
+    "origin": {
+        "latitude": 64.1355,
+        "longitude": -21.8954
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  73.826 ms  74.886 ms  75.911 ms",
+        " 2  185.159.158.253 (185.159.158.253)  150.497 ms  150.513 ms  150.510 ms",
+        " 3  * linx-lon1.as13335.net (195.66.225.179)  183.488 ms *",
+        " 4  * 141.101.71.2 (141.101.71.2)  183.589 ms  184.361 ms",
+        " 5  * 104.18.36.34 (104.18.36.34)  183.441 ms  183.407 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "185.159.158.253"
+        ],
+        [
+            "*",
+            "195.66.225.179"
+        ],
+        [
+            "*",
+            "141.101.71.2"
+        ],
+        [
+            "*",
+            "104.18.36.34"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.159.158.100",
+        "server_name": "IS#1",
+        "country": "Iceland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

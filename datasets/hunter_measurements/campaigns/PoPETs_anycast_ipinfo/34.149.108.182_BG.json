@@ -1,0 +1,69 @@
+{
+    "target": "34.149.108.182",
+    "origin": {
+        "latitude": 42.6975,
+        "longitude": 23.3241
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  55.910 ms  55.851 ms  55.841 ms",
+        " 2  unn-156-146-55-252.cdn77.com (156.146.55.252)  55.898 ms  55.890 ms unn-156-146-55-253.cdn77.com (156.146.55.253)  56.191 ms",
+        " 3  vl203.sof-tlp-core-1.cdn77.com (138.199.0.200)  56.152 ms  56.465 ms  56.461 ms",
+        " 4  vlan4-google.b-ix.net (185.1.30.10)  60.611 ms  60.637 ms  60.606 ms",
+        " 5  142.251.92.1 (142.251.92.1)  56.665 ms  56.666 ms 108.170.250.177 (108.170.250.177)  57.726 ms",
+        " 6  108.170.236.33 (108.170.236.33)  57.732 ms 74.125.251.185 (74.125.251.185)  56.920 ms 172.253.65.31 (172.253.65.31)  56.826 ms",
+        " 7  182.108.149.34.bc.googleusercontent.com (34.149.108.182)  56.879 ms  56.397 ms  56.275 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "108.170.236.33",
+        "geolocation": {
+            "latitude": "42.6975",
+            "longitude": "23.3241"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "156.146.55.252",
+            "156.146.55.253"
+        ],
+        [
+            "138.199.0.200"
+        ],
+        [
+            "185.1.30.10"
+        ],
+        [
+            "142.251.92.1",
+            "108.170.250.177"
+        ],
+        [
+            "108.170.236.33",
+            "74.125.251.185",
+            "172.253.65.31"
+        ],
+        [
+            "34.149.108.182"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "156.146.55.229",
+        "server_name": "BG#8",
+        "country": "Bulgaria",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "target": "216.239.34.36",
+    "origin": {
+        "latitude": 59.3326,
+        "longitude": 18.0649
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  49.331 ms  49.296 ms  51.287 ms",
+        " 2  138.199.55.61 (138.199.55.61)  51.292 ms 138.199.55.60 (138.199.55.60)  51.283 ms 138.199.55.61 (138.199.55.61)  51.274 ms",
+        " 3  vl203.sto-itx-core-1.cdn77.com (185.156.45.90)  51.840 ms  51.846 ms vl201.sto-itx-core-1.cdn77.com (185.156.45.88)  99.257 ms",
+        " 4  et-1-0-19.cr1-stk1.ip4.gtt.net (154.14.158.81)  99.526 ms  99.543 ms  99.511 ms",
+        " 5  ae2.cr9-stk3.ip4.gtt.net (89.149.129.93)  100.585 ms  102.483 ms  100.595 ms",
+        " 6  * ip4.gtt.net (77.67.83.14)  50.733 ms  51.697 ms",
+        " 7  * * *",
+        " 8  216.239.34.36 (216.239.34.36)  51.486 ms  51.409 ms  51.427 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "138.199.55.61",
+            "138.199.55.60"
+        ],
+        [
+            "185.156.45.90",
+            "185.156.45.88"
+        ],
+        [
+            "154.14.158.81"
+        ],
+        [
+            "89.149.129.93"
+        ],
+        [
+            "*",
+            "77.67.83.14"
+        ],
+        [
+            "*"
+        ],
+        [
+            "216.239.34.36"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "138.199.55.37",
+        "server_name": "SE#20",
+        "country": "Sweden",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

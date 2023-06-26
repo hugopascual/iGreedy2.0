@@ -1,0 +1,72 @@
+{
+    "target": "104.18.5.104",
+    "origin": {
+        "latitude": 42.6975,
+        "longitude": 23.3241
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  54.690 ms  56.690 ms  56.694 ms",
+        " 2  unn-156-146-55-252.cdn77.com (156.146.55.252)  56.846 ms unn-156-146-55-253.cdn77.com (156.146.55.253)  56.842 ms  56.835 ms",
+        " 3  vl203.sof-tlp-core-1.cdn77.com (138.199.0.200)  56.830 ms vl201.sof-tlp-core-1.cdn77.com (138.199.0.198)  56.824 ms vl203.sof-tlp-core-1.cdn77.com (138.199.0.200)  108.627 ms",
+        " 4  * be6331.ccr31.sof02.atlas.cogentco.com (149.6.68.137)  109.423 ms  109.431 ms",
+        " 5  be3421.ccr51.beg03.atlas.cogentco.com (130.117.0.94)  114.533 ms  114.528 ms  114.475 ms",
+        " 6  be3422.ccr31.bud01.atlas.cogentco.com (130.117.0.125)  120.496 ms  67.428 ms  65.843 ms",
+        " 7  149.6.182.74 (149.6.182.74)  70.471 ms  70.693 ms  70.687 ms",
+        " 8  104.18.5.104 (104.18.5.104)  70.320 ms  70.329 ms  70.346 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "149.6.182.74",
+        "geolocation": {
+            "latitude": "47.4984",
+            "longitude": "19.0404"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "156.146.55.252",
+            "156.146.55.253"
+        ],
+        [
+            "138.199.0.200",
+            "138.199.0.198"
+        ],
+        [
+            "*",
+            "149.6.68.137"
+        ],
+        [
+            "130.117.0.94"
+        ],
+        [
+            "130.117.0.125"
+        ],
+        [
+            "149.6.182.74"
+        ],
+        [
+            "104.18.5.104"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "156.146.55.229",
+        "server_name": "BG#8",
+        "country": "Bulgaria",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

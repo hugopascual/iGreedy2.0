@@ -1,0 +1,70 @@
+{
+    "target": "34.107.157.36",
+    "origin": {
+        "latitude": 42.6975,
+        "longitude": 23.3241
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  54.464 ms  55.423 ms  57.228 ms",
+        " 2  unn-156-146-55-252.cdn77.com (156.146.55.252)  57.236 ms  57.229 ms unn-156-146-55-253.cdn77.com (156.146.55.253)  57.229 ms",
+        " 3  vl203.sof-tlp-core-1.cdn77.com (138.199.0.200)  57.222 ms  57.431 ms vl201.sof-tlp-core-1.cdn77.com (138.199.0.198)  111.467 ms",
+        " 4  vlan4-google.b-ix.net (185.1.30.10)  111.501 ms  111.494 ms  111.501 ms",
+        " 5  108.170.250.177 (108.170.250.177)  112.689 ms  112.699 ms 108.170.250.161 (108.170.250.161)  111.441 ms",
+        " 6  142.251.52.87 (142.251.52.87)  111.446 ms 142.251.246.235 (142.251.246.235)  56.737 ms 172.253.65.43 (172.253.65.43)  56.691 ms",
+        " 7  36.157.107.34.bc.googleusercontent.com (34.107.157.36)  56.606 ms  56.428 ms  56.549 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "142.251.52.87",
+        "geolocation": {
+            "latitude": "42.6975",
+            "longitude": "23.3241"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "156.146.55.252",
+            "156.146.55.253"
+        ],
+        [
+            "138.199.0.200",
+            "138.199.0.198"
+        ],
+        [
+            "185.1.30.10"
+        ],
+        [
+            "108.170.250.177",
+            "108.170.250.161"
+        ],
+        [
+            "142.251.52.87",
+            "142.251.246.235",
+            "172.253.65.43"
+        ],
+        [
+            "34.107.157.36"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "156.146.55.229",
+        "server_name": "BG#8",
+        "country": "Bulgaria",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

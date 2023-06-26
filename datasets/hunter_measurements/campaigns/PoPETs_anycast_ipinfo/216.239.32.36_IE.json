@@ -1,0 +1,77 @@
+{
+    "target": "216.239.32.36",
+    "origin": {
+        "latitude": 53.354,
+        "longitude": -6.2545
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  38.515 ms  38.640 ms  38.639 ms",
+        " 2  146.70.48.1 (146.70.48.1)  52.313 ms  52.338 ms  52.339 ms",
+        " 3  146.70.1.14 (146.70.1.14)  68.786 ms  68.814 ms  90.453 ms",
+        " 4  146.70.1.16 (146.70.1.16)  77.261 ms  77.300 ms 146.70.1.18 (146.70.1.18)  77.247 ms",
+        " 5  146.70.1.24 (146.70.1.24)  77.245 ms 146.70.1.28 (146.70.1.28)  77.252 ms 146.70.1.22 (146.70.1.22)  77.229 ms",
+        " 6  2-1-c25-4-602.ear1.dublin6.level3.net (213.242.121.117)  77.068 ms ae57-602.bar1.dublin3.level3.net (212.73.251.81)  39.506 ms  41.398 ms",
+        " 7  ae7.7.ear1.dublin6.level3.net (4.69.142.189)  41.084 ms te-4-4-70.hrndva1wch010.wcg.level3.net (4.68.110.2)  41.317 ms ae7.7.ear1.dublin6.level3.net (4.69.142.189)  41.099 ms",
+        " 8  * te-7-4-71.hrndav1wch010.wcg.level3.net (4.68.110.6)  41.914 ms  41.913 ms",
+        " 9  * 216.239.32.36 (216.239.32.36)  41.013 ms  41.011 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "146.70.48.1"
+        ],
+        [
+            "146.70.1.14"
+        ],
+        [
+            "146.70.1.16",
+            "146.70.1.18"
+        ],
+        [
+            "146.70.1.24",
+            "146.70.1.28",
+            "146.70.1.22"
+        ],
+        [
+            "213.242.121.117",
+            "212.73.251.81"
+        ],
+        [
+            "4.69.142.189",
+            "4.68.110.2"
+        ],
+        [
+            "*",
+            "4.68.110.6"
+        ],
+        [
+            "*",
+            "216.239.32.36"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.48.14",
+        "server_name": "IE#24",
+        "country": "Ireland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

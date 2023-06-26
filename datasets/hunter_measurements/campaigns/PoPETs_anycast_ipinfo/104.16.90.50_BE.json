@@ -1,0 +1,76 @@
+{
+    "target": "104.16.90.50",
+    "origin": {
+        "latitude": 50.8837,
+        "longitude": 4.473
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  41.694 ms  41.697 ms  41.696 ms",
+        " 2  vlan103.agg1.bru1.be.m247.com (91.90.123.49)  62.016 ms  62.028 ms  62.028 ms",
+        " 3  * * *",
+        " 4  * 193.9.115.185 (193.9.115.185)  84.630 ms *",
+        " 5  146.70.1.222 (146.70.1.222)  87.738 ms  87.736 ms  87.736 ms",
+        " 6  37.120.220.105 (37.120.220.105)  87.630 ms  46.070 ms  46.071 ms",
+        " 7  * * *",
+        " 8  * * *",
+        " 9  * * *",
+        "10  104.16.90.50 (104.16.90.50)  46.967 ms  47.475 ms *"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "91.90.123.49"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*",
+            "193.9.115.185"
+        ],
+        [
+            "146.70.1.222"
+        ],
+        [
+            "37.120.220.105"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "104.16.90.50",
+            "*"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "91.90.123.54",
+        "server_name": "BE#32",
+        "country": "Belgium",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

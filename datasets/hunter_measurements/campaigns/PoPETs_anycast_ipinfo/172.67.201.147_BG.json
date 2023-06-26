@@ -1,0 +1,80 @@
+{
+    "target": "172.67.201.147",
+    "origin": {
+        "latitude": 42.6975,
+        "longitude": 23.3241
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  56.461 ms  56.870 ms  56.868 ms",
+        " 2  unn-156-146-55-253.cdn77.com (156.146.55.253)  57.351 ms unn-156-146-55-252.cdn77.com (156.146.55.252)  57.350 ms unn-156-146-55-253.cdn77.com (156.146.55.253)  57.343 ms",
+        " 3  vl203.sof-tlp-core-1.cdn77.com (138.199.0.200)  57.556 ms  58.330 ms vl201.sof-tlp-core-1.cdn77.com (138.199.0.198)  58.335 ms",
+        " 4  be6331.ccr31.sof02.atlas.cogentco.com (149.6.68.137)  58.332 ms * *",
+        " 5  be3421.ccr51.beg03.atlas.cogentco.com (130.117.0.94)  64.076 ms  64.086 ms  64.079 ms",
+        " 6  be3422.ccr31.bud01.atlas.cogentco.com (130.117.0.125)  69.361 ms  67.422 ms  67.713 ms",
+        " 7  be3263.ccr22.bts01.atlas.cogentco.com (154.54.59.177)  70.257 ms  70.278 ms  70.249 ms",
+        " 8  be3463.ccr52.vie01.atlas.cogentco.com (154.54.59.185)  73.880 ms  73.827 ms  73.834 ms",
+        " 9  cloudflare.demarc.cogentco.com (149.6.174.66)  72.430 ms  72.433 ms  72.635 ms",
+        "10  172.67.201.147 (172.67.201.147)  71.958 ms  71.963 ms  71.956 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "149.6.174.66",
+        "geolocation": {
+            "latitude": "48.1920",
+            "longitude": "16.3671"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "156.146.55.253",
+            "156.146.55.252"
+        ],
+        [
+            "138.199.0.200",
+            "138.199.0.198"
+        ],
+        [
+            "149.6.68.137",
+            "*"
+        ],
+        [
+            "130.117.0.94"
+        ],
+        [
+            "130.117.0.125"
+        ],
+        [
+            "154.54.59.177"
+        ],
+        [
+            "154.54.59.185"
+        ],
+        [
+            "149.6.174.66"
+        ],
+        [
+            "172.67.201.147"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "156.146.55.229",
+        "server_name": "BG#8",
+        "country": "Bulgaria",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -121,9 +121,11 @@ def hunt_popets_anycast():
 
     #countries_origin_set = countries_in_EEE_set()
     countries_origin_set = [
-        "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI",
-        "FR", "GR", "HR", "HU", "IE", "IS", "IT", "LT", "LU", "LV",
-        "MT", "NL", "NO", "PL", "PT", "RO", "SE", "SI", "SK"
+        "IE", "FI", "NO", "IS", "SE", "NL",
+        #"AT",
+        "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES",
+        "FR", "GR", "HR", "HU", "IT", "LT", "LU", "LV",
+        "MT", "PL", "PT", "SI", "SK"
     ]
     campaign_name = "PoPETs_anycast_ipinfo"
     for country in countries_origin_set:
@@ -143,6 +145,7 @@ def hunt_popets_anycast():
                 additional_info=additional_info,
                 validate_last_hop=False
             )
+            hunter.hunt()
 
 
 def connect_to_vpn_server(vpn_server: str) -> dict:

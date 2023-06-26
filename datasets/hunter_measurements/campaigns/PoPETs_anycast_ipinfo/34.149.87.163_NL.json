@@ -1,0 +1,67 @@
+{
+    "target": "34.149.87.163",
+    "origin": {
+        "latitude": 51.5842,
+        "longitude": 4.3194
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  38.793 ms  39.349 ms  39.611 ms",
+        " 2  185.107.80.254 (185.107.80.254)  41.411 ms  41.414 ms  175.827 ms",
+        " 3  185.107.116.21 (185.107.116.21)  41.666 ms  42.035 ms  42.036 ms",
+        " 4  209.85.148.162 (209.85.148.162)  42.439 ms  42.435 ms  42.388 ms",
+        " 5  108.170.241.129 (108.170.241.129)  42.414 ms  42.613 ms 108.170.241.161 (108.170.241.161)  43.846 ms",
+        " 6  142.251.48.177 (142.251.48.177)  42.599 ms 172.253.71.201 (172.253.71.201)  40.229 ms  41.087 ms",
+        " 7  163.87.149.34.bc.googleusercontent.com (34.149.87.163)  41.323 ms  41.050 ms  41.054 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "142.251.48.177",
+        "geolocation": {
+            "latitude": "52.3740",
+            "longitude": "4.8897"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "185.107.80.254"
+        ],
+        [
+            "185.107.116.21"
+        ],
+        [
+            "209.85.148.162"
+        ],
+        [
+            "108.170.241.129",
+            "108.170.241.161"
+        ],
+        [
+            "142.251.48.177",
+            "172.253.71.201"
+        ],
+        [
+            "34.149.87.163"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.107.80.195",
+        "server_name": "NL#56",
+        "country": "Netherlands",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

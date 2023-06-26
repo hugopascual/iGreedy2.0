@@ -1,0 +1,58 @@
+{
+    "target": "205.185.216.42",
+    "origin": {
+        "latitude": 64.1355,
+        "longitude": -21.8954
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  71.814 ms  71.812 ms  72.063 ms",
+        " 2  185.159.158.253 (185.159.158.253)  83.383 ms  83.395 ms  83.391 ms",
+        " 3  be4193.ccr21.lon01.atlas.cogentco.com (149.6.185.17)  118.289 ms  119.903 ms  183.969 ms",
+        " 4  151.139.40.3 (151.139.40.3)  183.839 ms  183.844 ms  183.838 ms",
+        " 5  * * *",
+        " 6  map2.hwcdn.net (205.185.216.42)  183.140 ms  112.394 ms  113.225 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "185.159.158.253"
+        ],
+        [
+            "149.6.185.17"
+        ],
+        [
+            "151.139.40.3"
+        ],
+        [
+            "*"
+        ],
+        [
+            "205.185.216.42"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.159.158.100",
+        "server_name": "IS#1",
+        "country": "Iceland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

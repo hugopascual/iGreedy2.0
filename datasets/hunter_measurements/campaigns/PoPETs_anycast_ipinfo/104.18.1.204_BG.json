@@ -1,0 +1,71 @@
+{
+    "target": "104.18.1.204",
+    "origin": {
+        "latitude": 42.6975,
+        "longitude": 23.3241
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  56.889 ms  56.858 ms  56.851 ms",
+        " 2  unn-156-146-55-253.cdn77.com (156.146.55.253)  56.844 ms  56.841 ms  56.837 ms",
+        " 3  vl203.sof-tlp-core-1.cdn77.com (138.199.0.200)  56.829 ms  57.127 ms vl201.sof-tlp-core-1.cdn77.com (138.199.0.198)  57.129 ms",
+        " 4  * * be6331.ccr31.sof02.atlas.cogentco.com (149.6.68.137)  57.352 ms",
+        " 5  be3421.ccr51.beg03.atlas.cogentco.com (130.117.0.94)  63.377 ms  63.411 ms  63.376 ms",
+        " 6  be3422.ccr31.bud01.atlas.cogentco.com (130.117.0.125)  68.320 ms  67.399 ms  67.467 ms",
+        " 7  149.6.182.74 (149.6.182.74)  70.713 ms  70.946 ms  70.951 ms",
+        " 8  104.18.1.204 (104.18.1.204)  70.540 ms  70.562 ms  70.239 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "149.6.182.74",
+        "geolocation": {
+            "latitude": "47.4984",
+            "longitude": "19.0404"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "156.146.55.253"
+        ],
+        [
+            "138.199.0.200",
+            "138.199.0.198"
+        ],
+        [
+            "*",
+            "149.6.68.137"
+        ],
+        [
+            "130.117.0.94"
+        ],
+        [
+            "130.117.0.125"
+        ],
+        [
+            "149.6.182.74"
+        ],
+        [
+            "104.18.1.204"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "156.146.55.229",
+        "server_name": "BG#8",
+        "country": "Bulgaria",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

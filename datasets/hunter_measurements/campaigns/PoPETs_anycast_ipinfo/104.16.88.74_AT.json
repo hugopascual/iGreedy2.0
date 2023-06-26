@@ -1,0 +1,74 @@
+{
+    "target": "104.16.88.74",
+    "origin": {
+        "latitude": 48.2338,
+        "longitude": 16.2901
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  40.120 ms  40.104 ms  40.098 ms",
+        " 2  unn-87-249-133-124.datapacket.com (87.249.133.124)  40.273 ms  40.273 ms unn-87-249-133-125.datapacket.com (87.249.133.125)  40.525 ms",
+        " 3  vl203.vie-itx1-core-1.cdn77.com (185.156.45.134)  40.528 ms vl201.vie-itx1-core-1.cdn77.com (185.156.45.132)  41.162 ms  41.172 ms",
+        " 4  ae14-415.vie10.core-backbone.com (5.56.18.141)  41.398 ms  41.366 ms  41.372 ms",
+        " 5  ae25-2026.fra30.core-backbone.com (5.56.19.13)  53.271 ms  53.285 ms  53.280 ms",
+        " 6  162.158.84.62 (162.158.84.62)  53.412 ms core-backbone.cloudflare.com (80.255.9.34)  52.503 ms  53.131 ms",
+        " 7  172.71.248.3 (172.71.248.3)  53.761 ms 162.158.108.2 (162.158.108.2)  52.037 ms 162.158.108.4 (162.158.108.4)  51.907 ms",
+        " 8  104.16.88.74 (104.16.88.74)  51.933 ms  51.927 ms  51.935 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "172.71.248.3",
+        "geolocation": {
+            "latitude": "50.1155",
+            "longitude": "8.6842"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "87.249.133.124",
+            "87.249.133.125"
+        ],
+        [
+            "185.156.45.134",
+            "185.156.45.132"
+        ],
+        [
+            "5.56.18.141"
+        ],
+        [
+            "5.56.19.13"
+        ],
+        [
+            "162.158.84.62",
+            "80.255.9.34"
+        ],
+        [
+            "172.71.248.3",
+            "162.158.108.2",
+            "162.158.108.4"
+        ],
+        [
+            "104.16.88.74"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "87.249.133.115",
+        "server_name": "AT#23",
+        "country": "Austria",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

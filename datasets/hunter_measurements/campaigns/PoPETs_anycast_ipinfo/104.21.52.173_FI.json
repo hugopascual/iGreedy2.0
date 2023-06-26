@@ -1,0 +1,62 @@
+{
+    "target": "104.21.52.173",
+    "origin": {
+        "latitude": 60.1462,
+        "longitude": 25.0442
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.86.0.1)  64.831 ms  64.807 ms  124.586 ms",
+        " 2  * * *",
+        " 3  e0-4.switch1.hel1.he.net (184.104.191.177)  124.538 ms  124.534 ms  124.529 ms",
+        " 4  equinix-helsinki.cloudflare.com (185.1.86.11)  124.599 ms  124.595 ms  124.590 ms",
+        " 5  * * *",
+        " 6  * * *",
+        " 7  104.21.52.173 (104.21.52.173)  64.535 ms  64.551 ms  64.548 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.86.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "184.104.191.177"
+        ],
+        [
+            "185.1.86.11"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "104.21.52.173"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "196.244.192.231",
+        "server_name": "FI#10",
+        "country": "Finland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

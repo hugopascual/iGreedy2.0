@@ -1,0 +1,73 @@
+{
+    "target": "216.239.34.36",
+    "origin": {
+        "latitude": 53.354,
+        "longitude": -6.2545
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  38.448 ms  38.513 ms  38.823 ms",
+        " 2  146.70.48.1 (146.70.48.1)  54.500 ms  54.512 ms  54.511 ms",
+        " 3  146.70.1.14 (146.70.1.14)  56.436 ms  56.453 ms  88.620 ms",
+        " 4  146.70.1.16 (146.70.1.16)  77.342 ms  77.342 ms 146.70.1.18 (146.70.1.18)  77.517 ms",
+        " 5  146.70.1.28 (146.70.1.28)  77.241 ms *  77.266 ms",
+        " 6  ae57-602.bar1.dublin3.level3.net (212.73.251.81)  77.295 ms  47.096 ms  47.072 ms",
+        " 7  ae7.7.ear1.dublin6.level3.net (4.69.142.189)  40.277 ms te-4-4-70.hrndva1wch010.wcg.level3.net (4.68.110.2)  41.976 ms ae7.7.ear1.dublin6.level3.net (4.69.142.189)  40.864 ms",
+        " 8  * * *",
+        " 9  216.239.34.36 (216.239.34.36)  40.809 ms  40.804 ms  40.799 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "146.70.48.1"
+        ],
+        [
+            "146.70.1.14"
+        ],
+        [
+            "146.70.1.16",
+            "146.70.1.18"
+        ],
+        [
+            "146.70.1.28",
+            "*"
+        ],
+        [
+            "212.73.251.81"
+        ],
+        [
+            "4.69.142.189",
+            "4.68.110.2"
+        ],
+        [
+            "*"
+        ],
+        [
+            "216.239.34.36"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.48.14",
+        "server_name": "IE#24",
+        "country": "Ireland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

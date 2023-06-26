@@ -1,0 +1,66 @@
+{
+    "target": "104.16.124.175",
+    "origin": {
+        "latitude": 59.8457,
+        "longitude": 10.7823
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  60.598 ms  61.054 ms  61.050 ms",
+        " 2  * * *",
+        " 3  irb-0.agg1.thg1.nl.m247.com (77.243.185.36)  61.718 ms  62.133 ms  62.134 ms",
+        " 4  37.120.220.158 (37.120.220.158)  69.420 ms xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  70.218 ms  70.226 ms",
+        " 5  netnod-ix-ge-a-sth-1500.cloudflare.com (194.68.123.246)  81.970 ms *  81.988 ms",
+        " 6  * 162.158.92.4 (162.158.92.4)  79.666 ms 172.71.244.5 (172.71.244.5)  79.932 ms",
+        " 7  104.16.124.175 (104.16.124.175)  79.583 ms  79.542 ms  79.536 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "77.243.185.36"
+        ],
+        [
+            "37.120.220.158",
+            "217.138.223.172"
+        ],
+        [
+            "194.68.123.246",
+            "*"
+        ],
+        [
+            "*",
+            "162.158.92.4",
+            "172.71.244.5"
+        ],
+        [
+            "104.16.124.175"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.170.25",
+        "server_name": "NO#27",
+        "country": "Norway",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

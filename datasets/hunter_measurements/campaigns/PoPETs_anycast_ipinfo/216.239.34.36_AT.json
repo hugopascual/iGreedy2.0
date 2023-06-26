@@ -1,0 +1,66 @@
+{
+    "target": "216.239.34.36",
+    "origin": {
+        "latitude": 48.2338,
+        "longitude": 16.2901
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  39.133 ms  39.299 ms  39.305 ms",
+        " 2  unn-87-249-133-125.datapacket.com (87.249.133.125)  39.564 ms  39.571 ms  39.568 ms",
+        " 3  vl203.vie-itx1-core-1.cdn77.com (185.156.45.134)  39.811 ms  39.808 ms  79.935 ms",
+        " 4  ae14-415.vie10.core-backbone.com (5.56.18.141)  79.954 ms  80.005 ms  79.942 ms",
+        " 5  ae4-2028.muc20.core-backbone.com (81.95.2.185)  85.382 ms  85.332 ms  85.338 ms",
+        " 6  142.250.173.84 (142.250.173.84)  92.279 ms  52.506 ms  53.653 ms",
+        " 7  * * *",
+        " 8  216.239.34.36 (216.239.34.36)  54.375 ms  54.377 ms  54.372 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "87.249.133.125"
+        ],
+        [
+            "185.156.45.134"
+        ],
+        [
+            "5.56.18.141"
+        ],
+        [
+            "81.95.2.185"
+        ],
+        [
+            "142.250.173.84"
+        ],
+        [
+            "*"
+        ],
+        [
+            "216.239.34.36"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "87.249.133.115",
+        "server_name": "AT#23",
+        "country": "Austria",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
