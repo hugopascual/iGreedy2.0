@@ -1,0 +1,69 @@
+{
+    "target": "216.239.34.36",
+    "origin": {
+        "latitude": 50.1,
+        "longitude": 14.55
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  43.913 ms  44.021 ms  44.907 ms",
+        " 2  unn-149-102-235-60.datapacket.com (149.102.235.60)  45.511 ms unn-149-102-235-61.datapacket.com (149.102.235.61)  45.523 ms  45.522 ms",
+        " 3  unn-138-199-0-158.cdn77.com (138.199.0.158)  45.541 ms unn-138-199-0-154.cdn77.com (138.199.0.154)  45.541 ms  89.289 ms",
+        " 4  ae12-413.prg10.core-backbone.com (5.56.17.17)  89.300 ms ae12-414.prg10.core-backbone.com (5.56.18.213)  89.334 ms ae12-413.prg10.core-backbone.com (5.56.17.17)  89.308 ms",
+        " 5  ae4-2028.muc20.core-backbone.com (81.95.2.185)  99.394 ms  99.416 ms  99.417 ms",
+        " 6  142.250.173.84 (142.250.173.84)  101.378 ms  56.414 ms  57.447 ms",
+        " 7  * * *",
+        " 8  216.239.34.36 (216.239.34.36)  57.624 ms  57.631 ms  57.627 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "149.102.235.60",
+            "149.102.235.61"
+        ],
+        [
+            "138.199.0.158",
+            "138.199.0.154"
+        ],
+        [
+            "5.56.17.17",
+            "5.56.18.213"
+        ],
+        [
+            "81.95.2.185"
+        ],
+        [
+            "142.250.173.84"
+        ],
+        [
+            "*"
+        ],
+        [
+            "216.239.34.36"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "149.102.235.45",
+        "server_name": "CZ#32",
+        "country": "Czech Republic",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -1,0 +1,77 @@
+{
+    "target": "172.64.133.15",
+    "origin": {
+        "latitude": 50.1112,
+        "longitude": 8.6831
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  27.712 ms  28.843 ms  28.843 ms",
+        " 2  194.126.177.3 (194.126.177.3)  29.635 ms  30.151 ms  30.153 ms",
+        " 3  * * *",
+        " 4  ce-0-6-0-1.r01.frnkge13.de.bb.gin.ntt.net (128.241.11.221)  55.962 ms  55.967 ms  55.965 ms",
+        " 5  ce-0-6-0-1.r01.frnkge13.de.bb.gin.ntt.net (128.241.11.221)  56.152 ms ae-3.r21.frnkge13.de.bb.gin.ntt.net (129.250.6.50)  56.918 ms  56.922 ms",
+        " 6  ae-3.r20.frnkge13.de.bb.gin.ntt.net (129.250.6.33)  62.546 ms ae-3.r21.frnkge13.de.bb.gin.ntt.net (129.250.6.50)  38.320 ms ae-0.a03.frnkge07.de.bb.gin.ntt.net (129.250.7.16)  29.392 ms",
+        " 7  ae-0.a02.frnkge07.de.bb.gin.ntt.net (129.250.5.34)  29.424 ms ae-0.cloudflare.frnkge07.de.bb.gin.ntt.net (128.241.9.165)  44.776 ms ae-0.a02.frnkge07.de.bb.gin.ntt.net (129.250.5.34)  29.767 ms",
+        " 8  * * 213.198.81.142 (213.198.81.142)  44.037 ms",
+        " 9  172.70.248.5 (172.70.248.5)  41.397 ms 172.64.133.15 (172.64.133.15)  35.533 ms 172.71.244.3 (172.71.244.3)  36.575 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "194.126.177.3"
+        ],
+        [
+            "*"
+        ],
+        [
+            "128.241.11.221"
+        ],
+        [
+            "128.241.11.221",
+            "129.250.6.50"
+        ],
+        [
+            "129.250.6.33",
+            "129.250.6.50",
+            "129.250.7.16"
+        ],
+        [
+            "129.250.5.34",
+            "128.241.9.165"
+        ],
+        [
+            "*",
+            "213.198.81.142"
+        ],
+        [
+            "172.70.248.5",
+            "172.64.133.15",
+            "172.71.244.3"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "194.126.177.85",
+        "server_name": "DE#119",
+        "country": "Germany",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -121,9 +121,9 @@ def hunt_popets_anycast():
 
     #countries_origin_set = countries_in_EEE_set()
     countries_origin_set = [
-        "IE", "FI", "NO", "IS", "SE", "NL",
-        #"AT",
-        "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES",
+        #"IE", "FI", "NO", "IS", "SE", "NL", "AT",
+        #"BE", "BG", "CY", "CZ", "DE",
+        "DK", "EE", "ES",
         "FR", "GR", "HR", "HU", "IT", "LT", "LU", "LV",
         "MT", "PL", "PT", "SI", "SK"
     ]

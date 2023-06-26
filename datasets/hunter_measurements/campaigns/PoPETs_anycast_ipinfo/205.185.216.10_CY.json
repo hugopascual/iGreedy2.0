@@ -1,0 +1,78 @@
+{
+    "target": "205.185.216.10",
+    "origin": {
+        "latitude": 34.6841,
+        "longitude": 33.0379
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  68.565 ms  68.686 ms  68.682 ms",
+        " 2  85.132.252.33 (85.132.252.33)  70.124 ms  70.134 ms  70.129 ms",
+        " 3  213.140.211.61 (213.140.211.61)  71.937 ms  71.945 ms  135.582 ms",
+        " 4  213.140.198.144 (213.140.198.144)  135.603 ms  136.329 ms  136.342 ms",
+        " 5  te-0-0-0-0.edge-r.hex67.uk.cablenet-as.net (213.140.198.31)  185.274 ms te-0-1-1-4.edge-r.hex67.uk.cablenet-as.net (213.140.198.81)  192.397 ms 213.140.198.113 (213.140.198.113)  191.104 ms",
+        " 6  be5023.rcr21.b015534-1.lon01.atlas.cogentco.com (149.11.4.45)  193.433 ms  127.479 ms  122.278 ms",
+        " 7  be2186.ccr22.lon01.atlas.cogentco.com (154.54.61.70)  127.653 ms  133.585 ms be2185.ccr21.lon01.atlas.cogentco.com (154.54.61.62)  120.392 ms",
+        " 8  151.139.40.9 (151.139.40.9)  127.550 ms 151.139.40.3 (151.139.40.3)  125.374 ms  131.435 ms",
+        " 9  * * *",
+        "10  map2.hwcdn.net (205.185.216.10)  133.504 ms  128.000 ms  135.089 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "85.132.252.33"
+        ],
+        [
+            "213.140.211.61"
+        ],
+        [
+            "213.140.198.144"
+        ],
+        [
+            "213.140.198.31",
+            "213.140.198.81",
+            "213.140.198.113"
+        ],
+        [
+            "149.11.4.45"
+        ],
+        [
+            "154.54.61.70",
+            "154.54.61.62"
+        ],
+        [
+            "151.139.40.9",
+            "151.139.40.3"
+        ],
+        [
+            "*"
+        ],
+        [
+            "205.185.216.10"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "85.132.252.38",
+        "server_name": "CY#4",
+        "country": "Cyprus",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
