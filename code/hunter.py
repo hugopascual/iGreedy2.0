@@ -554,7 +554,9 @@ class Hunter:
             "./igreedy.sh",
             "-m", ip,
             "-p", "datasets/probes_sets/WW_1000.json",
-            "-r", "true"
+            "-r", "true",
+            "-a", 1,
+            "-t", 1
         ])
         if command.returncode == 0:
             return True

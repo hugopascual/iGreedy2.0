@@ -5,13 +5,13 @@
 campaign_name="WW_validation_20230620"
 probes_sets_path="datasets/probes_sets/"
 probes_sets_names_list=(
-"WW_1000.json"
-"WW_500.json"
-"WW_300.json"
 "WW_100.json"
-"WW-section_1.5.json"
-"WW-section_1.json"
-"WW-section_2.json"
+"WW_300.json"
+"WW_500.json"
+"WW_1000.json"
+#"WW-section_1.5.json"
+#"WW-section_1.json"
+#"WW-section_2.json"
 )
 target_direction_list=(
 "198.41.0.4" "199.9.14.201" "192.33.4.12" "199.7.91.13" "192.203.230.10"
