@@ -1,0 +1,68 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 48.1482,
+        "longitude": 17.1067
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "VIE",
+        "size": "large_airport",
+        "name": "Vienna International Airport",
+        "lat long": "48.1102981567 16.5697002411",
+        "country_code": "AT",
+        "city": "Vienna"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  37.799 ms  38.249 ms  38.293 ms",
+        " 2  196.245.151.209 (196.245.151.209)  39.391 ms  41.375 ms  41.395 ms",
+        " 3  xe-1-2-0-690.cr0-bts1.ip4.gtt.net (77.67.99.85)  38.442 ms  38.468 ms  38.494 ms",
+        " 4  ae9.cr1-vie2.ip4.gtt.net (213.200.127.50)  41.372 ms  40.020 ms  40.048 ms",
+        " 5  ip4.gtt.net (46.33.70.162)  40.681 ms  77.796 ms  77.830 ms",
+        " 6  f.root-servers.net (192.5.5.241)  77.349 ms  39.903 ms  39.923 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "46.33.70.162",
+        "geolocation": {
+            "latitude": "48.2085",
+            "longitude": "16.3721"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "196.245.151.209"
+        ],
+        [
+            "77.67.99.85"
+        ],
+        [
+            "213.200.127.50"
+        ],
+        [
+            "46.33.70.162"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "196.245.151.213",
+        "server_name": "SK#3",
+        "country": "Slovakia",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

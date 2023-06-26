@@ -1,0 +1,68 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 52.1552,
+        "longitude": 21.0068
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "WAW",
+        "size": "large_airport",
+        "name": "Warsaw Chopin Airport",
+        "lat long": "52.1656990051 20.9671001434",
+        "country_code": "PL",
+        "city": "Warsaw"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  44.663 ms  44.664 ms  44.664 ms",
+        " 2  146.70.161.161 (146.70.161.161)  212.929 ms  212.989 ms  213.002 ms",
+        " 3  * * *",
+        " 4  146.70.1.88 (146.70.1.88)  45.056 ms  45.190 ms  45.174 ms",
+        " 5  cloudflare.plix.pl (195.182.218.134)  48.787 ms  48.896 ms  48.904 ms",
+        " 6  104.16.123.96 (104.16.123.96)  45.245 ms  45.159 ms  45.134 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "195.182.218.134",
+        "geolocation": {
+            "latitude": "52.2251",
+            "longitude": "21.0095"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "146.70.161.161"
+        ],
+        [
+            "*"
+        ],
+        [
+            "146.70.1.88"
+        ],
+        [
+            "195.182.218.134"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.161.187",
+        "server_name": "PL#57",
+        "country": "Poland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

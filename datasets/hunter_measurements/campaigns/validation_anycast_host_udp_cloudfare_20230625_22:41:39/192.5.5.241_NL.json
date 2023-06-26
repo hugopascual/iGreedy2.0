@@ -1,0 +1,68 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 0,
+        "longitude": 0
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "AMS",
+        "size": "large_airport",
+        "name": "Amsterdam Airport Schiphol",
+        "lat long": "52.3086013794 4.7638897896",
+        "country_code": "NL",
+        "city": "Amsterdam"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  31.582 ms  31.993 ms  31.996 ms",
+        " 2  185.107.44.254 (185.107.44.254)  59.977 ms  60.021 ms  60.025 ms",
+        " 3  185.107.116.21 (185.107.116.21)  34.128 ms  34.140 ms 185.107.116.22 (185.107.116.22)  34.929 ms",
+        " 4  141.101.65.30 (141.101.65.30)  38.557 ms  38.578 ms  38.581 ms",
+        " 5  172.71.92.4 (172.71.92.4)  35.757 ms 172.71.100.2 (172.71.100.2)  35.312 ms 141.101.65.14 (141.101.65.14)  42.843 ms",
+        " 6  f.root-servers.net (192.5.5.241)  34.877 ms  41.084 ms  34.498 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "172.71.92.4",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "185.107.44.254"
+        ],
+        [
+            "185.107.116.21",
+            "185.107.116.22"
+        ],
+        [
+            "141.101.65.30"
+        ],
+        [
+            "172.71.92.4",
+            "172.71.100.2",
+            "141.101.65.14"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.107.44.168",
+        "server_name": "NL#314",
+        "country": "Netherlands",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
