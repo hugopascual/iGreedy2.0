@@ -323,28 +323,30 @@ class HunterStatistics:
             index=False
         )
 
+def generate_all_statistics():
+    hunter_campaigns_folders = get_list_folders_in_path(
+        HUNTER_MEASUREMENTS_CAMPAIGNS_PATH)
+    hunter_campaigns = [folder for folder in hunter_campaigns_folders
+                        if not ("statistics" in folder)]
+    validation_mods = ["ip_all_validation",
+                       "ip_target_validation",
+                       "ip_last_hop_validation",
+                       "no_ip_validation"]
+    for hunter_campaign in hunter_campaigns:
+        for validation in validation_mods:
+            print("##################")
+            print(validation)
+            print(hunter_campaign)
+            print("##################")
+            hunter_campaign_statistics = HunterStatistics(
+                validation_campaign_directory=hunter_campaign,
+                validation=validation
+            )
+            hunter_campaign_statistics. \
+                hunter_build_statistics_validation_campaign()
 
-hunter_campaigns_folders = get_list_folders_in_path(
-    HUNTER_MEASUREMENTS_CAMPAIGNS_PATH)
-hunter_campaigns = [folder for folder in hunter_campaigns_folders
-                    if not ("statistics" in folder)]
-validation_mods = ["ip_all_validation",
-                   "ip_target_validation",
-                   "ip_last_hop_validation",
-                   "no_ip_validation"]
-for hunter_campaign in hunter_campaigns:
-    for validation in validation_mods:
-        print("##################")
-        print(validation)
-        print(hunter_campaign)
-        print("##################")
-        hunter_campaign_statistics = HunterStatistics(
-            validation_campaign_directory=hunter_campaign,
-            validation=validation
-        )
-        hunter_campaign_statistics. \
-            hunter_build_statistics_validation_campaign()
 
+#generate_all_statistics()
 statistics = HunterStatistics()
 statistics.aggregate_hunter_statistics_country()
 statistics.check_jumps_between_countries()
