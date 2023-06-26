@@ -238,13 +238,21 @@ def verloc_grafic_aproximation():
     verloc_aprox = json_file_to_dict("datasets/verloc_aprox.json")
 
     distances = list(verloc_aprox.values())
-    times = [float(time) for time in list(verloc_aprox.keys())]
-    figure = go.Figure(
-        data=go.Scatter(
-            x=times,
-            y=distances
-        )
-    )
+    times = [float(time)
+             for time in list(verloc_aprox.keys()) if float(time) < 16]
+    figure = go.Figure()
+    # Verloc Values
+    figure.add_trace(go.Scatter(
+        x=times,
+        y=distances,
+        name="modelo_verloc"
+    ))
+    # Constant 1.52 values
+    figure.add_trace(go.Scatter(
+        x=times,
+        y=[time*(SPEED_OF_LIGHT/(1000*FIBER_RI)) for time in times],
+        name="velocidad_fibra"
+    ))
 
     figure.update_layout(
         title="Aproximación de VerLoc",
@@ -254,6 +262,8 @@ def verloc_grafic_aproximation():
 
     figure.show()
 
+
+verloc_grafic_aproximation()
 
 def obtain_cf_ray(target: str):
     try:
@@ -266,5 +276,4 @@ def obtain_cf_ray(target: str):
         print("NO CF-RAY IN HEADERS")
 
 
-obtain_cf_ray("192.5.5.241")
-obtain_cf_ray("104.16.123.96")
+
