@@ -1,0 +1,60 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 52.2314,
+        "longitude": 21.0158
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "WAW",
+        "size": "large_airport",
+        "name": "Warsaw Chopin Airport",
+        "lat long": "52.1656990051 20.9671001434",
+        "country_code": "PL",
+        "city": "Warsaw"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  61.207 ms  61.595 ms  61.685 ms",
+        " 2  unn-149-102-244-30.datapacket.com (149.102.244.30)  61.800 ms  61.820 ms  61.824 ms",
+        " 3  cloudflare.thinx.pl (212.91.0.28)  73.491 ms  73.572 ms  73.583 ms",
+        " 4  104.16.123.96 (104.16.123.96)  62.403 ms  62.346 ms  62.363 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "212.91.0.28",
+        "geolocation": {
+            "latitude": "52.2310",
+            "longitude": "20.9993"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "149.102.244.30"
+        ],
+        [
+            "212.91.0.28"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "149.102.244.27",
+        "server_name": "PL#34",
+        "country": "Poland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

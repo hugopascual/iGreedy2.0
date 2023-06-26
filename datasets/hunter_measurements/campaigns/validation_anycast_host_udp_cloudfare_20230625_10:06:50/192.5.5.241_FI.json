@@ -1,0 +1,64 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 60.1462,
+        "longitude": 25.0442
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "HEL",
+        "size": "large_airport",
+        "name": "Helsinki Vantaa Airport",
+        "lat long": "60.317199707 24.963300705",
+        "country_code": "FI",
+        "city": "Helsinki"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  58.126 ms  58.161 ms  58.325 ms",
+        " 2  * * *",
+        " 3  e0-4.switch1.hel1.he.net (184.104.191.177)  74.628 ms  75.026 ms  75.034 ms",
+        " 4  * cloudflare.spb.piter-ix.net (185.1.152.96)  81.597 ms equinix-helsinki.cloudflare.com (185.1.86.11)  75.020 ms",
+        " 5  f.root-servers.net (192.5.5.241)  74.479 ms * *"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "184.104.191.177"
+        ],
+        [
+            "*",
+            "185.1.152.96",
+            "185.1.86.11"
+        ],
+        [
+            "192.5.5.241",
+            "*"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "196.244.192.228",
+        "server_name": "FI#7",
+        "country": "Finland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

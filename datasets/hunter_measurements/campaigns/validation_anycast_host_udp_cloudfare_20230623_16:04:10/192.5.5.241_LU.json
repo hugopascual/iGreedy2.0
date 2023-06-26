@@ -1,0 +1,55 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 49.5806,
+        "longitude": 6.1118
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  34.554 ms  34.609 ms  34.625 ms",
+        " 2  92.223.89.129 (92.223.89.129)  34.948 ms  35.007 ms  35.024 ms",
+        " 3  92.223.112.2 (92.223.112.2)  35.036 ms  35.046 ms  35.272 ms",
+        " 4  * * *",
+        " 5  f.root-servers.net (192.5.5.241)  35.317 ms *  35.407 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "92.223.89.129"
+        ],
+        [
+            "92.223.112.2"
+        ],
+        [
+            "*"
+        ],
+        [
+            "192.5.5.241",
+            "*"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "92.223.89.151",
+        "server_name": "LU#11",
+        "country": "Luxembourg",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

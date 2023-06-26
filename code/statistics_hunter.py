@@ -204,6 +204,7 @@ class HunterStatistics:
         aggregation_df = pd.DataFrame(columns=[
             "validation",
             "country_positives", "country_negatives", "country_indeterminates",
+            "precision",
             "moment_of_campaign", "filename"
         ])
         for statistic_file in statistics_files:
@@ -224,6 +225,8 @@ class HunterStatistics:
             country_indeterminates = len(
                 statistic_df[statistic_df['country_outcome'] ==
                              "Indeterminate"])
+            precision = \
+                country_positives / (country_positives + country_negatives)
 
             if "ip_target_validation" in statistic_file:
                 validation_name = "ip_target_validation"
@@ -242,6 +245,7 @@ class HunterStatistics:
                     country_positives,
                     country_negatives,
                     country_indeterminates,
+                    precision,
                     campaign_date,
                     statistic_file
                 ]], columns=aggregation_df.columns,
@@ -338,7 +342,7 @@ for hunter_campaign in hunter_campaigns:
             validation_campaign_directory=hunter_campaign,
             validation=validation
         )
-        hunter_campaign_statistics.\
+        hunter_campaign_statistics. \
             hunter_build_statistics_validation_campaign()
 
 statistics = HunterStatistics()

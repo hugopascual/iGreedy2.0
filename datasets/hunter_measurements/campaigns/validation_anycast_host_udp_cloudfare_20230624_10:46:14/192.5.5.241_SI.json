@@ -1,0 +1,70 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 46.0511,
+        "longitude": 14.5051
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "VIE",
+        "size": "large_airport",
+        "name": "Vienna International Airport",
+        "lat long": "48.1102981567 16.5697002411",
+        "country_code": "AT",
+        "city": "Vienna"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.86.0.1)  45.434 ms  48.008 ms  48.031 ms",
+        " 2  195.80.150.225 (195.80.150.225)  48.047 ms  48.069 ms  48.074 ms",
+        " 3  91.185.217.169 (91.185.217.169)  57.101 ms  57.126 ms  57.139 ms",
+        " 4  217-72-74-105.static.telemach.net (217.72.74.105)  50.587 ms  50.641 ms  50.651 ms",
+        " 5  185-66-149-236.static.telemach.net (185.66.149.236)  55.426 ms  55.483 ms  57.348 ms",
+        " 6  * vix.as13335.net (193.203.0.195)  90.485 ms  53.703 ms",
+        " 7  f.root-servers.net (192.5.5.241)  53.041 ms  53.189 ms  53.019 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.86.0.1"
+        ],
+        [
+            "195.80.150.225"
+        ],
+        [
+            "91.185.217.169"
+        ],
+        [
+            "217.72.74.105"
+        ],
+        [
+            "185.66.149.236"
+        ],
+        [
+            "*",
+            "193.203.0.195"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "195.80.150.227",
+        "server_name": "SI#1",
+        "country": "Slovenia",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

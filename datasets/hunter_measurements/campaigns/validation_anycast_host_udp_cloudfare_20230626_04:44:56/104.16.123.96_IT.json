@@ -1,0 +1,70 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 45.4643,
+        "longitude": 9.1895
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MXP",
+        "size": "large_airport",
+        "name": "Malpensa International Airport",
+        "lat long": "45.6305999756 8.7281103134",
+        "country_code": "IT",
+        "city": "Milan"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  23.059 ms  23.043 ms  23.035 ms",
+        " 2  146.70.182.1 (146.70.182.1)  45.562 ms  45.563 ms  45.563 ms",
+        " 3  irb-0.agg1v.mil1.it.m247.com (146.70.1.44)  81.820 ms  81.839 ms  74.684 ms",
+        " 4  146.70.1.186 (146.70.1.186)  23.259 ms  23.377 ms  45.442 ms",
+        " 5  * * *",
+        " 6  * 172.71.112.4 (172.71.112.4)  33.492 ms  33.464 ms",
+        " 7  104.16.123.96 (104.16.123.96)  23.655 ms  23.560 ms  23.711 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "146.70.182.1"
+        ],
+        [
+            "146.70.1.44"
+        ],
+        [
+            "146.70.1.186"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*",
+            "172.71.112.4"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.182.29",
+        "server_name": "IT#39",
+        "country": "Italy",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 45.4643,
+        "longitude": 9.1895
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MXP",
+        "size": "large_airport",
+        "name": "Malpensa International Airport",
+        "lat long": "45.6305999756 8.7281103134",
+        "country_code": "IT",
+        "city": "Milan"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  22.844 ms  23.257 ms  23.300 ms",
+        " 2  146.70.182.1 (146.70.182.1)  40.587 ms  40.604 ms  40.612 ms",
+        " 3  * * *",
+        " 4  146.70.1.186 (146.70.1.186)  23.373 ms  23.182 ms  23.374 ms",
+        " 5  cloudflare.minap.it (185.1.114.25)  24.006 ms  24.029 ms  24.027 ms",
+        " 6  188.114.100.3 (188.114.100.3)  46.224 ms  24.173 ms  24.054 ms",
+        " 7  f.root-servers.net (192.5.5.241)  23.488 ms  23.502 ms  23.520 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "188.114.100.3",
+        "geolocation": {
+            "latitude": "45.4643",
+            "longitude": "9.1895"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "146.70.182.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "146.70.1.186"
+        ],
+        [
+            "185.1.114.25"
+        ],
+        [
+            "188.114.100.3"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.182.46",
+        "server_name": "IT#28",
+        "country": "Italy",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

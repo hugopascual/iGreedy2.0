@@ -1,0 +1,84 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 34.6841,
+        "longitude": 33.0379
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "LHR",
+        "size": "large_airport",
+        "name": "London Heathrow Airport",
+        "lat long": "51.4706001282 -0.4619410038",
+        "country_code": "GB",
+        "city": "London"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  498.629 ms  498.627 ms  498.627 ms",
+        " 2  85.132.252.33 (85.132.252.33)  498.640 ms  498.641 ms  579.755 ms",
+        " 3  213.140.211.61 (213.140.211.61)  579.682 ms  579.701 ms  579.712 ms",
+        " 4  213.140.198.144 (213.140.198.144)  498.563 ms  579.680 ms  579.703 ms",
+        " 5  * te-0-0-0-0.edge-r.hex67.uk.cablenet-as.net (213.140.198.31)  580.104 ms *",
+        " 6  * ldn-b2-link.ip.twelve99.net (213.248.67.162)  587.854 ms  669.062 ms",
+        " 7  cloudflare-ic-339870.ip.twelve99-cust.net (62.115.151.125)  669.061 ms  669.060 ms  669.024 ms",
+        " 8  172.71.176.2 (172.71.176.2)  587.668 ms 172.70.94.2 (172.70.94.2)  139.117 ms 141.101.71.2 (141.101.71.2)  135.723 ms",
+        " 9  104.16.123.96 (104.16.123.96)  140.390 ms  140.698 ms  140.390 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "172.71.176.2",
+        "geolocation": {
+            "latitude": "51.4752",
+            "longitude": "-0.3425"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "85.132.252.33"
+        ],
+        [
+            "213.140.211.61"
+        ],
+        [
+            "213.140.198.144"
+        ],
+        [
+            "*",
+            "213.140.198.31"
+        ],
+        [
+            "*",
+            "213.248.67.162"
+        ],
+        [
+            "62.115.151.125"
+        ],
+        [
+            "172.71.176.2",
+            "172.70.94.2",
+            "141.101.71.2"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "85.132.252.38",
+        "server_name": "CY#4",
+        "country": "Cyprus",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 46.0511,
+        "longitude": 14.5051
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "VIE",
+        "size": "large_airport",
+        "name": "Vienna International Airport",
+        "lat long": "48.1102981567 16.5697002411",
+        "country_code": "AT",
+        "city": "Vienna"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  48.591 ms  48.593 ms  48.702 ms",
+        " 2  195.80.150.225 (195.80.150.225)  48.712 ms  48.714 ms  48.714 ms",
+        " 3  91.185.217.169 (91.185.217.169)  55.948 ms  55.961 ms  56.111 ms",
+        " 4  217-72-74-105.static.telemach.net (217.72.74.105)  52.164 ms  52.175 ms  52.003 ms",
+        " 5  185-66-149-236.static.telemach.net (185.66.149.236)  54.769 ms  54.781 ms  56.271 ms",
+        " 6  vix.as13335.net (193.203.0.195)  54.891 ms  55.337 ms  54.912 ms",
+        " 7  104.16.123.96 (104.16.123.96)  51.728 ms  52.290 ms  52.566 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "193.203.0.195",
+        "geolocation": {
+            "latitude": "48.1920",
+            "longitude": "16.3671"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "195.80.150.225"
+        ],
+        [
+            "91.185.217.169"
+        ],
+        [
+            "217.72.74.105"
+        ],
+        [
+            "185.66.149.236"
+        ],
+        [
+            "193.203.0.195"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "195.80.150.227",
+        "server_name": "SI#1",
+        "country": "Slovenia",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

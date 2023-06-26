@@ -19,12 +19,12 @@ class AnycastValidationCloudfare:
                  validate_last_hop: bool = True,
                  origin: (float, float) = ()):
         self._today = datetime.datetime.utcnow().strftime('%Y%m%d_%H:%M:%S')
-        # A total of 56 files (28*2)
+        # A total of 56 files (29*2)
         self._targets_list = ["192.5.5.241", "104.16.123.96"]
         self._vpn_servers_names = [
             "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI",
             "FR", "GR", "HR", "HU", "IE", "IS", "IT", "LT", "LU", "LV",
-            "MT", "NL", "NO", "PL", "PT", "RO", "SI", "SK"
+            "MT", "NL", "NO", "PL", "PT", "RO", "SE", "SI", "SK"
         ]
 
         self._origin = origin

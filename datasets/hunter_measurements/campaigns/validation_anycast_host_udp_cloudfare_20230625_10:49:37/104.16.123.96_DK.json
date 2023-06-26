@@ -1,0 +1,83 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 55.6689,
+        "longitude": 12.5588
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  55.490 ms  55.589 ms  55.605 ms",
+        " 2  193.29.107.97 (193.29.107.97)  56.209 ms  56.224 ms  56.404 ms",
+        " 3  193.27.15.232 (193.27.15.232)  249.773 ms  249.831 ms  249.841 ms",
+        " 4  146.70.0.110 (146.70.0.110)  55.913 ms  55.927 ms  55.930 ms",
+        " 5  193.239.117.14 (193.239.117.14)  67.301 ms * *",
+        " 6  * 162.158.92.4 (162.158.92.4)  66.815 ms *",
+        " 7  * * *",
+        " 8  * * *",
+        " 9  * * *",
+        "10  104.16.123.96 (104.16.123.96)  66.573 ms  66.613 ms  66.931 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "193.29.107.97"
+        ],
+        [
+            "193.27.15.232"
+        ],
+        [
+            "146.70.0.110"
+        ],
+        [
+            "193.239.117.14",
+            "*"
+        ],
+        [
+            "*",
+            "162.158.92.4"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "193.29.107.108",
+        "server_name": "DK#46",
+        "country": "Denmark",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
