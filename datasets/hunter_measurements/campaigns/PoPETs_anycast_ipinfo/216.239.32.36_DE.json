@@ -1,0 +1,67 @@
+{
+    "target": "216.239.32.36",
+    "origin": {
+        "latitude": 50.1112,
+        "longitude": 8.6831
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  26.996 ms  27.429 ms  27.429 ms",
+        " 2  194.126.177.3 (194.126.177.3)  28.351 ms 194.126.177.2 (194.126.177.2)  28.352 ms 194.126.177.3 (194.126.177.3)  28.728 ms",
+        " 3  * * *",
+        " 4  et-2-0-29.edge8.frankfurt1.level3.net (62.67.33.37)  62.240 ms *  62.237 ms",
+        " 5  142.250.165.106 (142.250.165.106)  58.190 ms et-2-0-29.edge8.frankfurt1.level3.net (62.67.33.37)  62.216 ms  62.210 ms",
+        " 6  * 142.250.165.106 (142.250.165.106)  30.316 ms *",
+        " 7  * * 216.239.32.36 (216.239.32.36)  30.453 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "194.126.177.3",
+            "194.126.177.2"
+        ],
+        [
+            "*"
+        ],
+        [
+            "62.67.33.37",
+            "*"
+        ],
+        [
+            "142.250.165.106",
+            "62.67.33.37"
+        ],
+        [
+            "*",
+            "142.250.165.106"
+        ],
+        [
+            "*",
+            "216.239.32.36"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "194.126.177.85",
+        "server_name": "DE#119",
+        "country": "Germany",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
