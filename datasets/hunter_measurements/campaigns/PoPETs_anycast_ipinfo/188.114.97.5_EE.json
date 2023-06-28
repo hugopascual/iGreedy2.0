@@ -1,0 +1,60 @@
+{
+    "target": "188.114.97.5",
+    "origin": {
+        "latitude": 59.4124,
+        "longitude": 24.692
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  59.549 ms  116.049 ms  116.056 ms",
+        " 2  165.231.178.9 (165.231.178.9)  117.042 ms  117.049 ms  117.043 ms",
+        " 3  196.196.32.5 (196.196.32.5)  115.998 ms  115.995 ms  115.990 ms",
+        " 4  port-channel3.switch1.tll1.he.net (216.66.86.109)  115.984 ms *  116.155 ms",
+        " 5  * * *",
+        " 6  * * 188.114.97.5 (188.114.97.5)  74.604 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "165.231.178.9"
+        ],
+        [
+            "196.196.32.5"
+        ],
+        [
+            "216.66.86.109",
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*",
+            "188.114.97.5"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "165.231.178.18",
+        "server_name": "EE#1",
+        "country": "Estonia",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

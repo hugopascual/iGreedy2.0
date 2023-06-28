@@ -1,0 +1,65 @@
+{
+    "target": "104.18.215.59",
+    "origin": {
+        "latitude": 55.6689,
+        "longitude": 12.5588
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  44.461 ms  44.765 ms  44.772 ms",
+        " 2  193.29.107.97 (193.29.107.97)  45.239 ms  45.610 ms  45.932 ms",
+        " 3  * * *",
+        " 4  146.70.0.108 (146.70.0.108)  94.045 ms 146.70.0.110 (146.70.0.110)  94.077 ms 146.70.0.108 (146.70.0.108)  94.077 ms",
+        " 5  * * *",
+        " 6  * 172.71.248.5 (172.71.248.5)  64.627 ms 172.71.244.5 (172.71.244.5)  56.297 ms",
+        " 7  104.18.215.59 (104.18.215.59)  56.478 ms  56.629 ms  56.463 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "193.29.107.97"
+        ],
+        [
+            "*"
+        ],
+        [
+            "146.70.0.108",
+            "146.70.0.110"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*",
+            "172.71.248.5",
+            "172.71.244.5"
+        ],
+        [
+            "104.18.215.59"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "193.29.107.99",
+        "server_name": "DK#37",
+        "country": "Denmark",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

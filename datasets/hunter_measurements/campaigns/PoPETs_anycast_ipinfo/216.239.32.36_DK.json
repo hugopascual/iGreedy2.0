@@ -1,0 +1,72 @@
+{
+    "target": "216.239.32.36",
+    "origin": {
+        "latitude": 55.6689,
+        "longitude": 12.5588
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  45.406 ms  45.406 ms  45.399 ms",
+        " 2  193.29.107.97 (193.29.107.97)  45.416 ms  45.413 ms  45.596 ms",
+        " 3  193.27.15.246 (193.27.15.246)  64.540 ms 193.27.15.232 (193.27.15.232)  64.825 ms  153.673 ms",
+        " 4  146.70.0.108 (146.70.0.108)  87.375 ms 146.70.0.110 (146.70.0.110)  87.403 ms  87.398 ms",
+        " 5  * * *",
+        " 6  ae1.3104.edge4.stockholm2.level3.net (4.69.135.158)  98.340 ms  59.106 ms  59.079 ms",
+        " 7  72.14.213.40 (72.14.213.40)  55.210 ms  55.232 ms  55.227 ms",
+        " 8  * * *",
+        " 9  216.239.32.36 (216.239.32.36)  53.410 ms  53.442 ms  53.438 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "193.29.107.97"
+        ],
+        [
+            "193.27.15.246",
+            "193.27.15.232"
+        ],
+        [
+            "146.70.0.108",
+            "146.70.0.110"
+        ],
+        [
+            "*"
+        ],
+        [
+            "4.69.135.158"
+        ],
+        [
+            "72.14.213.40"
+        ],
+        [
+            "*"
+        ],
+        [
+            "216.239.32.36"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "193.29.107.99",
+        "server_name": "DK#37",
+        "country": "Denmark",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

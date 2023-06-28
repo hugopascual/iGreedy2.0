@@ -127,7 +127,7 @@ def hunt_popets_anycast():
     countries_origin_set = [
         #"IE", "FI", "NO", "IS", "SE", "NL", "AT",
         #"BE", "BG", "CY", "CZ", "DE",
-        "DK", "EE", "ES",
+        "ES", "EE", "DK",
         "FR", "GR", "HR", "HU", "IT", "LT", "LU", "LV",
         "MT", "PL", "PT", "SI", "SK"
     ]
@@ -299,7 +299,7 @@ def get_ip_out_EEE_list(filename: str) -> list:
     return list(jumps_popets_df["target"].unique())
 
 
-#hunt_popets_anycast()
+hunt_popets_anycast()
 #generata_popets_results(
 #    validate_last_hop=True,
 #    validate_target=True,
@@ -320,7 +320,6 @@ def get_ip_out_EEE_list(filename: str) -> list:
 #    validate_target=False,
 #    campaign_name="PoPETs_anycast_ipinfo"
 #)
-print(get_ip_out_EEE_list("PoPETs_anycast_ipinfo_ip_target_validation.csv"))
-print(
-    len(get_ip_out_EEE_list("PoPETs_anycast_ipinfo_ip_target_validation.csv"))
-)
+#print(
+#    len(get_ip_out_EEE_list("PoPETs_anycast_ipinfo_ip_target_validation.csv"))
+#)
