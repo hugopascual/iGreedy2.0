@@ -1,0 +1,71 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 56.946,
+        "longitude": 24.1059
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "VNO",
+        "size": "large_airport",
+        "name": "Vilnius International Airport",
+        "lat long": "54.6341018677 25.2858009338",
+        "country_code": "LT",
+        "city": "Vilnius"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  65.779 ms  65.947 ms  65.969 ms",
+        " 2  196.240.54.113 (196.240.54.113)  66.286 ms  66.334 ms  66.342 ms",
+        " 3  * e0-1.core2.rix1.he.net (184.104.191.189)  67.925 ms *",
+        " 4  100ge5-1.core1.vno1.he.net (184.104.192.90)  86.601 ms  86.655 ms *",
+        " 5  cloudflare.balt-ix.net (77.241.206.33)  71.909 ms  71.963 ms peering-ix.cloudflare.com (185.1.92.34)  72.155 ms",
+        " 6  104.16.123.96 (104.16.123.96)  70.730 ms  72.986 ms  69.584 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "77.241.206.33",
+        "geolocation": {
+            "latitude": "54.6303",
+            "longitude": "25.2771"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "196.240.54.113"
+        ],
+        [
+            "*",
+            "184.104.191.189"
+        ],
+        [
+            "184.104.192.90",
+            "*"
+        ],
+        [
+            "77.241.206.33",
+            "185.1.92.34"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "196.240.54.115",
+        "server_name": "LV#1",
+        "country": "Latvia",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

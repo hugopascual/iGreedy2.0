@@ -1,0 +1,87 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 50.8505,
+        "longitude": 4.3488
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "AMS",
+        "size": "large_airport",
+        "name": "Amsterdam Airport Schiphol",
+        "lat long": "52.3086013794 4.7638897896",
+        "country_code": "NL",
+        "city": "Amsterdam"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  39.065 ms  39.070 ms  39.071 ms",
+        " 2  vlan103.agg1.bru1.be.m247.com (91.90.123.49)  57.708 ms  57.738 ms  57.773 ms",
+        " 3  * * *",
+        " 4  193.27.15.198 (193.27.15.198)  39.958 ms * 193.9.115.185 (193.9.115.185)  39.872 ms",
+        " 5  146.70.1.222 (146.70.1.222)  43.084 ms  43.113 ms  43.121 ms",
+        " 6  37.120.220.105 (37.120.220.105)  42.643 ms  42.997 ms  43.006 ms",
+        " 7  * * *",
+        " 8  * * *",
+        " 9  * * *",
+        "10  * * *",
+        "11  f.root-servers.net (192.5.5.241)  43.424 ms  43.459 ms  43.623 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "91.90.123.49"
+        ],
+        [
+            "*"
+        ],
+        [
+            "193.27.15.198",
+            "*",
+            "193.9.115.185"
+        ],
+        [
+            "146.70.1.222"
+        ],
+        [
+            "37.120.220.105"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "91.90.123.184",
+        "server_name": "BE#22",
+        "country": "Belgium",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

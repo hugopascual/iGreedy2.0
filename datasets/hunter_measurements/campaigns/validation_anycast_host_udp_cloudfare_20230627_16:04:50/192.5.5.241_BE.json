@@ -1,0 +1,84 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 50.8505,
+        "longitude": 4.3488
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "AMS",
+        "size": "large_airport",
+        "name": "Amsterdam Airport Schiphol",
+        "lat long": "52.3086013794 4.7638897896",
+        "country_code": "NL",
+        "city": "Amsterdam"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  99.806 ms  99.812 ms  99.825 ms",
+        " 2  vlan103.agg1.bru1.be.m247.com (91.90.123.49)  121.007 ms  121.039 ms  121.052 ms",
+        " 3  * * *",
+        " 4  193.27.15.198 (193.27.15.198)  99.965 ms *  100.020 ms",
+        " 5  146.70.1.222 (146.70.1.222)  103.596 ms  103.660 ms *",
+        " 6  37.120.220.105 (37.120.220.105)  103.082 ms  42.564 ms  42.538 ms",
+        " 7  * ams-ix.as13335.net (80.249.211.140)  43.576 ms *",
+        " 8  172.71.96.2 (172.71.96.2)  50.468 ms 172.71.180.2 (172.71.180.2)  43.984 ms  44.062 ms",
+        " 9  f.root-servers.net (192.5.5.241)  44.007 ms  44.018 ms  44.002 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "172.71.96.2",
+        "geolocation": {
+            "latitude": "52.3258",
+            "longitude": "4.8167"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "91.90.123.49"
+        ],
+        [
+            "*"
+        ],
+        [
+            "193.27.15.198",
+            "*"
+        ],
+        [
+            "146.70.1.222",
+            "*"
+        ],
+        [
+            "37.120.220.105"
+        ],
+        [
+            "*",
+            "80.249.211.140"
+        ],
+        [
+            "172.71.96.2",
+            "172.71.180.2"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "91.90.123.179",
+        "server_name": "BE#17",
+        "country": "Belgium",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 50.8505,
+        "longitude": 4.3488
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "AMS",
+        "size": "large_airport",
+        "name": "Amsterdam Airport Schiphol",
+        "lat long": "52.3086013794 4.7638897896",
+        "country_code": "NL",
+        "city": "Amsterdam"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  39.314 ms  39.792 ms  39.918 ms",
+        " 2  vlan103.agg1.bru1.be.m247.com (91.90.123.49)  61.903 ms  61.922 ms  61.924 ms",
+        " 3  * * *",
+        " 4  193.27.15.198 (193.27.15.198)  40.105 ms *  40.098 ms",
+        " 5  146.70.1.222 (146.70.1.222)  44.006 ms  44.060 ms  44.064 ms",
+        " 6  37.120.220.105 (37.120.220.105)  43.068 ms  42.854 ms  42.598 ms",
+        " 7  * * *",
+        " 8  * * *",
+        " 9  * * *",
+        "10  * 104.16.123.96 (104.16.123.96)  43.272 ms  43.505 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "91.90.123.49"
+        ],
+        [
+            "*"
+        ],
+        [
+            "193.27.15.198",
+            "*"
+        ],
+        [
+            "146.70.1.222"
+        ],
+        [
+            "37.120.220.105"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*",
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "91.90.123.51",
+        "server_name": "BE#29",
+        "country": "Belgium",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

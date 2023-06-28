@@ -1,0 +1,61 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 60.1695,
+        "longitude": 24.9354
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "LED",
+        "size": "large_airport",
+        "name": "Pulkovo Airport",
+        "lat long": "59.8003005981 30.2625007629",
+        "country_code": "RU",
+        "city": "St Petersburg"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  55.171 ms  55.775 ms  55.924 ms",
+        " 2  * * *",
+        " 3  e0-4.switch1.hel1.he.net (184.104.191.177)  56.057 ms  56.220 ms  56.382 ms",
+        " 4  * * *",
+        " 5  104.16.123.96 (104.16.123.96)  61.311 ms  61.346 ms  61.953 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "184.104.191.177"
+        ],
+        [
+            "*"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "196.244.192.229",
+        "server_name": "FI#8",
+        "country": "Finland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

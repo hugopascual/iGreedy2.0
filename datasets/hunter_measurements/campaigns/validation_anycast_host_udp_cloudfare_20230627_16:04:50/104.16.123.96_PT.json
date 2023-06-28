@@ -1,0 +1,64 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 38.7167,
+        "longitude": -9.1333
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "LIS",
+        "size": "large_airport",
+        "name": "Lisbon Portela Airport",
+        "lat long": "38.7812995911 -9.1359195709",
+        "country_code": "PT",
+        "city": "Lisbon"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  20.765 ms  20.857 ms  20.858 ms",
+        " 2  91.205.230.65 (91.205.230.65)  21.537 ms  21.539 ms  21.761 ms",
+        " 3  185.166.144.242 (185.166.144.242)  21.696 ms  21.698 ms  21.694 ms",
+        " 4  de-cix-lisbon.as13335.net (185.1.131.22)  43.212 ms  43.224 ms  43.223 ms",
+        " 5  104.16.123.96 (104.16.123.96)  21.955 ms  22.135 ms  22.044 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "185.1.131.22",
+        "geolocation": {
+            "latitude": "38.7295",
+            "longitude": "-9.1649"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "91.205.230.65"
+        ],
+        [
+            "185.166.144.242"
+        ],
+        [
+            "185.1.131.22"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "195.158.248.227",
+        "server_name": "PT#5",
+        "country": "Portugal",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

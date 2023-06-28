@@ -1,0 +1,65 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 37.9838,
+        "longitude": 23.7278
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "ATH",
+        "size": "large_airport",
+        "name": "Eleftherios Venizelos International Airport",
+        "lat long": "37.9364013672 23.9444999695",
+        "country_code": "GR",
+        "city": "Athens"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  62.775 ms  62.763 ms  63.039 ms",
+        " 2  185.51.134.193 (185.51.134.193)  63.055 ms  63.055 ms  63.057 ms",
+        " 3  ath1-lio-estnoc-ath.synapsecom.gr (78.108.47.13)  63.059 ms  63.059 ms  63.793 ms",
+        " 4  ath-100g-tis2-l1.synapsecom.gr (78.108.32.213)  71.946 ms  71.900 ms  72.122 ms",
+        " 5  * * *",
+        " 6  104.16.123.96 (104.16.123.96)  64.723 ms  63.746 ms  63.601 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "185.51.134.193"
+        ],
+        [
+            "78.108.47.13"
+        ],
+        [
+            "78.108.32.213"
+        ],
+        [
+            "*"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.51.134.195",
+        "server_name": "GR#1",
+        "country": "Greece",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

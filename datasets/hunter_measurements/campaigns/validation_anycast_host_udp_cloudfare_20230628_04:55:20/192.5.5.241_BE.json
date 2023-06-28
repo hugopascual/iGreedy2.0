@@ -1,0 +1,86 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 50.8505,
+        "longitude": 4.3488
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "AMS",
+        "size": "large_airport",
+        "name": "Amsterdam Airport Schiphol",
+        "lat long": "52.3086013794 4.7638897896",
+        "country_code": "NL",
+        "city": "Amsterdam"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  39.336 ms  39.798 ms  39.823 ms",
+        " 2  vlan103.agg1.bru1.be.m247.com (91.90.123.49)  52.045 ms  52.077 ms  52.084 ms",
+        " 3  * * *",
+        " 4  193.9.115.185 (193.9.115.185)  40.123 ms  40.149 ms *",
+        " 5  146.70.1.222 (146.70.1.222)  43.661 ms  43.693 ms  43.702 ms",
+        " 6  37.120.220.105 (37.120.220.105)  42.996 ms  42.899 ms  44.363 ms",
+        " 7  * * *",
+        " 8  * * *",
+        " 9  * * *",
+        "10  * * *",
+        "11  f.root-servers.net (192.5.5.241)  43.562 ms  43.761 ms  43.778 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "91.90.123.49"
+        ],
+        [
+            "*"
+        ],
+        [
+            "193.9.115.185",
+            "*"
+        ],
+        [
+            "146.70.1.222"
+        ],
+        [
+            "37.120.220.105"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "91.90.123.51",
+        "server_name": "BE#29",
+        "country": "Belgium",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

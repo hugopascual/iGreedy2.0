@@ -1,0 +1,72 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 35.8997,
+        "longitude": 14.5148
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MRS",
+        "size": "large_airport",
+        "name": "Marseille Provence Airport",
+        "lat long": "43.439271922 5.2214241028",
+        "country_code": "FR",
+        "city": "Marseille"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  38.644 ms  38.709 ms  38.718 ms",
+        " 2  84.252.112.125 (84.252.112.125)  38.724 ms 84.252.112.124 (84.252.112.124)  39.183 ms  39.212 ms",
+        " 3  vl202.mrs-itx2-core-2.cdn77.com (185.229.188.134)  38.711 ms vl204.mrs-itx2-core-2.cdn77.com (185.229.188.136)  38.718 ms vl202.mrs-itx2-core-2.cdn77.com (185.229.188.134)  38.723 ms",
+        " 4  * * *",
+        " 5  * * *",
+        " 6  172.71.184.2 (172.71.184.2)  39.123 ms 162.158.20.242 (162.158.20.242)  39.197 ms  39.194 ms",
+        " 7  f.root-servers.net (192.5.5.241)  39.090 ms  39.117 ms  39.126 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "172.71.184.2",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "84.252.112.125",
+            "84.252.112.124"
+        ],
+        [
+            "185.229.188.134",
+            "185.229.188.136"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "172.71.184.2",
+            "162.158.20.242"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "84.252.112.2",
+        "server_name": "MT#2",
+        "country": "Malta",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

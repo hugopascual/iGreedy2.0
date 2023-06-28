@@ -1,0 +1,76 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 35.8903,
+        "longitude": 14.4778
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MRS",
+        "size": "large_airport",
+        "name": "Marseille Provence Airport",
+        "lat long": "43.439271922 5.2214241028",
+        "country_code": "FR",
+        "city": "Marseille"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  40.308 ms  40.620 ms  40.675 ms",
+        " 2  84.252.112.125 (84.252.112.125)  40.685 ms 84.252.112.124 (84.252.112.124)  40.688 ms 84.252.112.125 (84.252.112.125)  40.688 ms",
+        " 3  vl202.mrs-itx2-core-2.cdn77.com (185.229.188.134)  40.688 ms  41.086 ms vl204.mrs-itx2-core-2.cdn77.com (185.229.188.136)  41.105 ms",
+        " 4  * * *",
+        " 5  * * *",
+        " 6  * 162.158.20.242 (162.158.20.242)  45.417 ms *",
+        " 7  * * *",
+        " 8  104.16.123.96 (104.16.123.96)  40.966 ms  41.002 ms  40.997 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "84.252.112.125",
+            "84.252.112.124"
+        ],
+        [
+            "185.229.188.134",
+            "185.229.188.136"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*",
+            "162.158.20.242"
+        ],
+        [
+            "*"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "84.252.112.1",
+        "server_name": "MT#1",
+        "country": "Malta",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
