@@ -1,0 +1,83 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 35.8903,
+        "longitude": 14.4778
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MRS",
+        "size": "large_airport",
+        "name": "Marseille Provence Airport",
+        "lat long": "43.439271922 5.2214241028",
+        "country_code": "FR",
+        "city": "Marseille"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  38.155 ms  38.347 ms  38.370 ms",
+        " 2  84.252.112.125 (84.252.112.125)  38.370 ms  38.384 ms 84.252.112.124 (84.252.112.124)  38.356 ms",
+        " 3  vl202.mrs-itx2-core-2.cdn77.com (185.229.188.134)  38.370 ms  38.370 ms  38.371 ms",
+        " 4  * * *",
+        " 5  * * *",
+        " 6  162.158.20.242 (162.158.20.242)  39.008 ms 172.71.184.2 (172.71.184.2)  39.192 ms 162.158.20.242 (162.158.20.242)  39.089 ms",
+        " 7  * * *",
+        " 8  * * *",
+        " 9  * * *",
+        "10  104.16.123.96 (104.16.123.96)  38.519 ms  38.655 ms  38.663 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "84.252.112.125",
+            "84.252.112.124"
+        ],
+        [
+            "185.229.188.134"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "162.158.20.242",
+            "172.71.184.2"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "84.252.112.1",
+        "server_name": "MT#1",
+        "country": "Malta",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
