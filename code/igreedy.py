@@ -26,7 +26,6 @@ from utils.common_functions import (
 from anycast import Anycast
 from measurement import Measurement
 from disc import *
-from hunter import Hunter
 from groundtruth import compare_cities_gt
 from visualize import (
     plot_file
@@ -531,21 +530,6 @@ def main(argv):
             print("Error: for the anycast detection at least 2 latency "
                   "measurement are needed")
             sys.exit(-1)
-
-    # Hunter option
-    if hunter_target:
-        hunter = Hunter(target=hunter_target)
-
-        if hunter_origin:
-            hunter.set_origin(hunter_origin)
-        if output_file == (output_path + "output"):
-            hunter.set_output_filename(output_file)
-
-        hunter.set_check_cf_ray(check_cf_ray)
-        hunter.set_validate_last_hop(validate_last_hop)
-        hunter.set_validate_target_anycast(validate_hunter_target)
-
-        hunter.hunt()
 
     # Analyze the data and print the time of process
     load_time = time.time() - maker_time
