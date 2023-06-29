@@ -1,0 +1,65 @@
+{
+    "target": "172.67.135.33",
+    "origin": {
+        "latitude": 59.4124,
+        "longitude": 24.692
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  58.008 ms  59.799 ms  59.803 ms",
+        " 2  165.231.178.9 (165.231.178.9)  60.537 ms  60.542 ms  60.549 ms",
+        " 3  196.196.32.5 (196.196.32.5)  77.788 ms  77.799 ms  77.794 ms",
+        " 4  * * port-channel3.switch1.tll1.he.net (216.66.86.109)  60.436 ms",
+        " 5  port-channel3.core2.hel1.he.net (184.104.192.98)  61.679 ms  115.943 ms  116.227 ms",
+        " 6  * equinix-helsinki.cloudflare.com (185.1.86.11)  79.240 ms *",
+        " 7  172.67.135.33 (172.67.135.33)  60.927 ms  60.944 ms *"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "165.231.178.9"
+        ],
+        [
+            "196.196.32.5"
+        ],
+        [
+            "*",
+            "216.66.86.109"
+        ],
+        [
+            "184.104.192.98"
+        ],
+        [
+            "*",
+            "185.1.86.11"
+        ],
+        [
+            "172.67.135.33",
+            "*"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "165.231.178.18",
+        "server_name": "EE#1",
+        "country": "Estonia",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

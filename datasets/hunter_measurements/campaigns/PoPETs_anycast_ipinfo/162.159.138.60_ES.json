@@ -1,0 +1,66 @@
+{
+    "target": "162.159.138.60",
+    "origin": {
+        "latitude": 40.4165,
+        "longitude": -3.7026
+    },
+    "traceroute_from_host": true,
+    "gt_info": null,
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  2.746 ms  4.133 ms  4.134 ms",
+        " 2  unn-195-181-167-220.datapacket.com (195.181.167.220)  4.809 ms unn-195-181-167-221.datapacket.com (195.181.167.221)  4.820 ms  4.814 ms",
+        " 3  vl203.mad-itx-core-1.cdn77.com (185.229.188.84)  4.808 ms vl202.mad-itx-core-2.cdn77.com (185.229.188.82)  4.808 ms vl201.mad-itx-core-1.cdn77.com (185.229.188.80)  4.804 ms",
+        " 4  5.255.147.201 (5.255.147.201)  5.559 ms  5.572 ms 81.173.106.178 (81.173.106.178)  5.566 ms",
+        " 5  176.52.248.251 (176.52.248.251)  5.560 ms  38.410 ms  5.539 ms",
+        " 6  * * *",
+        " 7  162.159.138.60 (162.159.138.60)  5.283 ms  5.299 ms  5.305 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "195.181.167.220",
+            "195.181.167.221"
+        ],
+        [
+            "185.229.188.84",
+            "185.229.188.82",
+            "185.229.188.80"
+        ],
+        [
+            "5.255.147.201",
+            "81.173.106.178"
+        ],
+        [
+            "176.52.248.251"
+        ],
+        [
+            "*"
+        ],
+        [
+            "162.159.138.60"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "195.181.167.194",
+        "server_name": "ES#9",
+        "country": "Spain",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
