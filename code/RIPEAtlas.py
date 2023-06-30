@@ -89,6 +89,7 @@ class Measurement():
                 # Start the measurement and get measurement id
                 results = requests.post(self.url, json=data).json()
                 # TODO remove only for test
+                #print(json.dumps(results, indent=4))
                 #data["petition_result"] = results
                 #print(key)
                 #cm.dict_to_json_file(dict=data,

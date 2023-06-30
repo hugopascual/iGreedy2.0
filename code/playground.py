@@ -25,6 +25,7 @@ from utils.constants import (
     SPEED_OF_LIGHT,
     EARTH_RADIUS_KM,
     HUNTER_MEASUREMENTS_CAMPAIGNS_PATH,
+    HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH,
     VERLOC_GAP,
     VERLOC_APROX_PATH,
     RIPE_ATLAS_MEASUREMENTS_BASE_URL,
@@ -48,7 +49,8 @@ from utils.common_functions import (
     calculate_hunter_pings_intersection_area,
     get_polygon_from_section,
     get_list_folders_in_path,
-    get_country_name
+    get_country_name,
+    countries_in_EEE_set
 )
 from groundtruth import get_gt_instances_locations
 
@@ -263,8 +265,6 @@ def verloc_grafic_aproximation():
     figure.show()
 
 
-verloc_grafic_aproximation()
-
 def obtain_cf_ray(target: str):
     try:
         headers = requests.get("http://{}".format(target)).headers
@@ -276,4 +276,26 @@ def obtain_cf_ray(target: str):
         print("NO CF-RAY IN HEADERS")
 
 
+statistic_df = pd.read_csv(HUNTER_MEASUREMENTS_CAMPAIGNS_STATISTICS_PATH +
+    "statistics_validation_anycast_host_udp_cloudfare_ip_all_validation_20230606_21∶51∶18.csv",
+                           sep=",")
+countries_EEE_set = countries_in_EEE_set()
+
+statistic_df["country_jump"] = statistic_df.apply(
+    lambda row: row["origin_country"] != row["gt_country"],
+    axis=1
+)
+statistic_df["jump_out_EEE"] = statistic_df["gt_country"].apply(
+    lambda destination_country:
+    destination_country not in countries_EEE_set
+)
+
+number_jumps = statistic_df["country_jump"].value_counts()[
+    bool(True)
+]
+jumps_out_EEE = statistic_df["jump_out_EEE"].value_counts()[
+    bool(True)
+]
+
+statistic_df.to_csv("test.csv", sep=",")
 
