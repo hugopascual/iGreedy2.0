@@ -1,0 +1,93 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 55.6689,
+        "longitude": 12.5588
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "FRA",
+        "size": "large_airport",
+        "name": "Frankfurt am Main International Airport",
+        "lat long": "50.0264015198 8.543129921",
+        "country_code": "DE",
+        "city": "Frankfurt-am-Main"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  55.436 ms  55.745 ms  55.775 ms",
+        " 2  193.29.107.97 (193.29.107.97)  56.051 ms  56.123 ms  56.252 ms",
+        " 3  193.27.15.232 (193.27.15.232)  69.740 ms  69.807 ms 193.27.15.246 (193.27.15.246)  66.946 ms",
+        " 4  146.70.0.110 (146.70.0.110)  57.866 ms 146.70.0.108 (146.70.0.108)  99.427 ms  99.497 ms",
+        " 5  193.239.117.14 (193.239.117.14)  110.556 ms  110.606 ms  110.580 ms",
+        " 6  172.70.244.5 (172.70.244.5)  109.457 ms * *",
+        " 7  * * *",
+        " 8  * * *",
+        " 9  * * *",
+        "10  * * *",
+        "11  * * *",
+        "12  f.root-servers.net (192.5.5.241)  66.597 ms * *"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "193.29.107.97"
+        ],
+        [
+            "193.27.15.232",
+            "193.27.15.246"
+        ],
+        [
+            "146.70.0.110",
+            "146.70.0.108"
+        ],
+        [
+            "193.239.117.14"
+        ],
+        [
+            "172.70.244.5",
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "*"
+        ],
+        [
+            "192.5.5.241",
+            "*"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "193.29.107.99",
+        "server_name": "DK#37",
+        "country": "Denmark",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

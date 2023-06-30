@@ -1,0 +1,68 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 50.0833,
+        "longitude": 14.6167
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "PRG",
+        "size": "large_airport",
+        "name": "Ruzyn\u011b International Airport",
+        "lat long": "50.1007995605 14.2600002289",
+        "country_code": "CZ",
+        "city": "Prague"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  40.357 ms  40.367 ms  40.368 ms",
+        " 2  unn-149-102-235-60.datapacket.com (149.102.235.60)  40.452 ms  40.460 ms unn-149-102-235-61.datapacket.com (149.102.235.61)  40.461 ms",
+        " 3  unn-138-199-0-154.cdn77.com (138.199.0.154)  40.462 ms unn-138-199-0-156.cdn77.com (138.199.0.156)  40.465 ms  40.467 ms",
+        " 4  cloudflare-prg.cdn77.com (45.134.215.19)  49.407 ms vl200.prg-sit-cdn77-core-2.cdn77.com (185.229.188.101)  40.458 ms cloudflare-prg.cdn77.com (45.134.215.19)  49.419 ms",
+        " 5  cloudflare-prg.cdn77.com (45.134.215.19)  49.421 ms  49.420 ms 104.16.123.96 (104.16.123.96)  41.232 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "45.134.215.19",
+        "geolocation": {
+            "latitude": "50.0833",
+            "longitude": "14.6167"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "149.102.235.60",
+            "149.102.235.61"
+        ],
+        [
+            "138.199.0.154",
+            "138.199.0.156"
+        ],
+        [
+            "45.134.215.19",
+            "185.229.188.101"
+        ],
+        [
+            "45.134.215.19",
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "149.102.235.34",
+        "server_name": "CZ#21",
+        "country": "Czech Republic",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

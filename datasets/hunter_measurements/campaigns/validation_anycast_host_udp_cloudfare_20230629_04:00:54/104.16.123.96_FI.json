@@ -1,0 +1,68 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 60.2082,
+        "longitude": 25.0404
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "ARN",
+        "size": "large_airport",
+        "name": "Stockholm-Arlanda Airport",
+        "lat long": "59.6519012451 17.9186000824",
+        "country_code": "SE",
+        "city": "Stockholm"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  52.268 ms  52.271 ms  52.347 ms",
+        " 2  37.143.129.1 (37.143.129.1)  52.522 ms  52.554 ms  52.530 ms",
+        " 3  ae0-204.rt.thd.hki.fi.retn.net (87.245.244.216)  61.104 ms  61.121 ms  61.124 ms",
+        " 4  ae4-9.rt.tc1.sto.se.retn.net (87.245.233.73)  75.233 ms  62.537 ms  62.801 ms",
+        " 5  gw-cloudflare.retn.net (87.245.242.217)  72.538 ms  73.201 ms  73.218 ms",
+        " 6  104.16.123.96 (104.16.123.96)  57.704 ms  60.595 ms  61.027 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "87.245.242.217",
+        "geolocation": {
+            "latitude": "59.3294",
+            "longitude": "18.0687"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "37.143.129.1"
+        ],
+        [
+            "87.245.244.216"
+        ],
+        [
+            "87.245.233.73"
+        ],
+        [
+            "87.245.242.217"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "194.34.132.56",
+        "server_name": "FI#1",
+        "country": "Finland",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

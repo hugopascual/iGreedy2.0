@@ -1,0 +1,63 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 50.0833,
+        "longitude": 14.6167
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "PRG",
+        "size": "large_airport",
+        "name": "Ruzyn\u011b International Airport",
+        "lat long": "50.1007995605 14.2600002289",
+        "country_code": "CZ",
+        "city": "Prague"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.83.0.1)  39.056 ms  39.684 ms  39.707 ms",
+        " 2  unn-149-102-235-61.datapacket.com (149.102.235.61)  39.721 ms  39.729 ms  39.736 ms",
+        " 3  unn-138-199-0-152.cdn77.com (138.199.0.152)  39.741 ms unn-138-199-0-156.cdn77.com (138.199.0.156)  39.748 ms unn-138-199-0-158.cdn77.com (138.199.0.158)  39.755 ms",
+        " 4  cloudflare-prg.cdn77.com (45.134.215.19)  42.541 ms f.root-servers.net (192.5.5.241)  39.750 ms  40.450 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "138.199.0.152",
+        "geolocation": {
+            "latitude": "50.0833",
+            "longitude": "14.6167"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.83.0.1"
+        ],
+        [
+            "149.102.235.61"
+        ],
+        [
+            "138.199.0.152",
+            "138.199.0.156",
+            "138.199.0.158"
+        ],
+        [
+            "45.134.215.19",
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "149.102.235.34",
+        "server_name": "CZ#21",
+        "country": "Czech Republic",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

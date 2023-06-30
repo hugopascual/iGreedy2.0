@@ -1,0 +1,64 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 50.8505,
+        "longitude": 4.3488
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "BRU",
+        "size": "large_airport",
+        "name": "Brussels Airport",
+        "lat long": "50.9014015198 4.4844398499",
+        "country_code": "BE",
+        "city": "Brussels"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.86.0.1)  28.721 ms  28.740 ms  28.962 ms",
+        " 2  * * *",
+        " 3  et-7-0-12-1.edge3.brussels1.level3.net (213.249.123.17)  58.259 ms  58.688 ms  58.266 ms",
+        " 4  212.3.237.170 (212.3.237.170)  58.712 ms  58.713 ms  58.743 ms",
+        " 5  104.16.123.96 (104.16.123.96)  57.879 ms  57.936 ms  57.911 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "212.3.237.170",
+        "geolocation": {
+            "latitude": "50.8505",
+            "longitude": "4.3488"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.86.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "213.249.123.17"
+        ],
+        [
+            "212.3.237.170"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "45.128.133.227",
+        "server_name": "BE#5",
+        "country": "Belgium",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

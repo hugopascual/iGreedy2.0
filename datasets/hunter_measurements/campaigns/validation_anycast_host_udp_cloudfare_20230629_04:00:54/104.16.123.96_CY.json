@@ -1,0 +1,72 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 34.7006,
+        "longitude": 33.0437
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "LCA",
+        "size": "large_airport",
+        "name": "Larnaca International Airport",
+        "lat long": "34.8750991821 33.6249008179",
+        "country_code": "CY",
+        "city": "Larnaca"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  83.696 ms  84.140 ms  84.156 ms",
+        " 2  85.132.252.33 (85.132.252.33)  84.831 ms  84.871 ms  85.118 ms",
+        " 3  213.140.211.61 (213.140.211.61)  86.638 ms  86.149 ms  86.633 ms",
+        " 4  213.140.198.144 (213.140.198.144)  86.576 ms  86.624 ms  86.623 ms",
+        " 5  be41.core-r1.nic-south.cy.cablenet-as.net (213.140.198.74)  85.513 ms  85.533 ms  85.533 ms",
+        " 6  213.140.213.142 (213.140.213.142)  88.447 ms  85.728 ms  115.336 ms",
+        " 7  104.16.123.96 (104.16.123.96)  85.142 ms  85.398 ms  85.465 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "213.140.213.142",
+        "geolocation": {
+            "latitude": "35.1487",
+            "longitude": "33.3338"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "85.132.252.33"
+        ],
+        [
+            "213.140.211.61"
+        ],
+        [
+            "213.140.198.144"
+        ],
+        [
+            "213.140.198.74"
+        ],
+        [
+            "213.140.213.142"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "85.132.252.35",
+        "server_name": "CY#1",
+        "country": "Cyprus",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

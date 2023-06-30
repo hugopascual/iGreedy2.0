@@ -1,0 +1,75 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 59.3326,
+        "longitude": 18.0649
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "ARN",
+        "size": "large_airport",
+        "name": "Stockholm-Arlanda Airport",
+        "lat long": "59.6519012451 17.9186000824",
+        "country_code": "SE",
+        "city": "Stockholm"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  56.074 ms  56.587 ms  56.614 ms",
+        " 2  185.159.156.1 (185.159.156.1)  57.679 ms  57.703 ms  57.709 ms",
+        " 3  sto-thu-ar3.sto-thu-dr8.bahnhof.net (176.10.180.40)  57.269 ms sto-thu-ar3.sto-thu-dr7.bahnhof.net (176.10.180.72)  57.872 ms sto-thu-ar3.sto-thu-dr8.bahnhof.net (176.10.180.40)  57.292 ms",
+        " 4  sto-thu-dr7.sto-cr1.bahnhof.net (176.10.180.82)  67.612 ms sto-thu-dr8.sto-cr3.bahnhof.net (176.10.180.84)  67.009 ms  67.626 ms",
+        " 5  sto-cr3.sto-tlc-er1.bahnhof.net (46.59.113.179)  67.030 ms sto-cr1.sto-tlc-er1.bahnhof.net (46.59.112.175)  67.055 ms sto-cr3.sto-tlc-er1.bahnhof.net (46.59.113.179)  67.030 ms",
+        " 6  172.68.180.6 (172.68.180.6)  68.063 ms  89.107 ms  57.792 ms",
+        " 7  f.root-servers.net (192.5.5.241)  57.753 ms  57.971 ms  57.974 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "172.68.180.6",
+        "geolocation": {
+            "latitude": "59.3294",
+            "longitude": "18.0687"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "185.159.156.1"
+        ],
+        [
+            "176.10.180.40",
+            "176.10.180.72"
+        ],
+        [
+            "176.10.180.82",
+            "176.10.180.84"
+        ],
+        [
+            "46.59.113.179",
+            "46.59.112.175"
+        ],
+        [
+            "172.68.180.6"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.159.156.5",
+        "server_name": "SE#3",
+        "country": "Sweden",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

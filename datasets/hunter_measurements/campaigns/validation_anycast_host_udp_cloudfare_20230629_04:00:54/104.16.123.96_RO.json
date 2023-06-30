@@ -1,0 +1,74 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 44.4914,
+        "longitude": 26.0602
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "BUD",
+        "size": "large_airport",
+        "name": "Budapest Listz Ferenc international Airport",
+        "lat long": "47.4369010925 19.2555999756",
+        "country_code": "HU",
+        "city": "Budapest"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  54.266 ms  54.522 ms  54.555 ms",
+        " 2  unn-138-199-53-253.datapacket.com (138.199.53.253)  54.558 ms  54.563 ms unn-138-199-53-252.datapacket.com (138.199.53.252)  54.564 ms",
+        " 3  vl203.buc-nxd2-core-1.cdn77.com (185.156.45.44)  55.122 ms  55.140 ms  55.142 ms",
+        " 4  be6206.ccr31.buh01.atlas.cogentco.com (149.6.50.81)  55.545 ms  55.878 ms *",
+        " 5  be3262.ccr31.bud01.atlas.cogentco.com (154.54.38.245)  67.151 ms  67.888 ms  67.908 ms",
+        " 6  149.6.182.74 (149.6.182.74)  70.487 ms  70.051 ms  70.838 ms",
+        " 7  104.16.123.96 (104.16.123.96)  69.353 ms  69.352 ms  69.339 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "149.6.182.74",
+        "geolocation": {
+            "latitude": "47.4984",
+            "longitude": "19.0404"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "138.199.53.253",
+            "138.199.53.252"
+        ],
+        [
+            "185.156.45.44"
+        ],
+        [
+            "149.6.50.81",
+            "*"
+        ],
+        [
+            "154.54.38.245"
+        ],
+        [
+            "149.6.182.74"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "138.199.53.226",
+        "server_name": "RO#9",
+        "country": "Romania",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

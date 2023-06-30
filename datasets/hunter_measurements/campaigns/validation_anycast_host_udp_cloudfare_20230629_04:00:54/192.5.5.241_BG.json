@@ -1,0 +1,77 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 42.6975,
+        "longitude": 23.3241
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "BUD",
+        "size": "large_airport",
+        "name": "Budapest Listz Ferenc international Airport",
+        "lat long": "47.4369010925 19.2555999756",
+        "country_code": "HU",
+        "city": "Budapest"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  64.756 ms  64.771 ms  64.779 ms",
+        " 2  unn-156-146-55-252.cdn77.com (156.146.55.252)  65.204 ms  65.228 ms  87.294 ms",
+        " 3  vl203.sof-tlp-core-1.cdn77.com (138.199.0.200)  87.347 ms vl201.sof-tlp-core-1.cdn77.com (138.199.0.198)  87.377 ms  87.385 ms",
+        " 4  be6331.ccr31.sof02.atlas.cogentco.com (149.6.68.137)  87.822 ms  87.898 ms  87.908 ms",
+        " 5  be3421.ccr51.beg03.atlas.cogentco.com (130.117.0.94)  132.829 ms  132.882 ms  93.042 ms",
+        " 6  be3422.ccr31.bud01.atlas.cogentco.com (130.117.0.125)  98.189 ms  75.802 ms  75.853 ms",
+        " 7  149.6.182.74 (149.6.182.74)  81.803 ms  81.851 ms  83.001 ms",
+        " 8  f.root-servers.net (192.5.5.241)  81.018 ms  81.047 ms  81.038 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "149.6.182.74",
+        "geolocation": {
+            "latitude": "47.4984",
+            "longitude": "19.0404"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "156.146.55.252"
+        ],
+        [
+            "138.199.0.200",
+            "138.199.0.198"
+        ],
+        [
+            "149.6.68.137"
+        ],
+        [
+            "130.117.0.94"
+        ],
+        [
+            "130.117.0.125"
+        ],
+        [
+            "149.6.182.74"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "156.146.55.226",
+        "server_name": "BG#5",
+        "country": "Bulgaria",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

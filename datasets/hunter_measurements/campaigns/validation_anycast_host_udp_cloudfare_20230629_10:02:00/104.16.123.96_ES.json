@@ -1,0 +1,75 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 40.4066,
+        "longitude": -3.6724
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MAD",
+        "size": "large_airport",
+        "name": "Madrid Barajas International Airport",
+        "lat long": "40.4936 -3.56676",
+        "country_code": "ES",
+        "city": "Madrid"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.82.0.1)  1.427 ms  2.045 ms  2.043 ms",
+        " 2  unn-185-76-11-28.datapacket.com (185.76.11.28)  2.232 ms unn-185-76-11-29.datapacket.com (185.76.11.29)  2.231 ms  2.227 ms",
+        " 3  vl202.mad-itx-core-2.cdn77.com (185.229.188.82)  2.221 ms  2.216 ms vl201.mad-itx-core-1.cdn77.com (185.229.188.80)  2.209 ms",
+        " 4  81.173.106.178 (81.173.106.178)  2.744 ms  2.839 ms  2.838 ms",
+        " 5  176.52.248.251 (176.52.248.251)  2.171 ms  2.166 ms *",
+        " 6  * 172.70.58.2 (172.70.58.2)  2.231 ms 81.173.106.39 (81.173.106.39)  2.701 ms",
+        " 7  104.16.123.96 (104.16.123.96)  2.073 ms  1.999 ms 172.70.56.3 (172.70.56.3)  2.387 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "",
+        "geolocation": {}
+    },
+    "hops_directions_list": [
+        [
+            "10.82.0.1"
+        ],
+        [
+            "185.76.11.28",
+            "185.76.11.29"
+        ],
+        [
+            "185.229.188.82",
+            "185.229.188.80"
+        ],
+        [
+            "81.173.106.178"
+        ],
+        [
+            "176.52.248.251",
+            "*"
+        ],
+        [
+            "*",
+            "172.70.58.2",
+            "81.173.106.39"
+        ],
+        [
+            "104.16.123.96",
+            "172.70.56.3"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.76.11.23",
+        "server_name": "ES#21",
+        "country": "Spain",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

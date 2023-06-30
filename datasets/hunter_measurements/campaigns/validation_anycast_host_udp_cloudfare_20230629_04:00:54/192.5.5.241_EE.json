@@ -1,0 +1,64 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 59.4124,
+        "longitude": 24.692
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "TLL",
+        "size": "large_airport",
+        "name": "Tallinn Airport",
+        "lat long": "59.4132995605 24.8327999115",
+        "country_code": "EE",
+        "city": "Tallinn"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.81.0.1)  56.994 ms  57.002 ms  57.008 ms",
+        " 2  165.231.178.9 (165.231.178.9)  58.184 ms  58.192 ms  58.199 ms",
+        " 3  196.196.32.5 (196.196.32.5)  57.259 ms  57.302 ms  57.310 ms",
+        " 4  cloudflare.rtix.ee (213.184.52.32)  58.532 ms  58.557 ms  58.565 ms",
+        " 5  f.root-servers.net (192.5.5.241)  57.229 ms  57.273 ms  57.279 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "213.184.52.32",
+        "geolocation": {
+            "latitude": "59.3495",
+            "longitude": "24.7802"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.81.0.1"
+        ],
+        [
+            "165.231.178.9"
+        ],
+        [
+            "196.196.32.5"
+        ],
+        [
+            "213.184.52.32"
+        ],
+        [
+            "192.5.5.241"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "165.231.178.18",
+        "server_name": "EE#1",
+        "country": "Estonia",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

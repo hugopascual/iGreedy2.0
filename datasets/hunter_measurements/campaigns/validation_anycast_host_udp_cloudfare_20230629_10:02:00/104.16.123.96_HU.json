@@ -1,0 +1,68 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 47.4984,
+        "longitude": 19.0404
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "BUD",
+        "size": "large_airport",
+        "name": "Budapest Listz Ferenc international Airport",
+        "lat long": "47.4369010925 19.2555999756",
+        "country_code": "HU",
+        "city": "Budapest"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.80.0.1)  50.977 ms  50.990 ms  51.221 ms",
+        " 2  vlan73.as05.bud1.hu.m247.com (146.70.120.129)  100.977 ms  101.040 ms  101.043 ms",
+        " 3  irb-0.agg1v.bud1.hu.m247.com (146.70.1.178)  73.312 ms  73.327 ms  73.327 ms",
+        " 4  37.120.220.216 (37.120.220.216)  60.367 ms  60.396 ms  60.396 ms",
+        " 5  cloudflare.bix.hu (193.188.137.27)  60.855 ms  61.171 ms  61.211 ms",
+        " 6  104.16.123.96 (104.16.123.96)  60.258 ms  51.415 ms  51.412 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "193.188.137.27",
+        "geolocation": {
+            "latitude": "47.4984",
+            "longitude": "19.0404"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.80.0.1"
+        ],
+        [
+            "146.70.120.129"
+        ],
+        [
+            "146.70.1.178"
+        ],
+        [
+            "37.120.220.216"
+        ],
+        [
+            "193.188.137.27"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.120.147",
+        "server_name": "HU#25",
+        "country": "Hungary",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

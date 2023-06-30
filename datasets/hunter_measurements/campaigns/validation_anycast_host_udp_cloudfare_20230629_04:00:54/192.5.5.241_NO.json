@@ -1,0 +1,71 @@
+{
+    "target": "192.5.5.241",
+    "origin": {
+        "latitude": 59.9127,
+        "longitude": 10.7461
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "ARN",
+        "size": "large_airport",
+        "name": "Stockholm-Arlanda Airport",
+        "lat long": "59.6519012451 17.9186000824",
+        "country_code": "SE",
+        "city": "Stockholm"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.85.0.1)  48.002 ms  48.469 ms  48.500 ms",
+        " 2  * * *",
+        " 3  irb-0.agg1.thg1.nl.m247.com (77.243.185.36)  51.502 ms  48.673 ms  51.549 ms",
+        " 4  xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  56.465 ms xe-0-1-1-0.bb1.stk1.se.m247.com (176.10.83.1)  55.127 ms xe-1-0-2-0.bb1.cph1.dk.m247.com (217.138.223.172)  56.486 ms",
+        " 5  193.239.117.14 (193.239.117.14)  67.665 ms netnod-ix-ge-a-sth-1500.cloudflare.com (194.68.123.246)  70.120 ms 193.239.117.14 (193.239.117.14)  70.036 ms",
+        " 6  f.root-servers.net (192.5.5.241)  57.711 ms * *"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "193.239.117.14",
+        "geolocation": {
+            "latitude": "50.1433",
+            "longitude": "8.5711"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.85.0.1"
+        ],
+        [
+            "*"
+        ],
+        [
+            "77.243.185.36"
+        ],
+        [
+            "217.138.223.172",
+            "176.10.83.1"
+        ],
+        [
+            "193.239.117.14",
+            "194.68.123.246"
+        ],
+        [
+            "192.5.5.241",
+            "*"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "146.70.170.3",
+        "server_name": "NO#33",
+        "country": "Norway",
+        "protocol": "OpenVPN (TCP)"
+    }
+}

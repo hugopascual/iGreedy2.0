@@ -1,0 +1,76 @@
+{
+    "target": "104.16.123.96",
+    "origin": {
+        "latitude": 40.4066,
+        "longitude": -3.6724
+    },
+    "traceroute_from_host": true,
+    "gt_info": {
+        "#IATA": "MAD",
+        "size": "large_airport",
+        "name": "Madrid Barajas International Airport",
+        "lat long": "40.4936 -3.56676",
+        "country_code": "ES",
+        "city": "Madrid"
+    },
+    "discs_intersect": false,
+    "hunt_results": {
+        "cities": [],
+        "countries": [],
+        "airports_located": [],
+        "intersection": null,
+        "centroid": null
+    },
+    "traceroute": [
+        " 1  _gateway (10.84.0.1)  1.304 ms  1.981 ms  1.978 ms",
+        " 2  unn-185-76-11-29.datapacket.com (185.76.11.29)  2.157 ms  2.156 ms  2.150 ms",
+        " 3  vl201.mad-itx-core-1.cdn77.com (185.229.188.80)  2.213 ms  2.212 ms  2.205 ms",
+        " 4  5.255.147.201 (5.255.147.201)  2.276 ms  2.274 ms 81.173.106.178 (81.173.106.178)  2.372 ms",
+        " 5  176.52.248.251 (176.52.248.251)  2.603 ms 81.173.106.39 (81.173.106.39)  2.706 ms 176.52.248.251 (176.52.248.251)  2.350 ms",
+        " 6  81.173.106.39 (81.173.106.39)  2.966 ms 172.70.60.2 (172.70.60.2)  2.256 ms 172.68.132.2 (172.68.132.2)  2.095 ms",
+        " 7  104.16.123.96 (104.16.123.96)  2.070 ms  2.053 ms  2.039 ms"
+    ],
+    "last_hop_validation": false,
+    "last_hop": {
+        "ip": "81.173.106.39",
+        "geolocation": {
+            "latitude": "40.4165",
+            "longitude": "-3.7026"
+        }
+    },
+    "hops_directions_list": [
+        [
+            "10.84.0.1"
+        ],
+        [
+            "185.76.11.29"
+        ],
+        [
+            "185.229.188.80"
+        ],
+        [
+            "5.255.147.201",
+            "81.173.106.178"
+        ],
+        [
+            "176.52.248.251",
+            "81.173.106.39"
+        ],
+        [
+            "81.173.106.39",
+            "172.70.60.2",
+            "172.68.132.2"
+        ],
+        [
+            "104.16.123.96"
+        ]
+    ],
+    "ping_discs": [],
+    "pings": [],
+    "additional_info": {
+        "ip": "185.76.11.18",
+        "server_name": "ES#17",
+        "country": "Spain",
+        "protocol": "OpenVPN (TCP)"
+    }
+}
